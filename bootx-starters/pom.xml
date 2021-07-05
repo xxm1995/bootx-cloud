@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>cn.bootx</groupId>
+    <artifactId>bootx-starters</artifactId>
+    <packaging>pom</packaging>
+    <version>1.1.0-SNAPSHOT</version>
+    <modules>
+        <module>starter-swagger</module>
+        <module>starter-spring</module>
+        <module>starter-redis-client</module>
+        <module>starter-header-holder</module>
+        <module>starter-jackson</module>
+        <module>starter-exception-handler</module>
+        <module>starter-elasticsearch</module>
+        <module>starter-snowflake</module>
+        <module>starter-jpa</module>
+        <module>starter-tenant</module>
+        <module>starter-lock</module>
+        <module>starter-log</module>
+        <module>starter-feign</module>
+        <module>starter-idempotency</module>
+        <module>starter-mybatis-plus</module>
+        <module>starter-xxl-job</module>
+        <module>starter-seata</module>
+        <module>starter-auth</module>
+        <module>starter-cache</module>
+        <module>starter-mq</module>
+    </modules>
+
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    </properties>
+</project>

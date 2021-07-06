@@ -87,7 +87,7 @@ public class CachingConfiguration extends CachingConfigurerSupport {
                 .serializeValuesWith(RedisSerializationContext.SerializationPair.fromSerializer(jackson2JsonRedisSerializer))
                 // 不缓存null
                 .disableCachingNullValues()
-                // //覆盖默认的构造key，否则会多出一个冒号
+                // 覆盖默认的构造key，否则会多出一个冒号
                 .computePrefixWith(name -> name + ":")
                 // 过期时间
                 .entryTtl(duration);

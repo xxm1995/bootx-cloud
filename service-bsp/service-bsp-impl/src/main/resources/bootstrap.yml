@@ -1,0 +1,21 @@
+spring:
+  application:
+    name: service-bsp
+  profiles:
+    active: dev
+  cloud:
+    # nacos 服务发现
+    nacos:
+      server-addr: ${nacos.url:nacos}
+      username: ${nacos.username:admin}
+      password: ${nacos.password:123456}
+      discovery:
+        register-enabled: true
+        namespace: dev
+      config:
+        file-extension: yml
+        namespace: dev
+        shared-configs: bootx-common-config-dev.yml
+seata:
+  application-id: ${spring.application.name}
+  tx-service-group: ${spring.application.name}

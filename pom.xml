@@ -13,6 +13,7 @@
         <module>bootx-parent</module>
         <module>bootx-commons</module>
         <module>bootx-starters</module>
+        <module>service-bsp</module>
     </modules>
 
     <build>

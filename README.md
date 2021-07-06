@@ -1,5 +1,6 @@
 # Bootx-Cloud
 <p>
+ <img src='https://gitee.com/bootx/bootx-cloud/badge/star.svg?theme=dark' alt='star'/>
  <img src="https://img.shields.io/badge/Boot%20Cloud-1.1.0-success.svg" alt="Build Status">
  <img src="https://img.shields.io/badge/Author-Bootx-orange.svg" alt="Build Status">
  <img src="https://img.shields.io/badge/Spring%20Boot-2.5-blue.svg" alt="Downloads">
@@ -59,7 +60,7 @@
 
 - 完善的库存管理，支持预占库存、库存释放、库存扣减、增加库存、库存超卖、库存预警等操作
 
-  
+
 
 
 ## 🥥项目体验
@@ -163,23 +164,23 @@ bootx-cloud
 
 1. 使用maven可以正常构建，但是IDEA出现`程序包cn.bootx.*`不存在，无法进行启动
 
-   - 首先判断pom文件是否已经添加依赖，可以执行`mvn -clear compile`进行测试，如果执行正常说明maven配置没问题
-   - 如maven配置无问题，可能是IDEA的问题，可以试试以下的方法
-   - 进行移包重构导致的类不识别，可以删除这个类，然后撤销
-   - 如果是自动生成的类不识别，查看下`target\generated-sources`文件夹下的目录是否未被标记为代码目录
-   - 删除.idea文件夹重新打开项目、清除IDEA缓存，
+    - 首先判断pom文件是否已经添加依赖，可以执行`mvn -clear compile`进行测试，如果执行正常说明maven配置没问题
+    - 如maven配置无问题，可能是IDEA的问题，可以试试以下的方法
+    - 进行移包重构导致的类不识别，可以删除这个类，然后撤销
+    - 如果是自动生成的类不识别，查看下`target\generated-sources`文件夹下的目录是否未被标记为代码目录
+    - 删除.idea文件夹重新打开项目、清除IDEA缓存，
 
 2. 出现QEntity对象(如QOrder)找不到
 
    执行命令mvn compile`就可以通过APT生成对应的QEntity对象
-   
+
 3. 启动时Nacos Client报`failed to req API:/nacos/v1/ns/service/list after all servers...`  错误
 
    替换Spring Cloud Alibaba 默认的 Nacos Client 为2.x版本
 
-4. 
+4.
 
-   
+
 
 ##  🥪 关于我们
 
@@ -192,6 +193,9 @@ bootx-cloud
 
 
 QQ扫码加入QQ交流群
+<p>
+<img src="https://images.gitee.com/uploads/images/2021/0706/221552_934eb540_524686.png" width = "330" height = "500"/>
+</p>
 
 ##  🍷License
 

@@ -1,0 +1,8 @@
+# 自动注册 feign 的 client 实现
+org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
+  cn.bootx.usercenter.client.feign.DepartClientFeignImpl,\
+  cn.bootx.usercenter.client.feign.PermissionClientFeignImpl,\
+  cn.bootx.usercenter.client.feign.RoleClientFeignImpl,\
+  cn.bootx.usercenter.client.feign.RolePermissionClientFeignImpl,\
+  cn.bootx.usercenter.client.feign.UserInfoClientFeignImpl,\
+  cn.bootx.usercenter.client.feign.UserRoleClientFeignImpl

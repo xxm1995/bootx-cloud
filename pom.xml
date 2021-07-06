@@ -15,6 +15,7 @@
         <module>bootx-starters</module>
         <module>service-bsp</module>
         <module>service-baseapi</module>
+        <module>service-user-center</module>
     </modules>
 
     <build>

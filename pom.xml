@@ -14,6 +14,7 @@
         <module>bootx-commons</module>
         <module>bootx-starters</module>
         <module>service-bsp</module>
+        <module>service-baseapi</module>
     </modules>
 
     <build>

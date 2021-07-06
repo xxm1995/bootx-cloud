@@ -1,0 +1,4 @@
+#
+org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
+  cn.bootx.baseapi.client.feign.CaptchaClientFeignImpl,\
+  cn.bootx.baseapi.client.feign.MessageCaptchaClientFeignImpl

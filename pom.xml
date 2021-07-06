@@ -13,6 +13,10 @@
         <module>bootx-parent</module>
         <module>bootx-commons</module>
         <module>bootx-starters</module>
+        <module>bootx-gateway</module>
+        <module>service-bsp</module>
+        <module>service-baseapi</module>
+        <module>service-user-center</module>
     </modules>
 
     <build>

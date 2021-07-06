@@ -15,7 +15,7 @@ public class SingleIdParam implements Serializable {
 
     private static final long serialVersionUID = -9014016316890783082L;
     @ApiModelProperty(name = "id", value = "id", required = true)
-    @NotNull(message = "id cannot be null")
+    @NotNull(message = "id 不能为空")
     private Long id;
 
     public Long getId() {

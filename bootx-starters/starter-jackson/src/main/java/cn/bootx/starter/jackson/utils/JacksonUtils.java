@@ -1,4 +1,4 @@
-package cn.bootx.common.util;
+package cn.bootx.starter.jackson.utils;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -9,14 +9,18 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 * @date 2020/11/29 
 */
 public class JacksonUtils {
-    private static final ObjectMapper JACK = new ObjectMapper();
+    private static ObjectMapper objectMapper;
+
+    static void setObjectMapper(ObjectMapper objectMapper){
+        JacksonUtils.objectMapper = objectMapper;
+    }
 
     /**
      * 对象序列化为json字符串,转换异常将被抛出
      */
     public static String toJson(Object o){
         try {
-            return JACK.writeValueAsString(o);
+            return objectMapper.writeValueAsString(o);
         } catch (JsonProcessingException e) {
             throw new RuntimeException("json序列化失败");
         }
@@ -27,7 +31,7 @@ public class JacksonUtils {
      */
     public static <T> T toBean(String content, Class<T> valueType){
         try {
-            return JACK.readValue(content,valueType);
+            return objectMapper.readValue(content,valueType);
         } catch (JsonProcessingException e) {
             throw new RuntimeException("json反序列化失败");
         }

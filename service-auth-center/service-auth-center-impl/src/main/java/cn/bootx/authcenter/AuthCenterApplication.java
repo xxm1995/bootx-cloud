@@ -1,25 +1,26 @@
-package cn.bootx.bsp;
+package cn.bootx.authcenter;
 
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.context.properties.ConfigurationPropertiesScan;
 import org.springframework.context.ConfigurableApplicationContext;
 import org.springframework.core.env.Environment;
 
 import java.net.InetAddress;
 import java.net.UnknownHostException;
 
-/**
- * 启动类
- * @author xxm
- * @date 2020/4/8 10:26
- */
+/**   
+* 认证中心
+* @author xxm  
+* @date 2020/5/8 14:39 
+*/
 @Slf4j
 @SpringBootApplication
-public class BspApplication {
+@ConfigurationPropertiesScan
+public class AuthCenterApplication {
 	public static void main(String[] args) throws UnknownHostException {
-        ConfigurableApplicationContext application = SpringApplication.run(BspApplication.class, args);
-
+        ConfigurableApplicationContext application = SpringApplication.run(AuthCenterApplication.class, args);
         Environment env = application.getEnvironment();
         log.info("\n----------------------------------------------------------\n\t" +
                         "应用 '{}' 运行成功! 访问连接:\n\t" +

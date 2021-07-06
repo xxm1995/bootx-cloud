@@ -11,7 +11,6 @@ import cn.hutool.core.bean.BeanUtil;
 import cn.hutool.core.bean.copier.CopyOptions;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -49,7 +48,6 @@ public class DepartService {
     /**
      * 树状展示
      */
-    @Cacheable(value = "depart:tree")
     public List<DepartTreeResult> tree() {
         List<Depart> list = departManager.findAll();
         return departUtilService.buildTreeList(list);

@@ -5,6 +5,7 @@ import cn.bootx.bsp.dto.dictionary.DictionaryItemDto;
 import cn.bootx.common.web.rest.PageResult;
 import cn.bootx.common.web.rest.param.PageParam;
 import lombok.RequiredArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean;
 import org.springframework.stereotype.Component;
 
@@ -19,7 +20,8 @@ import java.util.List;
 @ConditionalOnMissingBean(DictionaryItemClient.class)
 @RequiredArgsConstructor
 public class DictionaryItemClientFeignImpl implements DictionaryItemClient {
-    private final DictionaryItemFeign dictionaryItemFeign;
+    @Autowired(required = false)
+    private DictionaryItemFeign dictionaryItemFeign;
 
     @Override
     public DictionaryItemDto add(DictionaryItemDto dictionaryItemDto) {

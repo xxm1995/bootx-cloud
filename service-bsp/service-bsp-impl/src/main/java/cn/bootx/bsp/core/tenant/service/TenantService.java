@@ -167,8 +167,7 @@ public class TenantService {
      * 获取租户
      */
     public TenantDto findTenant(){
-        Optional<Tenant> tenant = tenantRepository.findById(headerHolder.findTid());
-        return tenant.map(Tenant::toDto).orElse(null);
+        return this.findById(headerHolder.findTid());
     }
 
     /**

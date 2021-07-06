@@ -59,10 +59,6 @@ public interface TenantFeign {
     @GetMapping("/findById")
     ResResult<TenantDto> findById(@RequestParam Long id);
 
-    @GetMapping("/findTenant")
-    ResResult<TenantDto> findById();
-
-
     @GetMapping("/findByName")
     ResResult<TenantDto> findByName(@RequestParam String name);
 

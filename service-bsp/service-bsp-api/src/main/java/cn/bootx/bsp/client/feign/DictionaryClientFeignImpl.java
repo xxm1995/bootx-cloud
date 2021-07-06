@@ -3,6 +3,7 @@ package cn.bootx.bsp.client.feign;
 import cn.bootx.bsp.client.DictionaryClient;
 import cn.bootx.bsp.dto.dictionary.DictionaryDto;
 import lombok.RequiredArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean;
 import org.springframework.stereotype.Component;
 
@@ -17,7 +18,8 @@ import java.util.List;
 @ConditionalOnMissingBean(DictionaryClient.class)
 @RequiredArgsConstructor
 public class DictionaryClientFeignImpl implements DictionaryClient {
-    private final DictionaryFeign dictionaryFeign;
+    @Autowired(required = false)
+    private DictionaryFeign dictionaryFeign;
 
     @Override
     public DictionaryDto add(DictionaryDto dictionaryDto) {

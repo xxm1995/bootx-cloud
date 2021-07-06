@@ -1,0 +1,26 @@
+spring:
+  application:
+    name: bootx-gateway
+  profiles:
+    active: dev
+  cloud:
+    # nacos 服务发现
+    nacos:
+      server-addr: ${nacos.url:nacos}
+      username: ${nacos.username:admin}
+      password: ${nacos.password:123456}
+      discovery:
+        namespace: ${spring.profiles.active}
+      config:
+        file-extension: yml
+        # 需要命名空间的id
+        namespace: ${spring.profiles.active}
+        shared-configs: bootx-common-config-dev.yml
+bootx:
+  gateway:
+    helper:
+      filter:
+        api-replay:
+          enabled: true
+        common-request:
+          enabled: true

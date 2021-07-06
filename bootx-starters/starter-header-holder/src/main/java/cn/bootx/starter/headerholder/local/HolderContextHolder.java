@@ -1,6 +1,6 @@
 package cn.bootx.starter.headerholder.local;
 
-import cn.hutool.core.collection.CollUtil;
+import cn.hutool.core.map.MapUtil;
 import com.alibaba.ttl.TransmittableThreadLocal;
 
 import java.util.HashMap;
@@ -20,7 +20,7 @@ public final class HolderContextHolder {
      */
     public static void put(String key,String value) {
         Map<String, String> map = THREAD_LOCAL_TENANT.get();
-        if (CollUtil.isEmpty(map)){
+        if (MapUtil.isEmpty(map)){
             map = new HashMap<>(10);
             THREAD_LOCAL_TENANT.set(map);
         }

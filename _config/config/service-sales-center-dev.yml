@@ -1,0 +1,54 @@
+server:
+  port: 9203
+logging:
+  level:
+    cn.bootx.salescenter: debug
+spring:
+  cloud:
+    # 限流
+    sentinel:
+      transport:
+        port: 19203
+    stream:
+      bindings:
+        # 订单中心
+        orderCenterInput:
+          destination: service-order-center
+          group: ${spring.application.name}
+        binders:
+          local_rabbit:
+            type: rabbit
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://127.0.0.1:3306/service-sales-center?serverTimezone=GMT%2B8&characterEncoding=utf8&useSSL=false
+    username: bootx
+    password: password
+  #redis
+  redis:
+    database: 2
+    host: 127.0.0.1
+    port: 26379
+    password: password
+  jpa:
+    show-sql: true
+    generate-ddl: true
+    hibernate:
+      ddl-auto: update
+seata:
+  service:
+    vgroup-mapping:
+      service-sales-center: default
+  tx-service-group: service-sales-center
+bootx:
+  starter:
+    tenant:
+      single: true
+      tenant-id: 10011
+    swagger:
+      enabled: true
+      base-package: cn.bootx.salescenter
+      version: 1.0
+      title: 销售中心
+    snowflake:
+      worker-id: 5
+      datacenter-id: 1

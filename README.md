@@ -73,7 +73,7 @@
 
 >系统架构图
 
-
+![系统架构图](https://images.gitee.com/uploads/images/2021/0707/230002_0ab2d9b1_524686.png "系统架构图.png")
 
 > 技术选型
 
@@ -144,9 +144,6 @@ bootx-cloud
 └── platform-upms -- 用户权限平台[开发中]
 ```
 
-##  🍿 功能模块
-
-
 ## 🍉QuickStart
 
 1. 下载项目
@@ -154,11 +151,9 @@ bootx-cloud
 3. 使用IDEA打开项目（推荐每个项目模块都单独使用IDEA打开，便于开发）
 4. 项目执行`mvn -clear compile`生成JPA所需到QEntity类
 
-## 🍒开发部署
-
-
-## 🍳FAQ
-请访问 [FAQ.md](./FAQ.md)
+## [🍒项目部署](_doc/项目部署.md)
+## [🍿 开发计划](_doc/TODO.md)
+## [🍳FAQ](_doc/FAQ.md)
 
 ##  🥪 关于我们
 

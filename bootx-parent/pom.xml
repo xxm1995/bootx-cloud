@@ -24,6 +24,10 @@
     </modules>
 
     <properties>
+        <!-- 项目配置 -->
+        <nacos.discovery.namespace>bootx</nacos.discovery.namespace>
+        <nacos.config.namespace>bootx</nacos.config.namespace>
+        <!-- pom依赖版本 -->
         <spring-cloud-alibaba.version>2021.1</spring-cloud-alibaba.version>
         <spring-cloud.version>2020.0.3</spring-cloud.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -75,4 +79,12 @@
             </snapshots>
         </repository>
     </repositories>
+    <build>
+        <resources>
+            <resource>
+                <directory>src/main/resources</directory>
+                <filtering>true</filtering>
+            </resource>
+        </resources>
+    </build>
 </project>

@@ -1,0 +1,62 @@
+spring:
+  cloud:
+    # 限流
+    sentinel:
+      transport:
+        dashboard: 127.0.0.1:8080
+  # 链路追踪控制台
+  zipkin:
+    base-url: 127.0.0.1:9411
+  rabbitmq:
+    host: 127.0.0.1
+    port: 5672
+    username: admin
+    password: 123123
+    listener:
+      simple:
+        # 重试机制
+        retry:
+          enabled: true
+          max-attempts: 5
+# 分布式事务
+seata:
+  service:
+    grouplist:
+      default : 127.0.0.1:8091
+    disable-global-transaction: false
+  client:
+    undo:
+      log-serialization: kryo
+# openFeign
+feign:
+  client:
+    config:
+      default:
+        # 连接超时
+        connectTimeout: 2000
+        # 读取超时
+        readTimeout: 6000
+# mybatis
+mybatis-plus:
+  mapper-locations: classpath*:mapper/*/*Mapper.xml
+  global-config:
+    db-config:
+      logic-delete-field: deleted
+      logic-delete-value: 1 # 逻辑已删除值(默认为 1)
+      logic-not-delete-value: 0 # 逻辑未删除值(默认为 0)
+      id-type: ASSIGN_ID
+# 监控端点
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+  endpoint:
+    health:
+      show-details: ALWAYS
+bootx:
+  starter:
+    xxl:
+      job:
+        appname: ${spring.application.name}
+        admin-addresses: 127.0.0.1:28080/xxl-job-admin

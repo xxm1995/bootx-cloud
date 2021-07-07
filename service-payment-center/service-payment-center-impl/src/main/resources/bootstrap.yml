@@ -1,0 +1,17 @@
+spring:
+  application:
+    name: service-payment-center
+  profiles:
+    active: dev
+  cloud:
+    # nacos 服务发现
+    nacos:
+      server-addr: ${nacos.url:nacos}
+      username: ${nacos.username:admin}
+      password: ${nacos.password:123456}
+      discovery:
+        namespace: ${spring.profiles.active}
+      config:
+        file-extension: yml
+        namespace: ${spring.profiles.active}
+        shared-configs: bootx-common-config-dev.yml

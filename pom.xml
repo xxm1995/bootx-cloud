@@ -17,6 +17,8 @@
         <module>service-bsp</module>
         <module>service-baseapi</module>
         <module>service-user-center</module>
+        <module>service-auth-center</module>
+        <module>service-notice-center</module>
     </modules>
 
     <build>

@@ -1,0 +1,55 @@
+server:
+  port: 9003
+spring:
+  cloud:
+    sentinel:
+      transport:
+        port: 19003
+    stream:
+      bindings:
+        userCenterOutput:
+          destination: service-user-center
+        userCenterInput:
+          destination: service-user-center
+          group: ${spring.application.name}
+        binders:
+          local_rabbit:
+            type: rabbit
+  # 数据库
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://127.0.0.1:3306/service-user-center?serverTimezone=GMT%2B8&characterEncoding=utf8&useSSL=false
+    username: bootx
+    password: password
+  #redis
+  redis:
+    database: 1
+    host: 127.0.0.1
+    port: 26379
+    password: password
+  jpa:
+    show-sql: true
+    generate-ddl: true
+    hibernate:
+      ddl-auto: update
+seata:
+  service:
+    vgroup-mapping:
+      service-user-center: default
+  tx-service-group: service-user-center
+bootx:
+  starter:
+    snowflake:
+      worker-id: 2
+      datacenter-id: 1
+    cache:
+      keys-ttl:
+        "[depart:tree]" : 5000
+    tenant:
+      single: true
+      tenant-id: 10011
+    swagger:
+      enabled: true
+      base-package: cn.bootx.usercenter
+      version: 1.0
+      title: 用户中心

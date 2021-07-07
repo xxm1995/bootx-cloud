@@ -1,0 +1,103 @@
+server:
+  port: 9000
+bootx:
+  gateway:
+    helper:
+      permission:
+        skip-paths:
+          - '/auth/**'
+          - "/error"
+          - "/actuator/**"
+          - "/static/**"
+          - "/anno/**"
+          - "/**/anno/**"
+          - "/**/doc.html"
+          - "/**/webjars/**"
+          - "/**/v2/api-docs/**"
+          - "/**/v2/api-docs-ext/**"
+          - "/**/swagger-resources/**"
+spring:
+  redis:
+    database: 1
+    host: 127.0.0.1
+    port: 26379
+    password: password
+  cloud:
+    sentinel:
+      transport:
+        port: 11000
+    gateway:
+      discovery:
+        locator:
+          enabled: true
+      routes:
+        # 基础服务平台
+        - id: service-bsp
+          uri: lb://service-bsp
+          predicates:
+            - Path=/bsp/**
+          filters:
+            - StripPrefix=1
+        # 用户认证
+        - id: service-auth-center
+          uri: lb://service-auth-center
+          predicates:
+            - Path=/auth/**
+          filters:
+            - StripPrefix=1
+        # 用户中心
+        - id: service-user-center
+          uri: lb://service-user-center
+          predicates:
+            - Path=/uc/**
+          filters:
+            - StripPrefix=1
+        # 通知中心
+        - id: service-notice-center
+          uri: lb://service-notice-center
+          predicates:
+            - Path=/nc/**
+          filters:
+            - StripPrefix=1
+        # 基础api服务
+        - id: service-baseapi
+          uri: lb://service-baseapi
+          predicates:
+            - Path=/baseapi/**
+          filters:
+            - StripPrefix=1
+        # 商品中心
+        - id: service-goods-center
+          uri: lb://service-goods-center
+          predicates:
+            - Path=/goods/**
+          filters:
+            - StripPrefix=1
+        # 支付中心
+        - id: service-payment-center
+          uri: lb://service-payment-center
+          predicates:
+            - Path=/payment/**
+          filters:
+            - StripPrefix=1
+        # 销售中心
+        - id: service-sales-center
+          uri: lb://service-sales-center
+          predicates:
+            - Path=/sales/**
+          filters:
+            - StripPrefix=1
+        # 订单中心
+        - id: service-order-center
+          uri: lb://service-order-center
+          predicates:
+            - Path=/order/**
+          filters:
+            - StripPrefix=1
+        # 商城引擎
+        - id: service-shop-engine
+          uri: lb://service-shop-engine
+          predicates:
+            - Path=/shop/**
+          filters:
+            - StripPrefix=1

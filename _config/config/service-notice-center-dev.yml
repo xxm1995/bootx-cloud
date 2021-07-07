@@ -1,0 +1,46 @@
+server:
+  port: 9202
+logging:
+  level:
+    cn.bootx.noticecenter: debug
+spring:
+  cloud:
+    sentinel:
+      transport:
+        port: 19202
+  application:
+    name: service-notice-center
+  profiles:
+    active: dev
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://127.0.0.1:3306/service-notice-center?serverTimezone=GMT%2B8&characterEncoding=utf8&useSSL=false
+    username: bootx
+    password: password
+  #redis
+  redis:
+    database: 1
+    host: 127.0.0.1
+    port: 26379
+    password: password
+  jpa:
+    show-sql: true
+    generate-ddl: true
+    hibernate:
+      ddl-auto: update
+bootx:
+  starter:
+    snowflake:
+      worker-id: 3
+      datacenter-id: 1
+    tenant:
+      single: true
+      tenant-id: 10011
+    swagger:
+      enabled: true
+      base-package: cn.bootx.noticecenter
+      version: 1.0
+      title: 通知中心服务
+    mybatis-plus:
+      optimistic-locker: true
+      tenant-handler: true

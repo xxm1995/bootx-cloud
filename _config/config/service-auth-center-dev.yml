@@ -1,0 +1,54 @@
+server:
+  port: 9004
+spring:
+  cloud:
+    sentinel:
+      transport:
+        port: 19004
+    stream:
+      bindings:
+        authCenterOutput:
+          destination: service-auth-center
+        authCenterInput:
+          destination: service-auth-center
+          group: ${spring.application.name}
+        binders:
+          local_rabbit:
+            type: rabbit
+  application:
+    name: service-auth-center
+  # 数据库
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://127.0.0.1:3306/service-auth-center?serverTimezone=GMT%2B8&characterEncoding=utf8&useSSL=false
+    username: bootx
+    password: password
+  #redis
+  redis:
+    database: 1
+    host: 127.0.0.1
+    port: 26379
+    password: password
+  jpa:
+    show-sql: true
+seata:
+  service:
+    vgroup-mapping:
+      service-auth-center: default
+  tx-service-group: service-auth-center
+bootx:
+  starter:
+    snowflake:
+      worker-id: 3
+      datacenter-id: 1
+    tenant:
+      single: true
+      tenant-id: 10011
+    swagger:
+      enabled: true
+      base-package: cn.bootx.authcenter
+      version: 1.0
+      title: 认证中心
+  property:
+    password-salt: Bootx$AC
+    session-timeout: 43200000

@@ -1,0 +1,51 @@
+server:
+  port: 9001
+spring:
+  cloud:
+    # 限流
+    sentinel:
+      transport:
+        port: 19001
+    # 消息队列
+    stream:
+      bindings:
+        bspOutput:
+          destination: service-bsp
+        bspInput:
+          destination: service-bsp
+          group: ${spring.application.name}
+        binders:
+          local_rabbit:
+            type: rabbit
+  # 数据库
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://127.0.0.1:3306/service-bsp?serverTimezone=GMT%2B8&characterEncoding=utf8&useSSL=false
+    username: bootx
+    password: password
+  #redis
+  redis:
+    database: 1
+    host: 127.0.0.1
+    port: 26379
+    password: password
+  jpa:
+    show-sql: true
+# 分布式事务
+seata:
+  service:
+    vgroup-mapping:
+      service-bsp: default
+  tx-service-group: service-bsp
+bootx:
+  starter:
+    snowflake:
+      worker-id: 1
+      datacenter-id: 1
+    tenant:
+      single: false
+    swagger:
+      enabled: true
+      base-package: cn.bootx.bsp
+      version: 1.0
+      title: 基础服务平台

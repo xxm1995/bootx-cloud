@@ -1,0 +1,33 @@
+server:
+  port: 9201
+spring:
+  cloud:
+    sentinel:
+      transport:
+        port: 19201
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://127.0.0.1:3306/service-baseapi?serverTimezone=GMT%2B8&characterEncoding=utf8&useSSL=false
+    username: bootx
+    password: password
+    #redis
+  redis:
+    database: 1
+    host: 127.0.0.1
+    port: 26379
+    password: password
+bootx:
+  starter:
+    snowflake:
+      worker-id: 21
+      datacenter-id: 1
+    swagger:
+      enabled: true
+      base-package: cn.bootx.baseapi
+      version: 1.0
+      title: 基础支撑Api
+    tenant:
+      single: false
+    mybatis-plus:
+      optimistic-locker: true
+      tenant-handler: true

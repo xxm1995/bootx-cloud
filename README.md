@@ -61,13 +61,18 @@
 - 完善的库存管理，支持预占库存、库存释放、库存扣减、增加库存、库存超卖、库存预警等操作
 
 
-
-
 ## 🥥项目体验
 
-- 聚合支付体验：
-- 系统管理平台：
-- 项目文档：
+- 系统管理平台：[待补充]()
+- 聚合支付体验：[收银台](http://cashier.web.dev.bootx.cn/doc.html)
+- Swagger聚合接口：[API文档](http://gateway.dev.bootx.cn:9000/doc.html)
+- 日志分析：[Kibana管理平台](http://elk.dev.bootx.cn:5601/app/discover#)
+
+## 🍒文档
+
+- 项目文档：[开发文档](https://www.yuque.com/bootx/bootx-cloud/)
+- 项目启动：[启动文档](https://www.yuque.com/bootx/bootx-cloud/vpi0gn)
+- 开发计划：[开发计划](https://www.yuque.com/bootx/bootx-cloud/xzmc6c)
 
 ## 🥞 系统架构
 

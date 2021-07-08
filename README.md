@@ -61,13 +61,18 @@
 - 完善的库存管理，支持预占库存、库存释放、库存扣减、增加库存、库存超卖、库存预警等操作
 
 
-
-
 ## 🥥项目体验
 
-- 聚合支付体验：
-- 系统管理平台：
-- 项目文档：
+- 系统管理平台：[待补充]()
+- 聚合支付体验：[收银台](http://cashier.web.dev.bootx.cn/doc.html)
+- Swagger聚合接口：[API文档](http://gateway.dev.bootx.cn:9000/doc.html)
+- 日志分析：[Kibana管理平台](http://elk.dev.bootx.cn:5601/app/discover#)
+
+## 🍒文档
+
+- 项目文档：[开发文档](https://www.yuque.com/bootx/bootx-cloud/)
+- 项目启动：[启动文档](https://www.yuque.com/bootx/bootx-cloud/vpi0gn)
+- 开发计划：[开发计划](https://www.yuque.com/bootx/bootx-cloud/xzmc6c)
 
 ## 🥞 系统架构
 
@@ -144,17 +149,6 @@ bootx-cloud
 └── platform-upms -- 用户权限平台[开发中]
 ```
 
-## 🍉QuickStart
-
-1. 下载项目
-2. 到项目根目录中，执行`maven-install.sh`脚本，将Meven依赖安装到本地仓库中,如果在一个idea中直接打开项目,则不需要执行
-3. 使用IDEA打开项目（推荐每个项目模块都单独使用IDEA打开，便于开发）
-4. 项目执行`mvn -clear compile`生成JPA所需到QEntity类
-
-## [🍒项目部署](_doc/项目部署.md)
-## [🍿 开发计划](_doc/TODO.md)
-## [🍳FAQ](_doc/FAQ.md)
-
 ##  🥪 关于我们
 
 微信扫码加入交流群，或添加微信号：`xxxx` 邀请进群
@@ -172,3 +166,8 @@ QQ扫码加入QQ交流群
 
 Apache License Version 2.0
 
+## 🥂其他
+
+- star趋势 
+
+[![Stargazers over time](https://whnb.wang/stars/bootx/bootx-cloud)](https://whnb.wang)

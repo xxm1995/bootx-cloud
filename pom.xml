@@ -5,7 +5,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>cn.bootx</groupId>
-    <artifactId>edu-planform-bootx</artifactId>
+    <artifactId>bootx-cloud</artifactId>
     <packaging>pom</packaging>
     <version>1.0.0</version>
 

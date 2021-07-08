@@ -23,6 +23,7 @@
         <module>service-payment-center</module>
         <module>service-sales-center</module>
         <module>service-order-center</module>
+        <module>service-shop-engine</module>
     </modules>
 
     <build>

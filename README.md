@@ -149,17 +149,6 @@ bootx-cloud
 └── platform-upms -- 用户权限平台[开发中]
 ```
 
-## 🍉QuickStart
-
-1. 下载项目
-2. 到项目根目录中，执行`maven-install.sh`脚本，将Meven依赖安装到本地仓库中,如果在一个idea中直接打开项目,则不需要执行
-3. 使用IDEA打开项目（推荐每个项目模块都单独使用IDEA打开，便于开发）
-4. 项目执行`mvn -clear compile`生成JPA所需到QEntity类
-
-## [🍒项目部署](_doc/项目部署.md)
-## [🍿 开发计划](_doc/TODO.md)
-## [🍳FAQ](_doc/FAQ.md)
-
 ##  🥪 关于我们
 
 微信扫码加入交流群，或添加微信号：`xxxx` 邀请进群

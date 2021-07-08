@@ -22,16 +22,18 @@
         <encoder class="net.logstash.logback.encoder.LoggingEventCompositeJsonEncoder">
             <providers>
                 <pattern>
-                    {
-                    "log_time": "%date{yyyy-MM-dd'T'HH:mm:ss.SSS'Z'}",
-                    "severity": "%level",
-                    "service": "${appname}",
-                    "trace": "%X{traceId:-}",
-                    "span": "%X{spanId:-}",
-                    "class": "%logger{40}",
-                    "rest": "%message",
-                    "stack_trace": "%exception{10}"
-                    }
+                    <pattern>
+                        {
+                        "log_time": "%date{yyyy-MM-dd'T'HH:mm:ss.SSS'Z'}",
+                        "severity": "%level",
+                        "service": "${appname}",
+                        "trace": "%X{traceId:-}",
+                        "span": "%X{spanId:-}",
+                        "class": "%logger{40}",
+                        "rest": "%message",
+                        "stack_trace": "%exception{10}"
+                        }
+                    </pattern>
                 </pattern>
             </providers>
         </encoder>

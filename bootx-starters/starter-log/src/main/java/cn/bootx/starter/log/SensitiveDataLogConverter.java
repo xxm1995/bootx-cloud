@@ -2,7 +2,7 @@ package cn.bootx.starter.log;
 
 import ch.qos.logback.classic.pattern.MessageConverter;
 import ch.qos.logback.classic.spi.ILoggingEvent;
-import org.springframework.util.StringUtils;
+import cn.hutool.core.util.StrUtil;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -30,7 +30,7 @@ public class SensitiveDataLogConverter extends MessageConverter {
     }
 
     private static String convert(String msg) {
-        if (StringUtils.isEmpty(msg)){
+        if (StrUtil.isEmpty(msg)){
             return msg;
         }
         for (Map.Entry<String, String> entry : REPLACE_RULES.entrySet()) {

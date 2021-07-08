@@ -166,3 +166,8 @@ QQ扫码加入QQ交流群
 
 Apache License Version 2.0
 
+## 🥂其他
+
+- star趋势 
+
+[![Stargazers over time](https://whnb.wang/stars/bootx/bootx-cloud)](https://whnb.wang)

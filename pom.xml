@@ -19,8 +19,9 @@
         <module>service-user-center</module>
         <module>service-auth-center</module>
         <module>service-notice-center</module>
-        <module>service-payment-center</module>
         <module>service-goods-center</module>
+        <module>service-payment-center</module>
+        <module>service-sales-center</module>
     </modules>
 
     <build>

@@ -22,6 +22,7 @@
         <module>service-goods-center</module>
         <module>service-payment-center</module>
         <module>service-sales-center</module>
+        <module>service-order-center</module>
     </modules>
 
     <build>

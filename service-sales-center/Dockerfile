@@ -9,7 +9,7 @@ RUN ln -sf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
 
 WORKDIR /
 
-EXPOSE 9503 29503
+EXPOSE 9503 19503
 
 ADD service-sales-center-impl/target/service-sales-center-impl.jar service-sales-center-impl.jar
 

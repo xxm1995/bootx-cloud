@@ -1,0 +1,4 @@
+# 自动注册 feign 的 client 实现
+org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
+  cn.bootx.ordercenter.client.feign.OrderFindClientFeignImpl,\
+  cn.bootx.ordercenter.client.feign.OrderOperateClientFeignImpl

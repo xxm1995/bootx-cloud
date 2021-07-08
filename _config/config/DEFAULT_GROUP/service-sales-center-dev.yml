@@ -1,5 +1,5 @@
 server:
-  port: 9203
+  port: 9503
 logging:
   level:
     cn.bootx.salescenter: debug
@@ -8,7 +8,7 @@ spring:
     # 限流
     sentinel:
       transport:
-        port: 19203
+        port: 19503
     stream:
       bindings:
         # 订单中心

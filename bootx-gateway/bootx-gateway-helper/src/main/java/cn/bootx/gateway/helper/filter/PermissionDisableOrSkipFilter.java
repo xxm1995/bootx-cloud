@@ -5,6 +5,7 @@ import cn.bootx.gateway.helper.properties.GatewayHelperProperties;
 import cn.bootx.gateway.helper.context.RequestContext;
 import cn.bootx.gateway.helper.domain.CheckState;
 import lombok.RequiredArgsConstructor;
+import org.springframework.http.HttpMethod;
 import org.springframework.stereotype.Component;
 import org.springframework.util.AntPathMatcher;
 
@@ -27,6 +28,17 @@ public class PermissionDisableOrSkipFilter implements HelperFilter {
 
     @Override
     public boolean run(RequestContext context) {
+        // OPTIONS 直接放行
+        if (context.getRequest().getMethod()== HttpMethod.OPTIONS){
+            context.response.setStatus(CheckState.SUCCESS_SKIP_PATH);
+            return false;
+        }
+
+        // TRACE 直接放行
+        if (context.getRequest().getMethod()== HttpMethod.TRACE){
+            context.response.setStatus(CheckState.SUCCESS_SKIP_PATH);
+            return false;
+        }
         // 禁用权限
         if (!gatewayHelperProperties.getPermission().getEnabled()) {
             context.response.setStatus(CheckState.SUCCESS_PERMISSION_DISABLED);

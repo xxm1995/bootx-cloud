@@ -74,7 +74,7 @@ public class AuthService {
 
         // 密码对比
         String password =  PasswordUtil.md5(loginParam.getPassword());
-        String passwordMd5 = PasswordUtil.md5(password, userAuth.getRegisterTime());
+        String passwordMd5 = PasswordUtil.md5(password, userAuth.getAccount());
         if (!passwordMd5.equals(userAuth.getPassword())) {
             throw new UserPasswordInvalidException();
         }

@@ -74,7 +74,7 @@ public class UserAuthService {
         // 注册时间
         userAuth.setRegisterTime(LocalDateTime.now());
         //密码加密(注册时间做盐值)
-        userAuth.setPassword(this.md5Password(authParam.getPassword(),userAuth.getRegisterTime()));
+        userAuth.setPassword(this.md5Password(authParam.getPassword(),userAuth.getPassword()));
         //默认激活
         userAuth.setActive(true);
 
@@ -99,7 +99,7 @@ public class UserAuthService {
     /**
      * 进行一次md5加密后, 再将注册时间作为盐值进行二次加密
      */
-    private String md5Password(String password,LocalDateTime salt) {
+    private String md5Password(String password,String salt) {
         String md5Password = PasswordUtil.md5(password);
         return PasswordUtil.md5(md5Password,salt);
     }
@@ -112,13 +112,13 @@ public class UserAuthService {
         //获取账户
         UserAuth authInfo = userAuthManager.findByUid(userId).orElseThrow(UserAuthenticationNotExistedException::new);
 
-        String passwordOldMd5 = md5Password(passwordOld,authInfo.getRegisterTime());
+        String passwordOldMd5 = md5Password(passwordOld,authInfo.getAccount());
         if (!Objects.equals(passwordOldMd5,authInfo.getPassword())){
             throw new UserOldPasswordInvalidException();
 
         }
         // 新密码
-        String passwordNewMd5 = md5Password(passwordNew,authInfo.getRegisterTime());
+        String passwordNewMd5 = md5Password(passwordNew,authInfo.getAccount());
         authInfo.setPassword(passwordNewMd5);
         userAuthRepository.save(authInfo);
 

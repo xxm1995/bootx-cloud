@@ -141,7 +141,7 @@ bootx-cloud
 └── service-goods-center -- 商品中心(9501)
 └── service-payment-center -- 支付中心(9502)
 └── service-sales-center -- 销售中心(9503)
-└── service-order-center -- 中心(9504)
+└── service-order-center -- 订单中心(9504)
 └── service-shop-engine -- 商城引擎(9901)
 └── service-data-warehouse -- 数据仓库[开发中]
 └── service-stock-center -- 风控中心[开发中]

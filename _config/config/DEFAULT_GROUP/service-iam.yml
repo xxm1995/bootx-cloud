@@ -1,0 +1,42 @@
+server:
+  port: 9005
+spring:
+  cloud:
+    sentinel:
+      transport:
+        port: 19005
+  # 数据库
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://127.0.0.1:60839/service-iam?serverTimezone=GMT%2B8&characterEncoding=utf8&&rewriteBatchedStatements=true&useSSL=false
+    username: bootx
+    password: Bootx!@#
+  #redis
+  redis:
+    database: 1
+    host: 127.0.0.1
+    port: 26379
+    password: bootx:Bootx!@#
+  jpa:
+    show-sql: true
+seata:
+  service:
+    vgroup-mapping:
+      service-iam: default
+  tx-service-group: service-iam
+bootx:
+  starter:
+    snowflake:
+      worker-id: 5
+      datacenter-id: 1
+    tenant:
+      single: true
+      tenant-id: 10011
+    swagger:
+      enabled: true
+      base-package: cn.bootx.iam
+      version: 1.0
+      title: iam
+  property:
+    password-salt: Bootx$AC
+    session-timeout: 43200000

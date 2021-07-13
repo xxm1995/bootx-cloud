@@ -1,0 +1,20 @@
+spring:
+  application:
+    name: service-iam
+  profiles:
+    active: dev
+  cloud:
+    nacos:
+      server-addr: nacos.bootx.cn:8848
+      username: admin
+      password: 123456
+      discovery:
+        namespace: ${spring.profiles.active}
+      config:
+        namespace: ${spring.profiles.active}
+        file-extension: yml
+        shared-configs: bootx-common-config-dev.yml
+  jpa:
+    generate-ddl: true
+    hibernate:
+      ddl-auto: update

@@ -63,8 +63,8 @@
 
 ## 🥥项目体验
 
-- 系统管理平台：[待补充]()
-- 聚合支付体验：[收银台](http://cashier.web.dev.bootx.cn/doc.html)
+- 系统管理平台：[管理平台](http://web.cloud.bootx.cn/)
+- 聚合支付体验：[收银台](http://web.dev.bootx.cn/cashier)
 - Swagger聚合接口：[API文档](http://gateway.dev.bootx.cn:9000/doc.html)
 - 日志分析：[Kibana管理平台](http://elk.dev.bootx.cn:5601/app/discover#)
 
@@ -85,7 +85,7 @@
 - 编程语言：Java8+、Groovy、JavaScript
 - 核心框架：Spring Boot、Spring Cloud、Spring Cloud Alibaba
 - 持久层框架：Spring Data JPA + QueryDsl + MyBatis Plus
-- 消息中间件：RebbitMQ
+- 消息中间件：RabbitMQ
 - 日志管理：Logstash-logback、Filebeat、ElasticSearch、Kibana
 - 分布式中间件：Nacos、Sentinel、Sleuth、Zipkin、Stata
 
@@ -136,12 +136,13 @@ bootx-cloud
      └── service-bsp-impl -- 功能服务实现
 └── service-baseapi -- 基础api服务(9201)
 └── service-notice-center -- 通知中心(9202)
-└── service-user-center -- 用户中心(9003)
-└── service-auth-center -- 认证中心(9004)
+└── service-user-center -- 用户中心(停用)
+└── service-auth-center -- 认证中心(停用)
+└── service-IAM -- 身份识别与访问管理(9005)
 └── service-goods-center -- 商品中心(9501)
 └── service-payment-center -- 支付中心(9502)
 └── service-sales-center -- 销售中心(9503)
-└── service-order-center -- 中心(9504)
+└── service-order-center -- 订单中心(9504)
 └── service-shop-engine -- 商城引擎(9901)
 └── service-data-warehouse -- 数据仓库[开发中]
 └── service-stock-center -- 风控中心[开发中]

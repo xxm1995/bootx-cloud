@@ -1,0 +1,22 @@
+spring:
+  application:
+    name: service-shop-engine
+  profiles:
+    active: dev
+  cloud:
+    # nacos 服务发现
+    nacos:
+      server-addr: ${nacos.url:nacos}
+      username: ${nacos.username:admin}
+      password: ${nacos.password:123456}
+      discovery:
+        namespace: @nacos.discovery.namespace@
+      config:
+        namespace: @nacos.config.namespace@
+        file-extension: yml
+        shared-configs: bootx-common-config-dev.yml
+seata:
+  service:
+    vgroup-mapping:
+      service-shop-engine: default
+  tx-service-group: service-shop-engine

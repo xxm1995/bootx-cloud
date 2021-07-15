@@ -9,7 +9,7 @@ RUN ln -sf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
 
 WORKDIR /
 
-EXPOSE 9501 29501
+EXPOSE 9501 19501
 
 ADD service-goods-center-impl/target/service-goods-center-impl.jar service-goods-center-impl.jar
 

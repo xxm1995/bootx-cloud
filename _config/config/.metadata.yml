@@ -29,6 +29,11 @@ metadata:
   desc: 通知中心
   group: DEFAULT_GROUP
   type: yaml
+- appName: iam
+  dataId: service-iam.yml
+  desc: 身份识别与访问管理
+  group: DEFAULT_GROUP
+  type: yaml
 - appName: 公共配置
   dataId: bootx-common-config-dev.yml
   desc: 公共配置

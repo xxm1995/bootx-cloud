@@ -16,11 +16,13 @@
         <module>bootx-gateway</module>
         <module>service-bsp</module>
         <module>service-baseapi</module>
-        <module>service-user-center</module>
-        <module>service-auth-center</module>
         <module>service-notice-center</module>
-        <module>service-payment-center</module>
+        <module>service-iam</module>
         <module>service-goods-center</module>
+        <module>service-payment-center</module>
+        <module>service-sales-center</module>
+        <module>service-order-center</module>
+        <module>service-shop-engine</module>
     </modules>
 
     <build>

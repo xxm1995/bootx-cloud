@@ -2,4 +2,5 @@
 org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
   cn.bootx.starter.spring.SpringAutoConfiguration,\
   cn.bootx.starter.spring.aop.CountTimeAop,\
-  cn.bootx.starter.spring.executor.AsyncExecutorConfiguration
+  cn.bootx.starter.spring.executor.AsyncExecutorConfiguration,\
+  cn.bootx.starter.spring.CorsAutoConfiguration

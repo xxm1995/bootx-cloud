@@ -65,21 +65,4 @@ public class SpringAutoConfiguration {
     public ExecutorService asyncExecutorService(ThreadPoolTaskExecutor springRawExecutor){
         return TtlExecutors.getTtlExecutorService(springRawExecutor.getThreadPoolExecutor());
     }
-
-    @Bean
-    @ConditionalOnWebApplication(type = ConditionalOnWebApplication.Type.SERVLET)
-    public FilterRegistrationBean<CorsFilter> corsWebFilter() {
-        CorsConfiguration corsConfiguration = new CorsConfiguration();
-        corsConfiguration.setAllowCredentials(true);
-        corsConfiguration.addAllowedHeader("*");
-        corsConfiguration.addAllowedMethod("*");
-        corsConfiguration.addAllowedOriginPattern("*");
-        corsConfiguration.addExposedHeader(HttpHeaders.SET_COOKIE);
-
-        UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
-        source.registerCorsConfiguration("/**", corsConfiguration);
-        FilterRegistrationBean<CorsFilter> bean = new FilterRegistrationBean<>(new CorsFilter(source));
-        bean.setOrder(Ordered.HIGHEST_PRECEDENCE);
-        return bean;
-    }
 }

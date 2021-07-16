@@ -28,7 +28,6 @@ public class ApiReplayFilter implements HelperFilter {
     private final GatewayHelperProperties gatewayHelperProperties;
     private final RedisClient redisClient;
 
-
     private final AntPathMatcher matcher = new AntPathMatcher();
 
     @Override

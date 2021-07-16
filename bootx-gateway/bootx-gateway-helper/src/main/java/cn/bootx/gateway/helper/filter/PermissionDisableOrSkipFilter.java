@@ -1,9 +1,9 @@
 package cn.bootx.gateway.helper.filter;
 
 import cn.bootx.gateway.helper.api.HelperFilter;
-import cn.bootx.gateway.helper.properties.GatewayHelperProperties;
 import cn.bootx.gateway.helper.context.RequestContext;
 import cn.bootx.gateway.helper.domain.CheckState;
+import cn.bootx.gateway.helper.properties.GatewayHelperProperties;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpMethod;
 import org.springframework.stereotype.Component;

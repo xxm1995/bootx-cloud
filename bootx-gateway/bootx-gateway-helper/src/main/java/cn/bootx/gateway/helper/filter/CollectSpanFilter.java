@@ -6,13 +6,13 @@ import cn.bootx.gateway.helper.domain.CommonRoute;
 import cn.bootx.gateway.helper.domain.Permission;
 import cn.bootx.gateway.helper.domain.TranceSpan;
 import cn.bootx.gateway.helper.properties.GatewayHelperProperties;
-import cn.hutool.core.thread.ThreadUtil;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.redis.core.StringRedisTemplate;
 import org.springframework.stereotype.Component;
 
 import java.time.LocalDate;
 import java.util.Optional;
+import java.util.concurrent.ExecutorService;
 import java.util.concurrent.TimeUnit;
 
 
@@ -27,6 +27,8 @@ public class CollectSpanFilter implements HelperFilter {
 
     private final StringRedisTemplate stringRedisTemplate;
     private final GatewayHelperProperties properties;
+    private final ExecutorService asyncExecutorService;
+
 
     @Override
     public int filterOrder() {
@@ -47,7 +49,8 @@ public class CollectSpanFilter implements HelperFilter {
                 .orElse(context.getTrueUri());
 
         TranceSpan tranceSpan = new TranceSpan(path, serviceId, method, LocalDate.now());
-        ThreadUtil.execAsync(() -> this.tranceSpanSubscriber(tranceSpan));
+        // 异步写入
+        asyncExecutorService.submit(() -> this.tranceSpanSubscriber(tranceSpan));
         return true;
     }
 

@@ -80,7 +80,7 @@ public class PermissionService {
         try {
             permissionDtos = asyncExecutorService.submit(() -> permissionClient.findByMethodAndService(methodFinal, serviceNameFinal)).get();
         } catch (InterruptedException | ExecutionException e) {
-            log.warn("调用用户中心失败",e);
+            log.warn("调用IAM失败",e);
             return new ArrayList<>(0);
         }
         if (CollUtil.isEmpty(permissionDtos)){

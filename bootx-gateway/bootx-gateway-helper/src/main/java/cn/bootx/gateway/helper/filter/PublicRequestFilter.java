@@ -25,6 +25,9 @@ public class PublicRequestFilter implements HelperFilter {
 
     @Override
     public boolean shouldFilter(RequestContext context) {
+        if (context.getPermission().getPublicAccess()){
+            return true;
+        }
         String requestUri = context.request.uri;
         return (requestUri.contains("/" + gatewayProperties.getSkipPrefix() + "/") ||
                 requestUri.endsWith("/" + gatewayProperties.getSkipPrefix()));

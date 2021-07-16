@@ -2,6 +2,7 @@ package cn.bootx.gateway.helper.filter;
 
 import cn.bootx.gateway.helper.api.HelperFilter;
 import cn.bootx.gateway.helper.context.RequestContext;
+import cn.bootx.gateway.helper.properties.GatewayHelperProperties;
 import cn.bootx.gateway.helper.service.TenantService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -17,9 +18,16 @@ import org.springframework.stereotype.Component;
 @RequiredArgsConstructor
 public class TenantCheckFilter implements HelperFilter {
     private final TenantService tenantService;
+    private final GatewayHelperProperties gatewayHelperProperties;
+
     @Override
     public int filterOrder() {
         return 15;
+    }
+
+    @Override
+    public boolean shouldFilter(RequestContext context) {
+        return gatewayHelperProperties.getFilter().getTenant().isEnabled();
     }
 
     @Override

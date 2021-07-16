@@ -36,7 +36,7 @@ public class AddJwtFilter implements HelperFilter {
             return true;
         } catch (JSONException e) {
             context.response.setStatus(CheckState.EXCEPTION_GATEWAY_HELPER);
-            context.response.setMessage("gateway helper error happened: " + e);
+            context.response.setMessage("添加jwt_token出错");
             return false;
         }
     }

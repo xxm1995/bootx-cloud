@@ -18,6 +18,7 @@ import org.springframework.http.HttpHeaders;
 import org.springframework.http.MediaType;
 import org.springframework.http.server.reactive.ServerHttpResponse;
 import org.springframework.stereotype.Component;
+import org.springframework.web.cors.reactive.CorsWebFilter;
 import org.springframework.web.server.ServerWebExchange;
 import org.springframework.web.server.WebFilter;
 import org.springframework.web.server.WebFilterChain;
@@ -40,6 +41,7 @@ import static cn.bootx.common.web.code.WebHeaderConst.JWT_TOKEN;
 @Component
 public class GateWayHelperFilter implements WebFilter {
     private final ReactiveAuthenticationHelper authenticationHelper;
+    private final CorsWebFilter corsWebFilter;
 
     @Override
     @SuppressWarnings("NullableProblems")
@@ -59,6 +61,8 @@ public class GateWayHelperFilter implements WebFilter {
                     .request(builder -> builder.header(JWT_TOKEN, jwtToken))
                     .build());
         } else {
+            // 处理下cors跨域问题
+            corsWebFilter.filter(exchange,chain);
             return this.errorResponse(exchange.getResponse(), responseContext);
         }
     }

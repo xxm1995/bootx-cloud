@@ -12,16 +12,13 @@ import org.springframework.cloud.gateway.config.GatewayProperties;
 import org.springframework.stereotype.Component;
 import org.springframework.util.AntPathMatcher;
 
-import java.io.UnsupportedEncodingException;
-import java.net.URLEncoder;
-import java.nio.charset.StandardCharsets;
 import java.util.Map;
 
-/**   
-* 获取请求路由信息
-* @author xxm  
-* @date 2021/6/7 
-*/
+/**
+ * 获取请求路由信息
+ * @author xxm
+ * @date 2021/6/7
+ */
 @Slf4j
 @Component
 @RequiredArgsConstructor
@@ -44,20 +41,15 @@ public class GetRequestRouteFilter implements HelperFilter {
 
         if (route == null) {
             context.response.setStatus(CheckState.PERMISSION_SERVICE_ROUTE);
-            try {
-                context.response.setMessage("此请求与任何路由不匹配，uri: " + URLEncoder.encode(requestUri, StandardCharsets.UTF_8.displayName()));
-            } catch (UnsupportedEncodingException e) {
-                log.error("错误编码 uri.", e);
-                context.response.setMessage("此请求与任何路由不匹配.");
-            }
+            context.response.setMessage("此请求不与任何路由匹配，uri: " + requestUri);
             return false;
         }  else {
             String trueUri = this.getRequestTruePath(requestUri, route.getPath());
             context.setTrueUri(trueUri);
             context.setRoute(route);
             context.setRequestKey(new RequestKey()
-                            .setUri(trueUri)
-                            .setMethod(context.request.method.name().toLowerCase())
+                    .setUri(trueUri)
+                    .setMethod(context.request.method.name().toLowerCase())
                     .setServiceName(route.getServiceId()));
             return true;
         }

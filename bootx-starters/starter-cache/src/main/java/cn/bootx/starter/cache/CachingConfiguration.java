@@ -2,6 +2,7 @@ package cn.bootx.starter.cache;
 
 import cn.bootx.starter.cache.tenant.TenantRedisCacheManager;
 import cn.bootx.starter.headerholder.HeaderHolder;
+import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonTypeInfo;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.jsontype.impl.LaissezFaireSubTypeValidator;
@@ -75,7 +76,9 @@ public class CachingConfiguration extends CachingConfigurerSupport {
 
         ObjectMapper objectMapperCopy = objectMapper.copy();
         //指定序列化输入的类型为非最终类型，除了少数“自然”类型（字符串、布尔值、整数、双精度），它们可以从 JSON 正确推断； 以及所有非最终类型的数组
-        objectMapperCopy.activateDefaultTyping(LaissezFaireSubTypeValidator.instance,ObjectMapper.DefaultTyping.NON_FINAL, JsonTypeInfo.As.WRAPPER_ARRAY);
+        objectMapperCopy.activateDefaultTyping(LaissezFaireSubTypeValidator.instance,ObjectMapper.DefaultTyping.NON_FINAL, JsonTypeInfo.As.WRAPPER_ARRAY)
+                // null不序列化
+                .setSerializationInclusion(JsonInclude.Include.NON_NULL);
         jackson2JsonRedisSerializer.setObjectMapper(objectMapperCopy);
 
         // redis缓存配置

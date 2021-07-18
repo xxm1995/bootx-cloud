@@ -2,7 +2,6 @@ package cn.bootx.starter.jackson;
 
 import cn.hutool.core.date.DatePattern;
 import com.fasterxml.jackson.annotation.JsonAutoDetect;
-import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.PropertyAccessor;
 import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -47,14 +46,10 @@ public class JacksonConfiguration {
         return new ObjectMapper()
                 //指定要序列化的域
                 .setVisibility(PropertyAccessor.ALL, JsonAutoDetect.Visibility.ANY)
-                //指定序列化输入的类型 DefaultTyping 不同的级别, 记录的元数据不同
-//                .activateDefaultTyping(LaissezFaireSubTypeValidator.instance,ObjectMapper.DefaultTyping.NON_FINAL, JsonTypeInfo.As.WRAPPER_ARRAY)
                 // 不将日期写为时间戳
                 .disable(SerializationFeature.WRITE_DATES_AS_TIMESTAMPS)
                 // 忽略未知属性
                 .disable(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES)
-                // null不序列化
-                .setSerializationInclusion(JsonInclude.Include.NON_NULL)
                 .registerModule(new Java8TimeModule())
                 .registerModule(new Jdk8Module())
                 .registerModule(new SimpleModule());

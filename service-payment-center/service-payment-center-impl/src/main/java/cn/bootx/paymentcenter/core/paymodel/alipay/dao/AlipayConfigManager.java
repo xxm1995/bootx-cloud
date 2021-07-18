@@ -27,9 +27,17 @@ public class AlipayConfigManager {
     /**
      * 根据商户应用AppId获取支付宝支付配置
      */
-    @Cacheable(value = "pc:alipay:config",key = "#appId")
+    @Cacheable(value = "pc:alipay:config:appid",key = "#appId")
     public Optional<AlipayConfig> findByAppId(String appId){
         return repository.findByAppIdAndTid(appId,headerHolder.findTid());
+    }
+
+    /**
+     * 根据支付宝AppId获取支付宝支付配置
+     */
+    @Cacheable(value = "pc:alipay:config:ali",key = "#aliAppId")
+    public Optional<AlipayConfig> findByAliAppIdAndTid(String aliAppId){
+        return repository.findByAliAppIdAndTid(aliAppId,headerHolder.findTid());
     }
 
     /**

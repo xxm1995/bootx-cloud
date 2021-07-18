@@ -1,5 +1,7 @@
 package cn.bootx.paymentcenter.core.paymodel.base.entity;
 
+import cn.bootx.paymentcenter.code.pay.PayTransactionPurposeCode;
+import cn.bootx.paymentcenter.code.pay.PayTransactionTypeCode;
 import cn.bootx.paymentcenter.code.pay.PaymentCode;
 import cn.bootx.starter.jpa.base.JpaBaseEntity;
 import lombok.Data;

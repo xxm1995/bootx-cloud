@@ -10,7 +10,7 @@ import cn.bootx.paymentcenter.core.pay.func.AbsPayStrategy;
 import cn.bootx.paymentcenter.core.paymodel.wechat.dao.WeChatPayConfigManager;
 import cn.bootx.paymentcenter.core.paymodel.wechat.entity.WeChatPayConfig;
 import cn.bootx.paymentcenter.core.paymodel.wechat.service.*;
-import cn.bootx.paymentcenter.exception.payment.PayAmountAbnormalException;
+import cn.bootx.paymentcenter.exception.payment.PaymentAmountAbnormalException;
 import cn.bootx.paymentcenter.param.pay.PayModeParam;
 import cn.bootx.paymentcenter.param.paymodel.wechat.WeChatPayParam;
 import cn.hutool.json.JSONException;
@@ -67,7 +67,7 @@ public class WeChatPayStrategy extends AbsPayStrategy {
         // 检查金额
         PayModeParam payMode = this.getPayMode();
         if (BigDecimalUtil.compareTo(payMode.getAmount(), BigDecimal.ZERO) < 1){
-            throw new PayAmountAbnormalException();
+            throw new PaymentAmountAbnormalException();
         }
         // 检查并获取微信支付配置
         this.weChatPayConfig = weChatPayConfigManager.findByAppId(this.getPayParam().getAppId())

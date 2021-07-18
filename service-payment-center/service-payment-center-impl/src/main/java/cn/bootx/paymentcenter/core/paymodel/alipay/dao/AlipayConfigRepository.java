@@ -16,5 +16,7 @@ public interface AlipayConfigRepository extends JpaRepository<AlipayConfig,Long>
 
     Optional<AlipayConfig> findByAppIdAndTid(String appId, Long tid);
 
+    Optional<AlipayConfig> findByAliAppIdAndTid(String aliAppId, Long tid);
+
     void deleteByAppIdAndTid(String appId, Long tid);
 }

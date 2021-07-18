@@ -95,6 +95,15 @@ public class AlipayConfigService {
     }
 
     /**
+     * 获取
+     */
+    public AlipayConfigDto findByAliAppIdAndTid(String aliAppId){
+        return alipayConfigManager.findByAliAppIdAndTid(aliAppId)
+                .map(AlipayConfig::toDto)
+                .orElse(null);
+    }
+
+    /**
      * 移到工具类中
      */
     public static void initApiConfig(AlipayConfig alipayConfig){

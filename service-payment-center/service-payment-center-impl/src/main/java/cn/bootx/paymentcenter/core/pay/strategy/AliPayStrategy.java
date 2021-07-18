@@ -10,7 +10,7 @@ import cn.bootx.paymentcenter.core.pay.func.AbsPayStrategy;
 import cn.bootx.paymentcenter.core.paymodel.alipay.dao.AlipayConfigManager;
 import cn.bootx.paymentcenter.core.paymodel.alipay.entity.AlipayConfig;
 import cn.bootx.paymentcenter.core.paymodel.alipay.service.*;
-import cn.bootx.paymentcenter.exception.payment.PayAmountAbnormalException;
+import cn.bootx.paymentcenter.exception.payment.PaymentAmountAbnormalException;
 import cn.bootx.paymentcenter.param.pay.PayModeParam;
 import cn.bootx.paymentcenter.param.paymodel.alipay.AliPayParam;
 import cn.hutool.json.JSONException;
@@ -64,7 +64,7 @@ public class AliPayStrategy extends AbsPayStrategy {
         // 检查金额
         PayModeParam payMode = this.getPayMode();
         if (BigDecimalUtil.compareTo(payMode.getAmount(), BigDecimal.ZERO) < 1){
-            throw new PayAmountAbnormalException();
+            throw new PaymentAmountAbnormalException();
         }
         // 检查并获取支付宝支付配置
         this.alipayConfig = alipayConfigManager.findByAppId(this.getPayParam().getAppId())

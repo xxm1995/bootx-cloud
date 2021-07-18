@@ -30,8 +30,8 @@ public class TenantService {
      * 获取
      */
     public TenantResult checkTenant() {
-        TenantDto tenant;
         this.init();
+        TenantDto tenant;
         try {
             tenant = asyncExecutorService.submit(() ->
                     tenantClient.findTenant()).get();

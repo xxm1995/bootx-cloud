@@ -2,8 +2,8 @@ package cn.bootx.gateway.helper.service;
 
 import cn.bootx.gateway.helper.domain.Permission;
 import cn.bootx.gateway.helper.domain.RequestKey;
-import cn.bootx.usercenter.client.PermissionClient;
-import cn.bootx.usercenter.dto.permission.PermissionDto;
+import cn.bootx.iam.client.PermissionPathClient;
+import cn.bootx.iam.dto.permission.PermissionPathDto;
 import cn.hutool.core.bean.BeanUtil;
 import cn.hutool.core.collection.CollUtil;
 import cn.hutool.extra.spring.SpringUtil;
@@ -30,14 +30,14 @@ import java.util.stream.Collectors;
 @Service
 @RequiredArgsConstructor
 public class PermissionService {
-    private PermissionClient permissionClient;
+    private PermissionPathClient permissionPathClient;
     private final ExecutorService asyncExecutorService;
 
     private final AntPathMatcher matcher = new AntPathMatcher();
 
     private void init(){
-        if (Objects.isNull(permissionClient)){
-            permissionClient = SpringUtil.getBean(PermissionClient.class);
+        if (Objects.isNull(permissionPathClient)){
+            permissionPathClient = SpringUtil.getBean(PermissionPathClient.class);
         }
     }
 
@@ -76,9 +76,9 @@ public class PermissionService {
         String methodFinal = StringUtils.lowerCase(method);
 
         // 异步转同步(filter中无法使用同步阻塞方法)
-        List<PermissionDto> permissionDtos;
+        List<PermissionPathDto> permissionDtos;
         try {
-            permissionDtos = asyncExecutorService.submit(() -> permissionClient.findByMethodAndService(methodFinal, serviceNameFinal)).get();
+            permissionDtos = asyncExecutorService.submit(() -> permissionPathClient.findByMethodAndService(methodFinal, serviceNameFinal)).get();
         } catch (InterruptedException | ExecutionException e) {
             log.warn("调用IAM失败",e);
             return new ArrayList<>(0);

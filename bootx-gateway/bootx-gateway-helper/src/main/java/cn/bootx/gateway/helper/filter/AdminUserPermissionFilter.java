@@ -26,7 +26,6 @@ public class AdminUserPermissionFilter implements HelperFilter {
     @Override
     public boolean run(RequestContext context) {
         context.response.setStatus(CheckState.SUCCESS_ADMIN);
-        context.response.setMessage("admin用户可以访问界面，用户名: "+ context.getCustomUserDetails().getName());
         return false;
     }
 }

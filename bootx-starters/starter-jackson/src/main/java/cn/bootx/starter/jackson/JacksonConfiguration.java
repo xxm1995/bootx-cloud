@@ -36,7 +36,7 @@ public class JacksonConfiguration {
             builder.visibility(PropertyAccessor.ALL, JsonAutoDetect.Visibility.ANY);
             // 时间格式
             builder.simpleDateFormat(DatePattern.NORM_DATETIME_PATTERN);
-            builder.modules(new JavaLongTypeModule(), new Java8TimeModule());
+            builder.modules(new JavaLongTypeModule(), new Java8TimeModule(),new Jdk8Module(),new SimpleModule());
         };
     }
 
@@ -52,6 +52,7 @@ public class JacksonConfiguration {
                 .disable(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES)
                 .registerModule(new Java8TimeModule())
                 .registerModule(new Jdk8Module())
+                .registerModule(new JavaLongTypeModule())
                 .registerModule(new SimpleModule());
     }
 }

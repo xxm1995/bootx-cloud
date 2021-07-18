@@ -27,7 +27,6 @@ public class LoginAccessRequestFilter implements HelperFilter {
     public boolean run(RequestContext context) {
         if (context.getCustomUserDetails() != null) {
             context.response.setStatus(CheckState.SUCCESS_LOGIN_ACCESS);
-            context.response.setMessage("可以访问这个“loginAccess”界面，权限： " + context.getPermission());
             return false;
         }
         return true;

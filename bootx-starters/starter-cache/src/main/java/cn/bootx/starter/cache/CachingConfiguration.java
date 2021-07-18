@@ -68,7 +68,7 @@ public class CachingConfiguration extends CachingConfigurerSupport {
     }
 
     /**
-     * 缓存管理器策略过期时间配置
+     * 缓存管理器策略过期时间配置 `
      */
     private RedisCacheConfiguration getRedisCacheConfigurationWithTtl(Duration duration) {
         // 序列化方式

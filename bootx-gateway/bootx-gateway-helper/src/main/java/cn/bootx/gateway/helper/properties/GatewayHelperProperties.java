@@ -130,6 +130,9 @@ public class GatewayHelperProperties {
         /** 接口重放配置 */
         private ApiReplay apiReplay = new ApiReplay();
 
+        /** 租户过滤配置 */
+        private Tenant tenant = new Tenant();
+
         /**
         * 收集跨度
         * @author xxm
@@ -205,6 +208,18 @@ public class GatewayHelperProperties {
             private int timeoutOfOpToken = 3 * 10 * 1000;
             /** 跳过路径 */
             private List<String> skipPaths = new ArrayList<>();
+        }
+
+        /**   
+        * 租户配置
+        * @author xxm  
+        * @date 2021/7/14 
+        */
+        @Data
+        @Accessors(chain = true)
+        public static class Tenant {
+            /** 是否启用 */
+            private boolean enabled = false;
         }
     }
 }

@@ -31,6 +31,10 @@ public class FeignConfig {
             if (Objects.nonNull(tid)) {
                 requestTemplate.header(WebHeaderConst.TID, tid);
             }
+            String ACCESS_TOKEN = HolderContextHolder.get(WebHeaderConst.ACCESS_TOKEN);
+            if (Objects.nonNull(ACCESS_TOKEN)) {
+                requestTemplate.header(WebHeaderConst.ACCESS_TOKEN, ACCESS_TOKEN);
+            }
         };
     }
 }

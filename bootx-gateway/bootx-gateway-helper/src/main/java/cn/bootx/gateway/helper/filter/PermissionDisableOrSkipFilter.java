@@ -1,9 +1,9 @@
 package cn.bootx.gateway.helper.filter;
 
 import cn.bootx.gateway.helper.api.HelperFilter;
+import cn.bootx.gateway.helper.properties.GatewayHelperProperties;
 import cn.bootx.gateway.helper.context.RequestContext;
 import cn.bootx.gateway.helper.domain.CheckState;
-import cn.bootx.gateway.helper.properties.GatewayHelperProperties;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpMethod;
 import org.springframework.stereotype.Component;
@@ -57,8 +57,6 @@ public class PermissionDisableOrSkipFilter implements HelperFilter {
         // 跳过路径
         if (permission.getSkipPaths().stream().anyMatch(t -> matcher.match(t, context.request.uri))) {
             context.response.setStatus(CheckState.SUCCESS_SKIP_PATH);
-            context.response.setMessage("这个请求匹配跳过, 跳过路径: " +
-                    gatewayHelperProperties.getPermission().getSkipPaths());
             return false;
         }
         return true;

@@ -2,6 +2,8 @@ package cn.bootx.paymentcenter.dto.payment;
 
 import cn.bootx.common.web.rest.dto.BaseDto;
 import cn.bootx.paymentcenter.code.pay.PayStatusCode;
+import cn.bootx.paymentcenter.code.pay.PayTransactionPurposeCode;
+import cn.bootx.paymentcenter.code.pay.PayTransactionTypeCode;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;

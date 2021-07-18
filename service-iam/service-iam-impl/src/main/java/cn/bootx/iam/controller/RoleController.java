@@ -29,20 +29,14 @@ public class RoleController {
     private final RoleService roleService;
 
     @ApiOperation(value = "添加角色（返回角色对象）")
-    @ApiResponses(value = {
-            @ApiResponse(code = UcErrorCodes.ROLE_ALREADY_EXISTED, message = "角色已存在"),
-    })
     @PostMapping(value = "/add")
-    public ResResult<RoleDto> add(RoleDto roleDto){
+    public ResResult<RoleDto> add(@RequestBody RoleDto roleDto){
         ValidationUtil.validateParam(roleDto);
         RoleDto result = roleService.add(roleDto);
         return Res.ok(result);
     }
 
     @ApiOperation(value = "删除角色")
-    @ApiResponses(value = {
-            @ApiResponse(code = UcErrorCodes.ROLE_NOT_EXISTED, message = "角色不存在"),
-    })
     @DeleteMapping(value = "/delete")
     public ResResult<Void> delete(Long id){
         roleService.delete(id);
@@ -50,10 +44,6 @@ public class RoleController {
     }
 
     @ApiOperation(value = "修改角色（返回角色对象）")
-    @ApiResponses(value = {
-            @ApiResponse(code = UcErrorCodes.ROLE_NOT_EXISTED, message = "角色不存在"),
-            @ApiResponse(code = UcErrorCodes.ROLE_ALREADY_EXISTED, message = "角色名称已存在")
-    })
     @PostMapping(value = "/update")
     public ResResult<RoleDto> update(@RequestBody RoleDto roleDto){
         ValidationUtil.validateParam(roleDto);

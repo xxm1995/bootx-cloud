@@ -22,6 +22,9 @@ public class UserInfoDto implements Serializable {
     @ApiModelProperty("名称")
     private String name;
 
+    @ApiModelProperty("账号")
+    private String account;
+
     @ApiModelProperty("手机号")
     private String phone;
 
@@ -36,9 +39,6 @@ public class UserInfoDto implements Serializable {
 
     @ApiModelProperty("注册时间")
     private LocalDateTime registerTime;
-
-    @ApiModelProperty("登录账号")
-    private String account;
 
     @ApiModelProperty("token")
     private String token;

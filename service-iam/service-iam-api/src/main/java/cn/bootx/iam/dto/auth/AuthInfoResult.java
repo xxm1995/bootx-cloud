@@ -22,6 +22,8 @@ public class AuthInfoResult {
     private Long tid;
     /** 名称 */
     private String name;
+    /** 账号 */
+    private String account;
     /** 邮件 */
     private String email;
     /** 手机号 */

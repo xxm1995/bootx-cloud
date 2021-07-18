@@ -1,9 +1,12 @@
 package cn.bootx.paymentcenter.core.payment.service;
 
+import cn.bootx.common.web.rest.PageResult;
+import cn.bootx.common.web.rest.param.PageParam;
 import cn.bootx.paymentcenter.core.payment.dao.PaymentManager;
 import cn.bootx.paymentcenter.core.payment.entity.Payment;
 import cn.bootx.paymentcenter.dto.pay.PayTypeInfo;
 import cn.bootx.paymentcenter.dto.payment.PaymentDto;
+import cn.bootx.starter.jpa.utils.JpaUtils;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
@@ -52,6 +55,9 @@ public class PaymentQueryService {
                 .orElse(new ArrayList<>(1));
     }
 
+    /**
+     * 根据id获取订单支付方式
+     */
     public List<PayTypeInfo> findPayTypeInfoById(Long id){
         return paymentManager.findById(id)
                 .map(Payment::getPayTypeInfos)
@@ -65,5 +71,12 @@ public class PaymentQueryService {
         return paymentManager.findByUserId(userId).stream()
                 .map(Payment::toDto)
                 .collect(Collectors.toList());
+    }
+
+    /**
+     * 分页
+     */
+    public PageResult<PaymentDto> page(PageParam pageParam){
+        return JpaUtils.convert2PageResult(paymentManager.page(pageParam));
     }
 }

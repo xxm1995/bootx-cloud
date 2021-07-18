@@ -40,10 +40,34 @@ public class RoleService {
     @Transactional(rollbackFor = Exception.class)
     public RoleDto add(RoleDto roleDto) {
         //Name唯一性校验（名称code不能相同）
-        if (roleManager.existsByNameAndCode(roleDto.getName(),roleDto.getCode())){
+        if (roleManager.existsByCode(roleDto.getName())){
+            throw new RoleAlreadyExistedException();
+        }
+        if (roleManager.existsByName(roleDto.getCode())){
             throw new RoleAlreadyExistedException();
         }
         Role role = Role.init(roleDto);
+        return roleRepository.save(role).toDto();
+    }
+
+    /**
+     * 修改角色
+     */
+    @Transactional(rollbackFor = Exception.class)
+    public RoleDto update(RoleDto roleDto) {
+        Long id = roleDto.getId();
+
+        //Name唯一性校验（同一个租户下名称code不能相同）
+        if (roleManager.existsByCode(roleDto.getCode(),id)){
+            throw new RoleAlreadyExistedException();
+        }
+        if (roleManager.existsByName(roleDto.getName(),id)){
+            throw new RoleAlreadyExistedException();
+        }
+
+        Role role = roleManager.findById(id).orElseThrow(RoleNotExistedException::new);
+        BeanUtil.copyProperties(roleDto,role, CopyOptions.create().ignoreNullValue());
+
         return roleRepository.save(role).toDto();
     }
 
@@ -61,24 +85,6 @@ public class RoleService {
         }
         // 删除角色信息
         roleRepository.deleteById(id);
-    }
-
-    /**
-     * 修改角色
-     */
-    @Transactional(rollbackFor = Exception.class)
-    public RoleDto update(RoleDto roleDto) {
-        Long id = roleDto.getId();
-
-        //Name唯一性校验（同一个租户下名称code不能相同）
-        if (roleManager.existsByNameAndCode(roleDto.getName(),roleDto.getCode(),id)){
-            throw new RoleAlreadyExistedException();
-        }
-
-        Role role = roleManager.findById(id).orElseThrow(RoleNotExistedException::new);
-        BeanUtil.copyProperties(roleDto,role, CopyOptions.create().ignoreNullValue());
-
-        return roleRepository.save(role).toDto();
     }
 
     /**

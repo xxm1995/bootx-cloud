@@ -24,12 +24,20 @@ public class UserInfoManager {
         return userInfoRepository.findByIdAndTid(id,headerHolder.findTid());
     }
 
-    public boolean existsEmail(String email) {
+    public boolean existsByAccount(String account) {
+        return userInfoRepository.existsByAccountAndTid(account,headerHolder.findTid());
+    }
+
+    public boolean existsByEmail(String email) {
         return userInfoRepository.existsByEmailAndTid(email,headerHolder.findTid());
     }
 
-    public boolean existsPhone(String phone) {
-        return userInfoRepository.existsByEmailAndTid(phone,headerHolder.findTid());
+    public boolean existsByPhone(String phone) {
+        return userInfoRepository.existsByPhoneAndTid(phone,headerHolder.findTid());
+    }
+
+    public Optional<UserInfo> findByAccount(String account) {
+        return userInfoRepository.findByAccountAndTid(account,headerHolder.findTid());
     }
 
     public Optional<UserInfo> findByEmail(String email) {

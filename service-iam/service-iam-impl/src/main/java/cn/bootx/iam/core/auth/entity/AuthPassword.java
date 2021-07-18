@@ -29,9 +29,6 @@ public class AuthPassword extends JpaBaseEntity implements EntityBaseFunction<Au
     /** 用户id */
     private Long uid;
 
-    /** 账号 */
-    private String account;
-
     /** 密码 */
     private String password;
 

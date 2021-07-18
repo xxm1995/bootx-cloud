@@ -26,17 +26,27 @@ public class RoleManager {
 
     private final HeaderHolder headerHolder;
 
-    public boolean existsByNameAndCode(String name, String code) {
-        return roleRepository.existsByNameAndCodeAndTid(name,code,headerHolder.findTid());
+    public boolean existsByCode(String code) {
+        return roleRepository.existsByCodeAndTid(code,headerHolder.findTid());
+    }
+
+
+    public boolean existsByName(String name) {
+        return roleRepository.existsByNameAndTid(name,headerHolder.findTid());
+    }
+
+    public boolean existsByCode(String code, Long id) {
+        return roleRepository.existsByCodeAndIdNotAndTid(code,id,headerHolder.findTid());
+    }
+
+    public boolean existsByName(String name, Long id) {
+        return roleRepository.existsByNameAndIdNotAndTid(name,id,headerHolder.findTid());
     }
 
     public boolean existsById(Long id) {
         return roleRepository.existsByIdAndTid(id,headerHolder.findTid());
     }
 
-    public boolean existsByNameAndCode(String name, String code, Long id) {
-        return roleRepository.existsByNameAndCodeAndIdNotAndTid(name,code,id,headerHolder.findTid());
-    }
 
     public Optional<Role> findById(Long id) {
         return roleRepository.findByIdAndTid(id,headerHolder.findTid());

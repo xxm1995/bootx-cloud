@@ -3,12 +3,15 @@ package cn.bootx.iam.core.login.service;
 import cn.bootx.common.web.exception.BizException;
 import cn.bootx.iam.code.permission.PermissionCode;
 import cn.bootx.iam.core.role.service.RoleMenuService;
+import cn.bootx.iam.core.session.domain.LoginInfoBo;
+import cn.bootx.iam.core.session.service.UserAuthTokenService;
 import cn.bootx.iam.dto.auth.AuthInfoResult;
 import cn.bootx.iam.dto.login.LoginMenuDto;
 import cn.bootx.iam.dto.login.LoginMenuMetaDto;
 import cn.bootx.iam.dto.login.LoginPermissionDto;
 import cn.bootx.iam.dto.login.MenuAndPermissionDto;
 import cn.bootx.iam.dto.permission.PermissionMenuDto;
+import cn.bootx.starter.headerholder.HeaderHolder;
 import cn.hutool.core.collection.CollUtil;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -28,13 +31,27 @@ import java.util.stream.Collectors;
 public class LoginUserService {
 
     private final RoleMenuService roleMenuService;
+    private final UserAuthTokenService userAuthTokenService;
     private final LoginService loginService;
+    private final HeaderHolder headerHolder;
+
+    /**
+     * 获取用户信息
+     */
+    public AuthInfoResult getUserInfo(){
+        String accessToken = headerHolder.findAccessToken();
+        LoginInfoBo loginInfo = userAuthTokenService.getLoginInfo(accessToken);
+        if (Objects.isNull(loginInfo)){
+            return null;
+        }
+        return loginInfo.toResult().setToken(accessToken);
+    }
 
     /**
      * 查询用户路由菜单和按钮权限
      */
     public MenuAndPermissionDto getUserPermission(){
-        AuthInfoResult userInfo = Optional.ofNullable(loginService.getUserInfo())
+        AuthInfoResult userInfo = Optional.ofNullable(this.getUserInfo())
                 .orElseThrow(() -> new BizException("未登录"));
         List<PermissionMenuDto> permissionsByUser = roleMenuService.findPermissionsByUser(userInfo.getUid());
 

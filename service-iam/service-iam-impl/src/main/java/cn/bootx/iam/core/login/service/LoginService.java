@@ -68,15 +68,6 @@ public class LoginService {
         return null;
     }
 
-    public AuthInfoResult getUserInfo(){
-        String accessToken = headerHolder.findAccessToken();
-        LoginInfoBo loginInfo = userAuthTokenService.getLoginInfo(accessToken);
-        if (Objects.isNull(loginInfo)){
-            return null;
-        }
-        return loginInfo.toResult().setToken(accessToken);
-    }
-
     /**
      * 退出
      */
@@ -100,6 +91,7 @@ public class LoginService {
         List<Long> roleIds = userRoleService.findRoleIdsByUser(userinfo.getId());
         return new LoginInfoBo()
                 .setClient(client)
+                .setAccount(userinfo.getAccount())
                 .setUid(userinfo.getId())
                 .setName(userinfo.getName())
                 .setPhone(userinfo.getPhone())

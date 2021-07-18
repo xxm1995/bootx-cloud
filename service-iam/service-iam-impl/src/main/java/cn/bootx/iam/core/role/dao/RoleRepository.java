@@ -13,15 +13,20 @@ import java.util.Optional;
 */
 public interface RoleRepository extends JpaRepository<Role,Long> {
 
-    boolean existsByNameAndCodeAndTid(String name, String code, Long tid);
+    boolean existsByCodeAndTid(String code, Long tid);
+
+    boolean existsByNameAndTid(String name, Long tid);
 
     boolean existsByIdAndTid(Long id, Long tid);
 
-    boolean existsByNameAndCodeAndIdNotAndTid(String name, String code, Long id, Long tid);
+    boolean existsByCodeAndIdNotAndTid(String code, Long id, Long tid);
+
+    boolean existsByNameAndIdNotAndTid(String name, Long id, Long tid);
 
     Optional<Role> findByIdAndTid(Long id, Long tid);
 
     List<Role> findAllByTid(Long tid);
 
     List<Role> findAllByIdInAndTid(List<Long> ids, Long tid);
+
 }

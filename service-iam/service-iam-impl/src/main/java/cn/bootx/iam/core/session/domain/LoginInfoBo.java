@@ -28,6 +28,8 @@ public class LoginInfoBo implements Serializable {
     private Long uid;
     /** 租户 */
     private Long tid;
+    /** 账号 */
+    private String account;
     /** 姓名 */
     private String name;
     /** 邮件 */

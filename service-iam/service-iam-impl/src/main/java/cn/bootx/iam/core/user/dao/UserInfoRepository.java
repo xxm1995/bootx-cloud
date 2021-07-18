@@ -11,12 +11,19 @@ public interface UserInfoRepository extends JpaRepository<UserInfo,Long> {
 
     List<UserInfo> findByIdInAndTid(List<Long> ids, Long tid);
 
+    boolean existsByIdAndTid(Long id, Long tid);
+
+    boolean existsByAccountAndTid(String account, Long tid);
+
     boolean existsByEmailAndTid(String email,Long tid);
+
+    boolean existsByPhoneAndTid(String phone,Long tid);
+
+    Optional<UserInfo> findByAccountAndTid(String account, Long tid);
 
     Optional<UserInfo> findByEmailAndTid(String email, Long tid);
 
     Optional<UserInfo> findByPhoneAndTid(String phone, Long tid);
 
-    boolean existsByIdAndTid(Long id, Long tid);
 
 }

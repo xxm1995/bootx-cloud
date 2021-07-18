@@ -23,16 +23,8 @@ public class AuthPasswordManager {
         return userAuthRepository.findByUidAndTid(uid,headerHolder.findTid());
     }
 
-    public Optional<AuthPassword> findByAccount(String account) {
-        return userAuthRepository.findByAccountAndTid(account,headerHolder.findTid());
-    }
-
     public boolean existsByUid(Long uid) {
         return userAuthRepository.existsByUidAndTid(uid,headerHolder.findTid());
-    }
-
-    public boolean existsByAccount(String account) {
-        return userAuthRepository.existsByAccountAndTid(account,headerHolder.findTid());
     }
 
     public Optional<AuthPassword> findById(Long id) {

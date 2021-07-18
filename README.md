@@ -71,6 +71,7 @@
 ## 🍒文档
 
 - 项目文档：[开发文档](https://www.yuque.com/bootx/bootx-cloud/)
+- 前端项目地址：[https://gitee.com/bootx/bootx-cloud-ui](https://gitee.com/bootx/bootx-cloud-ui)
 - 项目启动：[启动文档](https://www.yuque.com/bootx/bootx-cloud/vpi0gn)
 - 开发计划：[开发计划](https://www.yuque.com/bootx/bootx-cloud/xzmc6c)
 

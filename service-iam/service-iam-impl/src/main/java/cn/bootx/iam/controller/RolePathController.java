@@ -4,6 +4,8 @@ import cn.bootx.common.web.rest.Res;
 import cn.bootx.common.web.rest.ResResult;
 import cn.bootx.iam.core.role.service.RolePathService;
 import cn.bootx.iam.dto.permission.PermissionPathDto;
+import cn.bootx.iam.dto.role.RoleDto;
+import cn.bootx.iam.param.role.PermissionRoleParam;
 import cn.bootx.iam.param.role.RolePermissionParam;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
@@ -23,11 +25,24 @@ import java.util.List;
 public class RolePathController {
     private final RolePathService rolePermissionService;
 
-    @ApiOperation("保存请求权限关系")
-    @PostMapping("/add")
-    public ResResult<Boolean> add(@RequestBody RolePermissionParam param){
-        rolePermissionService.add(param.getRoleId(),param.getPermissionIds());
+    @ApiOperation("保存角色权限关联关系")
+    @PostMapping("/addRolePath")
+    public ResResult<Boolean> addRolePath(@RequestBody RolePermissionParam param){
+        rolePermissionService.addRolePath(param.getRoleId(),param.getPermissionIds());
         return Res.ok(true);
+    }
+
+    @ApiOperation("保存权限角色关联关系")
+    @PostMapping("/addPathRole")
+    public ResResult<Boolean> addPathRole(@RequestBody PermissionRoleParam param){
+        rolePermissionService.addPathRole(param.getPermissionId(),param.getRoleIds());
+        return Res.ok(true);
+    }
+
+    @ApiOperation("根据权限查询拥有的角色")
+    @GetMapping("/findRoleByPath")
+    public ResResult<List<RoleDto>> findRoleByPath(Long pathId){
+        return Res.ok(rolePermissionService.findRoleByPath(pathId));
     }
 
     @ApiOperation("根据角色id获取请求权限id")

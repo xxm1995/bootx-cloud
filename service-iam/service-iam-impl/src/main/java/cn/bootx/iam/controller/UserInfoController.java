@@ -1,8 +1,11 @@
 package cn.bootx.iam.controller;
 
+import cn.bootx.common.web.rest.PageResult;
 import cn.bootx.common.web.rest.Res;
 import cn.bootx.common.web.rest.ResResult;
+import cn.bootx.common.web.rest.param.PageParam;
 import cn.bootx.iam.core.user.service.UserInfoService;
+import cn.bootx.iam.core.user.service.UserQueryService;
 import cn.bootx.iam.dto.user.UserInfoDto;
 import cn.bootx.iam.param.user.UserInfoParam;
 import io.swagger.annotations.Api;
@@ -20,6 +23,7 @@ import org.springframework.web.bind.annotation.*;
 @AllArgsConstructor
 public class UserInfoController {
 	private final UserInfoService userInfoService;
+	private final UserQueryService userQueryService;
 
     @ApiOperation(value = "根据用户id查询用户")
     @GetMapping("/getById")
@@ -43,6 +47,12 @@ public class UserInfoController {
     @PostMapping("/addUserInfo")
     public ResResult<UserInfoDto> addUserInfo(@RequestBody UserInfoParam userInfoParam){
         return Res.ok(userInfoService.addUserInfo(userInfoParam));
+    }
+
+    @ApiOperation("分页")
+    @GetMapping("/page")
+    public ResResult<PageResult<UserInfoDto>> page(PageParam pageParam){
+        return Res.ok(userQueryService.page(pageParam));
     }
 
 }

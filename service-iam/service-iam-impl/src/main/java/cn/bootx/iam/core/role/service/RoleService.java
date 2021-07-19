@@ -10,6 +10,7 @@ import cn.bootx.iam.dto.role.RoleDto;
 import cn.bootx.iam.exception.role.RoleAlreadyExistedException;
 import cn.bootx.iam.exception.role.RoleAlreadyUsedException;
 import cn.bootx.iam.exception.role.RoleNotExistedException;
+import cn.bootx.iam.param.role.RoleParam;
 import cn.bootx.starter.jpa.utils.JpaUtils;
 import cn.hutool.core.bean.BeanUtil;
 import cn.hutool.core.bean.copier.CopyOptions;
@@ -38,15 +39,15 @@ public class RoleService {
      * 添加角色
      */
     @Transactional(rollbackFor = Exception.class)
-    public RoleDto add(RoleDto roleDto) {
+    public RoleDto add(RoleParam roleParam) {
         //Name唯一性校验（名称code不能相同）
-        if (roleManager.existsByCode(roleDto.getName())){
+        if (roleManager.existsByCode(roleParam.getName())){
             throw new RoleAlreadyExistedException();
         }
-        if (roleManager.existsByName(roleDto.getCode())){
+        if (roleManager.existsByName(roleParam.getCode())){
             throw new RoleAlreadyExistedException();
         }
-        Role role = Role.init(roleDto);
+        Role role = Role.init(roleParam);
         return roleRepository.save(role).toDto();
     }
 
@@ -54,19 +55,19 @@ public class RoleService {
      * 修改角色
      */
     @Transactional(rollbackFor = Exception.class)
-    public RoleDto update(RoleDto roleDto) {
-        Long id = roleDto.getId();
+    public RoleDto update(RoleParam roleParam) {
+        Long id = roleParam.getId();
 
         //Name唯一性校验（同一个租户下名称code不能相同）
-        if (roleManager.existsByCode(roleDto.getCode(),id)){
+        if (roleManager.existsByCode(roleParam.getCode(),id)){
             throw new RoleAlreadyExistedException();
         }
-        if (roleManager.existsByName(roleDto.getName(),id)){
+        if (roleManager.existsByName(roleParam.getName(),id)){
             throw new RoleAlreadyExistedException();
         }
 
         Role role = roleManager.findById(id).orElseThrow(RoleNotExistedException::new);
-        BeanUtil.copyProperties(roleDto,role, CopyOptions.create().ignoreNullValue());
+        BeanUtil.copyProperties(roleParam,role, CopyOptions.create().ignoreNullValue());
 
         return roleRepository.save(role).toDto();
     }
@@ -100,8 +101,8 @@ public class RoleService {
     /**
      * 分页查询租户下的角色
      */
-    public PageResult<RoleDto> page(PageParam pageParam){
-        Page<Role> page = roleManager.page(pageParam);
+    public PageResult<RoleDto> page(PageParam pageParam, RoleParam roleParam){
+        Page<Role> page = roleManager.page(pageParam,roleParam);
         return JpaUtils.convert2PageResult(page);
     }
 

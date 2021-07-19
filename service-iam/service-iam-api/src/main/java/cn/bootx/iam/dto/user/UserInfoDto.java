@@ -40,9 +40,6 @@ public class UserInfoDto implements Serializable {
     @ApiModelProperty("注册时间")
     private LocalDateTime registerTime;
 
-    @ApiModelProperty("token")
-    private String token;
-
     @ApiModelProperty(value = "最后登录时间", accessMode = READ_ONLY)
     private LocalDateTime lastLoginTime;
 

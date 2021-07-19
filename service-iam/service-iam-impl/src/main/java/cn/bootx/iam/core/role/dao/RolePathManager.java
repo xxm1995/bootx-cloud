@@ -6,8 +6,6 @@ import com.querydsl.jpa.impl.JPAQueryFactory;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Repository;
 
-import javax.persistence.EntityManager;
-import javax.persistence.PersistenceContext;
 import java.util.List;
 
 /**
@@ -21,26 +19,26 @@ public class RolePathManager {
 
     private final RolePathRepository rolePathRepository;
     private final JPAQueryFactory jpaQueryFactory;
-
-    @PersistenceContext
-    private EntityManager entityManager;
-
     private final HeaderHolder headerHolder;
 
-    public void deleteByRoleAndPath(Long roleId, List<Long> pathIds) {
-        rolePathRepository.deleteByRoleIdAndPathIdInAndTid(roleId,pathIds,headerHolder.findTid());
+    public List<RolePath> findByPath(Long pathId){
+        return rolePathRepository.findByPathIdAndTid(pathId,headerHolder.findTid());
     }
 
-    public void deleteByRole(Long roleId){
-        rolePathRepository.deleteByRoleId(roleId);
-    }
-
-    public List<RolePath> findAllByRole(Long roleId) {
+    public List<RolePath> findByRole(Long roleId) {
         return rolePathRepository.findAllByRoleIdAndTid(roleId,headerHolder.findTid());
     }
 
-    public List<RolePath> findAllByRoles(List<Long> roleIds) {
+    public List<RolePath> findByRoles(List<Long> roleIds) {
         return rolePathRepository.findAllByRoleIdInAndTid(roleIds,headerHolder.findTid());
+    }
+
+    public void deleteByRole(Long roleId){
+        rolePathRepository.deleteByRoleIdAndTid(roleId,headerHolder.findTid());
+    }
+
+    public void deleteByPath(Long pathId){
+        rolePathRepository.deleteByPathIdAndTid(pathId,headerHolder.findTid());
     }
 
 }

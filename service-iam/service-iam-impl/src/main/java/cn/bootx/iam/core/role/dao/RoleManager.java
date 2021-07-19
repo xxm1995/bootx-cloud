@@ -2,8 +2,10 @@ package cn.bootx.iam.core.role.dao;
 
 import cn.bootx.common.web.rest.param.PageParam;
 import cn.bootx.iam.core.role.entity.Role;
+import cn.bootx.iam.param.role.RoleParam;
 import cn.bootx.starter.headerholder.HeaderHolder;
 import cn.bootx.starter.jpa.utils.JpaUtils;
+import cn.hutool.core.util.StrUtil;
 import com.querydsl.jpa.impl.JPAQuery;
 import cn.bootx.iam.core.role.entity.QRole;
 import com.querydsl.jpa.impl.JPAQueryFactory;
@@ -56,13 +58,19 @@ public class RoleManager {
         return roleRepository.findAllByTid(headerHolder.findTid());
     }
 
-    public Page<Role> page(PageParam pageParam) {
+    public Page<Role> page(PageParam pageParam, RoleParam param) {
         QRole q = QRole.role;
         JPAQuery<Role> query = jpaQueryFactory.selectFrom(q);
+        if (StrUtil.isNotBlank(param.getCode())){
+            query.where(q.code.like("%"+param.getCode()+"%"));
+        }
+        if (StrUtil.isNotBlank(param.getName())){
+            query.where(q.name.like("%"+param.getName()+"%"));
+        }
         return JpaUtils.queryPage(query,pageParam);
     }
 
-    public List<Role> findAllByIds(List<Long> ids) {
+    public List<Role> findByIds(List<Long> ids) {
         return roleRepository.findAllByIdInAndTid(ids,headerHolder.findTid());
     }
 }

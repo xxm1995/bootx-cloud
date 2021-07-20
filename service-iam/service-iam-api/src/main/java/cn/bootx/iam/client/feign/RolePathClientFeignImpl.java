@@ -15,7 +15,7 @@ public class RolePathClientFeignImpl implements RolePathClient {
     private RolePathFeign rolePermissionFeign;
 
     @Override
-    public List<Long> findPermissionIdsByUser(Long userId){
-        return rolePermissionFeign.findPermissionIdsByUser(userId).getData();
+    public List<Long> findPathIdsByUser(Long userId){
+        return rolePermissionFeign.findPathIdsByUser(userId).getData();
     }
 }

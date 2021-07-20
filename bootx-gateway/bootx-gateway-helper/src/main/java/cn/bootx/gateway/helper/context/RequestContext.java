@@ -6,8 +6,6 @@ import lombok.Data;
 import lombok.experimental.Accessors;
 import org.springframework.http.server.reactive.ServerHttpRequest;
 
-import java.util.List;
-
 /**
 * 请求上下文
 * @author xxm  
@@ -38,9 +36,6 @@ public class RequestContext {
 
     /** 用户信息 */
     private CustomUserDetails customUserDetails;
-
-    /** 角色id信息 */
-    private List<Long> roleIds;
 
     /** 服务请求对象 */
     private ServerHttpRequest servletRequest;

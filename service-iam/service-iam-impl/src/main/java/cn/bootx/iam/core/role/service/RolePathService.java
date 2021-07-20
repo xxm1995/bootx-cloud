@@ -72,7 +72,7 @@ public class RolePathService {
     /**
      * 根据权限查询拥有的角色
      */
-    public List<RoleDto> findRoleByPath(Long pathId){
+    public List<RoleDto> findRolesByPath(Long pathId){
         List<RolePath> rolePermissions = rolePathManager.findByPath(pathId);
         List<Long> roleIds = rolePermissions.stream()
                 .map(RolePath::getRoleId)
@@ -84,9 +84,19 @@ public class RolePathService {
     }
 
     /**
+     * 根据权限查询拥有的角色id
+     */
+    public List<Long> findRoleIdsByPath(Long pathId){
+        List<RolePath> rolePermissions = rolePathManager.findByPath(pathId);
+       return rolePermissions.stream()
+                .map(RolePath::getRoleId)
+                .collect(Collectors.toList());
+    }
+
+    /**
      * 根据角色查询对应的权限
      */
-    public List<Long> findIdsByRole(Long roleId){
+    public List<Long> findPathIdsByRole(Long roleId){
         List<RolePath> rolePermissions = rolePathManager.findByRole(roleId);
         return rolePermissions.stream()
                 .map(RolePath::getPathId)
@@ -96,7 +106,7 @@ public class RolePathService {
     /**
      * 根据角色查询对应的权限
      */
-    public List<Long> findIdsByRoles(List<Long> roleIds){
+    public List<Long> findPathIdsByRoles(List<Long> roleIds){
         List<RolePath> rolePermissions = rolePathManager.findByRoles(roleIds);
         return rolePermissions.stream()
                 .map(RolePath::getPathId)
@@ -107,16 +117,19 @@ public class RolePathService {
      * 根据用户查询拥有的权限id
      */
     @Cacheable(value = USER_PATH_ID,key = "#userId")
-    public List<Long> findPermissionIdsByUser(Long userId){
+    public List<Long> findPathIdsByUser(Long userId){
         List<Long> roleIds = userRoleService.findRoleIdsByUser(userId);
-        return this.findIdsByRoles(roleIds);
+        if (CollUtil.isEmpty(roleIds)){
+            return new ArrayList<>(1);
+        }
+        return this.findPathIdsByRoles(roleIds);
     }
 
     /**
      * 查询用户查询拥有的权限信息
      */
     @Cacheable(value = USER_PATH,key = "#userId")
-    public List<PermissionPathDto> findByUser(Long userId){
+    public List<PermissionPathDto> findPathsByUser(Long userId){
         List<PermissionPathDto> paths = new ArrayList<>(0);
         List<Long> roleIds = userRoleService.findRoleIdsByUser(userId);
         if (CollUtil.isEmpty(roleIds)){

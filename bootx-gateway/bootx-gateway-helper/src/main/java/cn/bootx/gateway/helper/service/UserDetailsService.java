@@ -56,8 +56,7 @@ public class UserDetailsService {
                     .setPhone(authInfoResult.getPhone())
                     .setEmail(authInfoResult.getEmail())
                     .setTid(authInfoResult.getTid());
-            result.setCustomUserDetails(user)
-                    .setRoleIds(authInfoResult.getRoleIds());
+            result.setCustomUserDetails(user);
         } else {
             result.setState(CheckState.PERMISSION_ACCESS_TOKEN_INVALID)
                     .setMessage("accessToken不合法，请重新登录");

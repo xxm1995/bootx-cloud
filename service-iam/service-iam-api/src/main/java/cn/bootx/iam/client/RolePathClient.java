@@ -12,5 +12,5 @@ public interface RolePathClient {
     /**
      * 根据用户id获取请求权限id(列表)
      */
-    List<Long> findPermissionIdsByUser(Long userId);
+    List<Long> findPathIdsByUser(Long userId);
 }

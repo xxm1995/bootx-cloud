@@ -53,7 +53,7 @@ public class LoginUserService {
     public MenuAndPermissionDto getUserPermission(){
         AuthInfoResult userInfo = Optional.ofNullable(this.getUserInfo())
                 .orElseThrow(() -> new BizException("未登录"));
-        List<PermissionMenuDto> permissionsByUser = roleMenuService.findPermissionsByUser(userInfo.getUid());
+        List<PermissionMenuDto> permissionsByUser = roleMenuService.findMenusByUser(userInfo.getUid());
 
         // 权限
         List<LoginPermissionDto> permissions = permissionsByUser.stream()

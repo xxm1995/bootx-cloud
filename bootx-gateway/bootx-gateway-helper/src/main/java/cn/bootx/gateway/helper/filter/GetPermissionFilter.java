@@ -43,7 +43,7 @@ public class GetPermissionFilter implements HelperFilter {
             return false;
         } else if (permission.getWithin()) {
             context.response.setStatus(CheckState.PERMISSION_WITH_IN);
-            context.response.setMessage("无法访问内部界面");
+            context.response.setMessage("无法访问内部接口");
             return false;
         } else {
             context.setPermission(permission);

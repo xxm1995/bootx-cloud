@@ -32,26 +32,26 @@ public class RoleMenuController {
     }
 
     @ApiOperation("根据角色id获取请求权限id")
-    @GetMapping("/findIdsByRole")
-    public ResResult<List<Long>> findIdsByRole(Long roleId){
-        return Res.ok(roleMenuService.findIdsByRole(roleId));
+    @GetMapping("/findMenuIdsByRole")
+    public ResResult<List<Long>> findMenuIdsByRole(Long roleId){
+        return Res.ok(roleMenuService.findMenuIdsByRole(roleId));
     }
 
     @ApiOperation("根据角色ids获取请求权限id")
-    @GetMapping("/findIdsByRoles")
-    public ResResult<List<Long>> findIdsByRoles(@RequestParam List<Long> roleIds){
-        return Res.ok(roleMenuService.findIdsByRoles(roleIds));
+    @GetMapping("/findMenuIdsByRoles")
+    public ResResult<List<Long>> findMenuIdsByRoles(@RequestParam List<Long> roleIds){
+        return Res.ok(roleMenuService.findMenuIdsByRoles(roleIds));
     }
 
     @ApiOperation("根据用户id获取请求权限id(列表)")
-    @GetMapping("/findPermissionIdsByUser")
-    public ResResult<List<Long>> findPermissionIdsByUser(@RequestParam Long userId){
-        return Res.ok(roleMenuService.findPermissionIdsByUser(userId));
+    @GetMapping("/findMenuIdsByUser")
+    public ResResult<List<Long>> findMenuIdsByUser(@RequestParam Long userId){
+        return Res.ok(roleMenuService.findMenuIdsByUser(userId));
     }
 
     @ApiOperation("根据用户id获取角色授权(权限列表)")
-    @GetMapping("/findPermissionsByUser")
-    public ResResult<List<PermissionMenuDto>> findPermissionsByUser(@RequestParam Long userId){
-        return Res.ok(roleMenuService.findPermissionsByUser(userId));
+    @GetMapping("/findMenusByUser")
+    public ResResult<List<PermissionMenuDto>> findMenusByUser(@RequestParam Long userId){
+        return Res.ok(roleMenuService.findMenusByUser(userId));
     }
 }

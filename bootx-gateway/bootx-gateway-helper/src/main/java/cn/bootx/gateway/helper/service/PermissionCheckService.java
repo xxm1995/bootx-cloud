@@ -40,7 +40,7 @@ public class PermissionCheckService {
         this.init();
         // 异步转同步(filter中无法使用同步阻塞方法)
         try {
-            permissionIds = asyncExecutorService.submit(() -> rolePathClient.findPermissionIdsByUser(userId)).get();
+            permissionIds = asyncExecutorService.submit(() -> rolePathClient.findPathIdsByUser(userId)).get();
         } catch (InterruptedException | ExecutionException e) {
             log.warn("获取权限信息失败",e);
             return "获取权限信息失败，请稍后重试";

@@ -42,8 +42,7 @@ public class GetUserDetailsFilter implements HelperFilter {
             context.response.setMessage(result.getMessage());
             return false;
         }
-        context.setCustomUserDetails(result.getCustomUserDetails())
-                .setRoleIds(result.getRoleIds());
+        context.setCustomUserDetails(result.getCustomUserDetails());
         return true;
     }
 }

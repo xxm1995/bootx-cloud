@@ -13,6 +13,6 @@ import java.util.List;
 interface RolePathFeign {
 
     @ApiOperation("根据用户id获取请求权限id(列表)")
-    @GetMapping("/findPermissionIdsByUser")
-    ResResult<List<Long>> findPermissionIdsByUser(@RequestParam Long userId);
+    @GetMapping("/findPathIdsByUser")
+    ResResult<List<Long>> findPathIdsByUser(@RequestParam Long userId);
 }

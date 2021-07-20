@@ -9,7 +9,6 @@ import lombok.experimental.Accessors;
 
 import java.io.Serializable;
 import java.time.LocalDateTime;
-import java.util.List;
 
 /**
  * 登录信息值对象
@@ -38,8 +37,6 @@ public class LoginInfoBo implements Serializable {
     private String phone;
     /** 是否超级管理员 */
     private boolean admin;
-    /** 角色id */
-    private List<Long> roleIds;
 
     /** 登录时间 */
     private LocalDateTime loginTime;

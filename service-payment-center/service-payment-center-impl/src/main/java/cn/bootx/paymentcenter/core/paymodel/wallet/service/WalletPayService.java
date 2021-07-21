@@ -10,6 +10,9 @@ import cn.bootx.paymentcenter.core.paymodel.wallet.entity.WalletLog;
 import cn.bootx.paymentcenter.dto.paymodel.wallet.WalletDto;
 import cn.bootx.paymentcenter.exception.waller.WalletLackOfBalanceException;
 import cn.bootx.paymentcenter.exception.waller.WalletLogError;
+import cn.bootx.paymentcenter.exception.waller.WalletNotExistsException;
+import cn.bootx.paymentcenter.param.refund.PayRefundDetailParam;
+import cn.bootx.paymentcenter.param.refund.PayRefundParam;
 import cn.bootx.starter.headerholder.HeaderHolder;
 import cn.hutool.core.util.StrUtil;
 import com.google.common.collect.Lists;
@@ -115,6 +118,38 @@ public class WalletPayService {
                 .setBusinessId(String.valueOf(orderId));
         walletLogRepository.save(log);
 
+    }
+
+    /**
+     * 退款
+     */
+    @Transactional(rollbackFor = Exception.class)
+    public void refund(PayRefundParam payRefundParam, List<PayRefundDetailParam> payRefundDetailParams) {
+
+        // 获取钱包
+        Wallet wallet = walletManager.findById(payRefundParam.getWalletId()).orElseThrow(WalletNotExistsException::new);
+
+        // 计算总退款金额
+        BigDecimal totalRefundAmount = payRefundDetailParams.stream()
+                .map(PayRefundDetailParam::getRefundAmount)
+                .reduce(BigDecimal.ZERO, BigDecimal::add);
+
+        walletManager.increaseBalance(payRefundParam.getWalletId(), totalRefundAmount, null);
+
+        for (PayRefundDetailParam payRefundDetailParam : payRefundDetailParams) {
+
+            WalletLog walletLog = new WalletLog()
+                    .setAmount(payRefundDetailParam.getRefundAmount())
+                    .setPaymentId(payRefundDetailParam.getPaymentId())
+                    .setWalletId(wallet.getId())
+                    .setUserId(wallet.getUserId())
+                    .setType(WalletCode.WALLET_LOG_REFUND)
+                    .setRemark(String.format("钱包退款金额 %.2f ", payRefundDetailParam.getRefundAmount()))
+                    .setOperationSource(WalletCode.OPERATION_SOURCE_ADMIN)
+                    .setBusinessId(String.valueOf(payRefundDetailParam.getOrderId()));
+            // save log
+            walletLogRepository.save(walletLog);
+        }
     }
 
     /**

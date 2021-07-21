@@ -4,6 +4,7 @@ import cn.bootx.common.web.rest.param.PageParam;
 import cn.bootx.paymentcenter.code.pay.PayStatusCode;
 import cn.bootx.paymentcenter.core.payment.entity.Payment;
 import cn.bootx.paymentcenter.core.payment.entity.QPayment;
+import cn.bootx.paymentcenter.param.payment.PaymentQuery;
 import cn.bootx.starter.headerholder.HeaderHolder;
 import cn.bootx.starter.jpa.utils.JpaUtils;
 import com.querydsl.jpa.impl.JPAQuery;
@@ -90,9 +91,10 @@ public class PaymentManager {
         return paymentRepository.findByUserIdAndTid(userId,headerHolder.findTid());
     }
 
-    public Page<Payment> page(PageParam pageParam) {
+    public Page<Payment> page(PageParam pageParam, PaymentQuery param) {
         QPayment q = QPayment.payment;
         JPAQuery<Payment> query = jpaQueryFactory.selectFrom(q);
+
         return JpaUtils.queryPage(query,pageParam);
     }
 }

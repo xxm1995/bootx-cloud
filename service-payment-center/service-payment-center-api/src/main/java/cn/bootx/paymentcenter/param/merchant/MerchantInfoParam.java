@@ -19,6 +19,8 @@ public class MerchantInfoParam implements Serializable {
     private Long id;
     /** 商户名称 */
     private String merchantName;
+    /** 商户号 */
+    private String merchantNo;
     /** 联系人姓名 */
     private String contactName;
     /** 手机号 */

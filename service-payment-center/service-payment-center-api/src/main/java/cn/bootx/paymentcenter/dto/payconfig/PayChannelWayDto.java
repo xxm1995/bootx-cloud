@@ -1,16 +1,22 @@
 package cn.bootx.paymentcenter.dto.payconfig;
 
+import cn.bootx.common.web.rest.dto.BaseDto;
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 import lombok.experimental.Accessors;
+
+import java.io.Serializable;
 
 /**
 * 支付通道支持的支付方式
 * @author xxm  
 * @date 2021/6/30 
 */
+@EqualsAndHashCode(callSuper = true)
 @Data
 @Accessors(chain = true)
-public class PayChannelWayDto {
+public class PayChannelWayDto extends BaseDto implements Serializable {
+    private static final long serialVersionUID = 4579797594767439540L;
     /** 支付方式代码 */
     private String code;
 

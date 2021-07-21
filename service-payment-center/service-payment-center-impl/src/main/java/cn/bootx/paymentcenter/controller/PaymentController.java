@@ -7,6 +7,7 @@ import cn.bootx.common.web.rest.param.PageParam;
 import cn.bootx.paymentcenter.core.payment.service.PaymentQueryService;
 import cn.bootx.paymentcenter.dto.pay.PayTypeInfo;
 import cn.bootx.paymentcenter.dto.payment.PaymentDto;
+import cn.bootx.paymentcenter.param.payment.PaymentQuery;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import lombok.RequiredArgsConstructor;
@@ -17,9 +18,9 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.List;
 
 /**
-* @author xxm
-* @date 2021/6/28
-*/
+ * @author xxm
+ * @date 2021/6/28
+ */
 @Api(tags = "交易单")
 @RestController
 @RequestMapping("/payment")
@@ -41,8 +42,8 @@ public class PaymentController {
 
     @ApiOperation("分页查询")
     @GetMapping("/page")
-    public ResResult<PageResult<PaymentDto>> page(PageParam pageParam){
-        return Res.ok(paymentQueryService.page(pageParam));
+    public ResResult<PageResult<PaymentDto>> page(PageParam pageParam, PaymentQuery param){
+        return Res.ok(paymentQueryService.page(pageParam,param));
     }
 
     @ApiOperation("根据businessId获取列表")

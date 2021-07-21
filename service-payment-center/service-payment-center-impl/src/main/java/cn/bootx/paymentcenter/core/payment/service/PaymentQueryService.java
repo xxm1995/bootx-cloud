@@ -6,6 +6,7 @@ import cn.bootx.paymentcenter.core.payment.dao.PaymentManager;
 import cn.bootx.paymentcenter.core.payment.entity.Payment;
 import cn.bootx.paymentcenter.dto.pay.PayTypeInfo;
 import cn.bootx.paymentcenter.dto.payment.PaymentDto;
+import cn.bootx.paymentcenter.param.payment.PaymentQuery;
 import cn.bootx.starter.jpa.utils.JpaUtils;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -76,7 +77,7 @@ public class PaymentQueryService {
     /**
      * 分页
      */
-    public PageResult<PaymentDto> page(PageParam pageParam){
-        return JpaUtils.convert2PageResult(paymentManager.page(pageParam));
+    public PageResult<PaymentDto> page(PageParam pageParam, PaymentQuery param){
+        return JpaUtils.convert2PageResult(paymentManager.page(pageParam,param));
     }
 }

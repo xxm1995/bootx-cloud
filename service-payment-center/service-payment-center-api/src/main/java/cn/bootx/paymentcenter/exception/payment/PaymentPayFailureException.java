@@ -11,6 +11,6 @@ import cn.bootx.paymentcenter.code.PaymentCenterErrorCode;
 public class PaymentPayFailureException extends BizException {
 
     public PaymentPayFailureException() {
-        super(PaymentCenterErrorCode.PAY_FAILURE, "支付失败");
+        super(PaymentCenterErrorCode.PAYMENT_PAY_FAILURE, "支付失败");
     }
 }

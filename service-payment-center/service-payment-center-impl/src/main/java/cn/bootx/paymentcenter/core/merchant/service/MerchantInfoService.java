@@ -1,11 +1,14 @@
 package cn.bootx.paymentcenter.core.merchant.service;
 
+import cn.bootx.common.web.rest.PageResult;
+import cn.bootx.common.web.rest.param.PageParam;
 import cn.bootx.common.web.util.ResultConvertUtils;
 import cn.bootx.paymentcenter.core.merchant.dao.MerchantInfoManager;
 import cn.bootx.paymentcenter.core.merchant.dao.MerchantInfoRepository;
 import cn.bootx.paymentcenter.core.merchant.entity.MerchantInfo;
 import cn.bootx.paymentcenter.dto.merchant.MerchantInfoDto;
 import cn.bootx.paymentcenter.param.merchant.MerchantInfoParam;
+import cn.bootx.starter.jpa.utils.JpaUtils;
 import cn.bootx.starter.snowflake.SnowFlakeId;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -49,10 +52,17 @@ public class MerchantInfoService {
     }
 
     /**
-     * 查询商户
+     * 列表查询
      */
     public List<MerchantInfoDto> findAll(){
         return ResultConvertUtils.dtoListConvert(merchantInfoManager.findAll());
+    }
+
+    /**
+     * 分页
+     */
+    public PageResult<MerchantInfoDto> page(PageParam pageParam,MerchantInfoParam param){
+        return JpaUtils.convert2PageResult(merchantInfoManager.page(pageParam,param));
     }
 
     /**

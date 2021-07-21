@@ -1,6 +1,8 @@
 package cn.bootx.paymentcenter.core.merchant.service;
 
 import cn.bootx.common.web.exception.BizException;
+import cn.bootx.common.web.rest.PageResult;
+import cn.bootx.common.web.rest.param.PageParam;
 import cn.bootx.common.web.util.ResultConvertUtils;
 import cn.bootx.paymentcenter.core.merchant.dao.AppChannelManager;
 import cn.bootx.paymentcenter.core.merchant.dao.MerchantAppManager;
@@ -14,6 +16,7 @@ import cn.bootx.paymentcenter.core.payconfig.entity.PayChannel;
 import cn.bootx.paymentcenter.dto.merchant.MerchantAppDto;
 import cn.bootx.paymentcenter.dto.payconfig.PayChannelDto;
 import cn.bootx.paymentcenter.param.merchant.MerchantAppParam;
+import cn.bootx.starter.jpa.utils.JpaUtils;
 import cn.bootx.starter.snowflake.SnowFlakeId;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -58,6 +61,10 @@ public class MerchantAppService {
      */
     public List<MerchantAppDto> findByMerchantId(Long merchantId){
         return ResultConvertUtils.dtoListConvert(merchantAppManager.findByMerchantId(merchantId));
+    }
+
+    public PageResult<MerchantAppDto> page(PageParam pageParam, MerchantAppParam param){
+        return JpaUtils.convert2PageResult(merchantAppManager.page(pageParam,param));
     }
 
     /**

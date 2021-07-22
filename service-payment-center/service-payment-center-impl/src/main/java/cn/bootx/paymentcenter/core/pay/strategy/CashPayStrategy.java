@@ -63,7 +63,7 @@ public class CashPayStrategy extends AbsPayStrategy {
     }
 
     /**
-     * 关闭本地交易单
+     * 关闭本地支付记录
      */
     @Override
     public void doCloseHandler() {

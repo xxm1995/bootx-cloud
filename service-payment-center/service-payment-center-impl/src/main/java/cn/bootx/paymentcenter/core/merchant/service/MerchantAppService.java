@@ -49,9 +49,10 @@ public class MerchantAppService {
     public MerchantAppDto add(MerchantAppParam param){
         MerchantApp merchantApp = MerchantApp.init(param);
         // 获取商户
-        MerchantInfo merchantInfo = merchantInfoManager.findById(param.getMerchantId())
+        MerchantInfo merchantInfo = merchantInfoManager.findByMerchantNo(param.getMerchantNo())
                 .orElseThrow(() -> new BizException("商户不存在"));
         merchantApp.setMerchantNo(merchantInfo.getMerchantNo())
+                .setMerchantId(merchantInfo.getId())
                 .setAppId(snowFlakeId.nextIdStr());
         return merchantAppRepository.save(merchantApp).toDto();
     }
@@ -63,6 +64,9 @@ public class MerchantAppService {
         return ResultConvertUtils.dtoListConvert(merchantAppManager.findByMerchantId(merchantId));
     }
 
+    /**
+     * 分页
+     */
     public PageResult<MerchantAppDto> page(PageParam pageParam, MerchantAppParam param){
         return JpaUtils.convert2PageResult(merchantAppManager.page(pageParam,param));
     }

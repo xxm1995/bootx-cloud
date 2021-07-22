@@ -1,9 +1,17 @@
 package cn.bootx.paymentcenter.core.paymodel.alipay.dao;
 
+import cn.bootx.common.web.rest.param.PageParam;
 import cn.bootx.paymentcenter.core.paymodel.alipay.entity.AlipayConfig;
+import cn.bootx.paymentcenter.core.paymodel.alipay.entity.QAlipayConfig;
+import cn.bootx.paymentcenter.param.paymodel.alipay.AlipayConfigQuery;
 import cn.bootx.starter.headerholder.HeaderHolder;
+import cn.bootx.starter.jpa.utils.JpaUtils;
+import cn.hutool.core.util.StrUtil;
+import com.querydsl.jpa.impl.JPAQuery;
+import com.querydsl.jpa.impl.JPAQueryFactory;
 import lombok.RequiredArgsConstructor;
 import org.springframework.cache.annotation.Cacheable;
+import org.springframework.data.domain.Page;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
@@ -18,6 +26,7 @@ import java.util.Optional;
 @RequiredArgsConstructor
 public class AlipayConfigManager {
     private final AlipayConfigRepository repository;
+    private final JPAQueryFactory jpaQueryFactory;
     private final HeaderHolder headerHolder;
 
     public Optional<AlipayConfig> findById(Long id){
@@ -32,12 +41,22 @@ public class AlipayConfigManager {
         return repository.findByAppIdAndTid(appId,headerHolder.findTid());
     }
 
-    /**
-     * 根据支付宝AppId获取支付宝支付配置
-     */
-    @Cacheable(value = "pc:alipay:config:ali",key = "#aliAppId")
-    public Optional<AlipayConfig> findByAliAppIdAndTid(String aliAppId){
-        return repository.findByAliAppIdAndTid(aliAppId,headerHolder.findTid());
+    public Page<AlipayConfig> page(PageParam pageParam, AlipayConfigQuery param) {
+        QAlipayConfig q = QAlipayConfig.alipayConfig;
+        JPAQuery<AlipayConfig> query = jpaQueryFactory.selectFrom(q);
+
+        if (StrUtil.isNotBlank(param.getMerchantNo())){
+            query.where(q.merchantNo.like("%"+param.getMerchantNo()+"%"));
+        }
+        if (StrUtil.isNotBlank(param.getAppId())){
+            query.where(q.appId.like("%"+param.getAppId()+"%"));
+        }
+        if (StrUtil.isNotBlank(param.getName())){
+            query.where(q.name.like("%"+param.getName()+"%"));
+        }
+
+        query.where(q.tid.eq(headerHolder.findTid()));
+        return JpaUtils.queryPage(query,pageParam);
     }
 
     /**
@@ -54,4 +73,5 @@ public class AlipayConfigManager {
     public void deleteByAppId(String appId) {
         repository.deleteByAppIdAndTid(appId,headerHolder.findTid());
     }
+
 }

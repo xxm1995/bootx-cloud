@@ -58,6 +58,7 @@ public class PayChannelManager {
         if (StrUtil.isNotBlank(param.getName())){
             query.where(q.name.like("%"+param.getName()+"%"));
         }
+        query.where(q.tid.eq(headerHolder.findTid()));
 
         return JpaUtils.queryPage(query,pageParam);
     }

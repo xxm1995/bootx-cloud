@@ -27,7 +27,7 @@ import java.util.Map;
 @RestController
 @RequestMapping("/callback")
 @AllArgsConstructor
-public class CallbackPayController {
+public class PayCallbackController {
     private final AliPayCallbackService aliPayCallbackService;
     private final WeChatPayCallbackService weChatPayCallbackService;
 

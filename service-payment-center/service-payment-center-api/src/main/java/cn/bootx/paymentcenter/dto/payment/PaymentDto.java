@@ -21,7 +21,7 @@ import java.time.LocalDateTime;
 @EqualsAndHashCode(callSuper = true)
 @Data
 @Accessors(chain = true)
-@ApiModel("支付交易单")
+@ApiModel("支付记录")
 public class PaymentDto extends BaseDto implements Serializable {
 
     private static final long serialVersionUID = 3269223993950227228L;

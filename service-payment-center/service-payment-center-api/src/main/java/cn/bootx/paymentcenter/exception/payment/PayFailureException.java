@@ -8,9 +8,9 @@ import cn.bootx.paymentcenter.code.PaymentCenterErrorCode;
 * @author xxm
 * @date 2020/12/8
 */
-public class PaymentPayFailureException extends BizException {
+public class PayFailureException extends BizException {
 
-    public PaymentPayFailureException() {
-        super(PaymentCenterErrorCode.PAYMENT_PAY_FAILURE, "支付失败");
+    public PayFailureException() {
+        super(PaymentCenterErrorCode.PAY_FAILURE, "支付失败");
     }
 }

@@ -23,11 +23,8 @@ public class AlipayConfigDto extends BaseDto implements Serializable {
     /** 名称 */
     private String name;
 
-    /** 状态 */
-    private Integer state;
-
-    /** 备注 */
-    private String remark;
+    /** 商户号 */
+    private String merchantNo;
 
     /** 系统商户appId */
     private String appId;
@@ -42,7 +39,7 @@ public class AlipayConfigDto extends BaseDto implements Serializable {
     private String returnUrl;
 
     /** 请求网关地址 */
-    private String url;
+    private String serverUrl;
 
     /** 支付宝公钥 */
     public String alipayPublicKey;
@@ -57,11 +54,14 @@ public class AlipayConfigDto extends BaseDto implements Serializable {
     private String expireTime;
 
     /** 可用支付方式 */
-    private String payTypes;
-
-    /** 可用支付方式 */
     private List<String> payTypeList;
 
     /** 是否沙箱环境 */
     private boolean sandbox;
+
+    /** 状态 */
+    private Integer state;
+
+    /** 备注 */
+    private String remark;
 }

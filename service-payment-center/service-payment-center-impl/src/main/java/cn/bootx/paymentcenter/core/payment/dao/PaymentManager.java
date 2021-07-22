@@ -94,6 +94,7 @@ public class PaymentManager {
     public Page<Payment> page(PageParam pageParam, PaymentQuery param) {
         QPayment q = QPayment.payment;
         JPAQuery<Payment> query = jpaQueryFactory.selectFrom(q);
+        query.where(q.tid.eq(headerHolder.findTid()));
 
         return JpaUtils.queryPage(query,pageParam);
     }

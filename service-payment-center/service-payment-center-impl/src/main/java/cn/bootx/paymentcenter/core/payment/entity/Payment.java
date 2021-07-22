@@ -21,7 +21,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
-* 支付交易单
+* 支付记录
 * @author xxm
 * @date 2020/12/8
 */

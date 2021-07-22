@@ -73,6 +73,7 @@ public class MerchantAppManager {
         if (StrUtil.isNotBlank(param.getAppName())){
             query.where(q.appName.like("%"+param.getAppName()+"%"));
         }
+        query.where(q.tid.eq(headerHolder.findTid()));
 
         return JpaUtils.queryPage(query,pageParam);
     }

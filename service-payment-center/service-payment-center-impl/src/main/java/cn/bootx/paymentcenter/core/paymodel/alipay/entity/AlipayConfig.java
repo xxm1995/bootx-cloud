@@ -3,6 +3,7 @@ package cn.bootx.paymentcenter.core.paymodel.alipay.entity;
 import cn.bootx.common.function.EntityBaseFunction;
 import cn.bootx.paymentcenter.core.paymodel.alipay.convert.AlipayConvert;
 import cn.bootx.paymentcenter.dto.paymodel.alipay.AlipayConfigDto;
+import cn.bootx.paymentcenter.param.paymodel.alipay.AlipayConfigParam;
 import cn.bootx.starter.jpa.base.JpaBaseEntity;
 import cn.hutool.core.collection.CollUtil;
 import cn.hutool.core.util.StrUtil;
@@ -30,6 +31,9 @@ public class AlipayConfig extends JpaBaseEntity implements EntityBaseFunction<Al
 
     /** 备注 */
     private String remark;
+
+    /** 系统商户号 */
+    private String merchantNo;
 
     /** 系统商户appId */
     private String appId;
@@ -75,10 +79,17 @@ public class AlipayConfig extends JpaBaseEntity implements EntityBaseFunction<Al
         return convert;
     }
 
-    public static AlipayConfig init(AlipayConfigDto dto){
-        AlipayConfig convert = AlipayConvert.CONVERT.convert(dto);
-        if (CollUtil.isNotEmpty(dto.getPayTypeList())){
-            convert.setPayTypes(String.join(",", dto.getPayTypeList()));
+    public static AlipayConfig init(AlipayConfigDto in){
+        AlipayConfig convert = AlipayConvert.CONVERT.convert(in);
+        if (CollUtil.isNotEmpty(in.getPayTypeList())){
+            convert.setPayTypes(String.join(",", in.getPayTypeList()));
+        }
+        return convert;
+    }
+    public static AlipayConfig init(AlipayConfigParam in){
+        AlipayConfig convert = AlipayConvert.CONVERT.convert(in);
+        if (CollUtil.isNotEmpty(in.getPayTypeList())){
+            convert.setPayTypes(String.join(",", in.getPayTypeList()));
         }
         return convert;
     }

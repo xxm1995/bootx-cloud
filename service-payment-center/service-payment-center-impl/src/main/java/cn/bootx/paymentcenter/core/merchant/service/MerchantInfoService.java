@@ -34,6 +34,7 @@ public class MerchantInfoService {
      * 添加商户
      */
     public MerchantInfoDto add(MerchantInfoParam param){
+
         MerchantInfo merchantInfo = MerchantInfo.init(param);
         // 商户号
         merchantInfo.setMerchantNo("M"+snowflakeId.nextId());

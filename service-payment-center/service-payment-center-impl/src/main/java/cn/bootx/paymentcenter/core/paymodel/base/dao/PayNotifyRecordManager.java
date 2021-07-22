@@ -29,8 +29,10 @@ public class PayNotifyRecordManager {
 
     public Page<PayNotifyRecord> page(PageParam pageParam){
         QPayNotifyRecord q = QPayNotifyRecord.payNotifyRecord;
-        JPAQuery<PayNotifyRecord> query = jpaQueryFactory.selectFrom(q)
-                .where(q.tid.eq(headerHolder.findTid()));
+        JPAQuery<PayNotifyRecord> query = jpaQueryFactory.selectFrom(q);
+
+
+        query.where(q.tid.eq(headerHolder.findTid()));
         return JpaUtils.queryPage(query,pageParam);
     }
 

@@ -131,12 +131,12 @@ public class WeChatPayStrategy extends AbsPayStrategy {
                         .orElseThrow(() -> new BizException("支付配置不存在")));
         WeChatPayConfigService.initPayConfig(weChatPayConfig);
         weChatPayCancelService.cancelRemote(this.getPayment(),weChatPayConfig);
-        // 调用关闭本地交易单
+        // 调用关闭本地支付记录
         this.doCloseHandler();
     }
 
     /**
-     * 关闭本地交易单
+     * 关闭本地支付记录
      */
     @Override
     public void doCloseHandler() {

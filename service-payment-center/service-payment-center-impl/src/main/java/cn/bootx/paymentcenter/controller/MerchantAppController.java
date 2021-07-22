@@ -1,7 +1,9 @@
 package cn.bootx.paymentcenter.controller;
 
+import cn.bootx.common.web.rest.PageResult;
 import cn.bootx.common.web.rest.Res;
 import cn.bootx.common.web.rest.ResResult;
+import cn.bootx.common.web.rest.param.PageParam;
 import cn.bootx.paymentcenter.core.merchant.service.MerchantAppService;
 import cn.bootx.paymentcenter.dto.merchant.MerchantAppDto;
 import cn.bootx.paymentcenter.dto.payconfig.PayChannelDto;
@@ -40,6 +42,12 @@ public class MerchantAppController {
     @GetMapping("/findByMerchantId")
     public ResResult<List<MerchantAppDto>> findByMerchantId(Long merchantId){
         return Res.ok(merchantAppService.findByMerchantId(merchantId));
+    }
+
+    @ApiOperation("分页")
+    @GetMapping("/page")
+    public ResResult<PageResult<MerchantAppDto>> page(PageParam pageParam, MerchantAppParam param){
+        return Res.ok(merchantAppService.page(pageParam,param));
     }
 
     @ApiOperation("查询应用下的支付通道配置列表")

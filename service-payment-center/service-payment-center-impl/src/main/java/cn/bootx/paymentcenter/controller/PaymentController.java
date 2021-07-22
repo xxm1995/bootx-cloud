@@ -18,10 +18,10 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.List;
 
 /**
- * @author xxm
- * @date 2021/6/28
- */
-@Api(tags = "交易单")
+* @author xxm
+* @date 2021/6/28
+*/
+@Api(tags = "支付记录")
 @RestController
 @RequestMapping("/payment")
 @RequiredArgsConstructor

@@ -49,7 +49,7 @@ public class WalletPayService {
     /**
      * 支付操作
      * @param amount         付款金额
-     * @param payment        交易
+     * @param payment        支付记录
      * @param userId         用户Id
      */
     public void pay(BigDecimal amount, Payment payment, Long userId) {
@@ -82,7 +82,7 @@ public class WalletPayService {
     @Transactional(rollbackFor = Exception.class)
     public void deductedBalanceByPaymentId(Long paymentId, Long orderId, String remark, Boolean isThrowError) {
 
-        // 根据交易ID查询交易的金额和交易的钱包ID
+        // 根据支付记录ID查询交易的金额和交易的钱包ID
         WalletLog walletLog =  walletLogManager.findFirstByPayment(paymentId).orElse(null);
         if (walletLog == null) {
             return;

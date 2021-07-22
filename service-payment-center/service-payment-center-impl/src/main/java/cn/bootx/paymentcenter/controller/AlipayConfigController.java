@@ -1,9 +1,13 @@
 package cn.bootx.paymentcenter.controller;
 
+import cn.bootx.common.web.rest.PageResult;
 import cn.bootx.common.web.rest.Res;
 import cn.bootx.common.web.rest.ResResult;
+import cn.bootx.common.web.rest.param.PageParam;
 import cn.bootx.paymentcenter.core.paymodel.alipay.service.AlipayConfigService;
 import cn.bootx.paymentcenter.dto.paymodel.alipay.AlipayConfigDto;
+import cn.bootx.paymentcenter.param.paymodel.alipay.AlipayConfigParam;
+import cn.bootx.paymentcenter.param.paymodel.alipay.AlipayConfigQuery;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import lombok.AllArgsConstructor;
@@ -22,13 +26,13 @@ public class AlipayConfigController {
 
     @ApiOperation("添加")
     @PostMapping("/add")
-    public ResResult<AlipayConfigDto> add(@RequestBody AlipayConfigDto param){
+    public ResResult<AlipayConfigDto> add(@RequestBody AlipayConfigParam param){
         return Res.ok(alipayConfigService.add(param));
     }
 
     @ApiOperation("更新")
     @PostMapping("/update")
-    public ResResult<AlipayConfigDto> update(@RequestBody AlipayConfigDto param){
+    public ResResult<AlipayConfigDto> update(@RequestBody AlipayConfigParam param){
         return Res.ok(alipayConfigService.update(param));
     }
 
@@ -43,6 +47,12 @@ public class AlipayConfigController {
     @GetMapping("/findByAppId")
     public ResResult<AlipayConfigDto> findByAppId(String appId){
         return Res.ok(alipayConfigService.findByAppId(appId));
+    }
+
+    @ApiOperation("分页")
+    @GetMapping("/page")
+    public ResResult<PageResult<AlipayConfigDto>> page(PageParam pageParam, AlipayConfigQuery param){
+        return Res.ok(alipayConfigService.page(pageParam,param));
     }
 
     @ApiOperation("根据Id查询")

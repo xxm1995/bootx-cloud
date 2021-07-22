@@ -14,7 +14,7 @@ import java.io.Serializable;
 */
 @Data
 @Accessors(chain = true)
-@ApiModel("支付交易单")
+@ApiModel("支付记录")
 public class PaymentParam implements Serializable {
     private static final long serialVersionUID = 1082022943904710448L;
 

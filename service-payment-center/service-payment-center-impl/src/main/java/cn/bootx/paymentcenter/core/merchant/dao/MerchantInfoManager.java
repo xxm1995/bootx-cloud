@@ -62,6 +62,7 @@ public class MerchantInfoManager {
         if (StrUtil.isNotBlank(param.getMerchantName())){
             query.where(q.merchantName.like("%"+param.getMerchantName()+"%"));
         }
+        query.where(q.tid.eq(headerHolder.findTid()));
 
         return JpaUtils.queryPage(query,pageParam);
     }

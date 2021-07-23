@@ -106,11 +106,4 @@ public class InventoryManager {
         }
         log.info("库存操作，skuId:"+ skuId + ",扣减库存总数和sold正常扣除，count:" + amount);
     }
-
-    /**
-     * 查询打包品的指定SKU关联的所有被打包商品的SKU 可用库存最小值
-     */
-    public Integer getMinAvailable4Packing(Long skuId) {
-        return repository.getMinAvailable4Packing(skuId,headerHolder.findTid());
-    }
 }

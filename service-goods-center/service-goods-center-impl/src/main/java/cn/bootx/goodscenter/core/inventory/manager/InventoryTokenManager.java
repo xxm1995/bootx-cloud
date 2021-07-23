@@ -7,7 +7,10 @@ import cn.hutool.core.collection.CollUtil;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Map;
+import java.util.Set;
 
 /**
  * 库存操作 Token 管理器

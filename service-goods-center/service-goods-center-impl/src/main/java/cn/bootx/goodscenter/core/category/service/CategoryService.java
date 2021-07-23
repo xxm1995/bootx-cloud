@@ -31,7 +31,6 @@ public class CategoryService {
     private final CategoryRepository categoryRepository;
     private final CategoryManager categoryManager;
 
-
     /**
      * 添加新类目
      */

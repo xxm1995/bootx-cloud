@@ -20,7 +20,6 @@ public class GoodsCenterTransform {
         BeanUtils.copyProperties(goodsSku,item);
         item.setNum(1)
                 .setSelected(true)
-                .setShopId(goodsSku.getShopId())
                 .setGoodsPrice(goodsSku.getPrice())
                 .setGoodsTitle(goodsSku.getName())
                 .setAddTime(LocalDateTime.now())

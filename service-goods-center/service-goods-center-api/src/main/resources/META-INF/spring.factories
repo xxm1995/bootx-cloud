@@ -1,7 +1,5 @@
 # 自动注册 feign 的 client 实现
 org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
-  cn.bootx.goodscenter.client.feign.CategoryAttrDefClientFeignImpl,\
-  cn.bootx.goodscenter.client.feign.CategoryClientFeignImpl,\
-  cn.bootx.goodscenter.client.feign.GoodsClientFeignImpl,\
   cn.bootx.goodscenter.client.feign.GoodsSkuClientFeignImpl,\
+  cn.bootx.goodscenter.client.feign.GoodsClientFeignImpl,\
   cn.bootx.goodscenter.client.feign.InventoryClientFeignImpl

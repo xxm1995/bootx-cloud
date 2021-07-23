@@ -1,21 +1,21 @@
 package cn.bootx.goodscenter.param.goods;
 
-import cn.bootx.goodscenter.dto.goods.GoodsAttrDto;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
 import lombok.experimental.Accessors;
 
-import java.util.List;
+import java.io.Serializable;
 
 /**
 * @author xxm
-* @date 2021/2/21
+* @date 2021/2/2
 */
 @Data
 @Accessors(chain = true)
-@ApiModel("商品更新参数")
-public class UpdateGoodsParam {
+@ApiModel("商品创建参数")
+public class GoodsParam implements Serializable {
+    private static final long serialVersionUID = -8666559882709167480L;
 
     @ApiModelProperty("主键")
     private Long id;
@@ -26,20 +26,11 @@ public class UpdateGoodsParam {
     @ApiModelProperty(value = "所属类目名称（前端展示使用）")
     private String cname;
 
-    @ApiModelProperty(value = "外部编码", required = true)
-    private String code;
-
     @ApiModelProperty(value = "商品名称", required = true)
     private String name;
 
     @ApiModelProperty(value = "商品描述")
     private String description;
-
-    @ApiModelProperty(value = "是否打包品")
-    private boolean packing;
-
-    @ApiModelProperty("商品属性列表")
-    private List<GoodsAttrDto> attrList;
 
     @ApiModelProperty("附加信息")
     private String addition;

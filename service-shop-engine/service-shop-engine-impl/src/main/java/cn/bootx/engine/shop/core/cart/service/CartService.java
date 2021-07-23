@@ -57,7 +57,7 @@ public class CartService {
         ShopCartItem shopCartItem = map.get(skuId);
         if (Objects.isNull(shopCartItem)){
             // 检查
-            GoodsSkuDto goodsSku = goodsSkuClient.getById(skuId);
+            GoodsSkuDto goodsSku = goodsSkuClient.findById(skuId);
             cartCheckService.joinCheck(goodsSku,shopCart);
             ShopCartItem item = goodsCenterTransform.transform(goodsSku);
 
@@ -107,7 +107,7 @@ public class CartService {
             throw new BizException("该规格已经存在");
         }
         // 检查
-        GoodsSkuDto goodsSku = goodsSkuClient.getById(newSkuId);
+        GoodsSkuDto goodsSku = goodsSkuClient.findById(newSkuId);
         cartCheckService.joinCheck(goodsSku,shopCart);
 
         ShopCartItem newItem = goodsCenterTransform.transform(goodsSku);

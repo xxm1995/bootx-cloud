@@ -14,15 +14,6 @@ import org.springframework.data.repository.query.Param;
 public interface InventoryRepository extends JpaRepository<GoodsSku, Long> {
 
     /**
-     * 查询打包品的指定SKU关联的所有被打包商品的SKU 可用库存最小值
-     */
-    @Query("SELECT min(sku.available) FROM GoodsSku sku" +
-            " WHERE sku.id IN (" +
-            "  SELECT p.packedSkuId FROM GoodsSkuPack p WHERE p.goodsSkuId = :skuId AND p.tid = :tid" +
-            ")")
-    Integer getMinAvailable4Packing(@Param("skuId") Long skuId,@Param("tid")Long tid);
-
-    /**
      * 锁定库存
      */
     @Modifying

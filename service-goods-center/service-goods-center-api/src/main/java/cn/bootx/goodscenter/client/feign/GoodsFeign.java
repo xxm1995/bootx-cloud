@@ -3,9 +3,7 @@ package cn.bootx.goodscenter.client.feign;
 import cn.bootx.common.web.rest.ResResult;
 import cn.bootx.goodscenter.code.GoodsCenterCode;
 import cn.bootx.goodscenter.dto.goods.GoodsDto;
-import cn.bootx.goodscenter.dto.sku.GoodsSkuDto;
-import cn.bootx.goodscenter.param.goods.CreateGoodsAndSkuParam;
-import cn.bootx.goodscenter.param.sku.CreateSkuParam;
+import cn.bootx.goodscenter.param.goods.GoodsParam;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -23,17 +21,9 @@ import java.util.List;
 @FeignClient(name = GoodsCenterCode.APPLICATION_NAME,contextId = "goodsFeign",path = "/goods")
 public interface GoodsFeign {
 
-    @ApiOperation("添加单品")
-    @PostMapping("/addSingle")
-    ResResult<GoodsSkuDto> addSingle(@RequestBody CreateSkuParam param);
-
     @ApiOperation("添加商品")
     @PostMapping("/add")
-    ResResult<GoodsDto> add(@RequestBody CreateGoodsAndSkuParam param);
-
-    @ApiOperation("添加打包商品")
-    @PostMapping("/addPackGoods")
-    ResResult<GoodsDto> addPackGoods(@RequestBody CreateGoodsAndSkuParam param);
+    ResResult<GoodsDto> add(@RequestBody GoodsParam param);
 
     @ApiOperation("查询全部")
     @GetMapping("/findAll")
@@ -46,5 +36,9 @@ public interface GoodsFeign {
     @ApiOperation("查询详情")
     @GetMapping("/getDetails")
     ResResult<GoodsDto> getDetails(@RequestParam Long id);
+
+    @ApiOperation("查询包含商品信息")
+    @GetMapping("/findById")
+    ResResult<GoodsDto> findById(@RequestParam Long id);
 
 }

@@ -22,7 +22,17 @@
 5. OA办公服务：工作流服务(开发中)、办公中心(开发中)
 
 ## 🚩特色功能演示
-### 组合支付
+
+### 简单支付演示
+> 生成聚合支付码、使用微信和支付扫码时会自动使用相对应的支付方式，支持主动扫码和被动扫码
+>
+> [简单支付演示地址](http://web.cloud.bootx.cn/?#/cashier)
+> 
+> 注: 简单支付UI设计参考过[jeepay支付演示界面](https://www.jeequan.com/demo/jeepay_cashier.html)，因为与[jeepay](https://gitee.com/jeequan/jeepay)项目许可证冲突，所以没有参考和引用代码，在此感谢[jeepay](https://gitee.com/jeequan/jeepay)项目提供的灵感和思路
+
+![简单支付](https://images.gitee.com/uploads/images/2021/0726/160007_380bb4a4_524686.png "简单支付.png")
+
+### 组合支付演示
 > 可以自由组合钱包余额、现金、支付宝或微信支付进行支付
 > 
 > [组合支付演示地址](http://web.cloud.bootx.cn/#/demo)
@@ -30,12 +40,6 @@
 > 演示页面接口对接中，先放上原型
 
 ![原型](https://images.gitee.com/uploads/images/2021/0723/174435_c28be310_524686.png "原型图.png")
-
-### 聚合扫码支付
-> 生成聚合支付码、使用微信和支付扫码时会自动使用相对应的支付方式，支持主动扫码和被动扫码
->
-> TODO 演示页面接口对接中
-
 
 ## 🥥项目体验
 

@@ -16,12 +16,6 @@
 
     <dependencies>
 
-        <!-- feign -->
-        <dependency>
-            <groupId>org.springframework.cloud</groupId>
-            <artifactId>spring-cloud-starter-openfeign</artifactId>
-        </dependency>
-
         <!-- mysql -->
         <dependency>
             <groupId>mysql</groupId>

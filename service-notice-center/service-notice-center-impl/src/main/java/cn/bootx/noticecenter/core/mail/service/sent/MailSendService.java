@@ -5,7 +5,6 @@ import cn.bootx.noticecenter.core.mail.service.MailConfigService;
 import cn.bootx.noticecenter.dto.mail.MailConfigDto;
 import cn.bootx.noticecenter.dto.mail.MailFileParam;
 import cn.bootx.noticecenter.dto.mail.MailMailParam;
-import cn.bootx.noticecenter.dto.mail.NoticeReceiverDto;
 import cn.bootx.noticecenter.exception.MailConfigNotExistException;
 import cn.hutool.core.collection.CollUtil;
 import cn.hutool.core.collection.CollectionUtil;
@@ -85,19 +84,17 @@ public class MailSendService {
                 return;
             }
             // 获取to cc bcc 中所有允许发送的receiver
-            HashSet<String> originalMailReceivers = Sets.newHashSet(mailParam.getTo());
+            HashSet<String> allReceivers = Sets.newHashSet(mailParam.getTo());
             // 密送
             if (CollUtil.isNotEmpty(mailParam.getBccList())) {
-                originalMailReceivers.addAll(mailParam.getBccList());
+                allReceivers.addAll(mailParam.getBccList());
             }
             // 抄送
             if (CollUtil.isNotEmpty(mailParam.getCcList())) {
-                originalMailReceivers.addAll(mailParam.getCcList());
+                allReceivers.addAll(mailParam.getCcList());
             }
 
             // 设置接收人
-            Set<String> allReceivers = noticeReceiverService.handleReceivers(NoticeReceiverDto.NOTICE_TYPE_EMAIL, originalMailReceivers);
-
             Set<String> receivers = Sets.intersection(allReceivers, new HashSet<>(mailParam.getTo()));
 
             if (CollectionUtil.isEmpty(receivers)) {
@@ -115,10 +112,6 @@ public class MailSendService {
             // 调用发送
             mailSender.send(ArrayUtil.toArray(mimeMessageList,MimeMessage.class));
 
-            // 判断是否记录日志
-//            if (mailParam.getWithLog() && !CollectionUtil.isEmpty(esMailDtoList)) {
-//                activeMqService.saveMailLog(esMailDtoList, mailParam.getTid());
-//            }
         } catch ( MailSendException mailSendException) {
             mailSendException.getFailedMessages().values().forEach((v) -> {
                 if (v instanceof MessagingException) {
@@ -227,11 +220,9 @@ public class MailSendService {
         } else {
             mailConfig = mailConfigService.getByCode(configCode);
         }
-
         if (mailConfig == null) {
             throw new MailConfigNotExistException();
         }
-
         return mailConfig;
     }
 }

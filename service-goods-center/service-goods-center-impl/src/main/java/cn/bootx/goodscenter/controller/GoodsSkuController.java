@@ -23,7 +23,6 @@ import java.util.List;
 public class GoodsSkuController {
     private final GoodsSkuService goodsSkuService;
 
-
     @ApiOperation("添加商品sku")
     @PostMapping("/add")
     public ResResult<GoodsSkuDto> add(@RequestBody SkuParam skuParam){

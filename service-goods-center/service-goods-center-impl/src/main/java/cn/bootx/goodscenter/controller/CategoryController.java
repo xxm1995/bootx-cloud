@@ -9,7 +9,6 @@ import cn.bootx.goodscenter.dto.category.CategoryDto;
 import cn.bootx.goodscenter.dto.category.CategoryTreeNode;
 import io.swagger.annotations.*;
 import lombok.AllArgsConstructor;
-import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -22,7 +21,6 @@ import java.util.List;
 @RestController
 @RequestMapping("/category")
 @AllArgsConstructor
-@FeignClient
 public class CategoryController {
     private final CategoryService categoryService;
 

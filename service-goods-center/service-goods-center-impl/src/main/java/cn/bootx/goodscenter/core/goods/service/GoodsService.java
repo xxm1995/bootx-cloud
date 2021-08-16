@@ -1,6 +1,6 @@
 package cn.bootx.goodscenter.core.goods.service;
 
-import cn.bootx.common.web.util.ResultConvertUtils;
+import cn.bootx.common.core.util.ResultConvertUtils;
 import cn.bootx.goodscenter.core.goods.dao.GoodsManager;
 import cn.bootx.goodscenter.core.goods.dao.GoodsRepository;
 import cn.bootx.goodscenter.core.goods.entity.Goods;

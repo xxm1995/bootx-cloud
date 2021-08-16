@@ -1,6 +1,6 @@
 package cn.bootx.engine.shop.core.cart.service;
 
-import cn.bootx.common.web.exception.BizException;
+import cn.bootx.common.core.exception.BizException;
 import cn.bootx.engine.shop.core.cart.dao.CartManager;
 import cn.bootx.engine.shop.core.cart.entity.ItemActivity;
 import cn.bootx.engine.shop.core.cart.entity.ShopCart;

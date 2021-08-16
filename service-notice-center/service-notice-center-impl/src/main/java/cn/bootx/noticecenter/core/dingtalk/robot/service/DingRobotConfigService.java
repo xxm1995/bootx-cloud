@@ -1,7 +1,7 @@
 package cn.bootx.noticecenter.core.dingtalk.robot.service;
 
-import cn.bootx.common.web.exception.BizException;
-import cn.bootx.common.web.util.ResultConvertUtils;
+import cn.bootx.common.core.exception.BizException;
+import cn.bootx.common.core.util.ResultConvertUtils;
 import cn.bootx.noticecenter.core.dingtalk.robot.dao.DingRobotConfigManage;
 import cn.bootx.noticecenter.core.dingtalk.robot.dao.DingRobotConfigRepository;
 import cn.bootx.noticecenter.core.dingtalk.robot.entity.DingRobotConfig;

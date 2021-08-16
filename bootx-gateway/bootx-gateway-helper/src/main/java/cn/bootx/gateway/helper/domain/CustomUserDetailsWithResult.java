@@ -1,6 +1,6 @@
 package cn.bootx.gateway.helper.domain;
 
-import cn.bootx.common.web.entity.CustomUserDetails;
+import cn.bootx.common.core.entity.CustomUserDetails;
 import lombok.Data;
 import lombok.experimental.Accessors;
 

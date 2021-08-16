@@ -2,7 +2,7 @@ package cn.bootx.bsp.client.feign;
 
 import cn.bootx.bsp.code.BspCode;
 import cn.bootx.bsp.dto.dictionary.DictionaryDto;
-import cn.bootx.common.web.rest.ResResult;
+import cn.bootx.common.core.rest.ResResult;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.*;

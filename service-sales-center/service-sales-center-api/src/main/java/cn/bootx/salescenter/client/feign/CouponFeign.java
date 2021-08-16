@@ -1,6 +1,6 @@
 package cn.bootx.salescenter.client.feign;
 
-import cn.bootx.common.web.rest.ResResult;
+import cn.bootx.common.core.rest.ResResult;
 import cn.bootx.salescenter.code.SalesCenterCode;
 import cn.bootx.salescenter.dto.coupon.CouponDto;
 import cn.bootx.salescenter.param.coupon.ObtainCouponParam;

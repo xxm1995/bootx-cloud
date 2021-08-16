@@ -1,6 +1,6 @@
 package cn.bootx.paymentcenter.param.billing;
 
-import cn.bootx.common.web.rest.param.PageParam;
+import cn.bootx.common.core.rest.param.PageParam;
 import io.swagger.annotations.ApiModel;
 import lombok.Data;
 import lombok.EqualsAndHashCode;

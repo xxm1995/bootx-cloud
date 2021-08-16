@@ -1,7 +1,7 @@
 package cn.bootx.iam.core.permission.service;
 
-import cn.bootx.common.web.exception.BizException;
-import cn.bootx.common.web.util.ResultConvertUtils;
+import cn.bootx.common.core.exception.BizException;
+import cn.bootx.common.core.util.ResultConvertUtils;
 import cn.bootx.iam.code.permission.PermissionCode;
 import cn.bootx.iam.core.permission.dao.PermissionMenuManager;
 import cn.bootx.iam.core.permission.dao.PermissionMenuRepository;

@@ -1,8 +1,8 @@
 package cn.bootx.iam.controller;
 
-import cn.bootx.common.web.rest.Res;
-import cn.bootx.common.web.rest.ResResult;
-import cn.bootx.common.web.util.ValidationUtil;
+import cn.bootx.common.core.rest.Res;
+import cn.bootx.common.core.rest.ResResult;
+import cn.bootx.common.core.util.ValidationUtil;
 import cn.bootx.iam.core.login.service.LoginService;
 import cn.bootx.iam.dto.auth.AuthInfoResult;
 import cn.bootx.iam.param.login.LoginPasswordParam;

@@ -1,8 +1,8 @@
 package cn.bootx.ordercenter.client.feign;
 
-import cn.bootx.common.web.rest.PageResult;
-import cn.bootx.common.web.rest.ResResult;
-import cn.bootx.common.web.rest.param.PageParam;
+import cn.bootx.common.core.rest.PageResult;
+import cn.bootx.common.core.rest.ResResult;
+import cn.bootx.common.core.rest.param.PageParam;
 import cn.bootx.ordercenter.code.OrderCenterCode;
 import cn.bootx.ordercenter.dto.order.OrderDto;
 import cn.hutool.core.date.DatePattern;

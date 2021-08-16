@@ -1,7 +1,7 @@
 package cn.bootx.salescenter.controller;
 
-import cn.bootx.common.web.rest.Res;
-import cn.bootx.common.web.rest.ResResult;
+import cn.bootx.common.core.rest.Res;
+import cn.bootx.common.core.rest.ResResult;
 import cn.bootx.salescenter.core.coupon.service.CouponService;
 import cn.bootx.salescenter.dto.coupon.CouponDto;
 import cn.bootx.salescenter.param.coupon.ObtainCouponParam;

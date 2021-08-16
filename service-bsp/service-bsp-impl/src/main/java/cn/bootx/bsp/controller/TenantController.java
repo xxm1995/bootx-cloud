@@ -2,10 +2,10 @@ package cn.bootx.bsp.controller;
 
 import cn.bootx.bsp.core.tenant.service.TenantService;
 import cn.bootx.bsp.dto.tenant.TenantDto;
-import cn.bootx.common.web.rest.PageResult;
-import cn.bootx.common.web.rest.Res;
-import cn.bootx.common.web.rest.ResResult;
-import cn.bootx.common.web.rest.param.PageParam;
+import cn.bootx.common.core.rest.PageResult;
+import cn.bootx.common.core.rest.Res;
+import cn.bootx.common.core.rest.ResResult;
+import cn.bootx.common.core.rest.param.PageParam;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import lombok.AllArgsConstructor;

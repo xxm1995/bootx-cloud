@@ -1,7 +1,7 @@
 package cn.bootx.engine.shop.controller;
 
-import cn.bootx.common.web.rest.Res;
-import cn.bootx.common.web.rest.ResResult;
+import cn.bootx.common.core.rest.Res;
+import cn.bootx.common.core.rest.ResResult;
 import cn.bootx.engine.shop.core.address.service.UserAddressService;
 import cn.bootx.engine.shop.dto.address.UserAddressDto;
 import io.swagger.annotations.Api;

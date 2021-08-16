@@ -1,6 +1,6 @@
 package cn.bootx.salescenter.core.calculate.handler;
 
-import cn.bootx.common.web.exception.BizException;
+import cn.bootx.common.core.exception.BizException;
 import cn.bootx.salescenter.code.StrategyCode;
 import cn.bootx.salescenter.core.calculate.cache.CalculateCache;
 import cn.bootx.salescenter.core.calculate.handler.func.JavaCalculateHandler;

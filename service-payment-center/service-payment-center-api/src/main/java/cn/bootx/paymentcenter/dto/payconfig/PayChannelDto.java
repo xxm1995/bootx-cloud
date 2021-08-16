@@ -1,6 +1,6 @@
 package cn.bootx.paymentcenter.dto.payconfig;
 
-import cn.bootx.common.web.rest.dto.BaseDto;
+import cn.bootx.common.core.rest.dto.BaseDto;
 import cn.bootx.paymentcenter.code.pay.PayTypeEnum;
 import lombok.Data;
 import lombok.EqualsAndHashCode;

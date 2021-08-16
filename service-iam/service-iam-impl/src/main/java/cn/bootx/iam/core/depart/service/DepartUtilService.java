@@ -1,6 +1,6 @@
 package cn.bootx.iam.core.depart.service;
 
-import cn.bootx.common.web.exception.BizException;
+import cn.bootx.common.core.exception.BizException;
 import cn.bootx.iam.core.depart.dao.DepartManager;
 import cn.bootx.iam.core.depart.entity.Depart;
 import cn.bootx.iam.core.depart.entity.QDepart;

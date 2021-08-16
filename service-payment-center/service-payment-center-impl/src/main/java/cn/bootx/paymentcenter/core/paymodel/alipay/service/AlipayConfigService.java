@@ -1,8 +1,8 @@
 package cn.bootx.paymentcenter.core.paymodel.alipay.service;
 
-import cn.bootx.common.web.exception.BizException;
-import cn.bootx.common.web.rest.PageResult;
-import cn.bootx.common.web.rest.param.PageParam;
+import cn.bootx.common.core.exception.BizException;
+import cn.bootx.common.core.rest.PageResult;
+import cn.bootx.common.core.rest.param.PageParam;
 import cn.bootx.paymentcenter.code.pay.PayTypeEnum;
 import cn.bootx.paymentcenter.core.merchant.service.AppChannelService;
 import cn.bootx.paymentcenter.core.paymodel.alipay.dao.AlipayConfigManager;

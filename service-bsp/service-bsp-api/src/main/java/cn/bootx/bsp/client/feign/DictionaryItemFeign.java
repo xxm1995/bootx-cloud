@@ -2,9 +2,9 @@ package cn.bootx.bsp.client.feign;
 
 import cn.bootx.bsp.code.BspCode;
 import cn.bootx.bsp.dto.dictionary.DictionaryItemDto;
-import cn.bootx.common.web.rest.PageResult;
-import cn.bootx.common.web.rest.ResResult;
-import cn.bootx.common.web.rest.param.PageParam;
+import cn.bootx.common.core.rest.PageResult;
+import cn.bootx.common.core.rest.ResResult;
+import cn.bootx.common.core.rest.param.PageParam;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.GetMapping;

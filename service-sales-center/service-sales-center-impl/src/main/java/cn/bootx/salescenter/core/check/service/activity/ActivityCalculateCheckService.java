@@ -1,6 +1,6 @@
 package cn.bootx.salescenter.core.check.service.activity;
 
-import cn.bootx.common.web.exception.BizException;
+import cn.bootx.common.core.exception.BizException;
 import cn.bootx.salescenter.code.CheckRuleCode;
 import cn.bootx.salescenter.core.activity.entity.Activity;
 import cn.bootx.salescenter.core.calculate.cache.CalculateCache;

@@ -1,6 +1,6 @@
 package cn.bootx.iam.client.feign;
 
-import cn.bootx.common.web.rest.ResResult;
+import cn.bootx.common.core.rest.ResResult;
 import cn.bootx.iam.code.IamCode;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.cloud.openfeign.FeignClient;

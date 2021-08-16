@@ -1,6 +1,6 @@
 package cn.bootx.gateway.helper.api.reactive;
 
-import cn.bootx.common.web.code.WebHeaderConst;
+import cn.bootx.common.core.code.WebHeaderConst;
 import cn.bootx.gateway.helper.api.HelperChain;
 import cn.bootx.gateway.helper.context.RequestContext;
 import cn.bootx.gateway.helper.context.ResponseContext;

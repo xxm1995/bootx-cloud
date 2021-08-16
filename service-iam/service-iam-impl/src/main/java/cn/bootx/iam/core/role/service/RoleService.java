@@ -1,7 +1,7 @@
 package cn.bootx.iam.core.role.service;
 
-import cn.bootx.common.web.rest.PageResult;
-import cn.bootx.common.web.rest.param.PageParam;
+import cn.bootx.common.core.rest.PageResult;
+import cn.bootx.common.core.rest.param.PageParam;
 import cn.bootx.iam.core.role.dao.RoleManager;
 import cn.bootx.iam.core.role.dao.RoleRepository;
 import cn.bootx.iam.core.role.dao.UserRoleManager;

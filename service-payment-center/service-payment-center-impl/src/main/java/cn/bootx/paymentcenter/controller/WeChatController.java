@@ -1,7 +1,7 @@
 package cn.bootx.paymentcenter.controller;
 
-import cn.bootx.common.web.rest.Res;
-import cn.bootx.common.web.rest.ResResult;
+import cn.bootx.common.core.rest.Res;
+import cn.bootx.common.core.rest.ResResult;
 import cn.bootx.paymentcenter.core.paymodel.wechat.service.WeChatPayConfigService;
 import cn.bootx.paymentcenter.dto.paymodel.wechat.WeChatPayConfigDto;
 import io.swagger.annotations.Api;

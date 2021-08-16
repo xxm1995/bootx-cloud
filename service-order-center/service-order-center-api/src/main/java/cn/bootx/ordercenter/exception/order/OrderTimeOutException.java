@@ -1,7 +1,7 @@
 package cn.bootx.ordercenter.exception.order;
 
 
-import cn.bootx.common.web.exception.BizException;
+import cn.bootx.common.core.exception.BizException;
 
 import static cn.bootx.ordercenter.code.OrderCenterErrorCode.ORDER_TIME_OUT;
 

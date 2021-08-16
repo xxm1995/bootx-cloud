@@ -3,7 +3,7 @@ package cn.bootx.bsp.client.feign;
 import cn.bootx.bsp.code.BspCode;
 import cn.bootx.bsp.dto.channel.ChannelDto;
 import cn.bootx.bsp.param.channel.ChannelParam;
-import cn.bootx.common.web.rest.ResResult;
+import cn.bootx.common.core.rest.ResResult;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.*;
 

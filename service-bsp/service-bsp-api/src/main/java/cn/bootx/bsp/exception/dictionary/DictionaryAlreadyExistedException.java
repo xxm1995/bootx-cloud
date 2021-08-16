@@ -1,7 +1,7 @@
 package cn.bootx.bsp.exception.dictionary;
 
 
-import cn.bootx.common.web.exception.BizException;
+import cn.bootx.common.core.exception.BizException;
 
 import java.io.Serializable;
 

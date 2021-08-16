@@ -1,6 +1,6 @@
 package cn.bootx.paymentcenter.core.pay.service;
 
-import cn.bootx.common.web.exception.BizException;
+import cn.bootx.common.core.exception.BizException;
 import cn.bootx.paymentcenter.code.pay.PayStatusCode;
 import cn.bootx.paymentcenter.code.pay.PaySyncStatus;
 import cn.bootx.paymentcenter.core.pay.PayModelUtils;

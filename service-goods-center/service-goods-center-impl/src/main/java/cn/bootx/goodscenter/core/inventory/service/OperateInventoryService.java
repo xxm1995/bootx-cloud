@@ -1,6 +1,6 @@
 package cn.bootx.goodscenter.core.inventory.service;
 
-import cn.bootx.common.web.exception.BizException;
+import cn.bootx.common.core.exception.BizException;
 import cn.bootx.goodscenter.core.inventory.manager.InventoryManager;
 import cn.bootx.goodscenter.core.inventory.manager.InventoryTokenContainer;
 import cn.bootx.goodscenter.core.sku.dao.GoodsSkuManager;

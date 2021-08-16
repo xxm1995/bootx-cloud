@@ -1,6 +1,6 @@
 package cn.bootx.salescenter.core.calculate.cache;
 
-import cn.bootx.common.web.exception.BizException;
+import cn.bootx.common.core.exception.BizException;
 import cn.bootx.salescenter.core.activity.dao.ActivityManager;
 import cn.bootx.salescenter.core.activity.entity.Activity;
 import cn.bootx.salescenter.core.coupon.dao.CouponManager;

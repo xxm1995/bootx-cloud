@@ -1,7 +1,7 @@
 package cn.bootx.goodscenter.controller;
 
-import cn.bootx.common.web.rest.Res;
-import cn.bootx.common.web.rest.ResResult;
+import cn.bootx.common.core.rest.Res;
+import cn.bootx.common.core.rest.ResResult;
 import cn.bootx.goodscenter.core.goods.service.GoodsService;
 import cn.bootx.goodscenter.dto.goods.GoodsDto;
 import cn.bootx.goodscenter.param.goods.GoodsParam;

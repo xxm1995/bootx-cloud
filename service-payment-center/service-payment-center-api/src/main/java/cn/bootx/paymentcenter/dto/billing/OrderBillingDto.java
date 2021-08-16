@@ -1,6 +1,6 @@
 package cn.bootx.paymentcenter.dto.billing;
 
-import cn.bootx.common.web.rest.dto.BaseDto;
+import cn.bootx.common.core.rest.dto.BaseDto;
 import cn.bootx.paymentcenter.code.pay.PayTransactionPurposeCode;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;

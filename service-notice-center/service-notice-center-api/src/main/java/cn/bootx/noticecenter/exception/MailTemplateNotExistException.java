@@ -1,6 +1,6 @@
 package cn.bootx.noticecenter.exception;
 
-import cn.bootx.common.web.exception.FatalException;
+import cn.bootx.common.core.exception.FatalException;
 
 import static cn.bootx.noticecenter.code.ErrorCodes.MAIL_TEMPLATE_NOT_EXIST;
 

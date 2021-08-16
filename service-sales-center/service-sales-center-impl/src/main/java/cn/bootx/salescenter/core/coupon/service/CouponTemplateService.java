@@ -1,6 +1,6 @@
 package cn.bootx.salescenter.core.coupon.service;
 
-import cn.bootx.common.web.exception.BizException;
+import cn.bootx.common.core.exception.BizException;
 import cn.bootx.salescenter.code.CheckRuleCode;
 import cn.bootx.salescenter.code.StrategyRegisterCode;
 import cn.bootx.salescenter.core.check.config.dao.CheckRuleRepository;

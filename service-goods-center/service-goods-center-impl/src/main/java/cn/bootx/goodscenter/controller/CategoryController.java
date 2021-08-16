@@ -1,8 +1,8 @@
 package cn.bootx.goodscenter.controller;
 
-import cn.bootx.common.web.rest.Res;
-import cn.bootx.common.web.rest.ResResult;
-import cn.bootx.common.web.rest.param.SingleIdParam;
+import cn.bootx.common.core.rest.Res;
+import cn.bootx.common.core.rest.ResResult;
+import cn.bootx.common.core.rest.param.SingleIdParam;
 import cn.bootx.goodscenter.code.GoodsCenterErrorCode;
 import cn.bootx.goodscenter.core.category.service.CategoryService;
 import cn.bootx.goodscenter.dto.category.CategoryDto;

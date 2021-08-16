@@ -1,7 +1,7 @@
 package cn.bootx.paymentcenter.core.paymodel.wallet.service;
 
 import cn.bootx.common.util.BigDecimalUtil;
-import cn.bootx.common.web.exception.BizException;
+import cn.bootx.common.core.exception.BizException;
 import cn.bootx.paymentcenter.code.paymodel.WalletCode;
 import cn.bootx.paymentcenter.code.paymodel.WalletProtectionMode;
 import cn.bootx.paymentcenter.core.paymodel.wallet.dao.WalletLogRepository;

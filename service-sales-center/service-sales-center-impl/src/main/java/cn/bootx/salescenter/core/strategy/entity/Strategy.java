@@ -1,7 +1,7 @@
 package cn.bootx.salescenter.core.strategy.entity;
 
 import cn.bootx.common.function.EntityBaseFunction;
-import cn.bootx.common.web.code.CommonCode;
+import cn.bootx.common.core.code.CommonCode;
 import cn.bootx.salescenter.code.StrategyCode;
 import cn.bootx.salescenter.dto.strategy.StrategyDto;
 import cn.bootx.starter.jpa.base.JpaBaseEntity;

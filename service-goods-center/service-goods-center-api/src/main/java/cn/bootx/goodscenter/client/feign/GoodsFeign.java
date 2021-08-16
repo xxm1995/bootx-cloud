@@ -1,6 +1,6 @@
 package cn.bootx.goodscenter.client.feign;
 
-import cn.bootx.common.web.rest.ResResult;
+import cn.bootx.common.core.rest.ResResult;
 import cn.bootx.goodscenter.code.GoodsCenterCode;
 import cn.bootx.goodscenter.dto.goods.GoodsDto;
 import cn.bootx.goodscenter.param.goods.GoodsParam;

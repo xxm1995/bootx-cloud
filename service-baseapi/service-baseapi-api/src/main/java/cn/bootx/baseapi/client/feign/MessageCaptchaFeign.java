@@ -1,7 +1,7 @@
 package cn.bootx.baseapi.client.feign;
 
 import cn.bootx.baseapi.code.BaseApiCode;
-import cn.bootx.common.web.rest.ResResult;
+import cn.bootx.common.core.rest.ResResult;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.DeleteMapping;

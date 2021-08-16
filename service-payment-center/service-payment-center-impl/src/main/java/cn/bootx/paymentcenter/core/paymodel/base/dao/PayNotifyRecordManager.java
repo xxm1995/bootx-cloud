@@ -1,6 +1,6 @@
 package cn.bootx.paymentcenter.core.paymodel.base.dao;
 
-import cn.bootx.common.web.rest.param.PageParam;
+import cn.bootx.common.core.rest.param.PageParam;
 import cn.bootx.paymentcenter.core.paymodel.base.entity.PayNotifyRecord;
 import cn.bootx.paymentcenter.core.paymodel.base.entity.QPayNotifyRecord;
 import cn.bootx.starter.headerholder.HeaderHolder;

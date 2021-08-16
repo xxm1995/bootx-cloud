@@ -1,6 +1,6 @@
 package cn.bootx.ordercenter.core.order.dao;
 
-import cn.bootx.common.web.rest.param.PageParam;
+import cn.bootx.common.core.rest.param.PageParam;
 import cn.bootx.ordercenter.code.OrderStatusCode;
 import cn.bootx.ordercenter.core.order.entity.Order;
 import cn.bootx.ordercenter.core.order.entity.QOrder;

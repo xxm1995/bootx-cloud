@@ -1,6 +1,6 @@
 package cn.bootx.paymentcenter.core.merchant.service;
 
-import cn.bootx.common.web.exception.BizException;
+import cn.bootx.common.core.exception.BizException;
 import cn.bootx.paymentcenter.code.pay.PayTypeEnum;
 import cn.bootx.paymentcenter.core.merchant.dao.AppChannelManager;
 import cn.bootx.paymentcenter.core.merchant.dao.AppChannelRepository;

@@ -1,6 +1,6 @@
 package cn.bootx.salescenter.engine.groovy;
 
-import cn.bootx.common.web.exception.BizException;
+import cn.bootx.common.core.exception.BizException;
 import cn.bootx.salescenter.core.activity.entity.Activity;
 import cn.bootx.salescenter.core.calculate.cache.CalculateCache;
 import cn.bootx.salescenter.core.calculate.cache.OrderCache;

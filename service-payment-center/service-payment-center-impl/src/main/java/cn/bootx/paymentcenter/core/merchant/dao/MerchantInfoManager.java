@@ -1,6 +1,6 @@
 package cn.bootx.paymentcenter.core.merchant.dao;
 
-import cn.bootx.common.web.rest.param.PageParam;
+import cn.bootx.common.core.rest.param.PageParam;
 import cn.bootx.paymentcenter.core.merchant.entity.MerchantInfo;
 import cn.bootx.paymentcenter.core.merchant.entity.QMerchantInfo;
 import cn.bootx.paymentcenter.param.merchant.MerchantInfoParam;

@@ -1,6 +1,6 @@
 package cn.bootx.engine.shop.core.pay.service;
 
-import cn.bootx.common.web.exception.BizException;
+import cn.bootx.common.core.exception.BizException;
 import cn.bootx.engine.shop.core.pay.dto.AggregatePayInfo;
 import cn.bootx.engine.shop.param.sell.OrderAggregatePayParam;
 import cn.bootx.engine.shop.param.sell.OrderPayParam;

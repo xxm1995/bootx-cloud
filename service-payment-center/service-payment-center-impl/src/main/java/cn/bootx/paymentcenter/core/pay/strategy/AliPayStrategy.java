@@ -1,7 +1,7 @@
 package cn.bootx.paymentcenter.core.pay.strategy;
 
 import cn.bootx.common.util.BigDecimalUtil;
-import cn.bootx.common.web.exception.BizException;
+import cn.bootx.common.core.exception.BizException;
 import cn.bootx.paymentcenter.code.pay.PayTypeCode;
 import cn.bootx.paymentcenter.code.paymodel.AliPayCode;
 import cn.bootx.paymentcenter.core.pay.dto.PaySyncResult;

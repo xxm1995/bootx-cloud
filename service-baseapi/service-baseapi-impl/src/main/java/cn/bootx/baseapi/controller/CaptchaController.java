@@ -2,8 +2,8 @@ package cn.bootx.baseapi.controller;
 
 import cn.bootx.baseapi.core.captcha.service.CaptchaService;
 import cn.bootx.baseapi.dto.captcha.CaptchaDataResult;
-import cn.bootx.common.web.rest.Res;
-import cn.bootx.common.web.rest.ResResult;
+import cn.bootx.common.core.rest.Res;
+import cn.bootx.common.core.rest.ResResult;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import lombok.AllArgsConstructor;

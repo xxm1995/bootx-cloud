@@ -1,6 +1,6 @@
 package cn.bootx.iam.core.login.service;
 
-import cn.bootx.common.web.exception.BizException;
+import cn.bootx.common.core.exception.BizException;
 import cn.bootx.iam.core.auth.dao.AuthPasswordManager;
 import cn.bootx.iam.core.auth.entity.AuthPassword;
 import cn.bootx.iam.core.user.service.UserInfoService;

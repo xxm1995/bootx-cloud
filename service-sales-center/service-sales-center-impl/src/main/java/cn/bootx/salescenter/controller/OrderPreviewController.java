@@ -1,7 +1,7 @@
 package cn.bootx.salescenter.controller;
 
-import cn.bootx.common.web.rest.Res;
-import cn.bootx.common.web.rest.ResResult;
+import cn.bootx.common.core.rest.Res;
+import cn.bootx.common.core.rest.ResResult;
 import cn.bootx.salescenter.core.calculate.service.OrderPreviewService;
 import cn.bootx.salescenter.dto.order.OrderPreviewResult;
 import cn.bootx.salescenter.param.order.OrderCheckParam;

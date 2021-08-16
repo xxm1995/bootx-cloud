@@ -2,7 +2,7 @@ package cn.bootx.salescenter.core.check.handler.coupon;
 
 import cn.bootx.common.util.CollUtils;
 import cn.bootx.common.util.LocalDateTimeUtils;
-import cn.bootx.common.web.exception.BizException;
+import cn.bootx.common.core.exception.BizException;
 import cn.bootx.salescenter.code.CouponStatusCode;
 import cn.bootx.salescenter.core.calculate.cache.OrderCache;
 import cn.bootx.salescenter.core.calculate.cache.OrderDetailCache;

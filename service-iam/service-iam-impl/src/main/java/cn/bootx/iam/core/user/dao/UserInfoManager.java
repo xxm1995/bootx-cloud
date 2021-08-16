@@ -1,6 +1,6 @@
 package cn.bootx.iam.core.user.dao;
 
-import cn.bootx.common.web.rest.param.PageParam;
+import cn.bootx.common.core.rest.param.PageParam;
 import cn.bootx.iam.core.user.entity.QUserInfo;
 import cn.bootx.iam.core.user.entity.UserInfo;
 import cn.bootx.starter.headerholder.HeaderHolder;

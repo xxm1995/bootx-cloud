@@ -1,7 +1,7 @@
 package cn.bootx.goodscenter.core.sku.entity;
 
 import cn.bootx.common.function.EntityBaseFunction;
-import cn.bootx.common.web.code.CommonCode;
+import cn.bootx.common.core.code.CommonCode;
 import cn.bootx.goodscenter.core.sku.convert.SkuConvert;
 import cn.bootx.goodscenter.dto.sku.GoodsSkuDto;
 import cn.bootx.goodscenter.param.sku.SkuParam;

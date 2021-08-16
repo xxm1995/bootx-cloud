@@ -1,7 +1,7 @@
 package cn.bootx.ordercenter.client;
 
-import cn.bootx.common.web.rest.PageResult;
-import cn.bootx.common.web.rest.param.PageParam;
+import cn.bootx.common.core.rest.PageResult;
+import cn.bootx.common.core.rest.param.PageParam;
 import cn.bootx.ordercenter.dto.order.OrderDto;
 
 import java.time.LocalDateTime;

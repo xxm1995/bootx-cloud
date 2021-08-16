@@ -1,7 +1,7 @@
 package cn.bootx.noticecenter.core.mail.service;
 
-import cn.bootx.common.web.rest.PageResult;
-import cn.bootx.common.web.rest.param.PageParam;
+import cn.bootx.common.core.rest.PageResult;
+import cn.bootx.common.core.rest.param.PageParam;
 import cn.bootx.noticecenter.core.mail.dao.MailTemplateManager;
 import cn.bootx.noticecenter.core.mail.dao.MailTemplateRepository;
 import cn.bootx.noticecenter.core.mail.entity.MailTemplate;

@@ -1,7 +1,7 @@
 package cn.bootx.iam.exception.login;
 
 
-import cn.bootx.common.web.exception.BizException;
+import cn.bootx.common.core.exception.BizException;
 
 import java.io.Serializable;
 

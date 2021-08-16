@@ -1,7 +1,7 @@
 package cn.bootx.iam.core.session.service;
 
 
-import cn.bootx.common.web.exception.ValidationFailedException;
+import cn.bootx.common.core.exception.ValidationFailedException;
 import cn.bootx.iam.configuration.PropertyValueProperties;
 import cn.bootx.iam.core.session.TokenGenerator;
 import cn.bootx.iam.core.session.domain.LoginInfoBo;

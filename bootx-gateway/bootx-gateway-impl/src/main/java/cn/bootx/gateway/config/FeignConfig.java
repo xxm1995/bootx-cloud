@@ -1,7 +1,7 @@
 package cn.bootx.gateway.config;
 
 import cn.bootx.bsp.client.feign.BspFeign;
-import cn.bootx.common.web.code.WebHeaderConst;
+import cn.bootx.common.core.code.WebHeaderConst;
 import cn.bootx.iam.client.feign.IamFeign;
 import cn.bootx.starter.headerholder.local.HolderContextHolder;
 import feign.RequestInterceptor;

@@ -1,6 +1,6 @@
 package cn.bootx.engine.shop.core.footmark.service;
 
-import cn.bootx.common.web.util.ResultConvertUtils;
+import cn.bootx.common.core.util.ResultConvertUtils;
 import cn.bootx.engine.shop.core.footmark.dao.FootMarkManager;
 import cn.bootx.engine.shop.dto.footmark.FootMarkDto;
 import lombok.RequiredArgsConstructor;

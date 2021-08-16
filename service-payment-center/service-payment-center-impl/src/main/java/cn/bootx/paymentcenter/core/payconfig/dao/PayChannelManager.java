@@ -1,6 +1,6 @@
 package cn.bootx.paymentcenter.core.payconfig.dao;
 
-import cn.bootx.common.web.rest.param.PageParam;
+import cn.bootx.common.core.rest.param.PageParam;
 import cn.bootx.paymentcenter.core.payconfig.entity.PayChannel;
 import cn.bootx.paymentcenter.core.payconfig.entity.QPayChannel;
 import cn.bootx.paymentcenter.param.payconfig.PayChannelParam;

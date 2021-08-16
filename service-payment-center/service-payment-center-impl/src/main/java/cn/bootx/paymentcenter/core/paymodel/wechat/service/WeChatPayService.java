@@ -1,6 +1,6 @@
 package cn.bootx.paymentcenter.core.paymodel.wechat.service;
 
-import cn.bootx.common.web.exception.BizException;
+import cn.bootx.common.core.exception.BizException;
 import cn.bootx.paymentcenter.code.paymodel.WeChatPayCode;
 import cn.bootx.paymentcenter.code.paymodel.WeChatPayTypeEnum;
 import cn.bootx.paymentcenter.core.pay.local.SyncPayInfoLocal;

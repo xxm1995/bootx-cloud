@@ -2,7 +2,7 @@ package cn.bootx.bsp.core.dictionary.dao;
 
 import cn.bootx.bsp.core.dictionary.entity.DictionaryItem;
 import cn.bootx.bsp.core.dictionary.entity.QDictionaryItem;
-import cn.bootx.common.web.rest.param.PageParam;
+import cn.bootx.common.core.rest.param.PageParam;
 import cn.bootx.starter.headerholder.HeaderHolder;
 import cn.bootx.starter.jpa.utils.JpaUtils;
 import com.querydsl.jpa.impl.JPAQuery;

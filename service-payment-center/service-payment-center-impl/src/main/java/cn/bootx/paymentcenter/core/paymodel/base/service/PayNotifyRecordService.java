@@ -1,7 +1,7 @@
 package cn.bootx.paymentcenter.core.paymodel.base.service;
 
-import cn.bootx.common.web.rest.PageResult;
-import cn.bootx.common.web.rest.param.PageParam;
+import cn.bootx.common.core.rest.PageResult;
+import cn.bootx.common.core.rest.param.PageParam;
 import cn.bootx.paymentcenter.core.paymodel.base.dao.PayNotifyRecordManager;
 import cn.bootx.paymentcenter.core.paymodel.base.dao.PayNotifyRecordRepository;
 import cn.bootx.paymentcenter.core.paymodel.base.entity.PayNotifyRecord;

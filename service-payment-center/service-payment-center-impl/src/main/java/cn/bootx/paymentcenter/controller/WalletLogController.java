@@ -1,7 +1,7 @@
 package cn.bootx.paymentcenter.controller;
 
-import cn.bootx.common.web.rest.Res;
-import cn.bootx.common.web.rest.ResResult;
+import cn.bootx.common.core.rest.Res;
+import cn.bootx.common.core.rest.ResResult;
 import cn.bootx.paymentcenter.core.paymodel.wallet.service.WalletLogService;
 import cn.bootx.paymentcenter.dto.paymodel.wallet.WalletLogDto;
 import cn.bootx.paymentcenter.param.paymodel.wallet.WalletLogQueryParam;

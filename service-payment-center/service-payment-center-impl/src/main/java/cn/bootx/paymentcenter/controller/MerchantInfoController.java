@@ -1,9 +1,9 @@
 package cn.bootx.paymentcenter.controller;
 
-import cn.bootx.common.web.rest.PageResult;
-import cn.bootx.common.web.rest.Res;
-import cn.bootx.common.web.rest.ResResult;
-import cn.bootx.common.web.rest.param.PageParam;
+import cn.bootx.common.core.rest.PageResult;
+import cn.bootx.common.core.rest.Res;
+import cn.bootx.common.core.rest.ResResult;
+import cn.bootx.common.core.rest.param.PageParam;
 import cn.bootx.paymentcenter.core.merchant.service.MerchantInfoService;
 import cn.bootx.paymentcenter.dto.merchant.MerchantInfoDto;
 import cn.bootx.paymentcenter.param.merchant.MerchantInfoParam;

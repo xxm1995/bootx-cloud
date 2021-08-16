@@ -1,6 +1,6 @@
 package cn.bootx.paymentcenter.core.pay;
 
-import cn.bootx.common.web.exception.BizException;
+import cn.bootx.common.core.exception.BizException;
 import cn.bootx.paymentcenter.code.pay.PayTypeCode;
 import cn.bootx.paymentcenter.param.pay.PayModeParam;
 import cn.bootx.paymentcenter.param.pay.PayParam;

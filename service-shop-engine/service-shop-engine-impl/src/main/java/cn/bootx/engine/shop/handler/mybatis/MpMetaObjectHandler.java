@@ -1,6 +1,6 @@
 package cn.bootx.engine.shop.handler.mybatis;
 //
-//import cn.bootx.common.web.code.CommonCode;
+//import cn.bootx.common.core.code.CommonCode;
 //import cn.bootx.starter.headerholder.HeaderHolder;
 //import com.baomidou.mybatisplus.core.handlers.MetaObjectHandler;
 //import lombok.AllArgsConstructor;

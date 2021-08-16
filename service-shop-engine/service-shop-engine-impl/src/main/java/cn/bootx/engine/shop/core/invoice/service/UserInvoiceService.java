@@ -1,6 +1,6 @@
 package cn.bootx.engine.shop.core.invoice.service;
 
-import cn.bootx.common.web.exception.BizException;
+import cn.bootx.common.core.exception.BizException;
 import cn.bootx.engine.shop.core.invoice.dao.UserInvoiceManager;
 import cn.bootx.engine.shop.core.invoice.dao.UserInvoiceRepository;
 import cn.bootx.engine.shop.core.invoice.entity.UserInvoice;

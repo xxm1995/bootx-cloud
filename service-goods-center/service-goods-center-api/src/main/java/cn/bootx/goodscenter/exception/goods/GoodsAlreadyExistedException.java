@@ -1,7 +1,7 @@
 package cn.bootx.goodscenter.exception.goods;
 
 
-import cn.bootx.common.web.exception.BizException;
+import cn.bootx.common.core.exception.BizException;
 
 import static cn.bootx.goodscenter.code.GoodsCenterErrorCode.GOODS_ALREADY_EXISTED;
 

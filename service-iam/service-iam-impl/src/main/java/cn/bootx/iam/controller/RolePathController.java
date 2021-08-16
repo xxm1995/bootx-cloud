@@ -1,7 +1,7 @@
 package cn.bootx.iam.controller;
 
-import cn.bootx.common.web.rest.Res;
-import cn.bootx.common.web.rest.ResResult;
+import cn.bootx.common.core.rest.Res;
+import cn.bootx.common.core.rest.ResResult;
 import cn.bootx.iam.core.role.service.RolePathService;
 import cn.bootx.iam.dto.permission.PermissionPathDto;
 import cn.bootx.iam.dto.role.RoleDto;

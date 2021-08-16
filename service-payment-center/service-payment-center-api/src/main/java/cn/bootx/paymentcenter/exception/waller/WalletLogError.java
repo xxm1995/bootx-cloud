@@ -1,7 +1,7 @@
 package cn.bootx.paymentcenter.exception.waller;
 
 
-import cn.bootx.common.web.exception.FatalException;
+import cn.bootx.common.core.exception.FatalException;
 import cn.bootx.paymentcenter.code.PaymentCenterErrorCode;
 
 /**   

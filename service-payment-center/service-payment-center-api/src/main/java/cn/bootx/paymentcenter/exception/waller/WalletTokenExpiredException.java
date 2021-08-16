@@ -1,6 +1,6 @@
 package cn.bootx.paymentcenter.exception.waller;
 
-import cn.bootx.common.web.exception.BizException;
+import cn.bootx.common.core.exception.BizException;
 import cn.bootx.paymentcenter.code.PaymentCenterErrorCode;
 
 /**   

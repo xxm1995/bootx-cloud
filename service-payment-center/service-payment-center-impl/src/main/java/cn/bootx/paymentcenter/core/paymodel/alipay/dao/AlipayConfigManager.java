@@ -1,6 +1,6 @@
 package cn.bootx.paymentcenter.core.paymodel.alipay.dao;
 
-import cn.bootx.common.web.rest.param.PageParam;
+import cn.bootx.common.core.rest.param.PageParam;
 import cn.bootx.paymentcenter.core.paymodel.alipay.entity.AlipayConfig;
 import cn.bootx.paymentcenter.core.paymodel.alipay.entity.QAlipayConfig;
 import cn.bootx.paymentcenter.param.paymodel.alipay.AlipayConfigQuery;

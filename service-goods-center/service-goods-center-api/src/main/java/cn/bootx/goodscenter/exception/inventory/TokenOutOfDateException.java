@@ -1,6 +1,6 @@
 package cn.bootx.goodscenter.exception.inventory;
 
-import cn.bootx.common.web.exception.BizException;
+import cn.bootx.common.core.exception.BizException;
 
 import static cn.bootx.goodscenter.code.GoodsCenterErrorCode.TOKEN_OUT_OF_DADE;
 

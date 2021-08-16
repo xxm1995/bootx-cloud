@@ -1,6 +1,6 @@
 package cn.bootx.iam.core.login.service;
 
-import cn.bootx.common.web.exception.BizException;
+import cn.bootx.common.core.exception.BizException;
 import cn.bootx.iam.code.permission.PermissionCode;
 import cn.bootx.iam.core.role.service.RoleMenuService;
 import cn.bootx.iam.core.session.domain.LoginInfoBo;

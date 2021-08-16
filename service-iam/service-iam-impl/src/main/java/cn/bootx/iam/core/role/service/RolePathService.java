@@ -1,6 +1,6 @@
 package cn.bootx.iam.core.role.service;
 
-import cn.bootx.common.web.util.ResultConvertUtils;
+import cn.bootx.common.core.util.ResultConvertUtils;
 import cn.bootx.iam.core.permission.service.PermissionPathService;
 import cn.bootx.iam.core.role.dao.RoleManager;
 import cn.bootx.iam.core.role.dao.RolePathManager;

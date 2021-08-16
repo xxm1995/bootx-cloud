@@ -1,7 +1,7 @@
 package cn.bootx.salescenter.core.coupon.service;
 
-import cn.bootx.common.web.exception.BizException;
-import cn.bootx.common.web.util.ResultConvertUtils;
+import cn.bootx.common.core.exception.BizException;
+import cn.bootx.common.core.util.ResultConvertUtils;
 import cn.bootx.salescenter.code.CheckRuleCode;
 import cn.bootx.salescenter.code.CouponStatusCode;
 import cn.bootx.salescenter.core.check.config.entity.CheckRuleConfig;

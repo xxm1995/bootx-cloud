@@ -1,7 +1,7 @@
 package cn.bootx.salescenter.controller;
 
-import cn.bootx.common.web.rest.Res;
-import cn.bootx.common.web.rest.ResResult;
+import cn.bootx.common.core.rest.Res;
+import cn.bootx.common.core.rest.ResResult;
 import cn.bootx.salescenter.core.activity.service.ActivityService;
 import cn.bootx.salescenter.dto.activity.ActivityDto;
 import cn.bootx.salescenter.param.activity.ActivityParam;

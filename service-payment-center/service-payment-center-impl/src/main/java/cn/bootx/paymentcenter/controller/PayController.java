@@ -1,7 +1,7 @@
 package cn.bootx.paymentcenter.controller;
 
-import cn.bootx.common.web.rest.Res;
-import cn.bootx.common.web.rest.ResResult;
+import cn.bootx.common.core.rest.Res;
+import cn.bootx.common.core.rest.ResResult;
 import cn.bootx.paymentcenter.core.pay.service.PayCancelService;
 import cn.bootx.paymentcenter.core.pay.service.PayService;
 import cn.bootx.paymentcenter.core.pay.service.PaySyncService;

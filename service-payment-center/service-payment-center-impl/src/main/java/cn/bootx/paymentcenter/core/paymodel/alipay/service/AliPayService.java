@@ -1,6 +1,6 @@
 package cn.bootx.paymentcenter.core.paymodel.alipay.service;
 
-import cn.bootx.common.web.exception.BizException;
+import cn.bootx.common.core.exception.BizException;
 import cn.bootx.paymentcenter.code.paymodel.AliPayCode;
 import cn.bootx.paymentcenter.code.paymodel.AliPayTypeEnum;
 import cn.bootx.paymentcenter.core.pay.local.SyncPayInfoLocal;

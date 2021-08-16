@@ -1,6 +1,6 @@
 package cn.bootx.iam.dto.depart;
 
-import cn.bootx.common.web.rest.dto.BaseDto;
+import cn.bootx.common.core.rest.dto.BaseDto;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;

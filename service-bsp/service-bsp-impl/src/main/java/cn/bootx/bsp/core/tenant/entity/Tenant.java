@@ -3,7 +3,7 @@ package cn.bootx.bsp.core.tenant.entity;
 import cn.bootx.bsp.core.tenant.convert.TenantConvert;
 import cn.bootx.bsp.dto.tenant.TenantDto;
 import cn.bootx.common.function.EntityBaseFunction;
-import cn.bootx.common.web.code.CommonCode;
+import cn.bootx.common.core.code.CommonCode;
 import cn.bootx.starter.jpa.JpaConst;
 import lombok.Data;
 import lombok.experimental.Accessors;

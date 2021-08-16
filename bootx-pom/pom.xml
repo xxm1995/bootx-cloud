@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>cn.bootx.cloud</groupId>
+    <artifactId>bootx-pom</artifactId>
+    <version>2.0.0-SNAPSHOT</version>
+    <packaging>pom</packaging>
+
+    <properties>
+        <bootx-cloud.version>2.0.0-SNAPSHOT</bootx-cloud.version>
+        <web-common.version>1.1.0-SNAPSHOT</web-common.version>
+        <ttl.version>2.12.1</ttl.version>
+        <logback-classic.version>1.2.3</logback-classic.version>
+        <xxl-job.version>2.3.0</xxl-job.version>
+        <mybatis-plus.version>3.4.3.1</mybatis-plus.version>
+        <springfox-swagger.version>3.0.0</springfox-swagger.version>
+        <swagger.version>1.6.2</swagger.version>
+        <mapstruct.version>1.4.2.Final</mapstruct.version>
+        <spring-security-oauth2.version>2.5.1.RELEASE</spring-security-oauth2.version>
+        <sa-token.version>1.24.0</sa-token.version>
+        <sa-token.plugin.version>v1.24.0-SNAPSHOT</sa-token.plugin.version>
+        <easy-captcha.version>1.6.2</easy-captcha.version>
+        <freemarker.version>2.3.31</freemarker.version>
+        <wxjava.version>4.1.0</wxjava.version>
+        <jimureport.version>1.3.78</jimureport.version>
+        <IJPay.version>2.7.4</IJPay.version>
+        <java-jwt.version>3.16.0</java-jwt.version>
+    </properties>
+
+    <!-- 依赖版本 -->
+    <dependencyManagement>
+        <dependencies>
+            <!-- 核心库 -->
+            <dependency>
+                <groupId>cn.bootx.cloud</groupId>
+                <artifactId>bootx-common-core</artifactId>
+                <version>${bootx-cloud.version}</version>
+            </dependency>
+            <!-- TTL容器 -->
+            <dependency>
+                <groupId>com.alibaba</groupId>
+                <artifactId>transmittable-thread-local</artifactId>
+                <version>${ttl.version}</version>
+            </dependency>
+            <!-- 日志 -->
+            <dependency>
+                <groupId>ch.qos.logback</groupId>
+                <artifactId>logback-classic</artifactId>
+                <version>${logback-classic.version}</version>
+            </dependency>
+            <!-- mybatis plus -->
+            <dependency>
+                <groupId>com.baomidou</groupId>
+                <artifactId>mybatis-plus</artifactId>
+                <version>${mybatis-plus.version}</version>
+            </dependency>
+            <!-- mp -->
+            <dependency>
+                <groupId>com.baomidou</groupId>
+                <artifactId>mybatis-plus-boot-starter</artifactId>
+                <version>${mybatis-plus.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>io.springfox</groupId>
+                <artifactId>springfox-swagger2</artifactId>
+                <version>${springfox-swagger.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>io.springfox</groupId>
+                <artifactId>springfox-bean-validators</artifactId>
+                <version>${springfox-swagger.version}</version>
+            </dependency>
+
+            <!-- swagger 内部依赖 -->
+            <dependency>
+                <groupId>io.swagger</groupId>
+                <artifactId>swagger-annotations</artifactId>
+                <version>${swagger.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>io.swagger</groupId>
+                <artifactId>swagger-models</artifactId>
+                <version>${swagger.version}</version>
+            </dependency>
+
+            <!-- 定时任务 -->
+            <dependency>
+                <groupId>com.xuxueli</groupId>
+                <artifactId>xxl-job-core</artifactId>
+                <version>${xxl-job.version}</version>
+            </dependency>
+
+            <!-- captcha 验证码生成 -->
+            <dependency>
+                <groupId>com.github.whvcse</groupId>
+                <artifactId>easy-captcha</artifactId>
+                <version>${easy-captcha.version}</version>
+            </dependency>
+
+            <!-- 模板引擎 -->
+            <dependency>
+                <groupId>org.freemarker</groupId>
+                <artifactId>freemarker</artifactId>
+                <version>${freemarker.version}</version>
+            </dependency>
+
+            <!-- weixin-java 微信小程序 -->
+            <dependency>
+                <groupId>com.github.binarywang</groupId>
+                <artifactId>weixin-java-miniapp</artifactId>
+                <version>${wxjava.version}</version>
+            </dependency>
+            <!-- weixin-java 微信开放平台 -->
+            <dependency>
+                <groupId>com.github.binarywang</groupId>
+                <artifactId>weixin-java-open</artifactId>
+                <version>${wxjava.version}</version>
+            </dependency>
+            <!-- weixin-java 公众号（包括订阅号和服务号） -->
+            <dependency>
+                <groupId>com.github.binarywang</groupId>
+                <artifactId>weixin-java-mp</artifactId>
+                <version>${wxjava.version}</version>
+            </dependency>
+            <!-- weixin-java 企业号/企业微信 -->
+            <dependency>
+                <groupId>com.github.binarywang</groupId>
+                <artifactId>weixin-java-cp</artifactId>
+                <version>${wxjava.version}</version>
+            </dependency>
+
+            <!-- 支付宝支付 -->
+            <dependency>
+                <groupId>com.github.javen205</groupId>
+                <artifactId>IJPay-AliPay</artifactId>
+                <version>${IJPay.version}</version>
+            </dependency>
+
+            <!-- 微信支付 -->
+            <dependency>
+                <groupId>com.github.javen205</groupId>
+                <artifactId>IJPay-WxPay</artifactId>
+                <version>${IJPay.version}</version>
+            </dependency>
+
+            <!-- 银联支付 -->
+            <dependency>
+                <groupId>com.github.javen205</groupId>
+                <artifactId>IJPay-UnionPay</artifactId>
+                <version>${IJPay.version}</version>
+            </dependency>
+
+            <!-- jwt 生成 -->
+            <dependency>
+                <groupId>com.auth0</groupId>
+                <artifactId>java-jwt</artifactId>
+                <version>${java-jwt.version}</version>
+            </dependency>
+
+
+        </dependencies>
+    </dependencyManagement>
+
+</project>

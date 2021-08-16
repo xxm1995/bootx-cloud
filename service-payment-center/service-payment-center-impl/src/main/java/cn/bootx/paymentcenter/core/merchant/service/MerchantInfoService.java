@@ -1,8 +1,8 @@
 package cn.bootx.paymentcenter.core.merchant.service;
 
-import cn.bootx.common.web.rest.PageResult;
-import cn.bootx.common.web.rest.param.PageParam;
-import cn.bootx.common.web.util.ResultConvertUtils;
+import cn.bootx.common.core.rest.PageResult;
+import cn.bootx.common.core.rest.param.PageParam;
+import cn.bootx.common.core.util.ResultConvertUtils;
 import cn.bootx.paymentcenter.core.merchant.dao.MerchantInfoManager;
 import cn.bootx.paymentcenter.core.merchant.dao.MerchantInfoRepository;
 import cn.bootx.paymentcenter.core.merchant.entity.MerchantInfo;

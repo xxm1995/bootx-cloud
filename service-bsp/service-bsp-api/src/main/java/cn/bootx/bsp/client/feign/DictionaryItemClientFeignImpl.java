@@ -2,8 +2,8 @@ package cn.bootx.bsp.client.feign;
 
 import cn.bootx.bsp.client.DictionaryItemClient;
 import cn.bootx.bsp.dto.dictionary.DictionaryItemDto;
-import cn.bootx.common.web.rest.PageResult;
-import cn.bootx.common.web.rest.param.PageParam;
+import cn.bootx.common.core.rest.PageResult;
+import cn.bootx.common.core.rest.param.PageParam;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean;

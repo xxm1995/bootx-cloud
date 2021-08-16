@@ -1,7 +1,7 @@
 package cn.bootx.paymentcenter.core.payment.service;
 
-import cn.bootx.common.web.rest.PageResult;
-import cn.bootx.common.web.rest.param.PageParam;
+import cn.bootx.common.core.rest.PageResult;
+import cn.bootx.common.core.rest.param.PageParam;
 import cn.bootx.paymentcenter.core.payment.dao.PaymentManager;
 import cn.bootx.paymentcenter.core.payment.entity.Payment;
 import cn.bootx.paymentcenter.dto.pay.PayTypeInfo;

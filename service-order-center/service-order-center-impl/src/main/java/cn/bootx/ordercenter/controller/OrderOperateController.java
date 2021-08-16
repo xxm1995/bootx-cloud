@@ -1,7 +1,7 @@
 package cn.bootx.ordercenter.controller;
 
-import cn.bootx.common.web.rest.Res;
-import cn.bootx.common.web.rest.ResResult;
+import cn.bootx.common.core.rest.Res;
+import cn.bootx.common.core.rest.ResResult;
 import cn.bootx.ordercenter.core.order.service.OrderOperateService;
 import cn.bootx.ordercenter.dto.order.OrderDto;
 import cn.bootx.ordercenter.param.order.OrderWholeParam;

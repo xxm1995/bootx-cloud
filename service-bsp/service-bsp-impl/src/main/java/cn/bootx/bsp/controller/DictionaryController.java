@@ -3,8 +3,8 @@ package cn.bootx.bsp.controller;
 
 import cn.bootx.bsp.core.dictionary.service.DictionaryService;
 import cn.bootx.bsp.dto.dictionary.DictionaryDto;
-import cn.bootx.common.web.rest.Res;
-import cn.bootx.common.web.rest.ResResult;
+import cn.bootx.common.core.rest.Res;
+import cn.bootx.common.core.rest.ResResult;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import lombok.RequiredArgsConstructor;

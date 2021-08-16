@@ -1,7 +1,7 @@
 package cn.bootx.noticecenter.controller;
 
-import cn.bootx.common.web.rest.Res;
-import cn.bootx.common.web.rest.ResResult;
+import cn.bootx.common.core.rest.Res;
+import cn.bootx.common.core.rest.ResResult;
 import cn.bootx.noticecenter.core.mail.service.sent.MailSendService;
 import cn.bootx.noticecenter.dto.mail.MailMailParam;
 import io.swagger.annotations.Api;

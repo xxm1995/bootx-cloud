@@ -1,7 +1,7 @@
 package cn.bootx.salescenter.param.strategy;
 
-import cn.bootx.common.web.validation.ValidationGroup.add;
-import cn.bootx.common.web.validation.ValidationGroup.edit;
+import cn.bootx.common.core.validation.ValidationGroup.add;
+import cn.bootx.common.core.validation.ValidationGroup.edit;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;

@@ -1,7 +1,7 @@
 package cn.bootx.bsp.exception.tenant;
 
 
-import cn.bootx.common.web.exception.BizException;
+import cn.bootx.common.core.exception.BizException;
 
 import static cn.bootx.bsp.code.BspErrorCodes.TENANT_NOT_EXISTED;
 

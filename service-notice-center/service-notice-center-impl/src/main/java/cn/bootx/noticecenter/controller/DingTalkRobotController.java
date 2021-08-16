@@ -1,7 +1,7 @@
 package cn.bootx.noticecenter.controller;
 
-import cn.bootx.common.web.rest.Res;
-import cn.bootx.common.web.rest.ResResult;
+import cn.bootx.common.core.rest.Res;
+import cn.bootx.common.core.rest.ResResult;
 import cn.bootx.noticecenter.dto.dingtalk.DingTalkResult;
 import cn.bootx.noticecenter.dto.dingtalk.notice.DingTalkLinkNotice;
 import cn.bootx.noticecenter.dto.dingtalk.notice.DingTalkMarkdownNotice;

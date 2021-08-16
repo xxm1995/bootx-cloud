@@ -1,6 +1,6 @@
 package cn.bootx.paymentcenter.dto.paymodel.alipay;
 
-import cn.bootx.common.web.rest.dto.BaseDto;
+import cn.bootx.common.core.rest.dto.BaseDto;
 import io.swagger.annotations.ApiModel;
 import lombok.Data;
 import lombok.EqualsAndHashCode;

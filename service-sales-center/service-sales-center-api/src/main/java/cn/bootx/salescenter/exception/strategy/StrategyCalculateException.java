@@ -1,7 +1,7 @@
 package cn.bootx.salescenter.exception.strategy;
 
 
-import cn.bootx.common.web.exception.BizException;
+import cn.bootx.common.core.exception.BizException;
 import cn.bootx.salescenter.code.SalesCenterErrorCode;
 
 /**

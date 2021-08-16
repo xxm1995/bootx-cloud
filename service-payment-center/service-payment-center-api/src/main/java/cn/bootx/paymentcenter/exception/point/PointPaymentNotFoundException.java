@@ -1,6 +1,6 @@
 package cn.bootx.paymentcenter.exception.point;
 
-import cn.bootx.common.web.exception.BizException;
+import cn.bootx.common.core.exception.BizException;
 
 import static cn.bootx.paymentcenter.code.PaymentCenterErrorCode.POINT_PAYMENT_NOT_FOUND;
 

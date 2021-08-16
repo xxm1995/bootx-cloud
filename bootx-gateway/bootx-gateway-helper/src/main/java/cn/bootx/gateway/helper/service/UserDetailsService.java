@@ -1,6 +1,6 @@
 package cn.bootx.gateway.helper.service;
 
-import cn.bootx.common.web.entity.CustomUserDetails;
+import cn.bootx.common.core.entity.CustomUserDetails;
 import cn.bootx.gateway.helper.domain.CheckState;
 import cn.bootx.gateway.helper.domain.CustomUserDetailsWithResult;
 import cn.bootx.iam.client.LoginUserClient;

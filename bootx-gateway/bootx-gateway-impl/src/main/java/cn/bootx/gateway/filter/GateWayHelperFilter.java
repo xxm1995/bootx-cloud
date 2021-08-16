@@ -1,8 +1,8 @@
 package cn.bootx.gateway.filter;
 
-import cn.bootx.common.web.code.WebHeaderConst;
-import cn.bootx.common.web.rest.Res;
-import cn.bootx.common.web.rest.ResResult;
+import cn.bootx.common.core.code.WebHeaderConst;
+import cn.bootx.common.core.rest.Res;
+import cn.bootx.common.core.rest.ResResult;
 import cn.bootx.gateway.helper.api.reactive.ReactiveAuthenticationHelper;
 import cn.bootx.gateway.helper.context.ResponseContext;
 import cn.bootx.gateway.helper.domain.CheckState;
@@ -26,7 +26,7 @@ import reactor.core.publisher.Mono;
 
 import java.util.List;
 
-import static cn.bootx.common.web.code.WebHeaderConst.JWT_TOKEN;
+import static cn.bootx.common.core.code.WebHeaderConst.JWT_TOKEN;
 
 /**
  * 负责将HTTP请求去除消息体后转发到gateway helper去权限校验，限流

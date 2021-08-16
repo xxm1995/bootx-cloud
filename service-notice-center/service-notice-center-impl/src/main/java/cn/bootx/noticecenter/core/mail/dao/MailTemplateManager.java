@@ -1,6 +1,6 @@
 package cn.bootx.noticecenter.core.mail.dao;
 
-import cn.bootx.common.web.rest.param.PageParam;
+import cn.bootx.common.core.rest.param.PageParam;
 import cn.bootx.noticecenter.core.mail.entity.MailTemplate;
 import cn.bootx.noticecenter.core.mail.entity.QMailTemplate;
 import cn.bootx.starter.headerholder.HeaderHolder;

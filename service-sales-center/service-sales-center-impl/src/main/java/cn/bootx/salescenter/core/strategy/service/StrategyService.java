@@ -1,7 +1,7 @@
 package cn.bootx.salescenter.core.strategy.service;
 
-import cn.bootx.common.web.exception.BizException;
-import cn.bootx.common.web.util.ResultConvertUtils;
+import cn.bootx.common.core.exception.BizException;
+import cn.bootx.common.core.util.ResultConvertUtils;
 import cn.bootx.salescenter.core.strategy.dao.*;
 import cn.bootx.salescenter.core.strategy.entity.Strategy;
 import cn.bootx.salescenter.core.strategy.entity.StrategyConfig;

@@ -4,7 +4,7 @@ import cn.bootx.bsp.core.channel.convert.ChannelConvert;
 import cn.bootx.bsp.dto.channel.ChannelDto;
 import cn.bootx.bsp.param.channel.ChannelParam;
 import cn.bootx.common.function.EntityBaseFunction;
-import cn.bootx.common.web.code.CommonCode;
+import cn.bootx.common.core.code.CommonCode;
 import cn.bootx.starter.jpa.base.JpaBaseEntity;
 import lombok.Data;
 import lombok.EqualsAndHashCode;

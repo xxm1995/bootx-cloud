@@ -1,7 +1,7 @@
 package cn.bootx.gateway.helper.filter;
 
-import cn.bootx.common.web.code.WebHeaderConst;
-import cn.bootx.common.web.entity.CustomUserDetails;
+import cn.bootx.common.core.code.WebHeaderConst;
+import cn.bootx.common.core.entity.CustomUserDetails;
 import cn.bootx.gateway.helper.api.HelperFilter;
 import cn.bootx.gateway.helper.context.RequestContext;
 import cn.bootx.gateway.helper.domain.CheckState;

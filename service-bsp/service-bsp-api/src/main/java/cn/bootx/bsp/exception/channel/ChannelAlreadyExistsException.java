@@ -1,7 +1,7 @@
 package cn.bootx.bsp.exception.channel;
 
 import cn.bootx.bsp.code.BspErrorCodes;
-import cn.bootx.common.web.exception.BizException;
+import cn.bootx.common.core.exception.BizException;
 
 
 /**

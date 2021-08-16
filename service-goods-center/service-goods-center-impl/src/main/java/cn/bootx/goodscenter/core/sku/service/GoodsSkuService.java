@@ -1,6 +1,6 @@
 package cn.bootx.goodscenter.core.sku.service;
 
-import cn.bootx.common.web.util.ResultConvertUtils;
+import cn.bootx.common.core.util.ResultConvertUtils;
 import cn.bootx.goodscenter.core.sku.dao.GoodsSkuManager;
 import cn.bootx.goodscenter.core.sku.dao.GoodsSkuRepository;
 import cn.bootx.goodscenter.core.sku.entity.GoodsSku;

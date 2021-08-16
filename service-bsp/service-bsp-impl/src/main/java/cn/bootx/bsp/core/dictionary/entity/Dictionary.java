@@ -3,7 +3,7 @@ package cn.bootx.bsp.core.dictionary.entity;
 import cn.bootx.bsp.core.dictionary.convert.DictionaryConvert;
 import cn.bootx.bsp.dto.dictionary.DictionaryDto;
 import cn.bootx.common.function.EntityBaseFunction;
-import cn.bootx.common.web.code.CommonCode;
+import cn.bootx.common.core.code.CommonCode;
 import cn.bootx.starter.jpa.base.JpaBaseEntity;
 import lombok.Data;
 import lombok.EqualsAndHashCode;

@@ -1,6 +1,6 @@
 package cn.bootx.ordercenter.core.order.service;
 
-import cn.bootx.common.web.exception.BizException;
+import cn.bootx.common.core.exception.BizException;
 import cn.bootx.ordercenter.code.OrderStatusCode;
 import cn.bootx.ordercenter.core.order.dao.*;
 import cn.bootx.ordercenter.core.order.entity.Order;

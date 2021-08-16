@@ -1,8 +1,8 @@
 package cn.bootx.noticecenter.controller;
 
-import cn.bootx.common.web.rest.Res;
-import cn.bootx.common.web.rest.ResResult;
-import cn.bootx.common.web.util.ValidationUtil;
+import cn.bootx.common.core.rest.Res;
+import cn.bootx.common.core.rest.ResResult;
+import cn.bootx.common.core.util.ValidationUtil;
 import cn.bootx.noticecenter.code.ErrorCodes;
 import cn.bootx.noticecenter.core.mail.service.MailConfigService;
 import cn.bootx.noticecenter.dto.mail.MailConfigDto;

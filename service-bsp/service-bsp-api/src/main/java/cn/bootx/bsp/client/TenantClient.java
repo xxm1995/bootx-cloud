@@ -1,9 +1,9 @@
 package cn.bootx.bsp.client;
 
 import cn.bootx.bsp.dto.tenant.TenantDto;
-import cn.bootx.common.web.anno.Idempotent;
-import cn.bootx.common.web.rest.PageResult;
-import cn.bootx.common.web.rest.param.PageParam;
+import cn.bootx.common.core.anno.Idempotent;
+import cn.bootx.common.core.rest.PageResult;
+import cn.bootx.common.core.rest.param.PageParam;
 
 import java.util.List;
 

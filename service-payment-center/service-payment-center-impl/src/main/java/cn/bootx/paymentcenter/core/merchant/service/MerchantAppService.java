@@ -1,9 +1,9 @@
 package cn.bootx.paymentcenter.core.merchant.service;
 
-import cn.bootx.common.web.exception.BizException;
-import cn.bootx.common.web.rest.PageResult;
-import cn.bootx.common.web.rest.param.PageParam;
-import cn.bootx.common.web.util.ResultConvertUtils;
+import cn.bootx.common.core.exception.BizException;
+import cn.bootx.common.core.rest.PageResult;
+import cn.bootx.common.core.rest.param.PageParam;
+import cn.bootx.common.core.util.ResultConvertUtils;
 import cn.bootx.paymentcenter.core.merchant.dao.AppChannelManager;
 import cn.bootx.paymentcenter.core.merchant.dao.MerchantAppManager;
 import cn.bootx.paymentcenter.core.merchant.dao.MerchantAppRepository;

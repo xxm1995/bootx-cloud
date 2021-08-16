@@ -1,7 +1,7 @@
 package cn.bootx.engine.shop.exception;
 
 
-import cn.bootx.common.web.exception.BizException;
+import cn.bootx.common.core.exception.BizException;
 
 public class InnerServiceException extends BizException {
 

@@ -1,6 +1,6 @@
 package cn.bootx.paymentcenter.core.payment.dao;
 
-import cn.bootx.common.web.rest.param.PageParam;
+import cn.bootx.common.core.rest.param.PageParam;
 import cn.bootx.paymentcenter.code.pay.PayStatusCode;
 import cn.bootx.paymentcenter.core.payment.entity.Payment;
 import cn.bootx.paymentcenter.core.payment.entity.QPayment;

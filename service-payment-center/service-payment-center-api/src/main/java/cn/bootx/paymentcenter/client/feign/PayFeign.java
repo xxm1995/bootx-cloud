@@ -1,6 +1,6 @@
 package cn.bootx.paymentcenter.client.feign;
 
-import cn.bootx.common.web.rest.ResResult;
+import cn.bootx.common.core.rest.ResResult;
 import cn.bootx.paymentcenter.code.PaymentCenterCode;
 import cn.bootx.paymentcenter.dto.payment.PaymentDto;
 import cn.bootx.paymentcenter.dto.pay.PayResult;

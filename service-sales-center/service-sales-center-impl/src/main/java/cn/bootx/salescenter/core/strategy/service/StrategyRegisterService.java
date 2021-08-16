@@ -1,6 +1,6 @@
 package cn.bootx.salescenter.core.strategy.service;
 
-import cn.bootx.common.web.exception.BizException;
+import cn.bootx.common.core.exception.BizException;
 import cn.bootx.salescenter.core.check.config.dao.CheckRuleRepository;
 import cn.bootx.salescenter.core.check.config.entity.CheckRuleConfig;
 import cn.bootx.salescenter.core.match.dao.MatchRuleRepository;

@@ -1,6 +1,6 @@
 package cn.bootx.paymentcenter.code.paymodel;
 
-import cn.bootx.common.web.exception.BizException;
+import cn.bootx.common.core.exception.BizException;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 

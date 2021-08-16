@@ -1,8 +1,8 @@
 package cn.bootx.bsp.client;
 
 import cn.bootx.bsp.dto.dictionary.DictionaryItemDto;
-import cn.bootx.common.web.rest.PageResult;
-import cn.bootx.common.web.rest.param.PageParam;
+import cn.bootx.common.core.rest.PageResult;
+import cn.bootx.common.core.rest.param.PageParam;
 import io.swagger.annotations.ApiOperation;
 
 import java.util.List;

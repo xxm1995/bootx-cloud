@@ -1,6 +1,6 @@
 package cn.bootx.engine.shop.core.cart.rule.impl;
 
-import cn.bootx.common.web.exception.BizException;
+import cn.bootx.common.core.exception.BizException;
 import cn.bootx.engine.shop.core.cart.entity.ShopCartItem;
 import cn.bootx.engine.shop.core.cart.entity.CartCheckParam;
 import cn.bootx.engine.shop.core.cart.rule.CartOperateType;

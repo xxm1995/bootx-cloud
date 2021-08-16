@@ -1,6 +1,6 @@
 package cn.bootx.iam.core.permission.dao;
 
-import cn.bootx.common.web.rest.param.PageParam;
+import cn.bootx.common.core.rest.param.PageParam;
 import cn.bootx.iam.core.permission.entity.PermissionPath;
 import cn.bootx.iam.core.permission.entity.QPermissionPath;
 import cn.bootx.iam.param.permission.PermissionPathParam;

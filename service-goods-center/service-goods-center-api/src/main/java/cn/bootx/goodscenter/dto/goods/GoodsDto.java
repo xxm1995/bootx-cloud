@@ -1,6 +1,6 @@
 package cn.bootx.goodscenter.dto.goods;
 
-import cn.bootx.common.web.rest.dto.BaseDto;
+import cn.bootx.common.core.rest.dto.BaseDto;
 import cn.bootx.goodscenter.dto.sku.GoodsSkuDto;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;

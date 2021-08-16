@@ -11,8 +11,8 @@ import javax.validation.constraints.NotNull;
 import java.io.Serializable;
 import java.util.List;
 
-import static cn.bootx.common.web.validation.ValidationGroup.add;
-import static cn.bootx.common.web.validation.ValidationGroup.edit;
+import static cn.bootx.common.core.validation.ValidationGroup.add;
+import static cn.bootx.common.core.validation.ValidationGroup.edit;
 
 /**
 * @author xxm

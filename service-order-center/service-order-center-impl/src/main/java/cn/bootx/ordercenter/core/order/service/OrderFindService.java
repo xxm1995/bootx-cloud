@@ -1,8 +1,8 @@
 package cn.bootx.ordercenter.core.order.service;
 
-import cn.bootx.common.web.rest.PageResult;
-import cn.bootx.common.web.rest.param.PageParam;
-import cn.bootx.common.web.util.ResultConvertUtils;
+import cn.bootx.common.core.rest.PageResult;
+import cn.bootx.common.core.rest.param.PageParam;
+import cn.bootx.common.core.util.ResultConvertUtils;
 import cn.bootx.ordercenter.core.order.dao.OrderDetailManager;
 import cn.bootx.ordercenter.core.order.dao.OrderManager;
 import cn.bootx.ordercenter.core.order.dao.OrderStrategyMappingManager;

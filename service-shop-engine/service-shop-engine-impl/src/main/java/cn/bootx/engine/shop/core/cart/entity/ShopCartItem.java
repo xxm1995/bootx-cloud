@@ -1,6 +1,6 @@
 package cn.bootx.engine.shop.core.cart.entity;
 
-import cn.bootx.common.web.exception.BizException;
+import cn.bootx.common.core.exception.BizException;
 import lombok.Data;
 import lombok.experimental.Accessors;
 

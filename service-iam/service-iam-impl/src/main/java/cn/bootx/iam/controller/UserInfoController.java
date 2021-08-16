@@ -1,9 +1,9 @@
 package cn.bootx.iam.controller;
 
-import cn.bootx.common.web.rest.PageResult;
-import cn.bootx.common.web.rest.Res;
-import cn.bootx.common.web.rest.ResResult;
-import cn.bootx.common.web.rest.param.PageParam;
+import cn.bootx.common.core.rest.PageResult;
+import cn.bootx.common.core.rest.Res;
+import cn.bootx.common.core.rest.ResResult;
+import cn.bootx.common.core.rest.param.PageParam;
 import cn.bootx.iam.core.user.service.UserInfoService;
 import cn.bootx.iam.core.user.service.UserQueryService;
 import cn.bootx.iam.dto.user.UserInfoDto;

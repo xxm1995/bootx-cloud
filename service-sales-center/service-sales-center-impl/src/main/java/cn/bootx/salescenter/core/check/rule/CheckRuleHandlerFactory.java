@@ -1,7 +1,7 @@
 package cn.bootx.salescenter.core.check.rule;
 
-import cn.bootx.common.web.exception.BizException;
-import cn.bootx.common.web.exception.FatalException;
+import cn.bootx.common.core.exception.BizException;
+import cn.bootx.common.core.exception.FatalException;
 import cn.bootx.salescenter.core.check.rule.func.AbstractCheckRule;
 import org.springframework.beans.BeansException;
 import org.springframework.context.ApplicationContext;

@@ -1,6 +1,6 @@
 package cn.bootx.noticecenter.exception;
 
-import cn.bootx.common.web.exception.BizException;
+import cn.bootx.common.core.exception.BizException;
 
 import java.io.Serializable;
 

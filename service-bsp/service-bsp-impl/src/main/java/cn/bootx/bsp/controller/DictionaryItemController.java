@@ -2,12 +2,12 @@ package cn.bootx.bsp.controller;
 
 import cn.bootx.bsp.core.dictionary.service.DictionaryItemService;
 import cn.bootx.bsp.dto.dictionary.DictionaryItemDto;
-import cn.bootx.common.web.rest.PageResult;
-import cn.bootx.common.web.rest.Res;
-import cn.bootx.common.web.rest.ResResult;
-import cn.bootx.common.web.rest.param.PageParam;
-import cn.bootx.common.web.rest.param.SingleIdParam;
-import cn.bootx.common.web.util.ValidationUtil;
+import cn.bootx.common.core.rest.PageResult;
+import cn.bootx.common.core.rest.Res;
+import cn.bootx.common.core.rest.ResResult;
+import cn.bootx.common.core.rest.param.PageParam;
+import cn.bootx.common.core.rest.param.SingleIdParam;
+import cn.bootx.common.core.util.ValidationUtil;
 import cn.hutool.core.util.StrUtil;
 import io.swagger.annotations.*;
 import lombok.AllArgsConstructor;

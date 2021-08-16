@@ -6,7 +6,7 @@ import cn.bootx.bsp.core.channel.entity.Channel;
 import cn.bootx.bsp.dto.channel.ChannelDto;
 import cn.bootx.bsp.exception.channel.ChannelAlreadyExistsException;
 import cn.bootx.bsp.param.channel.ChannelParam;
-import cn.bootx.common.web.exception.BizException;
+import cn.bootx.common.core.exception.BizException;
 import cn.hutool.core.bean.BeanUtil;
 import cn.hutool.core.bean.copier.CopyOptions;
 import com.alibaba.csp.sentinel.util.StringUtil;

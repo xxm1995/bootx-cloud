@@ -1,6 +1,6 @@
 package cn.bootx.ordercenter.client.feign;
 
-import cn.bootx.common.web.rest.ResResult;
+import cn.bootx.common.core.rest.ResResult;
 import cn.bootx.ordercenter.code.OrderCenterCode;
 import cn.bootx.ordercenter.dto.order.OrderDto;
 import cn.bootx.ordercenter.param.order.OrderWholeParam;

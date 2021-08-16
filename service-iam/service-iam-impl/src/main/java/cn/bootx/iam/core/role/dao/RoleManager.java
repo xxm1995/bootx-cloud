@@ -1,6 +1,6 @@
 package cn.bootx.iam.core.role.dao;
 
-import cn.bootx.common.web.rest.param.PageParam;
+import cn.bootx.common.core.rest.param.PageParam;
 import cn.bootx.iam.core.role.entity.Role;
 import cn.bootx.iam.param.role.RoleParam;
 import cn.bootx.starter.headerholder.HeaderHolder;

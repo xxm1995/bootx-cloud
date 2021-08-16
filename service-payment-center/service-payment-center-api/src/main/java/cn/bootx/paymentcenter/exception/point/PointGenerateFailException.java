@@ -1,6 +1,6 @@
 package cn.bootx.paymentcenter.exception.point;
 
-import cn.bootx.common.web.exception.FatalException;
+import cn.bootx.common.core.exception.FatalException;
 
 import static cn.bootx.paymentcenter.code.PaymentCenterErrorCode.POINT_GENERATE_FAILED;
 

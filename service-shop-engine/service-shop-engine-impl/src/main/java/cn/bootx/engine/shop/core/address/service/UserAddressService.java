@@ -1,6 +1,6 @@
 package cn.bootx.engine.shop.core.address.service;
 
-import cn.bootx.common.web.exception.BizException;
+import cn.bootx.common.core.exception.BizException;
 import cn.bootx.engine.shop.core.address.dao.UserAddressManager;
 import cn.bootx.engine.shop.core.address.dao.UserAddressRepository;
 import cn.bootx.engine.shop.core.address.entity.UserAddress;

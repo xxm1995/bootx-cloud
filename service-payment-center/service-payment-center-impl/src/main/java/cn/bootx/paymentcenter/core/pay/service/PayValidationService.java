@@ -1,7 +1,7 @@
 package cn.bootx.paymentcenter.core.pay.service;
 
 import cn.bootx.common.util.BigDecimalUtil;
-import cn.bootx.common.web.exception.BizException;
+import cn.bootx.common.core.exception.BizException;
 import cn.bootx.paymentcenter.code.merchant.MerchantAppCode;
 import cn.bootx.paymentcenter.code.merchant.MerchantInfoCode;
 import cn.bootx.paymentcenter.code.pay.PayTypeCode;

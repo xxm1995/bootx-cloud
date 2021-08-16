@@ -1,7 +1,7 @@
 package cn.bootx.iam.core.user.service;
 
-import cn.bootx.common.web.rest.PageResult;
-import cn.bootx.common.web.rest.param.PageParam;
+import cn.bootx.common.core.rest.PageResult;
+import cn.bootx.common.core.rest.param.PageParam;
 import cn.bootx.iam.core.user.dao.UserInfoManager;
 import cn.bootx.iam.dto.user.UserInfoDto;
 import cn.bootx.starter.jpa.utils.JpaUtils;

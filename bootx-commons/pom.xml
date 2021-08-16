@@ -4,14 +4,149 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <parent>
-        <artifactId>bootx-parent</artifactId>
-        <groupId>cn.bootx</groupId>
-        <version>1.1.0-SNAPSHOT</version>
+        <groupId>cn.bootx.cloud</groupId>
+        <artifactId>bootx-cloud</artifactId>
+        <version>2.0.0-SNAPSHOT</version>
     </parent>
+
     <artifactId>bootx-commons</artifactId>
     <packaging>pom</packaging>
+
     <modules>
-        <module>base-common</module>
-        <module>web-common</module>
+        <module>common-auth</module>
+        <module>common-cache</module>
+        <module>common-elasticsearch</module>
+        <module>common-exception-handler</module>
+        <module>common-feign</module>
+        <module>common-header-holder</module>
+        <module>common-idempotency</module>
+        <module>common-jackson</module>
+        <module>common-jpa</module>
+        <module>common-lock</module>
+        <module>common-log</module>
+        <module>common-mq</module>
+        <module>common-mybatis-plus</module>
+        <module>common-redis-client</module>
+        <module>common-seata</module>
+        <module>common-snowflake</module>
+        <module>common-spring</module>
+        <module>common-swagger</module>
+        <module>common-xxl-job</module>
     </modules>
+
+    <!-- 配置 -->
+    <properties>
+        <common-core.version>2.0.0-SNAPSHOT</common-core.version>
+        <common-starter.version>2.0.0-SNAPSHOT</common-starter.version>
+    </properties>
+
+    <!-- 依赖 -->
+    <dependencies>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-autoconfigure</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-configuration-processor</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>cn.bootx.cloud</groupId>
+            <artifactId>bootx-common-core</artifactId>
+        </dependency>
+
+    </dependencies>
+
+    <!-- 版本管理 -->
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>cn.bootx.cloud</groupId>
+                <artifactId>common-swagger</artifactId>
+                <version>${common-starter.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>cn.bootx.cloud</groupId>
+                <artifactId>common-spring</artifactId>
+                <version>${common-starter.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>cn.bootx.cloud</groupId>
+                <artifactId>common-redis-client</artifactId>
+                <version>${common-starter.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>cn.bootx.cloud</groupId>
+                <artifactId>common-mybatis-plus</artifactId>
+                <version>${common-starter.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>cn.bootx.cloud</groupId>
+                <artifactId>common-header-holder</artifactId>
+                <version>${common-starter.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>cn.bootx.cloud</groupId>
+                <artifactId>common-jackson</artifactId>
+                <version>${common-starter.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>cn.bootx.cloud</groupId>
+                <artifactId>common-exception-handler</artifactId>
+                <version>${common-starter.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>cn.bootx.cloud</groupId>
+                <artifactId>common-snowflake</artifactId>
+                <version>${common-starter.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>cn.bootx.cloud</groupId>
+                <artifactId>common-jpa</artifactId>
+                <version>${common-starter.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>cn.bootx.cloud</groupId>
+                <artifactId>common-xxl-job</artifactId>
+                <version>${common-starter.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>cn.bootx.cloud</groupId>
+                <artifactId>common-feign</artifactId>
+                <version>${common-starter.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>cn.bootx.cloud</groupId>
+                <artifactId>common-idempotency</artifactId>
+                <version>${common-starter.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>cn.bootx.cloud</groupId>
+                <artifactId>common-seata</artifactId>
+                <version>${common-starter.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>cn.bootx.cloud</groupId>
+                <artifactId>common-log</artifactId>
+                <version>${common-starter.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>cn.bootx.cloud</groupId>
+                <artifactId>common-auth</artifactId>
+                <version>${common-starter.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>cn.bootx.cloud</groupId>
+                <artifactId>common-cache</artifactId>
+                <version>${common-starter.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>cn.bootx.cloud</groupId>
+                <artifactId>common-mq</artifactId>
+                <version>${common-starter.version}</version>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+
 </project>

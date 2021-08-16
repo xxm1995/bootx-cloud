@@ -1,6 +1,6 @@
 package cn.bootx.salescenter.dto.strategy;
 
-import cn.bootx.common.web.rest.dto.BaseDto;
+import cn.bootx.common.core.rest.dto.BaseDto;
 import cn.bootx.salescenter.dto.check.CheckRuleDto;
 import cn.bootx.salescenter.dto.match.MatchRuleDto;
 import io.swagger.annotations.ApiModel;

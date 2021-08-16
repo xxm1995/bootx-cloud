@@ -1,7 +1,7 @@
 package cn.bootx.iam.controller;
 
-import cn.bootx.common.web.rest.Res;
-import cn.bootx.common.web.rest.ResResult;
+import cn.bootx.common.core.rest.Res;
+import cn.bootx.common.core.rest.ResResult;
 import cn.bootx.iam.core.depart.service.DepartService;
 import cn.bootx.iam.dto.depart.DepartDto;
 import cn.bootx.iam.dto.depart.DepartTreeResult;

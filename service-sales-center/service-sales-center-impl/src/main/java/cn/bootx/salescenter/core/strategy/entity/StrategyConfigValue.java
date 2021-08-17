@@ -2,7 +2,7 @@ package cn.bootx.salescenter.core.strategy.entity;
 
 import cn.bootx.common.function.EntityBaseFunction;
 import cn.bootx.salescenter.param.strategy.StrategyConfigValueParam;
-import cn.bootx.starter.jpa.base.JpaBaseEntity;
+import cn.bootx.common.jpa.base.JpaBaseEntity;
 import cn.bootx.salescenter.dto.strategy.StrategyConfigValueDto;
 import lombok.Data;
 import lombok.EqualsAndHashCode;

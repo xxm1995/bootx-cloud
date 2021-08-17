@@ -4,7 +4,7 @@ import cn.bootx.common.function.EntityBaseFunction;
 import cn.bootx.salescenter.code.StrategyRegisterCode;
 import cn.bootx.salescenter.dto.strategy.StrategyRegisterDto;
 import cn.bootx.salescenter.param.strategy.StrategyRegisterParam;
-import cn.bootx.starter.jpa.base.JpaBaseEntity;
+import cn.bootx.common.jpa.base.JpaBaseEntity;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.experimental.Accessors;

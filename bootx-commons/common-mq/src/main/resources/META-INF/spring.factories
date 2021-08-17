@@ -1,4 +1,4 @@
 ## 配置自定义 starter 的自动化配置
 org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
-  cn.bootx.starter.mq.BootxRabbitListenerConfigurer,\
-  cn.bootx.starter.mq.RabbitMqConfig
+  cn.bootx.common.mq.BootxRabbitListenerConfigurer,\
+  cn.bootx.common.mq.RabbitMqConfig

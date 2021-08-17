@@ -2,7 +2,7 @@ package cn.bootx.engine.shop.core.footmark.entity;
 
 import cn.bootx.common.function.EntityBaseFunction;
 import cn.bootx.engine.shop.dto.footmark.FootMarkDto;
-import cn.bootx.starter.jpa.base.JpaTidEntity;
+import cn.bootx.common.jpa.base.JpaTidEntity;
 import cn.hutool.core.bean.BeanUtil;
 import lombok.Data;
 import lombok.EqualsAndHashCode;

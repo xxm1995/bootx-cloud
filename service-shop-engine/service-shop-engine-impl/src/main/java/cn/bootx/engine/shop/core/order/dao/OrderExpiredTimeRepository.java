@@ -1,6 +1,6 @@
 package cn.bootx.engine.shop.core.order.dao;
 
-import cn.bootx.starter.seata.redis.TccRedisClient;
+import cn.bootx.common.seata.redis.TccRedisClient;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Repository;

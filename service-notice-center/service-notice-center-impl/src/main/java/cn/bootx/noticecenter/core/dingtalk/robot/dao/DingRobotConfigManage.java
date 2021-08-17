@@ -1,7 +1,7 @@
 package cn.bootx.noticecenter.core.dingtalk.robot.dao;
 
 import cn.bootx.noticecenter.core.dingtalk.robot.entity.DingRobotConfig;
-import cn.bootx.starter.headerholder.HeaderHolder;
+import cn.bootx.common.headerholder.HeaderHolder;
 import com.querydsl.jpa.impl.JPAQueryFactory;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Repository;

@@ -10,7 +10,7 @@ import cn.bootx.paymentcenter.core.payconfig.dao.PayChannelRepository;
 import cn.bootx.paymentcenter.core.payconfig.entity.PayChannel;
 import cn.bootx.paymentcenter.dto.payconfig.PayChannelDto;
 import cn.bootx.paymentcenter.param.payconfig.PayChannelParam;
-import cn.bootx.starter.jpa.utils.JpaUtils;
+import cn.bootx.common.jpa.utils.JpaUtils;
 import cn.hutool.core.bean.BeanUtil;
 import cn.hutool.core.bean.copier.CopyOptions;
 import lombok.RequiredArgsConstructor;

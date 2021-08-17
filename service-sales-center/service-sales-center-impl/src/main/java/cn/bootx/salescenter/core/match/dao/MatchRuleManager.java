@@ -4,7 +4,7 @@ import cn.bootx.salescenter.code.MatchTypeCode;
 import cn.bootx.salescenter.core.match.entity.MatchRuleConfig;
 import cn.bootx.salescenter.core.match.entity.QMatchRuleConfig;
 import cn.bootx.salescenter.dto.match.FeaturePoints;
-import cn.bootx.starter.headerholder.HeaderHolder;
+import cn.bootx.common.headerholder.HeaderHolder;
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.querydsl.jpa.impl.JPAQueryFactory;
 import lombok.RequiredArgsConstructor;

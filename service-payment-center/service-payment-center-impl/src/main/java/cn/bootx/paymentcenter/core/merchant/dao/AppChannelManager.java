@@ -1,7 +1,7 @@
 package cn.bootx.paymentcenter.core.merchant.dao;
 
 import cn.bootx.paymentcenter.core.merchant.entity.AppChannel;
-import cn.bootx.starter.headerholder.HeaderHolder;
+import cn.bootx.common.headerholder.HeaderHolder;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.cache.annotation.Cacheable;

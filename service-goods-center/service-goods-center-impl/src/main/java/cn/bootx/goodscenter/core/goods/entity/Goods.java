@@ -4,7 +4,7 @@ import cn.bootx.common.function.EntityBaseFunction;
 import cn.bootx.goodscenter.core.goods.convert.GoodsConvert;
 import cn.bootx.goodscenter.dto.goods.GoodsDto;
 import cn.bootx.goodscenter.param.goods.GoodsParam;
-import cn.bootx.starter.jpa.base.JpaBaseEntity;
+import cn.bootx.common.jpa.base.JpaBaseEntity;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.experimental.Accessors;

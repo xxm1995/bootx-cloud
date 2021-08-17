@@ -5,7 +5,7 @@ import cn.bootx.paymentcenter.code.pay.PayStatusCode;
 import cn.bootx.paymentcenter.code.pay.PayTypeCode;
 import cn.bootx.paymentcenter.core.paymodel.base.convert.PayConvert;
 import cn.bootx.paymentcenter.dto.pay.PayNotifyRecordDto;
-import cn.bootx.starter.jpa.base.JpaBaseEntity;
+import cn.bootx.common.jpa.base.JpaBaseEntity;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.experimental.Accessors;

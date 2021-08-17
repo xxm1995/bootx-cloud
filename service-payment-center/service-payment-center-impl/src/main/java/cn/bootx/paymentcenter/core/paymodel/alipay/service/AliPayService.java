@@ -8,7 +8,7 @@ import cn.bootx.paymentcenter.core.payment.entity.Payment;
 import cn.bootx.paymentcenter.core.paymodel.alipay.entity.AlipayConfig;
 import cn.bootx.paymentcenter.dto.pay.AsyncPayInfo;
 import cn.bootx.paymentcenter.param.paymodel.alipay.AliPayParam;
-import cn.bootx.starter.headerholder.HeaderHolder;
+import cn.bootx.common.headerholder.HeaderHolder;
 import cn.hutool.core.util.StrUtil;
 import com.alipay.api.AlipayApiException;
 import com.alipay.api.AlipayResponse;

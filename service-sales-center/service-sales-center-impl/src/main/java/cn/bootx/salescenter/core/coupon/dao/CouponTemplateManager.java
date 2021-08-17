@@ -2,7 +2,7 @@ package cn.bootx.salescenter.core.coupon.dao;
 
 
 import cn.bootx.salescenter.core.coupon.entity.CouponTemplate;
-import cn.bootx.starter.headerholder.HeaderHolder;
+import cn.bootx.common.headerholder.HeaderHolder;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Repository;

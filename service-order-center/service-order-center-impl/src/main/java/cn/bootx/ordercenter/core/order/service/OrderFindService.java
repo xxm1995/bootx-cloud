@@ -14,7 +14,7 @@ import cn.bootx.ordercenter.dto.order.OrderDetailDto;
 import cn.bootx.ordercenter.dto.order.OrderDto;
 import cn.bootx.ordercenter.dto.order.OrderStrategyMappingDto;
 import cn.bootx.ordercenter.exception.order.OrderNotExistException;
-import cn.bootx.starter.jpa.utils.JpaUtils;
+import cn.bootx.common.jpa.utils.JpaUtils;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;

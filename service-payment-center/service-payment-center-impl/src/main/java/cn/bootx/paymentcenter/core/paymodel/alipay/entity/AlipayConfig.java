@@ -4,7 +4,7 @@ import cn.bootx.common.function.EntityBaseFunction;
 import cn.bootx.paymentcenter.core.paymodel.alipay.convert.AlipayConvert;
 import cn.bootx.paymentcenter.dto.paymodel.alipay.AlipayConfigDto;
 import cn.bootx.paymentcenter.param.paymodel.alipay.AlipayConfigParam;
-import cn.bootx.starter.jpa.base.JpaBaseEntity;
+import cn.bootx.common.jpa.base.JpaBaseEntity;
 import cn.hutool.core.collection.CollUtil;
 import cn.hutool.core.util.StrUtil;
 import lombok.Data;

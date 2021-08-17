@@ -6,7 +6,7 @@ import cn.bootx.noticecenter.core.dingtalk.robot.dao.DingRobotConfigManage;
 import cn.bootx.noticecenter.core.dingtalk.robot.entity.DingRobotConfig;
 import cn.bootx.noticecenter.dto.dingtalk.DingTalkResult;
 import cn.bootx.noticecenter.dto.dingtalk.notice.DingTalkNotice;
-import cn.bootx.starter.jackson.utils.JacksonUtils;
+import cn.bootx.common.jackson.utils.JacksonUtils;
 import cn.hutool.core.util.StrUtil;
 import cn.hutool.http.HttpUtil;
 import lombok.RequiredArgsConstructor;

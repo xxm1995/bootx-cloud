@@ -6,7 +6,7 @@ import cn.bootx.salescenter.code.MatchTypeCode;
 import cn.bootx.salescenter.core.match.convert.MatchRuleConvert;
 import cn.bootx.salescenter.dto.match.MatchRuleDto;
 import cn.bootx.salescenter.param.strategy.MatchRuleParam;
-import cn.bootx.starter.jpa.base.JpaBaseEntity;
+import cn.bootx.common.jpa.base.JpaBaseEntity;
 import com.baomidou.mybatisplus.annotation.TableName;
 import lombok.Data;
 import lombok.EqualsAndHashCode;

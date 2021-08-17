@@ -3,7 +3,7 @@ package cn.bootx.goodscenter.core.inventory.manager;
 import cn.bootx.goodscenter.core.inventory.dao.InventoryRepository;
 import cn.bootx.goodscenter.exception.inventory.InventoryInsufficientException;
 import cn.bootx.goodscenter.exception.inventory.InventoryLockInsufficientException;
-import cn.bootx.starter.headerholder.HeaderHolder;
+import cn.bootx.common.headerholder.HeaderHolder;
 import com.querydsl.jpa.impl.JPAQueryFactory;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;

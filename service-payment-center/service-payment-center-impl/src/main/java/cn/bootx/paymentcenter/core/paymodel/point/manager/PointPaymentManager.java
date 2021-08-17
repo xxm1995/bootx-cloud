@@ -4,7 +4,7 @@ import cn.bootx.paymentcenter.code.pay.PayStatusCode;
 import cn.bootx.paymentcenter.core.paymodel.point.dao.PointPaymentRepository;
 import cn.bootx.paymentcenter.core.paymodel.point.entity.PointPayment;
 import cn.bootx.paymentcenter.core.paymodel.point.entity.QPointPayment;
-import cn.bootx.starter.headerholder.HeaderHolder;
+import cn.bootx.common.headerholder.HeaderHolder;
 import com.querydsl.jpa.impl.JPAQueryFactory;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Repository;

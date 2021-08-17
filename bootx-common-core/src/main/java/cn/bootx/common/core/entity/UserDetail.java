@@ -15,17 +15,44 @@ import java.io.Serializable;
 public class UserDetail implements Serializable {
     private static final long serialVersionUID = -2963943086646538532L;
 
-    /** 用户id */
-    private Long userId;
-    /** 账号 */
-    private String account;
-    /** 名称 */
+    private Long id;
     private String name;
-    /** 邮件 */
-    private String email;
-    /** 手机号 */
-    private String phone;
-    /** 是否超级管理员 */
-    private boolean admin;
+    private String username;
+    private String password;
+    private boolean enabled;
+    private boolean accountNonExpired;
+    private boolean accountNonLocked;
+    private boolean credentialsNonExpired;
+
+    public UserDetail(Long id, String name, String username) {
+        this.id = id;
+        this.name = name;
+        this.username = username;
+        this.accountNonExpired = true;
+        this.accountNonLocked = true;
+        this.credentialsNonExpired = true;
+        this.enabled = true;
+    }
+
+    public UserDetail(Long id, String name,String username, String password) {
+        this.id = id;
+        this.name = name;
+        this.password = password;
+        this.username = username;
+        this.accountNonExpired = true;
+        this.accountNonLocked = true;
+        this.credentialsNonExpired = true;
+        this.enabled = true;
+    }
+
+    public UserDetail(Long id, String username, String password, boolean enabled, boolean accountNonExpired, boolean credentialsNonExpired, boolean accountNonLocked) {
+        this.id = id;
+        this.password = password;
+        this.username = username;
+        this.accountNonExpired = accountNonExpired;
+        this.accountNonLocked = accountNonLocked;
+        this.credentialsNonExpired = credentialsNonExpired;
+        this.enabled = enabled;
+    }
 
 }

@@ -1,7 +1,7 @@
 package cn.bootx.engine.shop.core.order.dao;
 
 import cn.bootx.goodscenter.code.GoodsCenterCode;
-import cn.bootx.starter.seata.redis.TccRedisClient;
+import cn.bootx.common.seata.redis.TccRedisClient;
 import cn.hutool.core.collection.CollUtil;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Repository;

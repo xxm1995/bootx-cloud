@@ -1,7 +1,7 @@
 package cn.bootx.paymentcenter.core.paymodel.alipay.dao;
 
 import cn.bootx.paymentcenter.core.paymodel.alipay.entity.AliPayment;
-import cn.bootx.starter.headerholder.HeaderHolder;
+import cn.bootx.common.headerholder.HeaderHolder;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Repository;
 

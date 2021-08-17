@@ -1,7 +1,7 @@
 package cn.bootx.engine.shop.core.invoice.dao;
 
 import cn.bootx.engine.shop.core.invoice.entity.UserInvoice;
-import cn.bootx.starter.headerholder.HeaderHolder;
+import cn.bootx.common.headerholder.HeaderHolder;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Repository;
 

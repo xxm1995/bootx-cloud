@@ -1,6 +1,6 @@
 package cn.bootx.goodscenter.core.inventory.dao;
 
-import cn.bootx.starter.seata.redis.TccRedisClient;
+import cn.bootx.common.seata.redis.TccRedisClient;
 import cn.hutool.core.collection.CollectionUtil;
 import com.alibaba.csp.sentinel.util.StringUtil;
 import lombok.AllArgsConstructor;

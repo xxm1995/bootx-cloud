@@ -7,7 +7,7 @@ import cn.bootx.gateway.helper.context.RequestContext;
 import cn.bootx.gateway.helper.domain.CheckState;
 import cn.bootx.gateway.helper.properties.GatewayHelperProperties;
 import cn.bootx.gateway.helper.util.ServerRequestUtils;
-import cn.bootx.starter.redis.RedisClient;
+import cn.bootx.common.redis.RedisClient;
 import cn.hutool.core.util.StrUtil;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;

@@ -6,7 +6,7 @@ import cn.bootx.paymentcenter.core.paymodel.base.dao.PayNotifyRecordManager;
 import cn.bootx.paymentcenter.core.paymodel.base.dao.PayNotifyRecordRepository;
 import cn.bootx.paymentcenter.core.paymodel.base.entity.PayNotifyRecord;
 import cn.bootx.paymentcenter.dto.pay.PayNotifyRecordDto;
-import cn.bootx.starter.jpa.utils.JpaUtils;
+import cn.bootx.common.jpa.utils.JpaUtils;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.data.domain.Page;

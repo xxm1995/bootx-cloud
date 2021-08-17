@@ -4,7 +4,7 @@ import cn.bootx.common.function.EntityBaseFunction;
 import cn.bootx.paymentcenter.core.merchant.convert.MerchantConvert;
 import cn.bootx.paymentcenter.dto.merchant.MerchantInfoDto;
 import cn.bootx.paymentcenter.param.merchant.MerchantInfoParam;
-import cn.bootx.starter.jpa.base.JpaBaseEntity;
+import cn.bootx.common.jpa.base.JpaBaseEntity;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.experimental.Accessors;

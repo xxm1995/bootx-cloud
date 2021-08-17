@@ -1,7 +1,7 @@
 package cn.bootx.ordercenter.core.order.dao;
 
 import cn.bootx.ordercenter.core.order.entity.OrderWhole;
-import cn.bootx.starter.headerholder.HeaderHolder;
+import cn.bootx.common.headerholder.HeaderHolder;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Repository;
 

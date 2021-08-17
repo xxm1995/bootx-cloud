@@ -6,7 +6,7 @@ import cn.bootx.salescenter.core.coupon.convert.CouponConvert;
 import cn.bootx.salescenter.core.match.entity.MatchRuleConfig;
 import cn.bootx.salescenter.dto.coupon.CouponTemplateDto;
 import cn.bootx.salescenter.param.coupon.CouponTemplateParam;
-import cn.bootx.starter.jpa.base.JpaBaseEntity;
+import cn.bootx.common.jpa.base.JpaBaseEntity;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.experimental.Accessors;

@@ -11,7 +11,7 @@ import cn.bootx.paymentcenter.core.paymodel.alipay.entity.AlipayConfig;
 import cn.bootx.paymentcenter.dto.paymodel.alipay.AlipayConfigDto;
 import cn.bootx.paymentcenter.param.paymodel.alipay.AlipayConfigParam;
 import cn.bootx.paymentcenter.param.paymodel.alipay.AlipayConfigQuery;
-import cn.bootx.starter.jpa.utils.JpaUtils;
+import cn.bootx.common.jpa.utils.JpaUtils;
 import cn.hutool.core.bean.BeanUtil;
 import cn.hutool.core.bean.copier.CopyOptions;
 import cn.hutool.core.collection.CollUtil;

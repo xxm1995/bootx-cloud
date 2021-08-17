@@ -8,7 +8,7 @@ import cn.bootx.salescenter.dto.coupon.CouponDto;
 import cn.bootx.salescenter.dto.order.OrderDetailPreviewResult;
 import cn.bootx.salescenter.dto.order.OrderPreviewResult;
 import cn.bootx.salescenter.dto.order.OrderStrategyMappingResult;
-import cn.bootx.starter.snowflake.SnowFlakeId;
+import cn.bootx.common.snowflake.SnowFlakeId;
 import cn.hutool.core.bean.BeanUtil;
 import cn.hutool.core.bean.copier.CopyOptions;
 import cn.hutool.core.collection.CollUtil;

@@ -7,7 +7,7 @@ import cn.bootx.paymentcenter.core.payment.entity.Payment;
 import cn.bootx.paymentcenter.dto.pay.PayTypeInfo;
 import cn.bootx.paymentcenter.dto.payment.PaymentDto;
 import cn.bootx.paymentcenter.param.payment.PaymentQuery;
-import cn.bootx.starter.jpa.utils.JpaUtils;
+import cn.bootx.common.jpa.utils.JpaUtils;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;

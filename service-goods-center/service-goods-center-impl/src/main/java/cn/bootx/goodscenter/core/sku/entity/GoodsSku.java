@@ -5,7 +5,7 @@ import cn.bootx.common.core.code.CommonCode;
 import cn.bootx.goodscenter.core.sku.convert.SkuConvert;
 import cn.bootx.goodscenter.dto.sku.GoodsSkuDto;
 import cn.bootx.goodscenter.param.sku.SkuParam;
-import cn.bootx.starter.jpa.base.JpaBaseEntity;
+import cn.bootx.common.jpa.base.JpaBaseEntity;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.experimental.Accessors;

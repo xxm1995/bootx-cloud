@@ -4,7 +4,7 @@ import cn.bootx.common.function.EntityBaseFunction;
 import cn.bootx.ordercenter.dto.order.OrderAddressDto;
 import cn.bootx.ordercenter.dto.order.OrderDto;
 import cn.bootx.ordercenter.dto.order.OrderInvoiceDto;
-import cn.bootx.starter.jpa.base.JpaBaseEntity;
+import cn.bootx.common.jpa.base.JpaBaseEntity;
 import cn.hutool.core.bean.BeanUtil;
 import cn.hutool.core.collection.CollUtil;
 import com.vladmihalcea.hibernate.type.json.JsonStringType;

@@ -2,7 +2,7 @@ package cn.bootx.paymentcenter.core.paymodel.point.entity;
 
 import cn.bootx.common.function.EntityBaseFunction;
 import cn.bootx.paymentcenter.dto.point.PointLogDto;
-import cn.bootx.starter.jpa.base.JpaBaseEntity;
+import cn.bootx.common.jpa.base.JpaBaseEntity;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.experimental.Accessors;

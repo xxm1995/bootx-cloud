@@ -3,7 +3,7 @@ package cn.bootx.paymentcenter.core.paymodel.wechat.entity;
 import cn.bootx.common.function.EntityBaseFunction;
 import cn.bootx.paymentcenter.core.paymodel.wechat.convert.WeChatConvert;
 import cn.bootx.paymentcenter.dto.paymodel.wechat.WeChatPayConfigDto;
-import cn.bootx.starter.jpa.base.JpaBaseEntity;
+import cn.bootx.common.jpa.base.JpaBaseEntity;
 import cn.hutool.core.collection.CollUtil;
 import cn.hutool.core.util.StrUtil;
 import lombok.Data;

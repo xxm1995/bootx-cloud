@@ -1,8 +1,8 @@
 package cn.bootx.engine.shop.core.cart.dao;
 
 import cn.bootx.engine.shop.core.cart.entity.ShopCart;
-import cn.bootx.starter.headerholder.HeaderHolder;
-import cn.bootx.starter.redis.RedisClient;
+import cn.bootx.common.headerholder.HeaderHolder;
+import cn.bootx.common.redis.RedisClient;
 import cn.hutool.json.JSONUtil;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Repository;

@@ -4,7 +4,7 @@ import cn.bootx.common.core.exception.BizException;
 import cn.bootx.common.core.rest.Res;
 import cn.bootx.common.core.rest.ResResult;
 import cn.bootx.goodscenter.core.inventory.service.OperateInventoryService;
-import cn.bootx.starter.seata.redis.TccRedisClient;
+import cn.bootx.common.seata.redis.TccRedisClient;
 import io.seata.spring.annotation.GlobalTransactional;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;

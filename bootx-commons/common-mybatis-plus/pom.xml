@@ -15,14 +15,20 @@
 
     <dependencies>
         <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-tx</artifactId>
+        </dependency>
+        <dependency>
             <groupId>com.baomidou</groupId>
-            <artifactId>mybatis-plus</artifactId>
-            <version>3.4.2</version>
-            <scope>provided</scope>
+            <artifactId>mybatis-plus-boot-starter</artifactId>
         </dependency>
         <dependency>
             <groupId>cn.bootx.cloud</groupId>
             <artifactId>common-header-holder</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>cn.bootx.cloud</groupId>
+            <artifactId>common-auth</artifactId>
         </dependency>
 
     </dependencies>

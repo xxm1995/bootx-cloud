@@ -1,7 +1,7 @@
 package cn.bootx.ordercenter.core.swap.dao;
 
 import cn.bootx.ordercenter.dto.swap.SwapOrderDto;
-import cn.bootx.starter.headerholder.HeaderHolder;
+import cn.bootx.common.headerholder.HeaderHolder;
 import com.querydsl.jpa.impl.JPAQueryFactory;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;

@@ -1,7 +1,7 @@
 package cn.bootx.goodscenter.core.category.dao;
 
 import cn.bootx.goodscenter.core.category.entity.Category;
-import cn.bootx.starter.headerholder.HeaderHolder;
+import cn.bootx.common.headerholder.HeaderHolder;
 import com.querydsl.jpa.impl.JPAQueryFactory;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;

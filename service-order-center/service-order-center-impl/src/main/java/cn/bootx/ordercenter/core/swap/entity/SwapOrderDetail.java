@@ -1,7 +1,7 @@
 package cn.bootx.ordercenter.core.swap.entity;
 
 import cn.bootx.ordercenter.dto.swap.SwapOrderDetailDto;
-import cn.bootx.starter.jpa.base.JpaBaseEntity;
+import cn.bootx.common.jpa.base.JpaBaseEntity;
 import org.springframework.beans.BeanUtils;
 
 import javax.persistence.Entity;

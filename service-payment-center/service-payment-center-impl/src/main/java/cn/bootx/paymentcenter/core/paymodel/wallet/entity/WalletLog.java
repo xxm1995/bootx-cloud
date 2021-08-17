@@ -3,7 +3,7 @@ package cn.bootx.paymentcenter.core.paymodel.wallet.entity;
 import cn.bootx.common.function.EntityBaseFunction;
 import cn.bootx.common.core.code.CommonCode;
 import cn.bootx.paymentcenter.dto.paymodel.wallet.WalletLogDto;
-import cn.bootx.starter.jpa.base.JpaBaseEntity;
+import cn.bootx.common.jpa.base.JpaBaseEntity;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.experimental.Accessors;

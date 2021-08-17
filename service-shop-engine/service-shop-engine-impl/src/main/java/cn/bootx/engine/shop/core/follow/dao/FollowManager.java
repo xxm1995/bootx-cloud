@@ -1,6 +1,6 @@
 package cn.bootx.engine.shop.core.follow.dao;
 
-import cn.bootx.starter.headerholder.HeaderHolder;
+import cn.bootx.common.headerholder.HeaderHolder;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Repository;
 

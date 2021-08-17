@@ -7,7 +7,7 @@ import cn.bootx.gateway.helper.context.ResponseContext;
 import cn.bootx.gateway.helper.domain.CheckRequest;
 import cn.bootx.gateway.helper.domain.CheckResponse;
 import cn.bootx.gateway.helper.util.ServerRequestUtils;
-import cn.bootx.starter.headerholder.local.HolderContextHolder;
+import cn.bootx.common.headerholder.local.HolderContextHolder;
 import cn.hutool.core.util.StrUtil;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;

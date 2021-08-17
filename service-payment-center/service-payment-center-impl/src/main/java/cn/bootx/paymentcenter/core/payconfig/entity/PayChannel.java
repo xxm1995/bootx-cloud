@@ -5,7 +5,7 @@ import cn.bootx.paymentcenter.code.pay.PayTypeEnum;
 import cn.bootx.paymentcenter.core.payconfig.convert.PayConfigConvert;
 import cn.bootx.paymentcenter.dto.payconfig.PayChannelDto;
 import cn.bootx.paymentcenter.param.payconfig.PayChannelParam;
-import cn.bootx.starter.jpa.base.JpaBaseEntity;
+import cn.bootx.common.jpa.base.JpaBaseEntity;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.experimental.Accessors;

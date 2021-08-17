@@ -1,7 +1,7 @@
 package cn.bootx.paymentcenter.core.paymodel.wallet.dao;
 
 import cn.bootx.paymentcenter.core.paymodel.wallet.entity.WalletLog;
-import cn.bootx.starter.headerholder.HeaderHolder;
+import cn.bootx.common.headerholder.HeaderHolder;
 import com.querydsl.jpa.impl.JPAQueryFactory;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Repository;

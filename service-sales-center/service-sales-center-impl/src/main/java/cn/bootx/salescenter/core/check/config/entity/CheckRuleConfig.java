@@ -6,7 +6,7 @@ import cn.bootx.salescenter.code.StrategyCode;
 import cn.bootx.salescenter.core.check.config.convert.CheckRuleConvert;
 import cn.bootx.salescenter.dto.check.CheckRuleDto;
 import cn.bootx.salescenter.param.strategy.CheckRuleParam;
-import cn.bootx.starter.jpa.base.JpaBaseEntity;
+import cn.bootx.common.jpa.base.JpaBaseEntity;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.experimental.Accessors;

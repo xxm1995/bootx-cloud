@@ -11,7 +11,7 @@ import cn.bootx.paymentcenter.core.payconfig.entity.PayChannel;
 import cn.bootx.paymentcenter.core.payconfig.entity.PayChannelWay;
 import cn.bootx.paymentcenter.dto.payconfig.PayChannelWayDto;
 import cn.bootx.paymentcenter.param.payconfig.PayChannelWayParam;
-import cn.bootx.starter.jpa.utils.JpaUtils;
+import cn.bootx.common.jpa.utils.JpaUtils;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;

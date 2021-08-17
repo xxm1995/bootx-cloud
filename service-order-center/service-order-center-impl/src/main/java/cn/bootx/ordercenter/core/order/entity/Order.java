@@ -3,7 +3,7 @@ package cn.bootx.ordercenter.core.order.entity;
 import cn.bootx.common.function.EntityBaseFunction;
 import cn.bootx.ordercenter.code.OrderStatusCode;
 import cn.bootx.ordercenter.dto.order.OrderDto;
-import cn.bootx.starter.jpa.base.JpaBaseEntity;
+import cn.bootx.common.jpa.base.JpaBaseEntity;
 import cn.hutool.core.bean.BeanUtil;
 import cn.hutool.core.collection.CollUtil;
 import lombok.Data;

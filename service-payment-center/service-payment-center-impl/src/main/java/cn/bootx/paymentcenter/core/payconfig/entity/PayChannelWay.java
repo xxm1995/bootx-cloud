@@ -4,7 +4,7 @@ import cn.bootx.common.function.EntityBaseFunction;
 import cn.bootx.paymentcenter.core.payconfig.convert.PayConfigConvert;
 import cn.bootx.paymentcenter.dto.payconfig.PayChannelWayDto;
 import cn.bootx.paymentcenter.param.payconfig.PayChannelWayParam;
-import cn.bootx.starter.jpa.base.JpaBaseEntity;
+import cn.bootx.common.jpa.base.JpaBaseEntity;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.experimental.Accessors;

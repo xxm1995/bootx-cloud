@@ -5,7 +5,7 @@ import cn.bootx.common.core.rest.ResResult;
 import cn.bootx.engine.shop.mq.MessageSender;
 import cn.bootx.goodscenter.param.inventory.UnlockInventoryParam;
 import cn.bootx.paymentcenter.code.pay.PayTypeCode;
-import cn.bootx.starter.redis.RedisClient;
+import cn.bootx.common.redis.RedisClient;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import lombok.AllArgsConstructor;

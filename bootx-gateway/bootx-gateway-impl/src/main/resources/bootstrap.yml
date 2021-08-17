@@ -10,10 +10,10 @@ spring:
       username: ${nacos.username:admin}
       password: ${nacos.password:123456}
       discovery:
-        namespace: @nacos.discovery.namespace@
+        namespace: bootx
       config:
         file-extension: yml
-        namespace: @nacos.config.namespace@
+        namespace: bootx
         shared-configs: bootx-common-config-dev.yml
 bootx:
   gateway:

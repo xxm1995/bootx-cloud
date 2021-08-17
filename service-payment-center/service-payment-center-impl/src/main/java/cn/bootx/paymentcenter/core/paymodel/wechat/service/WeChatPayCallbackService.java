@@ -8,7 +8,7 @@ import cn.bootx.paymentcenter.core.pay.service.PayCallbackService;
 import cn.bootx.paymentcenter.core.paymodel.base.service.PayNotifyRecordService;
 import cn.bootx.paymentcenter.core.paymodel.wechat.dao.WeChatPayConfigManager;
 import cn.bootx.paymentcenter.core.paymodel.wechat.entity.WeChatPayConfig;
-import cn.bootx.starter.redis.RedisClient;
+import cn.bootx.common.redis.RedisClient;
 import cn.hutool.core.util.StrUtil;
 import cn.hutool.json.JSONUtil;
 import com.ijpay.core.enums.SignType;

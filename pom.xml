@@ -18,8 +18,10 @@
 
     <modules>
         <module>bootx-common-core</module>
-        <module>bootx-pom</module>
+        <module>bootx-parent</module>
         <module>bootx-commons</module>
+        <module>bootx-service-base</module>
+        <module>bootx-common-starters</module>
     </modules>
 
     <!-- pom依赖版本 -->
@@ -31,32 +33,39 @@
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
         <java.version>1.8</java.version>
     </properties>
+
     <dependencyManagement>
         <dependencies>
-            <!-- alibaba -->
+
+            <!-- 项目三方库依赖版本管理 -->
             <dependency>
-                <groupId>com.alibaba.cloud</groupId>
-                <artifactId>spring-cloud-alibaba-dependencies</artifactId>
-                <version>${spring-cloud-alibaba.version}</version>
+                <groupId>cn.bootx.cloud</groupId>
+                <artifactId>bootx-parent-tripartite</artifactId>
+                <version>${bootx-cloud.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+            <!-- 项目一方库方库依赖版本管理 -->
+            <dependency>
+                <groupId>cn.bootx.cloud</groupId>
+                <artifactId>bootx-parent-one</artifactId>
+                <version>${bootx-cloud.version}</version>
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>
 
-            <!-- spring cloud -->
-            <dependency>
-                <groupId>org.springframework.cloud</groupId>
-                <artifactId>spring-cloud-dependencies</artifactId>
-                <version>${spring-cloud.version}</version>
-                <type>pom</type>
-                <scope>import</scope>
-            </dependency>
-            <!-- 项目依赖版本 -->
+            <!-- 项目导入包版本声明 -->
             <dependency>
                 <groupId>cn.bootx.cloud</groupId>
-                <artifactId>bootx-pom</artifactId>
-                <version>${bootx-cloud.version}</version>
+                <artifactId>bootx-parent-api</artifactId>
                 <type>pom</type>
-                <scope>import</scope>
+                <version>${bootx-cloud.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>cn.bootx.cloud</groupId>
+                <artifactId>bootx-parent-impl</artifactId>
+                <type>pom</type>
+                <version>${bootx-cloud.version}</version>
             </dependency>
         </dependencies>
 
@@ -91,13 +100,6 @@
     </repositories>
 
     <build>
-        <plugins>
-            <plugin>
-                <groupId>org.codehaus.mojo</groupId>
-                <artifactId>versions-maven-plugin</artifactId>
-            </plugin>
-        </plugins>
-
         <resources>
             <resource>
                 <directory>src/main/resources</directory>

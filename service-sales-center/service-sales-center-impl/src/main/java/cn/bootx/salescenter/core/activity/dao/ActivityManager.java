@@ -1,7 +1,7 @@
 package cn.bootx.salescenter.core.activity.dao;
 
 import cn.bootx.salescenter.core.activity.entity.Activity;
-import cn.bootx.starter.headerholder.HeaderHolder;
+import cn.bootx.common.headerholder.HeaderHolder;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Repository;
@@ -18,7 +18,6 @@ import java.util.List;
 @RequiredArgsConstructor
 public class ActivityManager {
     private final ActivityRepository activityRepository;
-    private final HeaderHolder headerHolder;
 
 
     /**

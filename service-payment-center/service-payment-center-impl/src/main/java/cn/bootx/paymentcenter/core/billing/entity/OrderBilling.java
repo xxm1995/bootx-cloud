@@ -5,7 +5,7 @@ import cn.bootx.paymentcenter.code.pay.PayTransactionPurposeCode;
 import cn.bootx.paymentcenter.code.pay.PayTransactionTypeCode;
 import cn.bootx.paymentcenter.dto.billing.OrderBillingDto;
 import cn.bootx.paymentcenter.utils.PayTypeNameUtil;
-import cn.bootx.starter.jpa.base.JpaBaseEntity;
+import cn.bootx.common.jpa.base.JpaBaseEntity;
 import cn.hutool.core.bean.BeanUtil;
 import lombok.Data;
 import lombok.EqualsAndHashCode;

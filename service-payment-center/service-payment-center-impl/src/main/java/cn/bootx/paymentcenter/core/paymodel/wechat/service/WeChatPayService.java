@@ -8,7 +8,7 @@ import cn.bootx.paymentcenter.core.payment.entity.Payment;
 import cn.bootx.paymentcenter.core.paymodel.wechat.entity.WeChatPayConfig;
 import cn.bootx.paymentcenter.dto.pay.AsyncPayInfo;
 import cn.bootx.paymentcenter.param.paymodel.wechat.WeChatPayParam;
-import cn.bootx.starter.headerholder.HeaderHolder;
+import cn.bootx.common.headerholder.HeaderHolder;
 import cn.hutool.core.util.StrUtil;
 import com.alibaba.nacos.api.utils.NetUtils;
 import com.ijpay.core.enums.SignType;

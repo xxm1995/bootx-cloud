@@ -2,7 +2,7 @@ package cn.bootx.salescenter.core.check.config.dao;
 
 import cn.bootx.salescenter.code.CheckRuleCode;
 import cn.bootx.salescenter.core.check.config.entity.CheckRuleConfig;
-import cn.bootx.starter.headerholder.HeaderHolder;
+import cn.bootx.common.headerholder.HeaderHolder;
 import com.querydsl.jpa.impl.JPAQueryFactory;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Repository;

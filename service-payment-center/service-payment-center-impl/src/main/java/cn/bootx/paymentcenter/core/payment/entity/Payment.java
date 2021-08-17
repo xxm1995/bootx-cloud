@@ -4,7 +4,7 @@ import cn.bootx.common.function.EntityBaseFunction;
 import cn.bootx.paymentcenter.code.pay.PayStatusCode;
 import cn.bootx.paymentcenter.dto.pay.PayTypeInfo;
 import cn.bootx.paymentcenter.dto.payment.PaymentDto;
-import cn.bootx.starter.jpa.base.JpaBaseEntity;
+import cn.bootx.common.jpa.base.JpaBaseEntity;
 import cn.hutool.core.util.StrUtil;
 import cn.hutool.json.JSONArray;
 import cn.hutool.json.JSONUtil;

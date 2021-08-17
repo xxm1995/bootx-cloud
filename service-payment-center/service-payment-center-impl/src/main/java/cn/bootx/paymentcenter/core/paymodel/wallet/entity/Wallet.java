@@ -4,7 +4,7 @@ import cn.bootx.common.function.EntityBaseFunction;
 import cn.bootx.common.core.code.CommonCode;
 import cn.bootx.paymentcenter.code.paymodel.WalletCode;
 import cn.bootx.paymentcenter.dto.paymodel.wallet.WalletDto;
-import cn.bootx.starter.jpa.base.JpaBaseEntity;
+import cn.bootx.common.jpa.base.JpaBaseEntity;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.experimental.Accessors;

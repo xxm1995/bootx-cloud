@@ -4,7 +4,7 @@ import cn.bootx.paymentcenter.core.billing.dao.OrderBillingManager;
 import cn.bootx.paymentcenter.core.billing.dao.OrderItemBillingManager;
 import cn.bootx.paymentcenter.core.payment.dao.PaymentManager;
 import cn.bootx.paymentcenter.core.payment.factory.PaymentFactory;
-import cn.bootx.starter.snowflake.SnowFlakeId;
+import cn.bootx.common.snowflake.SnowFlakeId;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;

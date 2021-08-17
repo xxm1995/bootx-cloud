@@ -7,7 +7,7 @@ import cn.bootx.salescenter.core.match.entity.MatchRuleConfig;
 import cn.bootx.salescenter.dto.activity.ActivityDto;
 import cn.bootx.salescenter.dto.activity.SimpleActivity;
 import cn.bootx.salescenter.param.activity.ActivityParam;
-import cn.bootx.starter.jpa.base.JpaBaseEntity;
+import cn.bootx.common.jpa.base.JpaBaseEntity;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.experimental.Accessors;

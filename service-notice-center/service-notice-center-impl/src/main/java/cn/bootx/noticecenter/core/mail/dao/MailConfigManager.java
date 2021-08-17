@@ -1,7 +1,7 @@
 package cn.bootx.noticecenter.core.mail.dao;
 
 import cn.bootx.noticecenter.core.mail.entity.MailConfig;
-import cn.bootx.starter.headerholder.HeaderHolder;
+import cn.bootx.common.headerholder.HeaderHolder;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Repository;

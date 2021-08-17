@@ -6,7 +6,7 @@ import cn.bootx.common.core.rest.ResResult;
 import cn.bootx.gateway.helper.api.reactive.ReactiveAuthenticationHelper;
 import cn.bootx.gateway.helper.context.ResponseContext;
 import cn.bootx.gateway.helper.domain.CheckState;
-import cn.bootx.starter.headerholder.local.HolderContextHolder;
+import cn.bootx.common.headerholder.local.HolderContextHolder;
 import cn.hutool.core.collection.CollUtil;
 import cn.hutool.core.util.StrUtil;
 import cn.hutool.json.JSONUtil;

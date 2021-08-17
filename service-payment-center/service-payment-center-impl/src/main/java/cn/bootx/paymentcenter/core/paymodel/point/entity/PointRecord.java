@@ -1,6 +1,6 @@
 package cn.bootx.paymentcenter.core.paymodel.point.entity;
 
-import cn.bootx.starter.jpa.base.JpaBaseEntity;
+import cn.bootx.common.jpa.base.JpaBaseEntity;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.experimental.Accessors;

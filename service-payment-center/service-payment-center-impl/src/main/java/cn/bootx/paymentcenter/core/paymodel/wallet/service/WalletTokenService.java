@@ -1,9 +1,9 @@
 package cn.bootx.paymentcenter.core.paymodel.wallet.service;
 
 import cn.bootx.paymentcenter.core.paymodel.wallet.dao.WalletManager;
-import cn.bootx.starter.headerholder.HeaderHolder;
-import cn.bootx.starter.redis.RedisClient;
-import cn.bootx.starter.snowflake.SnowFlakeId;
+import cn.bootx.common.headerholder.HeaderHolder;
+import cn.bootx.common.redis.RedisClient;
+import cn.bootx.common.snowflake.SnowFlakeId;
 import com.alibaba.csp.sentinel.util.StringUtil;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;

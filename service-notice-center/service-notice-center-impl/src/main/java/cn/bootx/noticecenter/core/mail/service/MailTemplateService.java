@@ -8,7 +8,7 @@ import cn.bootx.noticecenter.core.mail.entity.MailTemplate;
 import cn.bootx.noticecenter.dto.mail.MailTemplateDto;
 import cn.bootx.noticecenter.exception.CodeTemplateExistedException;
 import cn.bootx.noticecenter.exception.MailTemplateNotExistException;
-import cn.bootx.starter.jpa.utils.JpaUtils;
+import cn.bootx.common.jpa.utils.JpaUtils;
 import cn.hutool.core.bean.BeanUtil;
 import cn.hutool.core.bean.copier.CopyOptions;
 import lombok.AllArgsConstructor;

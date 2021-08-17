@@ -1,0 +1,3 @@
+# 将 dubbo 调用client 进行配置并转换成 spring bean 暴露
+org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
+  cn.bootx.bsp.client.feign.ChannelClientFeignImpl

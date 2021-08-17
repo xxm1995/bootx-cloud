@@ -1,7 +1,7 @@
 package cn.bootx.paymentcenter.core.paymodel.wechat.dao;
 
 import cn.bootx.paymentcenter.core.paymodel.wechat.entity.WeChatPayConfig;
-import cn.bootx.starter.headerholder.HeaderHolder;
+import cn.bootx.common.headerholder.HeaderHolder;
 import lombok.RequiredArgsConstructor;
 import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Repository;

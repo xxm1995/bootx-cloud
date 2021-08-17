@@ -1,6 +1,6 @@
 package cn.bootx.goodscenter.core.inventory.task;
 
-import cn.bootx.starter.redis.RedisClient;
+import cn.bootx.common.redis.RedisClient;
 import lombok.RequiredArgsConstructor;
 import org.springframework.scheduling.annotation.EnableScheduling;
 import org.springframework.scheduling.annotation.Scheduled;

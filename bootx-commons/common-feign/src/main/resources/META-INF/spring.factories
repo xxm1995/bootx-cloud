@@ -1,4 +1,4 @@
 ## 配置自定义 starter 的自动化配置
 org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
-  cn.bootx.starter.feign.BootxFeignAutoConfiguration,\
-  cn.bootx.starter.feign.FeignWebMvcConfigurer
+  cn.bootx.common.feign.BootxFeignAutoConfiguration,\
+  cn.bootx.common.feign.FeignWebMvcConfigurer

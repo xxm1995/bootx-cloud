@@ -1,7 +1,7 @@
 package cn.bootx.salescenter.core.strategy.dao;
 
 import cn.bootx.salescenter.core.strategy.entity.Strategy;
-import cn.bootx.starter.headerholder.HeaderHolder;
+import cn.bootx.common.headerholder.HeaderHolder;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Repository;

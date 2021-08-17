@@ -3,7 +3,7 @@ package cn.bootx.goodscenter.core.category.entity;
 import cn.bootx.common.function.EntityBaseFunction;
 import cn.bootx.common.core.code.CommonCode;
 import cn.bootx.goodscenter.dto.category.CategoryDto;
-import cn.bootx.starter.jpa.base.JpaBaseEntity;
+import cn.bootx.common.jpa.base.JpaBaseEntity;
 import cn.hutool.core.bean.BeanUtil;
 import lombok.Data;
 import lombok.EqualsAndHashCode;

@@ -3,7 +3,7 @@ package cn.bootx.salescenter.core.coupon.entity;
 import cn.bootx.common.function.EntityBaseFunction;
 import cn.bootx.salescenter.core.coupon.convert.CouponConvert;
 import cn.bootx.salescenter.dto.coupon.CouponDto;
-import cn.bootx.starter.jpa.base.JpaBaseEntity;
+import cn.bootx.common.jpa.base.JpaBaseEntity;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.experimental.Accessors;

@@ -1,4 +1,4 @@
 ## 配置自定义 starter 的自动化配置
 org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
-  cn.bootx.starter.seata.redis.proxy.TccRedisClientProxyImpl,\
-  cn.bootx.starter.seata.SeataAutoConfiguration
+  cn.bootx.common.seata.redis.proxy.TccRedisClientProxyImpl,\
+  cn.bootx.common.seata.SeataAutoConfiguration

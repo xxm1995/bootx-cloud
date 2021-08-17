@@ -1,7 +1,5 @@
 package cn.bootx.iam.client;
 
-import cn.bootx.iam.dto.auth.AuthInfoResult;
-
 /**
 *
 * @author xxm
@@ -9,8 +7,4 @@ import cn.bootx.iam.dto.auth.AuthInfoResult;
 */
 public interface LoginUserClient {
 
-    /**
-    * 获取登录信息
-    */
-    AuthInfoResult getUserInfo();
 }

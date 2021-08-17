@@ -2,9 +2,9 @@ package cn.bootx.iam.controller;
 
 import cn.bootx.common.core.rest.Res;
 import cn.bootx.common.core.rest.ResResult;
-import cn.bootx.iam.core.role.service.RoleMenuService;
+import cn.bootx.iam.core.upms.service.RoleMenuService;
 import cn.bootx.iam.dto.permission.PermissionMenuDto;
-import cn.bootx.iam.param.role.RolePermissionParam;
+import cn.bootx.iam.param.upms.RolePermissionParam;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import lombok.RequiredArgsConstructor;

@@ -2,11 +2,11 @@ package cn.bootx.iam.controller;
 
 import cn.bootx.common.core.rest.Res;
 import cn.bootx.common.core.rest.ResResult;
-import cn.bootx.iam.core.role.service.RolePathService;
+import cn.bootx.iam.core.upms.service.RolePathService;
 import cn.bootx.iam.dto.permission.PermissionPathDto;
-import cn.bootx.iam.dto.role.RoleDto;
-import cn.bootx.iam.param.role.PermissionRoleParam;
-import cn.bootx.iam.param.role.RolePermissionParam;
+import cn.bootx.iam.dto.upms.RoleDto;
+import cn.bootx.iam.param.upms.PermissionRoleParam;
+import cn.bootx.iam.param.upms.RolePermissionParam;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import lombok.RequiredArgsConstructor;

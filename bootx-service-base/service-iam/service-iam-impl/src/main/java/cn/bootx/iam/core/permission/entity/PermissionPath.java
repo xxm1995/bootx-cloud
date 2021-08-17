@@ -1,17 +1,15 @@
 package cn.bootx.iam.core.permission.entity;
 
 
-import cn.bootx.common.function.EntityBaseFunction;
+import cn.bootx.common.core.function.EntityBaseFunction;
+import cn.bootx.common.mybatisplus.base.MpBaseEntity;
 import cn.bootx.iam.core.permission.convert.PermissionConvert;
 import cn.bootx.iam.dto.permission.PermissionPathDto;
 import cn.bootx.iam.param.permission.PermissionPathParam;
-import cn.bootx.common.jpa.base.JpaBaseEntity;
+import com.baomidou.mybatisplus.annotation.TableName;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.experimental.Accessors;
-
-import javax.persistence.Entity;
-import javax.persistence.Table;
 
 /**
 * 权限资源(url请求)
@@ -19,11 +17,10 @@ import javax.persistence.Table;
 * @date 2020/5/10 23:09 
 */
 @EqualsAndHashCode(callSuper = true)
-@Entity
 @Data
 @Accessors(chain = true)
-@Table(name="uc_permission_path")
-public class PermissionPath extends JpaBaseEntity implements EntityBaseFunction<PermissionPathDto> {
+@TableName("iam_permission_path")
+public class PermissionPath extends MpBaseEntity implements EntityBaseFunction<PermissionPathDto> {
 
     /** 权限的标识 */
     private String code;

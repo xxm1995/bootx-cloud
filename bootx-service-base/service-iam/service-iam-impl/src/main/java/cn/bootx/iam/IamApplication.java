@@ -1,9 +1,10 @@
 package cn.bootx.iam;
 
 import lombok.extern.slf4j.Slf4j;
+import org.apache.ibatis.annotations.Mapper;
+import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.boot.context.properties.ConfigurationPropertiesScan;
 import org.springframework.context.ConfigurableApplicationContext;
 import org.springframework.core.env.Environment;
 
@@ -17,7 +18,7 @@ import java.net.UnknownHostException;
 */
 @Slf4j
 @SpringBootApplication
-@ConfigurationPropertiesScan
+@MapperScan(annotationClass = Mapper.class)
 public class IamApplication {
     public static void main(String[] args) throws UnknownHostException {
         ConfigurableApplicationContext application = SpringApplication.run(IamApplication.class, args);

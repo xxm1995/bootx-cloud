@@ -1,12 +1,11 @@
 package cn.bootx.iam.core.depart.service;
 
-import cn.bootx.common.core.code.CommonCode;
 import cn.bootx.common.core.exception.BizException;
 import cn.bootx.iam.core.depart.dao.DepartManager;
-import cn.bootx.iam.core.depart.dao.DepartRepository;
 import cn.bootx.iam.core.depart.entity.Depart;
 import cn.bootx.iam.dto.depart.DepartDto;
 import cn.bootx.iam.dto.depart.DepartTreeResult;
+import cn.bootx.iam.param.depart.DepartParam;
 import cn.hutool.core.bean.BeanUtil;
 import cn.hutool.core.bean.copier.CopyOptions;
 import lombok.AllArgsConstructor;
@@ -28,22 +27,21 @@ import java.util.Objects;
 @AllArgsConstructor
 public class DepartService {
     private final DepartManager departManager;
-    private final DepartRepository departRepository;
     private final DepartUtilService departUtilService;
 
     /**
      * 添加部门
      */
-    public DepartDto add(DepartDto departDto){
-        Depart depart = Depart.init(departDto);
+    public DepartDto add(DepartParam param){
+        Depart depart = Depart.init(param);
 
         // 先判断该对象有无父级ID,有则意味着不是最高级,否则意味着是最高级
-        Long parentId = departDto.getParentId();
+        Long parentId = param.getParentId();
 
         // 部门code生成
         depart.setOrgCode(departUtilService.generateOrgCode(parentId));
 
-        return departRepository.save(depart).toDto();
+        return departManager.save(depart).toDto();
     }
 
     /**
@@ -65,13 +63,13 @@ public class DepartService {
     /**
      * 编辑数据 编辑部门的部分数据,并保存到数据库
      */
-    public DepartDto update(DepartDto departDto){
+    public DepartDto update(DepartParam param){
         // 父机构ID 机构编码 不能修改
-        Depart depart = departManager.findById(departDto.getId()).orElseThrow(() -> new BizException("机构未找到"));
-        BeanUtil.copyProperties(departDto,depart, CommonCode.VERSION);
-        BeanUtil.copyProperties(departDto,depart, CopyOptions.create().ignoreNullValue()
-                .setIgnoreProperties("parentId","orgCode"));
-        return departRepository.save(depart).toDto();
+        Depart depart = departManager.findById(param.getId()).orElseThrow(() -> new BizException("机构未找到"));
+//        BeanUtil.copyProperties(param,depart, CommonCode.VERSION);
+        param.setParentId(null).setOrgCode(null);
+        BeanUtil.copyProperties(param,depart, CopyOptions.create().ignoreNullValue());
+        return departManager.updateById(depart).toDto();
     }
 
     /**

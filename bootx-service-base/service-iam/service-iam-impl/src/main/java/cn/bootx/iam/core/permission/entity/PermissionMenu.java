@@ -1,16 +1,14 @@
 package cn.bootx.iam.core.permission.entity;
 
-import cn.bootx.common.function.EntityBaseFunction;
+import cn.bootx.common.core.function.EntityBaseFunction;
+import cn.bootx.common.mybatisplus.base.MpBaseEntity;
 import cn.bootx.iam.core.permission.convert.PermissionConvert;
 import cn.bootx.iam.dto.permission.PermissionMenuDto;
 import cn.bootx.iam.param.permission.PermissionMenuParam;
-import cn.bootx.common.jpa.base.JpaBaseEntity;
+import com.baomidou.mybatisplus.annotation.TableName;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.experimental.Accessors;
-
-import javax.persistence.Entity;
-import javax.persistence.Table;
 
 /**   
 * 权限资源(菜单)
@@ -18,11 +16,10 @@ import javax.persistence.Table;
 * @date 2021/7/12 
 */
 @EqualsAndHashCode(callSuper = true)
-@Entity
 @Data
 @Accessors(chain = true)
-@Table(name="uc_permission_menu")
-public class PermissionMenu extends JpaBaseEntity implements EntityBaseFunction<PermissionMenuDto> {
+@TableName("iam_permission_menu")
+public class PermissionMenu extends MpBaseEntity implements EntityBaseFunction<PermissionMenuDto> {
 
     /** 父id */
     private Long parentId;

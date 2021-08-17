@@ -5,6 +5,7 @@ import cn.bootx.common.core.rest.ResResult;
 import cn.bootx.iam.core.depart.service.DepartService;
 import cn.bootx.iam.dto.depart.DepartDto;
 import cn.bootx.iam.dto.depart.DepartTreeResult;
+import cn.bootx.iam.param.depart.DepartParam;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import lombok.AllArgsConstructor;
@@ -25,8 +26,8 @@ public class DepartController {
 
     @ApiOperation("添加")
     @PostMapping("/add")
-    public ResResult<DepartDto> add(DepartDto departDto){
-        return Res.ok(departService.add(departDto));
+    public ResResult<DepartDto> add(DepartParam departParam){
+        return Res.ok(departService.add(departParam));
     }
 
     @ApiOperation("获取")
@@ -43,8 +44,8 @@ public class DepartController {
 
     @ApiOperation("更新")
     @PostMapping("/update")
-    public ResResult<DepartDto> update(DepartDto departDto){
-        return Res.ok(departService.update(departDto));
+    public ResResult<DepartDto> update(DepartParam departParam){
+        return Res.ok(departService.update(departParam));
     }
 
     @ApiOperation("普通删除")

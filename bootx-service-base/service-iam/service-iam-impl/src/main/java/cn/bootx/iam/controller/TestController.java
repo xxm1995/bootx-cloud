@@ -1,6 +1,6 @@
 package cn.bootx.iam.controller;
 
-import cn.bootx.iam.core.role.service.RoleMenuService;
+import cn.bootx.iam.core.upms.service.RoleMenuService;
 import io.swagger.annotations.Api;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.RequestMapping;

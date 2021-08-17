@@ -47,7 +47,7 @@ public class TokenRepository {
     public String login(UserDetail userDetail, LoginModel loginModel) {
 
         // 判断是否已经已经有会话
-        String sessionKey = KEY_PREFIX_SESSION+userDetail.getUserId();
+        String sessionKey = KEY_PREFIX_SESSION+userDetail.getId();
         boolean existsSession = redisClient.exists(sessionKey);
 
         LoginSession loginSession;
@@ -75,7 +75,7 @@ public class TokenRepository {
         // 持久化
         String tokenKey = KEY_PREFIX_TOKEN+RandomUtil.randomString(32);
         redisClient.setWithTimeout(sessionKey,TokenJacksonUtils.toJson(loginSession),authProperties.getTimeout());
-        redisClient.setWithTimeout(tokenKey, String.valueOf(userDetail.getUserId()),authProperties.getTimeout());
+        redisClient.setWithTimeout(tokenKey, String.valueOf(userDetail.getId()),authProperties.getTimeout());
         return token;
     }
 

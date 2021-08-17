@@ -51,8 +51,8 @@ public class UserInfoController {
 
     @ApiOperation("分页")
     @GetMapping("/page")
-    public ResResult<PageResult<UserInfoDto>> page(PageParam pageParam){
-        return Res.ok(userQueryService.page(pageParam));
+    public ResResult<PageResult<UserInfoDto>> page(PageParam pageParam, UserInfoParam userInfoParam){
+        return Res.ok(userQueryService.page(pageParam,userInfoParam));
     }
 
 }

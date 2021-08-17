@@ -17,11 +17,14 @@ import java.io.Serializable;
 public class UserInfoParam implements Serializable {
     private static final long serialVersionUID = -1263052439212534900L;
 
+    @ApiModelProperty("主键")
+    private Long id;
+
     @ApiModelProperty("名称")
     private String name;
 
     @ApiModelProperty("登录账号")
-    private String account;
+    private String username;
 
     @ApiModelProperty("手机号")
     private String phone;
@@ -29,6 +32,6 @@ public class UserInfoParam implements Serializable {
     @ApiModelProperty("邮箱")
     private String email;
 
-    @ApiModelProperty( "第三方登录")
-    private Boolean thirdPartyLogin = false;
+    @ApiModelProperty("密码")
+    private String password;
 }

@@ -6,19 +6,17 @@ import cn.bootx.common.core.exception.BizException;
 import cn.bootx.common.core.rest.PageResult;
 import cn.bootx.common.core.rest.param.PageParam;
 import cn.bootx.common.core.util.ResultConvertUtils;
+import cn.bootx.common.mybatisplus.util.MpUtils;
 import cn.bootx.iam.core.permission.dao.PermissionPathManager;
-import cn.bootx.iam.core.permission.dao.PermissionPathRepository;
 import cn.bootx.iam.core.permission.dto.PermissionPathImport;
 import cn.bootx.iam.core.permission.entity.PermissionPath;
 import cn.bootx.iam.dto.permission.PermissionPathDto;
 import cn.bootx.iam.param.permission.PermissionPathParam;
-import cn.bootx.common.jpa.utils.JpaUtils;
 import cn.hutool.core.bean.BeanUtil;
 import cn.hutool.core.bean.copier.CopyOptions;
 import lombok.AllArgsConstructor;
 import org.springframework.cache.annotation.CacheEvict;
 import org.springframework.cache.annotation.Cacheable;
-import org.springframework.data.domain.Page;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
@@ -37,7 +35,6 @@ import static cn.bootx.iam.code.CachingCode.PERMISSION_PATH;
 @AllArgsConstructor
 public class PermissionPathService {
     private final PermissionPathManager permissionPathManager;
-    private final PermissionPathRepository permissionPathRepository;
 
     /**
      * 根据http方式和服务名进行查询
@@ -54,7 +51,7 @@ public class PermissionPathService {
     public PermissionPathDto add(PermissionPathParam param){
         PermissionPath permissionPath = PermissionPath.init(param);
         // code去重
-        return permissionPathRepository.save(permissionPath).toDto();
+        return permissionPathManager.save(permissionPath).toDto();
     }
 
     /**
@@ -65,7 +62,7 @@ public class PermissionPathService {
         PermissionPath permissionPath = permissionPathManager.findById(param.getId())
                 .orElseThrow(() -> new BizException("信息不存在"));
         BeanUtil.copyProperties(param,permissionPath,CopyOptions.create().ignoreNullValue());
-        return permissionPathRepository.save(permissionPath).toDto();
+        return permissionPathManager.updateById(permissionPath).toDto();
     }
 
     /**
@@ -88,7 +85,7 @@ public class PermissionPathService {
      * 根据ids查询权限信息
      */
     public List<PermissionPathDto> findByIds(List<Long> ids){
-        return ResultConvertUtils.dtoListConvert(permissionPathManager.findByIds(ids));
+        return ResultConvertUtils.dtoListConvert(permissionPathManager.findAllByIds(ids));
     }
 
     /**
@@ -102,8 +99,7 @@ public class PermissionPathService {
      * 权限分页
      */
     public PageResult<PermissionPathDto> page(PageParam pageParam,PermissionPathParam param){
-        Page<PermissionPath> page = permissionPathManager.page(pageParam,param);
-        return JpaUtils.convert2PageResult(page);
+        return MpUtils.convert2PageResult(permissionPathManager.page(pageParam,param));
     }
 
     /**
@@ -122,7 +118,7 @@ public class PermissionPathService {
                         BeanUtil.copyProperties(permissionImport, permissionPath);
                         return permissionPath;
                     }).collect(Collectors.toList());
-            permissionPathRepository.saveAll(collect);
+            permissionPathManager.saveAll(collect);
         } catch (Exception e) {
             e.printStackTrace();
             throw new BizException("无法读取文件");

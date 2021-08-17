@@ -1,15 +1,14 @@
 package cn.bootx.iam.core.depart.entity;
 
-import cn.bootx.common.function.EntityBaseFunction;
+import cn.bootx.common.core.function.EntityBaseFunction;
+import cn.bootx.common.mybatisplus.base.MpBaseEntity;
+import cn.bootx.iam.core.depart.convert.DepartConvert;
 import cn.bootx.iam.dto.depart.DepartDto;
-import cn.bootx.common.jpa.base.JpaBaseEntity;
-import cn.hutool.core.bean.BeanUtil;
+import cn.bootx.iam.param.depart.DepartParam;
+import com.baomidou.mybatisplus.annotation.TableName;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.experimental.Accessors;
-
-import javax.persistence.Entity;
-import javax.persistence.Table;
 
 /**   
 * 部门表
@@ -17,11 +16,10 @@ import javax.persistence.Table;
 * @date 2020/5/7 17:38 
 */
 @EqualsAndHashCode(callSuper = true)
-@Entity
 @Data
 @Accessors(chain = true)
-@Table(name="uc_depart")
-public class Depart extends JpaBaseEntity implements EntityBaseFunction<DepartDto> {
+@TableName("iam_depart")
+public class Depart extends MpBaseEntity implements EntityBaseFunction<DepartDto> {
 
 	/**父机构ID*/
 	private Long parentId;
@@ -52,16 +50,16 @@ public class Depart extends JpaBaseEntity implements EntityBaseFunction<DepartDt
 	/**状态（1启用，0不启用）*/
 	private Integer status;
 
-	public static Depart init(DepartDto departDto){
-        Depart depart = new Depart();
-        BeanUtil.copyProperties(departDto,depart);
-        return depart;
+    public static Depart init(DepartDto in){
+        return DepartConvert.CONVERT.convert(in);
+    }
+
+    public static Depart init(DepartParam in){
+        return DepartConvert.CONVERT.convert(in);
     }
 
     @Override
     public DepartDto toDto() {
-        DepartDto departDto = new DepartDto();
-        BeanUtil.copyProperties(this,departDto);
-        return departDto;
+        return DepartConvert.CONVERT.convert(this);
     }
 }

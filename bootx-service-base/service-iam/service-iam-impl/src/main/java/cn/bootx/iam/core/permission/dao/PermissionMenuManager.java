@@ -1,14 +1,12 @@
 package cn.bootx.iam.core.permission.dao;
 
-import cn.bootx.iam.core.permission.entity.PermissionMenu;
 import cn.bootx.common.headerholder.HeaderHolder;
+import cn.bootx.common.mybatisplus.impl.BaseManager;
+import cn.bootx.iam.core.permission.entity.PermissionMenu;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Repository;
-
-import javax.transaction.Transactional;
-import java.util.List;
-import java.util.Optional;
+import org.springframework.transaction.annotation.Transactional;
 
 /**
 * 菜单权限
@@ -18,37 +16,25 @@ import java.util.Optional;
 @Slf4j
 @Repository
 @RequiredArgsConstructor
-public class PermissionMenuManager {
-    private final PermissionMenuRepository repository;
+public class PermissionMenuManager extends BaseManager<PermissionMenuMapper,PermissionMenu> {
+    private final PermissionMenuMapper repository;
     private final HeaderHolder headerHolder;
 
     /**
      * 设置是否叶节点状态
      */
-    @Transactional(rollbackOn = Exception.class)
+    @Transactional(rollbackFor = Exception.class)
     public void setMenuLeaf(Long pid, boolean leaf) {
-        repository.setMenuLeaf(pid,leaf,headerHolder.findTid());
+        lambdaUpdate().eq(PermissionMenu::getParentId,pid)
+                .set(PermissionMenu::isLeaf,leaf)
+                .update();
     }
 
     /**
      * 存在子菜单
      */
     public boolean existsByParentId(Long pid){
-        return repository.existsByParentIdAndTid(pid,headerHolder.findTid());
+        return existedByField(PermissionMenu::getParentId,pid);
     }
 
-    /**
-     * 根据id查询
-     */
-    public Optional<PermissionMenu> findById(Long id){
-        return repository.findByIdAndTid(id,headerHolder.findTid());
-    }
-
-    public List<PermissionMenu> findByIds(List<Long> ids) {
-        return repository.findByIdInAndTid(ids,headerHolder.findTid());
-    }
-
-    public List<PermissionMenu> findAll() {
-        return repository.findAllByTid(headerHolder.findTid());
-    }
 }

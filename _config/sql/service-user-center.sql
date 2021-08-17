@@ -18,10 +18,10 @@ SET NAMES utf8mb4;
 SET FOREIGN_KEY_CHECKS = 0;
 
 -- ----------------------------
--- Table structure for uc_depart
+-- Table structure for iam_depart
 -- ----------------------------
-DROP TABLE IF EXISTS `uc_depart`;
-CREATE TABLE `uc_depart`  (
+DROP TABLE IF EXISTS `iam_depart`;
+CREATE TABLE `iam_depart`  (
   `id` bigint(20) NOT NULL COMMENT 'ID',
   `parent_id` bigint(20) NULL DEFAULT NULL COMMENT '父机构ID',
   `depart_name` varchar(100) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL COMMENT '机构/部门名称',
@@ -52,10 +52,10 @@ CREATE TABLE `uc_depart`  (
 ) ENGINE = InnoDB CHARACTER SET = utf8 COLLATE = utf8_general_ci COMMENT = '组织机构表' ROW_FORMAT = Dynamic;
 
 -- ----------------------------
--- Table structure for uc_permission
+-- Table structure for iam_permission
 -- ----------------------------
-DROP TABLE IF EXISTS `uc_permission`;
-CREATE TABLE `uc_permission`  (
+DROP TABLE IF EXISTS `iam_permission`;
+CREATE TABLE `iam_permission`  (
   `id` bigint(20) NOT NULL,
   `code` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL COMMENT '权限的标识',
   `path` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL COMMENT '权限对应的api路径',
@@ -80,10 +80,10 @@ CREATE TABLE `uc_permission`  (
 ) ENGINE = InnoDB CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci COMMENT = '权限' ROW_FORMAT = Dynamic;
 
 -- ----------------------------
--- Table structure for uc_role
+-- Table structure for iam_role
 -- ----------------------------
-DROP TABLE IF EXISTS `uc_role`;
-CREATE TABLE `uc_role`  (
+DROP TABLE IF EXISTS `iam_role`;
+CREATE TABLE `iam_role`  (
   `id` bigint(20) NOT NULL COMMENT '角色ID',
   `code` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NULL DEFAULT NULL COMMENT '编码',
   `name` varchar(150) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NULL DEFAULT NULL COMMENT '名称',
@@ -99,10 +99,10 @@ CREATE TABLE `uc_role`  (
 ) ENGINE = InnoDB CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci COMMENT = '角色' ROW_FORMAT = Dynamic;
 
 -- ----------------------------
--- Table structure for uc_role_permission
+-- Table structure for iam_role_permission
 -- ----------------------------
-DROP TABLE IF EXISTS `uc_role_permission`;
-CREATE TABLE `uc_role_permission`  (
+DROP TABLE IF EXISTS `iam_role_permission`;
+CREATE TABLE `iam_role_permission`  (
   `id` bigint(20) NOT NULL,
   `role_id` bigint(20) NULL DEFAULT NULL COMMENT '角色id',
   `permission_id` bigint(20) NULL DEFAULT NULL COMMENT '权限id',
@@ -114,10 +114,10 @@ CREATE TABLE `uc_role_permission`  (
 ) ENGINE = InnoDB CHARACTER SET = utf8 COLLATE = utf8_general_ci COMMENT = '角色权限表' ROW_FORMAT = Dynamic;
 
 -- ----------------------------
--- Table structure for uc_user_info
+-- Table structure for iam_user_info
 -- ----------------------------
-DROP TABLE IF EXISTS `uc_user_info`;
-CREATE TABLE `uc_user_info`  (
+DROP TABLE IF EXISTS `iam_user_info`;
+CREATE TABLE `iam_user_info`  (
   `id` bigint(18) NOT NULL,
   `name` varchar(200) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL COMMENT '名称',
   `phone` varchar(32) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NULL DEFAULT NULL COMMENT '手机号',
@@ -139,10 +139,10 @@ CREATE TABLE `uc_user_info`  (
 ) ENGINE = InnoDB CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci COMMENT = '用户信息' ROW_FORMAT = Dynamic;
 
 -- ----------------------------
--- Table structure for uc_user_role
+-- Table structure for iam_user_role
 -- ----------------------------
-DROP TABLE IF EXISTS `uc_user_role`;
-CREATE TABLE `uc_user_role`  (
+DROP TABLE IF EXISTS `iam_user_role`;
+CREATE TABLE `iam_user_role`  (
   `id` bigint(20) NOT NULL COMMENT '主键',
   `user_id` bigint(20) NOT NULL COMMENT '用户ID',
   `role_id` bigint(20) NOT NULL COMMENT '角色ID',

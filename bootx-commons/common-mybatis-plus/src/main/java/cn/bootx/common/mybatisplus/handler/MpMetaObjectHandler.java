@@ -36,7 +36,7 @@ public class MpMetaObjectHandler implements MetaObjectHandler {
      */
     private Long getUserid(){
         return SecurityUtils.getUserDetail()
-                .map(UserDetail::getUserId)
+                .map(UserDetail::getId)
                 .orElse(0L);
     }
 }

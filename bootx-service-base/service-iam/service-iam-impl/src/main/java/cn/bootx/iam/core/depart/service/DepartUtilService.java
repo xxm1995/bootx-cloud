@@ -3,12 +3,10 @@ package cn.bootx.iam.core.depart.service;
 import cn.bootx.common.core.exception.BizException;
 import cn.bootx.iam.core.depart.dao.DepartManager;
 import cn.bootx.iam.core.depart.entity.Depart;
-import cn.bootx.iam.core.depart.entity.QDepart;
 import cn.bootx.iam.dto.depart.DepartTreeResult;
 import cn.hutool.core.bean.BeanUtil;
 import cn.hutool.core.collection.CollUtil;
 import cn.hutool.core.util.StrUtil;
-import com.querydsl.jpa.impl.JPAQueryFactory;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -24,23 +22,19 @@ import java.util.stream.Collectors;
 @RequiredArgsConstructor
 public class DepartUtilService {
     private final DepartManager departManager;
-    private final JPAQueryFactory jpaQueryFactory;
 
     /**
      * 生成机构代码 根机构_子机构_子子机构
-     *
      */
     public String generateOrgCode(Long parentId) {
-
-        QDepart q = QDepart.depart;
         // 顶级机构
         if (Objects.isNull(parentId)) {
-            Depart depart = jpaQueryFactory.selectFrom(q)
-                    .where(q.parentId.isNotNull())
-                    .orderBy(q.orgCategory.desc())
-                    .limit(1)
-                    .fetchOne();
-            if (Objects.isNull(depart)){
+            Depart depart = departManager.lambdaQuery()
+                    .isNotNull(Depart::getParentId)
+                    .orderByDesc(Depart::getOrgCategory)
+                    .last("limit 1")
+                    .one();
+            if (Objects.isNull(depart)) {
                 return "1";
             } else {
                 return this.getNextCode(depart.getOrgCode());
@@ -50,11 +44,11 @@ public class DepartUtilService {
             Depart parenDepart = departManager.findById(parentId)
                     .orElseThrow(() -> new BizException("父机构不存在"));
             //最新的兄弟
-            Depart depart = jpaQueryFactory.selectFrom(q)
-                    .where(q.parentId.isNotNull())
-                    .orderBy(q.orgCategory.desc())
-                    .limit(1)
-                    .fetchOne();
+            Depart depart = departManager.lambdaQuery()
+                    .isNotNull(Depart::getParentId)
+                    .orderByDesc(Depart::getOrgCategory)
+                    .last("limit 1")
+                    .one();
             if (Objects.isNull(depart)){
                 return parenDepart.getOrgCode()+"_1";
             }else {

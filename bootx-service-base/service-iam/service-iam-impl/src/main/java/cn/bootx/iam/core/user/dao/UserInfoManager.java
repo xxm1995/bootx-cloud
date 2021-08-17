@@ -2,16 +2,14 @@ package cn.bootx.iam.core.user.dao;
 
 import cn.bootx.common.core.rest.param.PageParam;
 import cn.bootx.common.mybatisplus.impl.BaseManager;
-import cn.bootx.iam.core.user.entity.QUserInfo;
+import cn.bootx.common.mybatisplus.util.MpUtils;
 import cn.bootx.iam.core.user.entity.UserInfo;
-import cn.bootx.common.jpa.utils.JpaUtils;
-import com.querydsl.jpa.impl.JPAQuery;
-import com.querydsl.jpa.impl.JPAQueryFactory;
+import cn.bootx.iam.param.user.UserInfoParam;
+import cn.hutool.core.util.StrUtil;
+import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import lombok.RequiredArgsConstructor;
-import org.springframework.data.domain.Page;
 import org.springframework.stereotype.Repository;
 
-import java.util.List;
 import java.util.Optional;
 
 /**   
@@ -22,48 +20,41 @@ import java.util.Optional;
 @Repository
 @RequiredArgsConstructor
 public class UserInfoManager extends BaseManager<UserInfoMapper,UserInfo> {
-
-    private final UserInfoMapper userInfoRepository;
-
-    public Optional<UserInfo> findById(Long id) {
-        return userInfoRepository.findByIdAndTid(id,headerHolder.findTid());
-    }
-
-    public boolean existsByAccount(String account) {
-        return userInfoRepository.existsByAccountAndTid(account,headerHolder.findTid());
+    public boolean existsByUsername(String username) {
+        return existedByField(UserInfo::getUsername,username);
     }
 
     public boolean existsByEmail(String email) {
-        return userInfoRepository.existsByEmailAndTid(email,headerHolder.findTid());
+        return existedByField(UserInfo::getEmail,email);
     }
 
     public boolean existsByPhone(String phone) {
-        return userInfoRepository.existsByPhoneAndTid(phone,headerHolder.findTid());
+        return existedByField(UserInfo::getPhone,phone);
     }
 
-    public Optional<UserInfo> findByAccount(String account) {
-        return userInfoRepository.findByAccountAndTid(account,headerHolder.findTid());
+    public Optional<UserInfo> findByUsername(String username) {
+        return findByField(UserInfo::getUsername,username );
     }
 
     public Optional<UserInfo> findByEmail(String email) {
-        return userInfoRepository.findByEmailAndTid(email,headerHolder.findTid());
+        return findByField(UserInfo::getEmail,email );
     }
 
     public Optional<UserInfo> findByPhone(String phone) {
-        return userInfoRepository.findByPhoneAndTid(phone,headerHolder.findTid());
+        return findByField(UserInfo::getPhone,phone );
+    }
+
+    public Page<UserInfo> page(PageParam pageParam, UserInfoParam param) {
+
+        Page<UserInfo> mpPage = MpUtils.getMpPage(pageParam, UserInfo.class);
+        lambdaQuery()
+                .like(StrUtil.isNotBlank(param.getUsername()),UserInfo::getUsername,param.getUsername())
+                .like(StrUtil.isNotBlank(param.getName()),UserInfo::getName,param.getName())
+                .page(mpPage);
+        return mpPage;
     }
 
     public boolean existsById(Long id) {
-        return userInfoRepository.existsByIdAndTid(id,headerHolder.findTid());
-    }
-
-    public List<UserInfo> findAllByIds(List<Long> ids) {
-        return userInfoRepository.findByIdInAndTid(ids,headerHolder.findTid());
-    }
-
-    public Page<UserInfo> page(PageParam pageParam) {
-        QUserInfo q = QUserInfo.userInfo;
-        JPAQuery<UserInfo> userInfoJPAQuery = jpaQueryFactory.selectFrom(q);
-        return JpaUtils.queryPage(userInfoJPAQuery,pageParam);
+        return existedByField(UserInfo::getId,id);
     }
 }

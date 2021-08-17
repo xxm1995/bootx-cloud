@@ -1,12 +1,13 @@
 package cn.bootx.iam.core.user.service;
 
+import cn.bootx.common.core.exception.BizException;
 import cn.bootx.iam.core.user.dao.UserInfoManager;
-import cn.bootx.iam.core.user.dao.UserInfoMapper;
 import cn.bootx.iam.core.user.entity.UserInfo;
 import cn.bootx.iam.dto.user.UserInfoDto;
 import cn.bootx.iam.exception.user.UserInfoNotExistsException;
 import cn.bootx.iam.exception.user.UserNonePhoneAndEmailException;
 import cn.bootx.iam.param.user.UserInfoParam;
+import cn.bootx.starter.auth.util.PasswordEncoder;
 import cn.hutool.core.bean.BeanUtil;
 import cn.hutool.core.bean.copier.CopyOptions;
 import cn.hutool.core.util.StrUtil;
@@ -14,6 +15,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import javax.validation.constraints.NotBlank;
 import java.time.LocalDateTime;
 import java.util.Objects;
 
@@ -27,7 +29,7 @@ import java.util.Objects;
 public class UserInfoService {
 
     private final UserInfoManager userInfoManager;
-    private final UserInfoMapper userInfoRepository;
+    private final PasswordEncoder passwordEncoder;
 
     /**
      * 根据用户id 获取 UserInfo
@@ -40,7 +42,7 @@ public class UserInfoService {
      * 根据账号查询用户
      */
     public UserInfoDto findByAccount(String account) {
-        return userInfoManager.findByAccount(account).map(UserInfo::toDto).orElse(null);
+        return userInfoManager.findByUsername(account).map(UserInfo::toDto).orElse(null);
     }
     /**
      * 根据邮箱查询用户
@@ -60,51 +62,79 @@ public class UserInfoService {
      * 注册新用户 返回添加后用户信息, 已经存在则直接返回
      */
     @Transactional(rollbackFor = Exception.class)
-    public UserInfoDto addUserInfo(UserInfoParam userInfoParam){
+    public UserInfoDto add(UserInfoParam userInfoParam){
 
         // 如果用户的手机号和邮箱都不存在则抛出异常, 第三方登录除外
-        if (Objects.isNull(userInfoParam.getPhone()) && Objects.isNull(userInfoParam.getEmail())
-                && !userInfoParam.getThirdPartyLogin()) {
+        if (Objects.isNull(userInfoParam.getPhone()) && Objects.isNull(userInfoParam.getEmail())) {
             throw new UserNonePhoneAndEmailException();
         }
 
-        // 用户已存在则直接返回
-        UserInfo userInfoNew;
-        if (this.existsAccount(userInfoParam.getAccount())){
-            //noinspection OptionalGetWithoutIsPresent
-            userInfoNew = userInfoManager.findByAccount(userInfoParam.getEmail()).get();
-        } else if (this.existsEmail(userInfoParam.getEmail())) {
-            //noinspection OptionalGetWithoutIsPresent
-            userInfoNew = userInfoManager.findByEmail(userInfoParam.getEmail()).get();
-        } else if (existsPhone(userInfoParam.getPhone())) {
-            //noinspection OptionalGetWithoutIsPresent
-            userInfoNew = userInfoManager.findByPhone(userInfoParam.getPhone()).get();
-        } else {
-            // 注册时间
-            UserInfo userInfo = UserInfo.init(userInfoParam);
-            userInfo.setRegisterTime(LocalDateTime.now());
-            userInfoNew = userInfoRepository.save(userInfo);
+        if (this.existsUsername(userInfoParam.getUsername())){
+            throw new BizException("账号已存在");
         }
-        return userInfoNew.toDto();
+        if (this.existsEmail(userInfoParam.getEmail())) {
+            throw new BizException("邮箱已存在");
+        }
+        if (existsPhone(userInfoParam.getPhone())) {
+            throw new BizException("手机号已存在");
+        }
+        // 注册时间
+        UserInfo userInfo = UserInfo.init(userInfoParam);
+        userInfo.setRegisterTime(LocalDateTime.now());
+        return userInfoManager.save(userInfo).toDto();
+    }
+
+    /**
+     * 修改密码
+     * @param userId 当前用ID
+     * @param password      原密码
+     * @param newPassword   新密码
+     */
+    public void updatePassword(Long userId, String password, String newPassword) {
+        UserInfo userInfo = userInfoManager.findById(userId)
+                .orElseThrow(() -> new BizException("用户不存在"));
+
+        // 新密码进行加密
+        newPassword = passwordEncoder.encode(newPassword);
+
+        // 判断原有密码是否相同
+        if (passwordEncoder.matches(password,userInfo.getPassword())){
+            throw new BizException("旧密码错误");
+        }
+        userInfo.setPassword(newPassword);
+        userInfoManager.updateById(userInfo);
+    }
+
+    /**
+     * 重置密码
+     */
+    public void restartPassword(Long userId,@NotBlank(message = "新密码不能为空") String newPassword){
+
+        UserInfo userInfo = userInfoManager.findById(userId)
+                .orElseThrow(() -> new BizException("用户不存在"));
+        // 新密码进行加密
+        newPassword = passwordEncoder.encode(newPassword);
+        userInfo.setPassword(newPassword);
+        userInfoManager.updateById(userInfo);
     }
 
     /**
      * 编辑用户信息
      */
-    public UserInfoDto update(UserInfoDto userInfoDto){
-        UserInfo userInfo = userInfoManager.findById(userInfoDto.getId()).orElseThrow(UserInfoNotExistsException::new);
-        BeanUtil.copyProperties(userInfoDto,userInfo, CopyOptions.create().ignoreNullValue());
-        return userInfoRepository.save(userInfo).toDto();
+    public UserInfoDto update(UserInfoParam userInfoParam){
+        UserInfo userInfo = userInfoManager.findById(userInfoParam.getId()).orElseThrow(UserInfoNotExistsException::new);
+        BeanUtil.copyProperties(userInfoParam,userInfo, CopyOptions.create().ignoreNullValue());
+        return userInfoManager.updateById(userInfo).toDto();
     }
 
     /**
      * 账号是否存在
      */
-    public boolean existsAccount(String account) {
-        if (StrUtil.isBlank(account)) {
+    public boolean existsUsername(String username) {
+        if (StrUtil.isBlank(username)) {
             return false;
         }
-        return userInfoManager.existsByAccount(account.trim());
+        return userInfoManager.existsByUsername(username.trim());
     }
 
     /**

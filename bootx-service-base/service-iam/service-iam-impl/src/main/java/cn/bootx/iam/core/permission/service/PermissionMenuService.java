@@ -4,25 +4,22 @@ import cn.bootx.common.core.exception.BizException;
 import cn.bootx.common.core.util.ResultConvertUtils;
 import cn.bootx.iam.code.permission.PermissionCode;
 import cn.bootx.iam.core.permission.dao.PermissionMenuManager;
-import cn.bootx.iam.core.permission.dao.PermissionMenuRepository;
 import cn.bootx.iam.core.permission.entity.PermissionMenu;
 import cn.bootx.iam.dto.permission.PermissionMenuDto;
 import cn.bootx.iam.param.permission.PermissionMenuParam;
-import cn.bootx.common.jpa.base.JpaTidEntity;
 import cn.hutool.core.bean.BeanUtil;
 import cn.hutool.core.bean.copier.CopyOptions;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.cache.annotation.CacheEvict;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
-import javax.transaction.Transactional;
 import java.util.List;
 import java.util.Objects;
-import java.util.stream.Collectors;
 
-import static cn.bootx.iam.code.CachingCode.*;
 import static cn.bootx.iam.code.CachingCode.USER_MENU;
+import static cn.bootx.iam.code.CachingCode.USER_MENU_ID;
 
 /**
  * 菜单权限
@@ -34,12 +31,11 @@ import static cn.bootx.iam.code.CachingCode.USER_MENU;
 @RequiredArgsConstructor
 public class PermissionMenuService {
     private final PermissionMenuManager permissionMenuManager;
-    private final PermissionMenuRepository permissionMenuRepository;
 
     /**
      * 添加菜单权限
      */
-    @Transactional(rollbackOn = Exception.class)
+    @Transactional(rollbackFor = Exception.class)
     public PermissionMenuDto add(PermissionMenuParam param) {
         //----------------------------------------------------------------------
         //判断是否是一级菜单，是的话清空父菜单
@@ -54,13 +50,13 @@ public class PermissionMenuService {
         }
         param.setLeaf(true);
         PermissionMenu permissionMenu = PermissionMenu.init(param);
-        return permissionMenuRepository.save(permissionMenu).toDto();
+        return permissionMenuManager.save(permissionMenu).toDto();
     }
 
     /**
      * 更新
      */
-    @Transactional(rollbackOn = Exception.class)
+    @Transactional(rollbackFor = Exception.class)
     @CacheEvict(value = {USER_MENU_ID,USER_MENU},allEntries = true)
     public PermissionMenuDto update(PermissionMenuParam param){
         PermissionMenu permissionMenu = permissionMenuManager.findById(param.getId())
@@ -77,7 +73,7 @@ public class PermissionMenuService {
         if(!permissionMenuManager.existsByParentId(permissionMenu.getId())) {
             permissionMenu.setLeaf(true);
         }
-        PermissionMenuDto permissionMenuDto = permissionMenuRepository.save(permissionMenu).toDto();
+        PermissionMenuDto permissionMenuDto = permissionMenuManager.updateById(permissionMenu).toDto();
 
         //如果当前菜单的父菜单变了，则需要修改新父菜单和老父菜单的，叶子节点状态
         Long pid = permissionMenu.getParentId();
@@ -108,17 +104,13 @@ public class PermissionMenuService {
      * 根据ids查询
      */
     public List<PermissionMenuDto> findByIds(List<Long> permissionIds) {
-        return ResultConvertUtils.dtoListConvert(permissionMenuManager.findByIds(permissionIds));
+        return ResultConvertUtils.dtoListConvert(permissionMenuManager.findAllByIds(permissionIds));
     }
 
     /**
      * 列表
      */
     public List<PermissionMenuDto> list() {
-//        List<Long> collect = permissionMenuManager.findAll().stream()
-//                .map(JpaTidEntity::getId)
-//                .collect(Collectors.toList());
-//        System.out.println(collect);
         return ResultConvertUtils.dtoListConvert(permissionMenuManager.findAll());
     }
 }

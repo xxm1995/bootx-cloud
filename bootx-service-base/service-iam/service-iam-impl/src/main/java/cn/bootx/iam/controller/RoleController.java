@@ -3,11 +3,12 @@ package cn.bootx.iam.controller;
 import cn.bootx.common.core.rest.PageResult;
 import cn.bootx.common.core.rest.Res;
 import cn.bootx.common.core.rest.ResResult;
+import cn.bootx.common.core.rest.dto.KeyValue;
 import cn.bootx.common.core.rest.param.PageParam;
 import cn.bootx.common.core.util.ValidationUtil;
-import cn.bootx.iam.core.role.service.RoleService;
-import cn.bootx.iam.dto.role.RoleDto;
-import cn.bootx.iam.param.role.RoleParam;
+import cn.bootx.iam.core.upms.service.RoleService;
+import cn.bootx.iam.dto.upms.RoleDto;
+import cn.bootx.iam.param.upms.RoleParam;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import lombok.RequiredArgsConstructor;
@@ -61,10 +62,16 @@ public class RoleController {
         return Res.ok(roleService.findAll());
     }
 
+    @ApiOperation(value = "角色下拉框")
+    @GetMapping(value = "/dropdown")
+    public ResResult<List<KeyValue>> dropdown(){
+        return Res.ok(roleService.dropdown());
+    }
+
     @ApiOperation(value = "分页查询角色")
     @GetMapping(value = "/page")
     public ResResult<PageResult<RoleDto>> page(PageParam pageParam, RoleParam roleParam){
-        return Res.ok(roleService.page(pageParam,roleParam));
+        return Res.ok(roleService.page(pageParam));
     }
 
 }

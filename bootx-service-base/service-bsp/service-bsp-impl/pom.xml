@@ -28,12 +28,6 @@
             <scope>runtime</scope>
         </dependency>
 
-        <!-- 分布式事务seata 序列化 -->
-        <dependency>
-            <groupId>de.javakaffee</groupId>
-            <artifactId>kryo-serializers</artifactId>
-        </dependency>
-
         <!--MQ-->
         <dependency>
             <groupId>org.springframework.boot</groupId>
@@ -43,17 +37,17 @@
         <!-- starters -->
         <dependency>
             <groupId>cn.bootx.cloud</groupId>
+            <artifactId>common-mq</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>cn.bootx.cloud</groupId>
             <artifactId>common-mybatis-plus</artifactId>
         </dependency>
 
         <dependency>
             <groupId>cn.bootx.cloud</groupId>
             <artifactId>common-seata</artifactId>
-        </dependency>
-
-        <dependency>
-            <groupId>cn.bootx.cloud</groupId>
-            <artifactId>common-feign</artifactId>
         </dependency>
 
         <!-- service-api -->

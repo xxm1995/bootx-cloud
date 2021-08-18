@@ -2,7 +2,7 @@ package cn.bootx.common.mybatisplus.handler;
 
 import cn.bootx.common.core.code.CommonCode;
 import cn.bootx.common.core.entity.UserDetail;
-import cn.bootx.common.auth.utils.SecurityUtils;
+import cn.bootx.common.auth.util.SecurityUtil;
 import com.baomidou.mybatisplus.core.handlers.MetaObjectHandler;
 import org.apache.ibatis.reflection.MetaObject;
 import org.springframework.stereotype.Component;
@@ -35,7 +35,7 @@ public class MpMetaObjectHandler implements MetaObjectHandler {
      * 获取用户
      */
     private Long getUserid(){
-        return SecurityUtils.getUserDetail()
+        return SecurityUtil.getCurrentUser()
                 .map(UserDetail::getId)
                 .orElse(0L);
     }

@@ -16,6 +16,7 @@
         <module>service-bsp</module>
         <module>service-baseapi</module>
         <module>service-iam</module>
+        <module>service-notice</module>
     </modules>
 
     <build>

@@ -17,8 +17,8 @@ import java.net.UnknownHostException;
 * @date 2021/7/12 
 */
 @Slf4j
-@SpringBootApplication
 @MapperScan(annotationClass = Mapper.class)
+@SpringBootApplication
 public class IamApplication {
     public static void main(String[] args) throws UnknownHostException {
         ConfigurableApplicationContext application = SpringApplication.run(IamApplication.class, args);

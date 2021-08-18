@@ -17,7 +17,7 @@ import cn.bootx.ordercenter.dto.order.OrderDto;
 import cn.bootx.ordercenter.param.order.OrderDetailParam;
 import cn.bootx.ordercenter.param.order.OrderParam;
 import cn.bootx.ordercenter.param.order.OrderWholeParam;
-import cn.bootx.common.auth.utils.SecurityUtils;
+import cn.bootx.common.auth.util.SecurityUtils;
 import cn.bootx.common.headerholder.HeaderHolder;
 import cn.hutool.core.bean.BeanUtil;
 import io.seata.spring.annotation.GlobalTransactional;

@@ -22,10 +22,17 @@
             <groupId>cn.bootx.cloud</groupId>
             <artifactId>common-redis-client</artifactId>
         </dependency>
+
         <!-- 分布式事务seata -->
         <dependency>
             <groupId>com.alibaba.cloud</groupId>
             <artifactId>spring-cloud-starter-alibaba-seata</artifactId>
+        </dependency>
+
+        <!-- 分布式事务seata 序列化 -->
+        <dependency>
+            <groupId>de.javakaffee</groupId>
+            <artifactId>kryo-serializers</artifactId>
         </dependency>
     </dependencies>
 

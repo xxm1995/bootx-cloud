@@ -21,6 +21,8 @@ public class UserDetail implements Serializable {
     private String name;
     private String username;
     private transient String password;
+    /** 是否超级管理员 */
+    private boolean admin;
 
     public UserDetail(Long id, String name, String username) {
         this.id = id;

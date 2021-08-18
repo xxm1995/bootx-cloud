@@ -3,7 +3,7 @@ package cn.bootx.gateway.helper.filter;
 import cn.bootx.gateway.helper.api.HelperFilter;
 import cn.bootx.gateway.helper.context.RequestContext;
 import cn.bootx.gateway.helper.domain.CheckState;
-import cn.bootx.gateway.helper.domain.CustomUserDetailsWithResult;
+import cn.bootx.gateway.helper.domain.UserDetailsWithResult;
 import cn.bootx.gateway.helper.service.UserDetailsService;
 import cn.hutool.core.util.StrUtil;
 import lombok.RequiredArgsConstructor;
@@ -36,13 +36,13 @@ public class GetUserDetailsFilter implements HelperFilter {
             return false;
         }
 
-        CustomUserDetailsWithResult result = userDetailsService.getUserDetails(accessToken);
-        if (result.getCustomUserDetails() == null) {
+        UserDetailsWithResult result = userDetailsService.getUserDetails(accessToken);
+        if (result.getUserDetail() == null) {
             context.response.setStatus(result.getState());
             context.response.setMessage(result.getMessage());
             return false;
         }
-        context.setCustomUserDetails(result.getCustomUserDetails());
+        context.setUserDetail(result.getUserDetail());
         return true;
     }
 }

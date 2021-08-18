@@ -1,10 +1,9 @@
 package cn.bootx.gateway.helper.service;
 
-import cn.bootx.common.core.entity.CustomUserDetails;
+import cn.bootx.common.core.entity.UserDetail;
 import cn.bootx.gateway.helper.domain.CheckState;
-import cn.bootx.gateway.helper.domain.CustomUserDetailsWithResult;
-import cn.bootx.iam.client.LoginUserClient;
-import cn.bootx.iam.dto.auth.AuthInfoResult;
+import cn.bootx.gateway.helper.domain.UserDetailsWithResult;
+import cn.bootx.iam.client.SessionClient;
 import cn.hutool.extra.spring.SpringUtil;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -24,23 +23,22 @@ import java.util.concurrent.ExecutorService;
 @RequiredArgsConstructor
 public class UserDetailsService {
 
-    private LoginUserClient loginUserClient;
+    private SessionClient sessionClient;
     private final ExecutorService asyncExecutorService;
 
     private void init(){
-        if (Objects.isNull(loginUserClient)){
-            loginUserClient = SpringUtil.getBean(LoginUserClient.class);
+        if (Objects.isNull(sessionClient)){
+            sessionClient = SpringUtil.getBean(SessionClient.class);
         }
     }
 
-    public CustomUserDetailsWithResult getUserDetails(String accessToken){
+    public UserDetailsWithResult getUserDetails(String accessToken){
         this.init();
-        AuthInfoResult authInfoResult;
-        CustomUserDetailsWithResult result = new CustomUserDetailsWithResult();
-
+        UserDetailsWithResult result = new UserDetailsWithResult();
+        UserDetail userDetail;
         // 异步转同步(filter中无法使用同步阻塞方法)
         try {
-            authInfoResult = asyncExecutorService.submit(() -> loginUserClient.getUserInfo()).get();
+            userDetail = asyncExecutorService.submit(() -> sessionClient.getUserDetail()).get();
         } catch (InterruptedException | ExecutionException e) {
             log.warn("token请求失败",e);
             return result.setState(CheckState.PERMISSION_GET_USE_DETAIL_FAILED)
@@ -48,15 +46,8 @@ public class UserDetailsService {
         }
 
         // 判断用户是否存在
-        if (Objects.nonNull(authInfoResult)){
-            CustomUserDetails user = new CustomUserDetails()
-                    .setUserId(authInfoResult.getUid())
-                    .setAdmin(authInfoResult.isAdmin())
-                    .setName(authInfoResult.getName())
-                    .setPhone(authInfoResult.getPhone())
-                    .setEmail(authInfoResult.getEmail())
-                    .setTid(authInfoResult.getTid());
-            result.setCustomUserDetails(user);
+        if (Objects.nonNull(userDetail)){
+            result.setUserDetail(userDetail);
         } else {
             result.setState(CheckState.PERMISSION_ACCESS_TOKEN_INVALID)
                     .setMessage("accessToken不合法，请重新登录");

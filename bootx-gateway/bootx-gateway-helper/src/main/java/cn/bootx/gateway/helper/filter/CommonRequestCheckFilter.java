@@ -42,7 +42,7 @@ public class CommonRequestCheckFilter implements HelperFilter {
     @Override
     public boolean run(RequestContext context) {
         Permission permission = context.getPermission();
-        Long userId = context.getCustomUserDetails().getUserId();
+        Long userId = context.getUserDetail().getId();
 
         String checkMessage = permissionCheckService.check(permission, userId);
         // 通过

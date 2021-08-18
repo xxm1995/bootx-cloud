@@ -1,6 +1,6 @@
 package cn.bootx.gateway.helper.context;
 
-import cn.bootx.common.core.entity.CustomUserDetails;
+import cn.bootx.common.core.entity.UserDetail;
 import cn.bootx.gateway.helper.domain.*;
 import lombok.Data;
 import lombok.experimental.Accessors;
@@ -35,7 +35,7 @@ public class RequestContext {
     private String trueUri;
 
     /** 用户信息 */
-    private CustomUserDetails customUserDetails;
+    private UserDetail userDetail;
 
     /** 服务请求对象 */
     private ServerHttpRequest servletRequest;

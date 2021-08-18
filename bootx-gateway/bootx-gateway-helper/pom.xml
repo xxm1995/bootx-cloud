@@ -3,41 +3,19 @@
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <parent>
-        <artifactId>bootx-parent</artifactId>
-        <groupId>cn.bootx</groupId>
+        <groupId>cn.bootx.cloud</groupId>
+        <artifactId>bootx-gateway</artifactId>
         <version>2.0.0-SNAPSHOT</version>
-        <relativePath/><!-- lookup parent from repository -->
     </parent>
 
     <modelVersion>4.0.0</modelVersion>
     <artifactId>bootx-gateway-helper</artifactId>
-    <version>2.0.0-SNAPSHOT</version>
 
-    <properties>
-        <web-common.version>1.1.0-SNAPSHOT</web-common.version>
-        <spring-security-oauth2.version>2.3.5.RELEASE</spring-security-oauth2.version>
-        <spring-security-jwt.version>1.0.10.RELEASE</spring-security-jwt.version>
-        <java-jwt.version>3.16.0</java-jwt.version>
-    </properties>
-
-    <dependencyManagement>
-        <dependencies>
-            <!-- starters -->
-            <dependency>
-                <groupId>cn.bootx</groupId>
-                <artifactId>starter-parent</artifactId>
-                <version>2.0.0-SNAPSHOT</version>
-                <type>pom</type>
-                <scope>import</scope>
-            </dependency>
-        </dependencies>
-    </dependencyManagement>
     <dependencies>
         <!-- common -->
         <dependency>
-            <groupId>cn.bootx</groupId>
-            <artifactId>web-common</artifactId>
-            <version>${web-common.version}</version>
+            <groupId>cn.bootx.cloud</groupId>
+            <artifactId>bootx-common-core</artifactId>
         </dependency>
 
         <!-- lombok -->
@@ -52,12 +30,6 @@
         </dependency>
 
         <dependency>
-            <groupId>cn.bootx</groupId>
-            <artifactId>starter-redis-client</artifactId>
-            <version>2.0.0-SNAPSHOT</version>
-        </dependency>
-
-        <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-data-redis</artifactId>
         </dependency>
@@ -65,24 +37,28 @@
         <dependency>
             <groupId>com.auth0</groupId>
             <artifactId>java-jwt</artifactId>
-            <version>${java-jwt.version}</version>
         </dependency>
 
         <dependency>
-            <groupId>cn.bootx</groupId>
-            <artifactId>starter-header-holder</artifactId>
+            <groupId>cn.bootx.cloud</groupId>
+            <artifactId>common-header-holder</artifactId>
         </dependency>
 
         <dependency>
-            <groupId>cn.bootx</groupId>
+            <groupId>cn.bootx.cloud</groupId>
+            <artifactId>common-redis-client</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>cn.bootx.cloud</groupId>
             <artifactId>service-iam-api</artifactId>
-            <version>2.0.0-SNAPSHOT</version>
+            <version>${bootx-cloud.version}</version>
         </dependency>
 
         <dependency>
-            <groupId>cn.bootx</groupId>
+            <groupId>cn.bootx.cloud</groupId>
             <artifactId>service-bsp-api</artifactId>
-            <version>2.0.0-SNAPSHOT</version>
+            <version>${bootx-cloud.version}</version>
         </dependency>
     </dependencies>
 </project>

@@ -20,6 +20,7 @@
         <module>bootx-common-core</module>
         <module>bootx-parent</module>
         <module>bootx-commons</module>
+        <module>bootx-gateway</module>
         <module>bootx-service-base</module>
         <module>bootx-common-starters</module>
     </modules>

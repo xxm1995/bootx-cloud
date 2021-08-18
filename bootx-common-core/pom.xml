@@ -24,6 +24,7 @@
         <servlet-api.version>4.0.1</servlet-api.version>
         <slf4j.version>1.7.30</slf4j.version>
         <bitwalker.version>1.21</bitwalker.version>
+        <bitwalker.version>1.21</bitwalker.version>
     </properties>
 
     <dependencies>
@@ -31,6 +32,7 @@
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
         </dependency>
+
 
         <dependency>
             <groupId>org.apache.commons</groupId>

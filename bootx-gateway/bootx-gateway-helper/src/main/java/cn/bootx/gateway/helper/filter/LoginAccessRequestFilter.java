@@ -25,7 +25,7 @@ public class LoginAccessRequestFilter implements HelperFilter {
 
     @Override
     public boolean run(RequestContext context) {
-        if (context.getCustomUserDetails() != null) {
+        if (context.getUserDetail() != null) {
             context.response.setStatus(CheckState.SUCCESS_LOGIN_ACCESS);
             return false;
         }

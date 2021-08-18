@@ -1,5 +1,6 @@
 package cn.bootx.common.auth.utils;
 
+import cn.bootx.common.core.code.CommonCode;
 import cn.bootx.common.core.entity.UserDetail;
 import cn.bootx.common.headerholder.HeaderHolder;
 import cn.hutool.json.JSONUtil;
@@ -22,7 +23,7 @@ public class SecurityUtils {
     public Optional<UserDetail> getUserDetail(){
         return Optional.ofNullable(HeaderHolder.getJwtToken())
                 .map(token ->{
-                    String user = JWT.decode(token).getClaim("user").asString();
+                    String user = JWT.decode(token).getClaim(CommonCode.USER).asString();
                     return JSONUtil.toBean(user, UserDetail.class);
                 });
     }

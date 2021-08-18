@@ -1,13 +1,13 @@
 package cn.bootx.gateway.helper.filter;
 
 import cn.bootx.common.core.code.WebHeaderConst;
-import cn.bootx.common.core.entity.CustomUserDetails;
+import cn.bootx.common.core.entity.UserDetail;
+import cn.bootx.common.redis.RedisClient;
 import cn.bootx.gateway.helper.api.HelperFilter;
 import cn.bootx.gateway.helper.context.RequestContext;
 import cn.bootx.gateway.helper.domain.CheckState;
 import cn.bootx.gateway.helper.properties.GatewayHelperProperties;
 import cn.bootx.gateway.helper.util.ServerRequestUtils;
-import cn.bootx.common.redis.RedisClient;
 import cn.hutool.core.util.StrUtil;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -51,9 +51,9 @@ public class ApiReplayFilter implements HelperFilter {
             return false;
         }
         // 未登录
-        CustomUserDetails userDetails = context.getCustomUserDetails();
+        UserDetail userDetail = context.getUserDetail();
 
-        return userDetails != null;
+        return userDetail != null;
     }
 
     @Override

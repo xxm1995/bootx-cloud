@@ -1,6 +1,6 @@
 package cn.bootx.gateway.helper.domain;
 
-import cn.bootx.common.core.entity.CustomUserDetails;
+import cn.bootx.common.core.entity.UserDetail;
 import lombok.Data;
 import lombok.experimental.Accessors;
 
@@ -11,10 +11,10 @@ import lombok.experimental.Accessors;
 */
 @Data
 @Accessors(chain = true)
-public class CustomUserDetailsWithResult {
+public class UserDetailsWithResult {
     private static final long serialVersionUID = -2022325583037285394L;
     /** 用户信息 */
-    private CustomUserDetails customUserDetails;
+    private UserDetail userDetail;
 
     /** 状态 */
     private CheckState state;

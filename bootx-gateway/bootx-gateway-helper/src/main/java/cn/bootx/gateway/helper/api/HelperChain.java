@@ -65,7 +65,7 @@ public final class HelperChain implements ApplicationContextAware {
         } catch (Exception e) {
             checkResponse.setStatus(CheckState.EXCEPTION_GATEWAY_HELPER);
             checkResponse.setMessage("网关助手发生错误: " + e);
-            log.info("检查", e);
+            log.info("网关助手发生错误", e);
         }
         // 成功
         if (checkResponse.getStatus().getValue() < HttpStatus.MULTIPLE_CHOICES.value()) {
@@ -75,17 +75,17 @@ public final class HelperChain implements ApplicationContextAware {
         // 未认证
         else if (UNAUTHORIZED.contains(checkResponse.getStatus())) {
             responseContext.setHttpStatus(HttpStatus.UNAUTHORIZED);
-            log.info("未认证 401, context: {}", requestContext);
+            log.info("未认证 401, context: {}", requestContext.getResponse().getMessage());
         }
         // 禁止访问
         else if (checkResponse.getStatus().getValue() < HttpStatus.INTERNAL_SERVER_ERROR.value()) {
             responseContext.setHttpStatus(HttpStatus.FORBIDDEN);
-            log.info("禁止访问 403, context: {}", requestContext);
+            log.info("禁止访问 403, context: {}", requestContext.getResponse().getMessage());
         }
         // 服务器错误
         else {
             responseContext.setHttpStatus(HttpStatus.INTERNAL_SERVER_ERROR);
-            log.info("服务器错误 500, context: {}", requestContext);
+            log.info("服务器错误 500, context: {}", requestContext.getResponse().getMessage());
         }
 
         // 提示信息

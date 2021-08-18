@@ -1,5 +1,6 @@
 package cn.bootx.gateway.helper.filter;
 
+import cn.bootx.common.core.code.CommonCode;
 import cn.bootx.gateway.helper.api.HelperFilter;
 import cn.bootx.gateway.helper.context.RequestContext;
 import cn.bootx.gateway.helper.domain.CheckState;
@@ -30,7 +31,7 @@ public class AddJwtFilter implements HelperFilter {
         try {
             String jwtKey = gatewayHelperProperties.getJwtKey();
             String jwt = JWT.create()
-                    .withClaim("user", JSONUtil.toJsonStr(context.getCustomUserDetails()))
+                    .withClaim(CommonCode.USER, JSONUtil.toJsonStr(context.getUserDetail()))
                     .sign(Algorithm.HMAC256(jwtKey));
             context.response.setJwt(jwt);
             return true;

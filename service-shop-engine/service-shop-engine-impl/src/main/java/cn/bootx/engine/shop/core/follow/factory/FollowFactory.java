@@ -1,7 +1,7 @@
 package cn.bootx.engine.shop.core.follow.factory;
 
 import cn.bootx.engine.shop.core.follow.entity.Follow;
-import cn.bootx.goodscenter.dto.goods.GoodsDto;
+import cn.bootx.goods.dto.goods.GoodsDto;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
 

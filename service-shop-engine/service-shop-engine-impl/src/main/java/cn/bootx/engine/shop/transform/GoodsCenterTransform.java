@@ -1,7 +1,7 @@
 package cn.bootx.engine.shop.transform;
 
 import cn.bootx.engine.shop.core.cart.entity.ShopCartItem;
-import cn.bootx.goodscenter.dto.sku.GoodsSkuDto;
+import cn.bootx.goods.dto.sku.GoodsSkuDto;
 import org.springframework.beans.BeanUtils;
 import org.springframework.stereotype.Component;
 

@@ -13,6 +13,10 @@
     <packaging>pom</packaging>
 
     <dependencies>
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+        </dependency>
         <!-- 自动配置  -->
         <dependency>
             <groupId>org.springframework.boot</groupId>

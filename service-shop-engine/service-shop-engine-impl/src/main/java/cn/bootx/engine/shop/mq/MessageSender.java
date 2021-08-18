@@ -1,8 +1,8 @@
 package cn.bootx.engine.shop.mq;
 
-import cn.bootx.goodscenter.event.GoodsEventSender;
-import cn.bootx.goodscenter.param.inventory.ReduceInventoryParam;
-import cn.bootx.goodscenter.param.inventory.UnlockInventoryParam;
+import cn.bootx.goods.event.GoodsEventSender;
+import cn.bootx.goods.param.inventory.ReduceInventoryParam;
+import cn.bootx.goods.param.inventory.UnlockInventoryParam;
 import cn.bootx.ordercenter.event.OrderEventSender;
 import cn.bootx.paymentcenter.event.PaymentEventSender;
 import cn.bootx.salescenter.event.SalesEventSender;

@@ -1,6 +1,9 @@
 package cn.bootx.common.mybatisplus;
 
+import cn.bootx.common.mybatisplus.handler.SnowflakeIdentifierGenerator;
+import cn.bootx.common.snowflake.SnowFlakeId;
 import com.baomidou.mybatisplus.annotation.DbType;
+import com.baomidou.mybatisplus.core.incrementer.IdentifierGenerator;
 import com.baomidou.mybatisplus.extension.plugins.MybatisPlusInterceptor;
 import com.baomidou.mybatisplus.extension.plugins.inner.BlockAttackInnerInterceptor;
 import com.baomidou.mybatisplus.extension.plugins.inner.OptimisticLockerInnerInterceptor;
@@ -40,5 +43,13 @@ public class MpConfiguration {
         interceptor.addInnerInterceptor(new BlockAttackInnerInterceptor());
 
         return interceptor;
+    }
+
+    /**
+     *
+     */
+    @Bean
+    public IdentifierGenerator idGenerator(SnowFlakeId snowFlakeId) {
+        return new SnowflakeIdentifierGenerator(snowFlakeId);
     }
 }

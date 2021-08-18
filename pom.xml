@@ -23,6 +23,7 @@
         <module>bootx-gateway</module>
         <module>bootx-service-base</module>
         <module>bootx-common-starters</module>
+        <module>bootx-service-shop</module>
     </modules>
 
     <!-- pom依赖版本 -->

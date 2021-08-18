@@ -4,7 +4,7 @@ import cn.bootx.engine.shop.core.cart.entity.ShopCart;
 import cn.bootx.engine.shop.core.cart.entity.CartCheckParam;
 import cn.bootx.engine.shop.core.cart.rule.CartOperateType;
 import cn.bootx.engine.shop.core.cart.rule.func.CartCheck;
-import cn.bootx.goodscenter.dto.sku.GoodsSkuDto;
+import cn.bootx.goods.dto.sku.GoodsSkuDto;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;

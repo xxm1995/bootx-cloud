@@ -15,8 +15,9 @@
 
     <dependencies>
         <dependency>
-            <groupId>org.springframework</groupId>
-            <artifactId>spring-tx</artifactId>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <scope>provided</scope>
         </dependency>
         <dependency>
             <groupId>com.baomidou</groupId>
@@ -29,6 +30,10 @@
         <dependency>
             <groupId>cn.bootx.cloud</groupId>
             <artifactId>common-auth</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>cn.bootx.cloud</groupId>
+            <artifactId>common-snowflake</artifactId>
         </dependency>
 
     </dependencies>

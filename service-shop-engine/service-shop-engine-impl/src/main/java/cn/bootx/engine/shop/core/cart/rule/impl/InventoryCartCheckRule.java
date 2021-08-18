@@ -5,8 +5,8 @@ import cn.bootx.engine.shop.core.cart.entity.ShopCartItem;
 import cn.bootx.engine.shop.core.cart.entity.CartCheckParam;
 import cn.bootx.engine.shop.core.cart.rule.CartOperateType;
 import cn.bootx.engine.shop.core.cart.rule.func.CartCheck;
-import cn.bootx.goodscenter.client.InventoryClient;
-import cn.bootx.goodscenter.dto.sku.GoodsSkuDto;
+import cn.bootx.goods.client.InventoryClient;
+import cn.bootx.goods.dto.sku.GoodsSkuDto;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
 

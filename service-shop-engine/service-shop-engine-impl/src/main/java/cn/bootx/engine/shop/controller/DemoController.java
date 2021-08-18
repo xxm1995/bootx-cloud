@@ -4,7 +4,7 @@ import cn.bootx.common.core.rest.Res;
 import cn.bootx.common.core.rest.ResResult;
 import cn.bootx.engine.shop.core.demo.service.DemoService;
 import cn.bootx.engine.shop.param.demo.DemoPlaceAndPayParam;
-import cn.bootx.goodscenter.dto.sku.GoodsSkuDto;
+import cn.bootx.goods.dto.sku.GoodsSkuDto;
 import cn.bootx.paymentcenter.dto.pay.PayResult;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;

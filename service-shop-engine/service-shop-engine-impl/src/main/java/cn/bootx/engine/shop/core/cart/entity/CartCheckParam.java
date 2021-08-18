@@ -1,7 +1,7 @@
 package cn.bootx.engine.shop.core.cart.entity;
 
 import cn.bootx.engine.shop.core.cart.rule.CartOperateType;
-import cn.bootx.goodscenter.dto.sku.GoodsSkuDto;
+import cn.bootx.goods.dto.sku.GoodsSkuDto;
 import lombok.Data;
 import lombok.experimental.Accessors;
 

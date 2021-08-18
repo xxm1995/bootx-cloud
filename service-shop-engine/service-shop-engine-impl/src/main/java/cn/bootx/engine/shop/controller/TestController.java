@@ -3,7 +3,7 @@ package cn.bootx.engine.shop.controller;
 import cn.bootx.common.core.rest.Res;
 import cn.bootx.common.core.rest.ResResult;
 import cn.bootx.engine.shop.mq.MessageSender;
-import cn.bootx.goodscenter.param.inventory.UnlockInventoryParam;
+import cn.bootx.goods.param.inventory.UnlockInventoryParam;
 import cn.bootx.paymentcenter.code.pay.PayTypeCode;
 import cn.bootx.common.redis.RedisClient;
 import io.swagger.annotations.Api;

@@ -1,4 +1,4 @@
-package cn.bootx.iam.auth.handler;
+package cn.bootx.iam.core.auth.handler;
 
 import cn.bootx.starter.auth.entity.AuthInfoResult;
 import cn.bootx.starter.auth.handler.LoginSuccessHandler;
@@ -29,8 +29,8 @@ public class LoginSuccessHandlerImpl implements LoginSuccessHandler {
         String ip = ServletUtil.getClientIP(request);
 //        LoginLog loginLog = new LoginLog()
 //                .setLogin(true)
-//                .setUserId(authInfoResult.getUser().getId())
-//                .setUserName(authInfoResult.getUser().getUsername())
+//                .setUserId(authInfoResult.getUserDetail().getId())
+//                .setUserName(authInfoResult.getUserDetail().getUsername())
 //                .setIp(ip)
 //                .setOs(operatingSystem.getName())
 //                .setBrowser(browser.getName())

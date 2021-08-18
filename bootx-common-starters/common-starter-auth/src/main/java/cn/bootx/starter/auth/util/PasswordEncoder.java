@@ -5,8 +5,6 @@ import cn.hutool.crypto.digest.BCrypt;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
 
-import java.util.Objects;
-
 /**   
 * 密码编码器
 * @author xxm  
@@ -23,7 +21,7 @@ public class PasswordEncoder {
      * @return 加密后的密码
      */
     public String encode(String rawPassword) {
-        return BCrypt.hashpw(rawPassword, authProperties.getSalt());
+        return BCrypt.hashpw(rawPassword);
     }
 
     /**
@@ -34,14 +32,14 @@ public class PasswordEncoder {
      * @return 如果原始密码在编码后与存储中的编码密码匹配，则为 true
      */
     public boolean matches(String rawPassword, String encodedPassword) {
-        return Objects.equals(encodedPassword,encode(rawPassword));
+        return BCrypt.checkpw(rawPassword,encodedPassword);
     }
 
     /**
      * 获取默认密码
      */
     public String defaultPassword(){
-        return BCrypt.hashpw(authProperties.getDefaultPassword(), authProperties.getSalt());
+        return BCrypt.hashpw(authProperties.getDefaultPassword());
     }
 
 }

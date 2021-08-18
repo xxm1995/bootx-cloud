@@ -1,4 +1,4 @@
-package cn.bootx.iam.auth.handler;
+package cn.bootx.iam.core.auth.handler;
 
 import cn.bootx.starter.auth.exception.LoginFailureException;
 import cn.bootx.starter.auth.handler.LoginFailureHandler;

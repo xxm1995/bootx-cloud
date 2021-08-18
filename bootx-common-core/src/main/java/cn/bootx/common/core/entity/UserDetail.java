@@ -1,6 +1,7 @@
 package cn.bootx.common.core.entity;
 
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import java.io.Serializable;
@@ -12,13 +13,14 @@ import java.io.Serializable;
 */
 @Getter
 @Setter
+@NoArgsConstructor
 public class UserDetail implements Serializable {
     private static final long serialVersionUID = -2963943086646538532L;
 
     private Long id;
     private String name;
     private String username;
-    private String password;
+    private transient String password;
 
     public UserDetail(Long id, String name, String username) {
         this.id = id;

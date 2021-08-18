@@ -1,4 +1,4 @@
-package cn.bootx.iam.auth.service;
+package cn.bootx.iam.core.auth.service;
 
 import cn.bootx.iam.code.OpenIdLoginType;
 import cn.bootx.starter.auth.authentication.OpenIdAuthentication;

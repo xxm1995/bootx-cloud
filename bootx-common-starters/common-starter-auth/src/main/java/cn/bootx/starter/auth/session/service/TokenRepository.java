@@ -2,7 +2,6 @@ package cn.bootx.starter.auth.session.service;
 
 
 import cn.bootx.common.core.entity.UserDetail;
-import cn.bootx.common.jackson.utils.JacksonUtils;
 import cn.bootx.common.redis.RedisClient;
 import cn.bootx.starter.auth.config.AuthProperties;
 import cn.bootx.starter.auth.session.domain.LoginModel;
@@ -62,20 +61,28 @@ public class TokenRepository {
         String token;
         // 并发登录
         if (authProperties.isConcurrent()){
+            // 查询已登录的token值
             token = loginSession.getTokenSignList().stream()
                     .filter(i -> Objects.equals(i.getDevice(), loginModel.getDevice()))
                     .findFirst()
                     .map(TokenSign::getValue)
-                    .orElse(RandomUtil.randomString(32));
+                    .orElse(null);
+            // 未登录
+            if (Objects.isNull(token)){
+                token = RandomUtil.randomString(32);
+                loginSession.getTokenSignList().add(new TokenSign(token,loginModel.getDevice()));
+                String tokenKey = KEY_PREFIX_TOKEN + token;
+                redisClient.setWithTimeout(tokenKey, String.valueOf(userDetail.getId()),authProperties.getTimeout());
+            }
         } else {
             token = RandomUtil.randomString(32);
             // 将token写入session中
             loginSession.getTokenSignList().add(new TokenSign(token,loginModel.getDevice()));
+            String tokenKey = KEY_PREFIX_TOKEN + token;
+            redisClient.setWithTimeout(tokenKey, String.valueOf(userDetail.getId()),authProperties.getTimeout());
         }
-        // 持久化
-        String tokenKey = KEY_PREFIX_TOKEN+RandomUtil.randomString(32);
+        // 会话保存或更新
         redisClient.setWithTimeout(sessionKey,TokenJacksonUtils.toJson(loginSession),authProperties.getTimeout());
-        redisClient.setWithTimeout(tokenKey, String.valueOf(userDetail.getId()),authProperties.getTimeout());
         return token;
     }
 
@@ -83,6 +90,15 @@ public class TokenRepository {
      * 通过 token 获取登录用户
      */
     public UserDetail getUserDetail(String token) {
+        return Optional.ofNullable(this.getSession(token))
+                .map(LoginSession::getUserDetail)
+                .orElse(null);
+    }
+
+    /**
+     * 通过 token 获取登录会话
+     */
+    public LoginSession getSession(String token) {
         if (StrUtil.isEmpty(token)) {
             return null;
         }
@@ -91,16 +107,15 @@ public class TokenRepository {
         if (StrUtil.isBlank(userId)){
             return null;
         }
-
         return Optional.ofNullable(redisClient.get(KEY_PREFIX_SESSION + userId))
-                .map(s -> JacksonUtils.toBean(s,UserDetail.class))
+                .map(s -> TokenJacksonUtils.toBean(s, LoginSession.class))
                 .orElse(null);
     }
 
     /**
      * 踢出用户
      */
-    public void kickedOutUser(Long uid) {
+    public void kickedOutUser(Long userIdLong) {
     }
 
 }

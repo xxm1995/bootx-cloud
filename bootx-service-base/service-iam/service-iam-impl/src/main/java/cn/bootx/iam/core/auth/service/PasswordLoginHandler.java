@@ -1,4 +1,4 @@
-package cn.bootx.iam.auth.service;
+package cn.bootx.iam.core.auth.service;
 
 import cn.bootx.baseapi.client.CaptchaClient;
 import cn.bootx.common.core.entity.UserDetail;
@@ -42,7 +42,7 @@ public class PasswordLoginHandler implements UsernamePasswordAuthentication {
     private final AuthProperties authProperties;
     private final PasswordEncoder passwordEncoder;
     private final UserInfoService userInfoService;
-    private final CaptchaClient captchaService;
+    private final CaptchaClient captchaClient;
 
     /**
      * 认证前置操作, 默认处理验证码
@@ -53,7 +53,7 @@ public class PasswordLoginHandler implements UsernamePasswordAuthentication {
         if (authProperties.isCaptcha()){
             String captcha = this.obtainCaptcha(request);
             String captchaKey = this.obtainCaptchaKey(request);
-            if (!captchaService.validateImgCaptcha(captchaKey,captcha)){
+            if (!captchaClient.validateImgCaptcha(captchaKey,captcha)){
                 String username = this.obtainUsername(request);
                 throw new LoginFailureException(username,"验证码不正确");
             }
@@ -67,17 +67,16 @@ public class PasswordLoginHandler implements UsernamePasswordAuthentication {
     public @NotNull AuthInfoResult attemptAuthentication(HttpServletRequest request, HttpServletResponse response) {
         String username = this.obtainUsername(request);
         String password = this.obtainPassword(request);
-        UserDetail user = this.loadUserByUsername(username);
-        String saltPassword = passwordEncoder.encode(password);
+        UserDetail userDetail = this.loadUserByUsername(username);
         // 比对密码未通过
-        if (!Objects.equals(saltPassword,user.getPassword())){
+        if (!passwordEncoder.matches(password,userDetail.getPassword())){
             throw new LoginFailureException(username,"密码不正确");
         }
         // 验证账号合法性
-        validationUserDetails(user,request,response);
+        validationUserDetails(userDetail,request,response);
         return new AuthInfoResult()
-                .setId(user.getId())
-                .setUserDetail(user);
+                .setId(userDetail.getId())
+                .setUserDetail(userDetail);
     }
 
     /**
@@ -86,7 +85,7 @@ public class PasswordLoginHandler implements UsernamePasswordAuthentication {
     @Override
     public void authenticationAfter(AuthInfoResult authInfoResult,HttpServletRequest request, HttpServletResponse response){
         String captchaKey = this.obtainCaptchaKey(request);
-        captchaService.deleteImgCaptcha(captchaKey);
+        captchaClient.deleteImgCaptcha(captchaKey);
     }
 
     /**

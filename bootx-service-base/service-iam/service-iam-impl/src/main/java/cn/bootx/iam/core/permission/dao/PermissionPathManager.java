@@ -21,7 +21,6 @@ import java.util.List;
 @RequiredArgsConstructor
 public class PermissionPathManager extends BaseManager<PermissionPathMapper,PermissionPath> {
 
-
     public List<PermissionPath> findByMethodAndServiceName(String method, String serviceName){
         return lambdaQuery().eq(PermissionPath::getMethod,method)
                 .eq(PermissionPath::getServiceName,serviceName)

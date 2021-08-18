@@ -15,7 +15,6 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import javax.validation.constraints.NotBlank;
 import java.time.LocalDateTime;
 import java.util.Objects;
 
@@ -108,7 +107,7 @@ public class UserInfoService {
     /**
      * 重置密码
      */
-    public void restartPassword(Long userId,@NotBlank(message = "新密码不能为空") String newPassword){
+    public void restartPassword(Long userId,String newPassword){
 
         UserInfo userInfo = userInfoManager.findById(userId)
                 .orElseThrow(() -> new BizException("用户不存在"));

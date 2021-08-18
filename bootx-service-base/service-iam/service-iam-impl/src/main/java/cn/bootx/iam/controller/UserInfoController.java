@@ -13,17 +13,19 @@ import io.swagger.annotations.ApiOperation;
 import lombok.AllArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.constraints.NotBlank;
+
 /**
-* @author xxm
-* @date 2020/4/25 20:02
-*/
+ * @author xxm
+ * @date 2020/4/25 20:02
+ */
 @Api(tags = "用户")
 @RestController
 @RequestMapping("/user")
 @AllArgsConstructor
 public class UserInfoController {
-	private final UserInfoService userInfoService;
-	private final UserQueryService userQueryService;
+    private final UserInfoService userInfoService;
+    private final UserQueryService userQueryService;
 
     @ApiOperation(value = "根据用户id查询用户")
     @GetMapping("/getById")
@@ -46,13 +48,21 @@ public class UserInfoController {
     @ApiOperation("添加用户")
     @PostMapping("/addUserInfo")
     public ResResult<UserInfoDto> addUserInfo(@RequestBody UserInfoParam userInfoParam){
-        return Res.ok(userInfoService.addUserInfo(userInfoParam));
+        return Res.ok(userInfoService.add(userInfoParam));
     }
 
     @ApiOperation("分页")
     @GetMapping("/page")
     public ResResult<PageResult<UserInfoDto>> page(PageParam pageParam, UserInfoParam userInfoParam){
         return Res.ok(userQueryService.page(pageParam,userInfoParam));
+    }
+
+    @ApiOperation("重置密码")
+    @PostMapping("/restartPassword")
+    public ResResult<Void> restartPassword(Long userId,
+                                           @NotBlank(message = "新密码不能为空") @RequestParam String newPassword){
+        userInfoService.restartPassword(userId,newPassword);
+        return Res.ok();
     }
 
 }

@@ -2,7 +2,7 @@ package cn.bootx.iam.core.depart.dao;
 
 import cn.bootx.iam.core.depart.entity.Depart;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
-import org.mapstruct.Mapper;
+import org.apache.ibatis.annotations.Mapper;
 
 /**
 * 部门

@@ -1,6 +1,5 @@
 package cn.bootx.iam.core.permission.dao;
 
-import cn.bootx.common.headerholder.HeaderHolder;
 import cn.bootx.common.mybatisplus.impl.BaseManager;
 import cn.bootx.iam.core.permission.entity.PermissionMenu;
 import lombok.RequiredArgsConstructor;
@@ -17,8 +16,6 @@ import org.springframework.transaction.annotation.Transactional;
 @Repository
 @RequiredArgsConstructor
 public class PermissionMenuManager extends BaseManager<PermissionMenuMapper,PermissionMenu> {
-    private final PermissionMenuMapper repository;
-    private final HeaderHolder headerHolder;
 
     /**
      * 设置是否叶节点状态

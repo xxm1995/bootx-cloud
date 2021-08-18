@@ -1,4 +1,4 @@
-package cn.bootx.iam.auth.service;
+package cn.bootx.iam.core.auth.service;
 
 import cn.bootx.baseapi.client.CaptchaClient;
 import cn.bootx.common.core.entity.UserDetail;
@@ -29,7 +29,7 @@ public class PhoneLoginHandler implements OpenIdAuthentication {
     private final String captchaParameter = "smsCaptcha";
 
     private final UserInfoManager userInfoManager;
-    private final CaptchaClient captchaclient;
+    private final CaptchaClient captchaClient;
 
     @Override
     public String getOpenIdType() {
@@ -45,14 +45,14 @@ public class PhoneLoginHandler implements OpenIdAuthentication {
         String captcha = request.getParameter(captchaParameter);
 
         // 比较验证码是否正确
-        if (!captchaclient.validateSmsCaptcha(phone,captcha)){
+        if (!captchaClient.validateSmsCaptcha(phone,captcha)){
             throw new LoginFailureException(phone,"短信验证码不正确");
         }
         // 获取用户信息
         UserInfo userInfo = userInfoManager.findByPhone(phone)
                 .orElseThrow(() -> new LoginFailureException(phone,"手机号不存在"));
 
-        captchaclient.deleteSmsCaptcha(phone);
+        captchaClient.deleteSmsCaptcha(phone);
         return new AuthInfoResult()
                 .setUserDetail(new UserDetail(userInfo.getId(),userInfo.getName(),userInfo.getUsername(),userInfo.getPassword()))
                 .setId(userInfo.getId());

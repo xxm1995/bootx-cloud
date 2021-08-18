@@ -9,12 +9,8 @@ spring:
       username: admin
       password: 123456
       discovery:
-        namespace: ${spring.profiles.active}
+        namespace: bootx
       config:
-        namespace: ${spring.profiles.active}
+        namespace: bootx
         file-extension: yml
         shared-configs: bootx-common-config-dev.yml
-  jpa:
-    generate-ddl: true
-    hibernate:
-      ddl-auto: update

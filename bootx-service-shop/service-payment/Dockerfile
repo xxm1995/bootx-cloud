@@ -11,6 +11,6 @@ WORKDIR /
 
 EXPOSE 9502 19502
 
-ADD service-payment-center-impl/target/service-payment-center-impl.jar service-payment-center-impl.jar
+ADD service-payment-impl/target/service-payment-center-impl.jar service-payment-center-impl.jar
 
 CMD java $JAVA_OPTS -jar service-payment-center-impl.jar

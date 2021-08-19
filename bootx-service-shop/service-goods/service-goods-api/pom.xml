@@ -20,6 +20,11 @@
             <type>pom</type>
         </dependency>
 
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <scope>provided</scope>
+        </dependency>
         <!-- mvc -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
@@ -38,7 +43,7 @@
         <dependency>
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-starter-stream-rabbit</artifactId>
-            <optional>true</optional>
+            <scope>provided</scope>
         </dependency>
 
     </dependencies>

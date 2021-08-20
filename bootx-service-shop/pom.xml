@@ -16,6 +16,8 @@
     <modules>
         <module>service-goods</module>
         <module>service-payment</module>
+        <module>service-sales</module>
+        <module>service-order</module>
     </modules>
 
     <build>

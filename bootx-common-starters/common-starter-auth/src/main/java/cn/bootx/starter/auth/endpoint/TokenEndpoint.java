@@ -18,7 +18,7 @@ import javax.servlet.http.HttpServletResponse;
 * @author xxm  
 * @date 2021/7/30 
 */
-@Api("认证相关")
+@Api(tags = "认证相关")
 @RestController
 @RequestMapping("/token")
 @AllArgsConstructor

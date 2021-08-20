@@ -13,11 +13,6 @@
     <packaging>pom</packaging>
     <description>项目自身模块(一方库)版本控制</description>
 
-
-    <properties>
-        <bootx-cloud.version>2.0.0-SNAPSHOT</bootx-cloud.version>
-    </properties>
-
     <dependencyManagement>
         <dependencies>
             <!-- 核心库 -->

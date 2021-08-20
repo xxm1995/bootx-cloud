@@ -1,4 +1,0 @@
-# 自动注册 feign 的 client 实现
-org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
-  cn.bootx.salescenter.client.feign.CouponClientFeignImpl,\
-  cn.bootx.salescenter.client.feign.OrderPreviewClientFeignImpl

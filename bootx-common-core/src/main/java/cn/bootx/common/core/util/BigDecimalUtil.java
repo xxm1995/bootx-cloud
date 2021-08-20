@@ -1,6 +1,7 @@
 package cn.bootx.common.core.util;
 
 import java.math.BigDecimal;
+import java.math.RoundingMode;
 import java.text.NumberFormat;
 import java.util.LinkedHashMap;
 import java.util.Locale;
@@ -40,7 +41,7 @@ public class BigDecimalUtil {
             lastArgs[i] = lastArgs[i] == null ? new BigDecimal("0.00") : lastArgs[i];
             result = result.add(lastArgs[i]);
         }
-        result = result.setScale(CURRENCY_DECIMAL_PLACES, BigDecimal.ROUND_UP);
+        result = result.setScale(CURRENCY_DECIMAL_PLACES, RoundingMode.UP);
         return result;
     }
 
@@ -62,7 +63,7 @@ public class BigDecimalUtil {
             lastArgs[i] = lastArgs[i] == null ? new BigDecimal("0.00") : lastArgs[i];
             result = result.subtract(lastArgs[i]);
         }
-        result = result.setScale(CURRENCY_DECIMAL_PLACES, BigDecimal.ROUND_UP);
+        result = result.setScale(CURRENCY_DECIMAL_PLACES, RoundingMode.UP);
         return result;
     }
 
@@ -87,7 +88,7 @@ public class BigDecimalUtil {
             lastArgs[i] = lastArgs[i] == null ? new BigDecimal("0.00") : lastArgs[i];
             result = result.multiply(lastArgs[i]);
         }
-        result = result.setScale(CURRENCY_DECIMAL_PLACES, BigDecimal.ROUND_UP);
+        result = result.setScale(CURRENCY_DECIMAL_PLACES, RoundingMode.UP);
         return result;
     }
 
@@ -111,9 +112,9 @@ public class BigDecimalUtil {
             }
             lastArgs[i] = lastArgs[i] == null ? new BigDecimal("1.00") : lastArgs[i];
             result = result.divide(lastArgs[i], CURRENCY_DECIMAL_PLACES,
-                    BigDecimal.ROUND_UP);
+                    RoundingMode.UP);
         }
-        result = result.setScale(CURRENCY_DECIMAL_PLACES, BigDecimal.ROUND_UP);
+        result = result.setScale(CURRENCY_DECIMAL_PLACES, RoundingMode.UP);
         return result;
     }
 
@@ -144,7 +145,7 @@ public class BigDecimalUtil {
     public static BigDecimal getZero() {
 
         BigDecimal result = new BigDecimal("0.00");
-        result = result.setScale(CURRENCY_DECIMAL_PLACES, BigDecimal.ROUND_UP);
+        result = result.setScale(CURRENCY_DECIMAL_PLACES, RoundingMode.UP);
         return result;
     }
 
@@ -157,7 +158,7 @@ public class BigDecimalUtil {
     public static BigDecimal convertStringToBigDecimal(String first) {
 
         return BigDecimal.valueOf(Double.parseDouble(first)).setScale(CURRENCY_DECIMAL_PLACES,
-                BigDecimal.ROUND_UP);
+                RoundingMode.UP);
     }
 
     /**
@@ -184,7 +185,7 @@ public class BigDecimalUtil {
      * @return 拆分后每项的价格
      */
     public static <E> Map<E, BigDecimal> averageNumber(BigDecimal totalNumber, Map<E, BigDecimal> items) {
-        return averageNumber(totalNumber, items, 2, BigDecimal.ROUND_UP);
+        return averageNumber(totalNumber, items, 2, RoundingMode.UP);
     }
 
     /**
@@ -196,7 +197,7 @@ public class BigDecimalUtil {
      * @param roundingMode 舍入模式
      * @return 拆分后每项的数字
      */
-    public static <E> Map<E, BigDecimal> averageNumber(BigDecimal totalNumber, Map<E, BigDecimal> items, int scale, int roundingMode) {
+    public static <E> Map<E, BigDecimal> averageNumber(BigDecimal totalNumber, Map<E, BigDecimal> items, int scale, RoundingMode roundingMode) {
         BigDecimal number = items.values().stream().reduce(BigDecimal.ZERO, BigDecimal::add);
         BigDecimal remainderNumber = totalNumber;
         Map<E, BigDecimal> result = new LinkedHashMap<>();

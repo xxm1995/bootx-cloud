@@ -11,7 +11,6 @@ import org.springframework.boot.context.properties.ConfigurationProperties;
 public class SwaggerProperties {
 
     private boolean enabled;
-    private String basePackage;
     private String title;
     private String description;
     private String termsOfServiceUrl;
@@ -23,15 +22,6 @@ public class SwaggerProperties {
 
     public SwaggerProperties setEnabled(boolean enabled) {
         this.enabled = enabled;
-        return this;
-    }
-
-    public String getBasePackage() {
-        return basePackage;
-    }
-
-    public SwaggerProperties setBasePackage(String basePackage) {
-        this.basePackage = basePackage;
         return this;
     }
 

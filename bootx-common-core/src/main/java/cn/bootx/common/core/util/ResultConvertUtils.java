@@ -8,7 +8,7 @@ import java.util.Optional;
 import java.util.stream.Collectors;
 
 /**
-* 分页工具类
+* 返回值工具类
 * @author xxm
 * @date 2020/8/27
 */

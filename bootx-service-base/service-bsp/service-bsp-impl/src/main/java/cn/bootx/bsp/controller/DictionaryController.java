@@ -21,7 +21,7 @@ import java.util.List;
 */
 @Api(tags = "数据字典")
 @RestController
-@RequestMapping("/dictionary")
+@RequestMapping("/dict")
 @RequiredArgsConstructor
 public class DictionaryController {
 	private final DictionaryService dictionaryService;

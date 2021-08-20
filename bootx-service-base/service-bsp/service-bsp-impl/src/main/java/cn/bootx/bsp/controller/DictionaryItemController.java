@@ -24,7 +24,7 @@ import java.util.List;
 */
 @Api(tags = "字典项")
 @RestController
-@RequestMapping("/dictionary/item")
+@RequestMapping("/dict/item")
 @AllArgsConstructor
 public class DictionaryItemController{
 

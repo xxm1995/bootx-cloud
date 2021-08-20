@@ -33,12 +33,6 @@
         <module>common-xxl-job</module>
     </modules>
 
-    <!-- 配置 -->
-    <properties>
-        <common-core.version>2.0.0-SNAPSHOT</common-core.version>
-        <common-starter.version>2.0.0-SNAPSHOT</common-starter.version>
-    </properties>
-
     <!-- 依赖 -->
     <dependencies>
         <dependency>

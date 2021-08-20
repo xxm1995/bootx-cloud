@@ -12,10 +12,6 @@
     <artifactId>service-payment-impl</artifactId>
     <packaging>jar</packaging>
 
-    <properties>
-        <IJPay.version>2.7.4</IJPay.version>
-    </properties>
-
     <dependencies>
 
         <dependency>
@@ -85,4 +81,14 @@
         </dependency>
 
     </dependencies>
+
+    <build>
+        <plugins>
+            <!-- spring-boot -->
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+            </plugin>
+        </plugins>
+    </build>
 </project>

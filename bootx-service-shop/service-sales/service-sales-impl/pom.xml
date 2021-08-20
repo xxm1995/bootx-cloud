@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <parent>
+        <groupId>cn.bootx.cloud</groupId>
+        <artifactId>service-sales</artifactId>
+        <version>2.0.0-SNAPSHOT</version>
+    </parent>
+
+    <modelVersion>4.0.0</modelVersion>
+    <artifactId>service-sales-impl</artifactId>
+    <packaging>jar</packaging>
+
+    <properties>
+        <groovy.version>3.0.7</groovy.version>
+        <groovy-sandbox.version>1.19</groovy-sandbox.version>
+    </properties>
+
+    <dependencies>
+
+        <dependency>
+            <groupId>cn.bootx.cloud</groupId>
+            <artifactId>bootx-parent-impl</artifactId>
+            <type>pom</type>
+        </dependency>
+
+        <!-- mysql -->
+        <dependency>
+            <groupId>mysql</groupId>
+            <artifactId>mysql-connector-java</artifactId>
+            <scope>runtime</scope>
+        </dependency>
+
+        <!-- 动态脚本 -->
+        <dependency>
+            <groupId>org.codehaus.groovy</groupId>
+            <artifactId>groovy-all</artifactId>
+            <type>pom</type>
+            <version>${groovy.version}</version>
+        </dependency>
+
+        <!-- 京东异步库 -->
+        <dependency>
+            <groupId>com.gitee.jd-platform-opensource</groupId>
+            <artifactId>asyncTool</artifactId>
+        </dependency>
+
+        <!-- starters -->
+        <dependency>
+            <groupId>cn.bootx.cloud</groupId>
+            <artifactId>common-mybatis-plus</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>cn.bootx.cloud</groupId>
+            <artifactId>common-seata</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>cn.bootx.cloud</groupId>
+            <artifactId>common-mq</artifactId>
+        </dependency>
+
+        <!-- service-api -->
+        <dependency>
+            <groupId>cn.bootx.cloud</groupId>
+            <artifactId>service-sales-api</artifactId>
+            <version>${bootx-cloud.version}</version>
+        </dependency>
+
+    </dependencies>
+
+    <build>
+        <plugins>
+            <!-- spring-boot -->
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+            </plugin>
+        </plugins>
+    </build>
+
+</project>

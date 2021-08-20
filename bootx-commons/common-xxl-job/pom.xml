@@ -7,18 +7,15 @@
         <artifactId>bootx-commons</artifactId>
         <version>2.0.0-SNAPSHOT</version>
     </parent>
-    <modelVersion>4.0.0</modelVersion>
 
+    <modelVersion>4.0.0</modelVersion>
     <artifactId>common-xxl-job</artifactId>
-    <version>2.0.0-SNAPSHOT</version>
     <packaging>jar</packaging>
 
     <dependencies>
         <dependency>
             <groupId>com.xuxueli</groupId>
             <artifactId>xxl-job-core</artifactId>
-            <version>2.3.0</version>
-            <scope>provided</scope>
         </dependency>
     </dependencies>
 

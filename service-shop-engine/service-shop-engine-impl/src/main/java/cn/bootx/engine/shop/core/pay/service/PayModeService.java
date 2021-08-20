@@ -1,7 +1,7 @@
 package cn.bootx.engine.shop.core.pay.service;
 
 import cn.bootx.engine.shop.param.sell.OrderPayParam;
-import cn.bootx.ordercenter.dto.order.OrderDto;
+import cn.bootx.order.dto.order.OrderDto;
 import cn.bootx.paymentcenter.param.pay.PayParam;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;

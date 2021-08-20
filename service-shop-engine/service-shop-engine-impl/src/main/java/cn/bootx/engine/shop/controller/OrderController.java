@@ -9,7 +9,7 @@ import cn.bootx.engine.shop.param.sell.NowPlaceOrderParam;
 import cn.bootx.engine.shop.param.sell.OrderAggregatePayParam;
 import cn.bootx.engine.shop.param.sell.OrderPayParam;
 import cn.bootx.engine.shop.param.sell.PlaceOrderParam;
-import cn.bootx.ordercenter.dto.order.OrderDto;
+import cn.bootx.order.dto.order.OrderDto;
 import cn.bootx.paymentcenter.dto.pay.PayResult;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;

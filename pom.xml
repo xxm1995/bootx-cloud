@@ -103,9 +103,25 @@
 
     <build>
         <resources>
+            <!-- 指定打包资源路径 -->
             <resource>
                 <directory>src/main/resources</directory>
+                <includes>
+                    <include>**/*</include>
+                </includes>
                 <filtering>true</filtering>
+            </resource>
+            <resource>
+                <directory>src/main/java</directory>
+                <includes>
+                    <include>**/*.xml</include>
+                    <include>**/*.sql</include>
+                    <include>**/*.flt</include>
+                    <include>**/*.xlsx</include>
+                    <include>**/*.xls</include>
+                    <include>**/*.docx</include>
+                    <include>**/*.doc</include>
+                </includes>
             </resource>
         </resources>
     </build>

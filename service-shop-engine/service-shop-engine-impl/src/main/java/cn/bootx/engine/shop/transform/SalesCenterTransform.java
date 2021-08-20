@@ -3,8 +3,8 @@ package cn.bootx.engine.shop.transform;
 import cn.bootx.engine.shop.core.cart.entity.ItemActivity;
 import cn.bootx.engine.shop.core.cart.entity.ShopCart;
 import cn.bootx.engine.shop.core.cart.entity.ShopCartItem;
-import cn.bootx.salescenter.param.order.OrderCheckParam;
-import cn.bootx.salescenter.param.order.OrderDetailCheckParam;
+import cn.bootx.sales.param.order.OrderCheckParam;
+import cn.bootx.sales.param.order.OrderDetailCheckParam;
 import org.springframework.beans.BeanUtils;
 import org.springframework.stereotype.Component;
 

@@ -46,7 +46,7 @@ public class MpConfiguration {
     }
 
     /**
-     *
+     * 数据库主键生成
      */
     @Bean
     public IdentifierGenerator idGenerator(SnowFlakeId snowFlakeId) {

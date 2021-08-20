@@ -4,7 +4,7 @@ import cn.bootx.engine.shop.core.cart.entity.ItemActivity;
 import cn.bootx.engine.shop.core.cart.entity.ShopCartItem;
 import cn.bootx.goods.client.GoodsSkuClient;
 import cn.bootx.goods.dto.sku.GoodsSkuDto;
-import cn.bootx.ordercenter.param.order.OrderDetailParam;
+import cn.bootx.order.param.order.OrderDetailParam;
 import cn.hutool.core.bean.BeanUtil;
 import cn.hutool.core.collection.CollUtil;
 import lombok.RequiredArgsConstructor;

@@ -11,6 +11,7 @@
 
     <artifactId>bootx-parent-api</artifactId>
     <packaging>pom</packaging>
+    <description>服务API模块公共依赖</description>
 
     <dependencies>
         <!-- 自动配置  -->

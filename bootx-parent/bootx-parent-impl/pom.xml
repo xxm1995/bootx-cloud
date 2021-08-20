@@ -11,6 +11,7 @@
 
     <artifactId>bootx-parent-impl</artifactId>
     <packaging>pom</packaging>
+    <description>服务实现模块公共依赖</description>
 
     <dependencies>
         <!-- 公共包 -->

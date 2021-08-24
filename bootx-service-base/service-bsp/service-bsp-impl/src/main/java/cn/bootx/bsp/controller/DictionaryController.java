@@ -1,6 +1,5 @@
 package cn.bootx.bsp.controller;
 
-
 import cn.bootx.bsp.core.dict.service.DictionaryService;
 import cn.bootx.bsp.dto.dict.DictionaryDto;
 import cn.bootx.bsp.param.dict.DictionaryParam;
@@ -16,15 +15,17 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 /**
+* 字典
 * @author xxm
-* @date 2020/4/14 13:40
+* @date 2021/8/4
 */
-@Api(tags = "数据字典")
+@Api(tags = "字典")
 @RestController
 @RequestMapping("/dict")
 @RequiredArgsConstructor
 public class DictionaryController {
-	private final DictionaryService dictionaryService;
+    private final DictionaryService dictionaryService;
+
     @ApiOperation("添加")
     @PostMapping("/add")
     public ResResult<DictionaryDto> add(@RequestBody DictionaryParam param) {
@@ -58,7 +59,8 @@ public class DictionaryController {
 
     @ApiOperation("分页")
     @GetMapping("/page")
-    public ResResult<PageResult<DictionaryDto>> page(PageParam pageParam){
-        return Res.ok(dictionaryService.page(pageParam));
+    public ResResult<PageResult<DictionaryDto>> page(PageParam pageParam,DictionaryParam param){
+        return Res.ok(dictionaryService.page(pageParam,param));
     }
+
 }

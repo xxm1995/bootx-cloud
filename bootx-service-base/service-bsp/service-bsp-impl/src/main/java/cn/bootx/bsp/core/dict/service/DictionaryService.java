@@ -1,10 +1,12 @@
 package cn.bootx.bsp.core.dict.service;
 
+import cn.bootx.bsp.core.dict.dao.DictionaryItemManager;
 import cn.bootx.bsp.core.dict.dao.DictionaryManager;
 import cn.bootx.bsp.core.dict.entity.Dictionary;
 import cn.bootx.bsp.dto.dict.DictionaryDto;
-import cn.bootx.bsp.exception.dict.DictionaryAlreadyExistedException;
-import cn.bootx.bsp.exception.dict.DictionaryNotExistedException;
+import cn.bootx.bsp.exception.dict.DictAlreadyExistedException;
+import cn.bootx.bsp.exception.dict.DictItemAlreadyUsedException;
+import cn.bootx.bsp.exception.dict.DictNotExistedException;
 import cn.bootx.bsp.param.dict.DictionaryParam;
 import cn.bootx.common.core.rest.PageResult;
 import cn.bootx.common.core.rest.param.PageParam;
@@ -27,6 +29,7 @@ import java.util.stream.Collectors;
 public class DictionaryService {
 
 	private final DictionaryManager dictionaryManager;
+	private final DictionaryItemManager dictionaryItemManager;
 
 	/**
 	 * 添加字典
@@ -34,7 +37,7 @@ public class DictionaryService {
 	@Transactional(rollbackFor = Exception.class)
 	public DictionaryDto add(DictionaryParam param) {
 		if (dictionaryManager.existsByName(param.getName())) {
-			throw new DictionaryAlreadyExistedException();
+			throw new DictAlreadyExistedException();
 		}
 		Dictionary dictionary = Dictionary.init(param);
 		return dictionaryManager.save(dictionary).toDto();
@@ -47,8 +50,11 @@ public class DictionaryService {
 	public void delete(Long id) {
 
 		if(dictionaryManager.existedById(id)) {
-			throw new DictionaryNotExistedException();
+			throw new DictNotExistedException();
 		}
+		if (dictionaryItemManager.existsByDictId(id)){
+            throw new DictItemAlreadyUsedException();
+        }
         dictionaryManager.deleteById(id);
 	}
 
@@ -59,15 +65,16 @@ public class DictionaryService {
 	public DictionaryDto update(DictionaryParam param) {
 
         Dictionary dictionary = dictionaryManager.findById(param.getId())
-                .orElseThrow(DictionaryNotExistedException::new);
+                .orElseThrow(DictNotExistedException::new);
 
 		// 判断字典是否重名
 		if (dictionaryManager.existsByNameAndIdNot(param.getName(),param.getId())) {
-			throw new DictionaryAlreadyExistedException();
+			throw new DictAlreadyExistedException();
 		}
-
+		// 更新字典项
         BeanUtil.copyProperties(param,dictionary, CopyOptions.create().ignoreNullValue());
-		return dictionaryManager.updateById(dictionary).toDto();
+        dictionaryItemManager.updateDictCode(dictionary.getId(),dictionary.getCode());
+        return dictionaryManager.updateById(dictionary).toDto();
 	}
 
 	/**
@@ -90,7 +97,7 @@ public class DictionaryService {
     /**
      * 查询所有字典
      */
-    public PageResult<DictionaryDto> page(PageParam pageParam) {
-        return MpUtils.convert2PageResult(dictionaryManager.page(pageParam));
+    public PageResult<DictionaryDto> page(PageParam pageParam, DictionaryParam param) {
+        return MpUtils.convert2PageResult(dictionaryManager.page(pageParam,param));
     }
 }

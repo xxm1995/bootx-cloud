@@ -18,17 +18,17 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 /**
-*
-* @author xxm
-* @date 2020/4/18 19:03
-*/
+ *
+ * @author xxm
+ * @date 2020/4/18 19:03
+ */
 @Api(tags = "字典项")
 @RestController
 @RequestMapping("/dict/item")
 @AllArgsConstructor
-public class DictionaryItemController{
+public class DictionaryItemController {
+    private final DictionaryItemService dictionaryItemService;
 
-	private final DictionaryItemService dictionaryItemService;
     @ApiOperation(value = "添加字典项（返回字典项对象）")
     @PostMapping("/add")
     public ResResult<DictionaryItemDto> add(@RequestBody DictionaryItemParam param) {
@@ -68,4 +68,5 @@ public class DictionaryItemController{
     public ResResult<PageResult<DictionaryItemDto>> pageByDictionaryId(PageParam pageParam, Long dictId) {
         return Res.ok(dictionaryItemService.pageByDictionaryId(dictId,pageParam));
     }
+
 }

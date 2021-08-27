@@ -8,7 +8,7 @@ import cn.bootx.common.core.rest.param.PageParam;
 import cn.bootx.common.core.util.ResultConvertUtils;
 import cn.bootx.common.mybatisplus.util.MpUtils;
 import cn.bootx.iam.core.permission.dao.PermissionPathManager;
-import cn.bootx.iam.core.permission.dto.PermissionPathImport;
+import cn.bootx.iam.core.permission.domain.PermissionPathImport;
 import cn.bootx.iam.core.permission.entity.PermissionPath;
 import cn.bootx.iam.dto.permission.PermissionPathDto;
 import cn.bootx.iam.param.permission.PermissionPathParam;

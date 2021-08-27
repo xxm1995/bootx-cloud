@@ -1,4 +1,4 @@
-package cn.bootx.iam.core.permission.dto;
+package cn.bootx.iam.core.permission.domain;
 
 import cn.afterturn.easypoi.excel.annotation.Excel;
 import lombok.Data;

@@ -17,7 +17,7 @@ import java.util.List;
 public class RolePathManager extends BaseManager<RolePathMapper,RolePath> {
 
     public List<RolePath> findByPath(Long pathId){
-        return findAllByField(RolePath::getPathId,pathId);
+        return findAllByField(RolePath::getPermissionId,pathId);
     }
 
     public List<RolePath> findByRole(Long roleId) {
@@ -33,7 +33,7 @@ public class RolePathManager extends BaseManager<RolePathMapper,RolePath> {
     }
 
     public void deleteByPath(Long pathId){
-        deleteByField(RolePath::getPathId,pathId);
+        deleteByField(RolePath::getPermissionId,pathId);
 
     }
 

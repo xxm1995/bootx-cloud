@@ -1,8 +1,6 @@
 package cn.bootx.iam.core.upms.entity;
 
-import cn.bootx.common.core.function.EntityBaseFunction;
 import cn.bootx.common.mybatisplus.base.MpIdEntity;
-import cn.bootx.iam.dto.permission.RoleMenuDto;
 import com.baomidou.mybatisplus.annotation.TableName;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
@@ -19,25 +17,17 @@ import lombok.experimental.Accessors;
 @Accessors(chain = true)
 @TableName("iam_role_menu")
 @NoArgsConstructor
-public class RoleMenu extends MpIdEntity implements EntityBaseFunction<RoleMenuDto> {
+public class RoleMenu extends MpIdEntity {
 
-    /**
-     * 角色id
-     */
     private Long roleId;
 
     /**
      * 菜单权限id
      */
-    private Long menuId;
+    private Long permissionId;
 
-    public RoleMenu(Long roleId, Long menuId) {
+    public RoleMenu(Long roleId, Long permissionId) {
         this.roleId = roleId;
-        this.menuId = menuId;
-    }
-
-    @Override
-    public RoleMenuDto toDto() {
-        return null;
+        this.permissionId = permissionId;
     }
 }

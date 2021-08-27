@@ -5,18 +5,19 @@ import cn.bootx.common.core.util.ResultConvertUtils;
 import cn.bootx.iam.code.permission.PermissionCode;
 import cn.bootx.iam.core.permission.dao.PermissionMenuManager;
 import cn.bootx.iam.core.permission.entity.PermissionMenu;
+import cn.bootx.iam.core.upms.dao.RoleMenuManager;
 import cn.bootx.iam.dto.permission.PermissionMenuDto;
 import cn.bootx.iam.param.permission.PermissionMenuParam;
 import cn.hutool.core.bean.BeanUtil;
 import cn.hutool.core.bean.copier.CopyOptions;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.cache.annotation.CacheEvict;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
-import java.util.Objects;
 
 import static cn.bootx.iam.code.CachingCode.USER_MENU;
 import static cn.bootx.iam.code.CachingCode.USER_MENU_ID;
@@ -31,26 +32,19 @@ import static cn.bootx.iam.code.CachingCode.USER_MENU_ID;
 @RequiredArgsConstructor
 public class PermissionMenuService {
     private final PermissionMenuManager permissionMenuManager;
+    private final RoleMenuManager roleMenuManager;
 
     /**
      * 添加菜单权限
      */
     @Transactional(rollbackFor = Exception.class)
     public PermissionMenuDto add(PermissionMenuParam param) {
-        //----------------------------------------------------------------------
         //判断是否是一级菜单，是的话清空父菜单
         if(PermissionCode.MENU_TYPE_TOP.equals(param.getMenuType())) {
             param.setParentId(null);
         }
-        //----------------------------------------------------------------------
-        Long pid = param.getParentId();
-        if(Objects.nonNull(pid)) {
-            //设置父节点不为叶子节点
-            permissionMenuManager.setMenuLeaf(pid, false);
-        }
-        param.setLeaf(true);
-        PermissionMenu permissionMenu = PermissionMenu.init(param);
-        return permissionMenuManager.save(permissionMenu).toDto();
+        PermissionMenu permission = PermissionMenu.init(param);
+        return permissionMenuManager.save(permission).toDto();
     }
 
     /**
@@ -59,36 +53,16 @@ public class PermissionMenuService {
     @Transactional(rollbackFor = Exception.class)
     @CacheEvict(value = {USER_MENU_ID,USER_MENU},allEntries = true)
     public PermissionMenuDto update(PermissionMenuParam param){
-        PermissionMenu permissionMenu = permissionMenuManager.findById(param.getId())
+        PermissionMenu permission = permissionMenuManager.findById(param.getId())
                 .orElseThrow(() -> new BizException("菜单权限不存在"));
-        Long oldPid = permissionMenu.getParentId();
-        BeanUtil.copyProperties(param,permissionMenu, CopyOptions.create().ignoreNullValue());
+        Long oldPid = permission.getParentId();
+        BeanUtil.copyProperties(param,permission, CopyOptions.create().ignoreNullValue());
 
-        //1.判断是否是一级菜单，是的话清空父菜单ID
-        if(PermissionCode.MENU_TYPE_TOP.equals(permissionMenu.getMenuType())) {
-            permissionMenu.setParentId(null);
+        // 判断是否是一级菜单，是的话清空父菜单ID
+        if(PermissionCode.MENU_TYPE_TOP.equals(permission.getMenuType())) {
+            permission.setParentId(null);
         }
-
-        //Step2.判断菜单下级是否有菜单，无则设置为叶子节点
-        if(!permissionMenuManager.existsByParentId(permissionMenu.getId())) {
-            permissionMenu.setLeaf(true);
-        }
-        PermissionMenuDto permissionMenuDto = permissionMenuManager.updateById(permissionMenu).toDto();
-
-        //如果当前菜单的父菜单变了，则需要修改新父菜单和老父菜单的，叶子节点状态
-        Long pid = permissionMenu.getParentId();
-        if (!Objects.equals(oldPid,pid)){
-            //a.设置新的父菜单不为叶子节点
-            if (Objects.nonNull(pid)) {
-                permissionMenuManager.setMenuLeaf(pid, false);
-            }
-            //b.判断老的菜单下是否还有其他子菜单，没有的话则设置为叶子节点
-            if(Objects.nonNull(oldPid) && !permissionMenuManager.existsByParentId(oldPid)) {
-                permissionMenuManager.setMenuLeaf(oldPid, true);
-            }
-
-        }
-        return permissionMenuDto;
+        return permissionMenuManager.updateById(permission).toDto();
     }
 
     /**
@@ -101,16 +75,30 @@ public class PermissionMenuService {
     }
 
     /**
-     * 根据ids查询
+     * 列表
      */
+    public List<PermissionMenuDto> findAll() {
+        return ResultConvertUtils.dtoListConvert(permissionMenuManager.findAll());
+    }
+
+    /**
+     * 根据id集合查询
+     */
+    @ConditionalOnProperty
     public List<PermissionMenuDto> findByIds(List<Long> permissionIds) {
         return ResultConvertUtils.dtoListConvert(permissionMenuManager.findAllByIds(permissionIds));
     }
 
     /**
-     * 列表
+     * 删除
      */
-    public List<PermissionMenuDto> list() {
-        return ResultConvertUtils.dtoListConvert(permissionMenuManager.findAll());
+    @Transactional(rollbackFor = Exception.class)
+    public void delete(Long id){
+        // 有子菜单不可以删除
+        if (permissionMenuManager.existsByParentId(id)){
+            throw new BizException("有子菜单或下属权限不可以删除");
+        }
+        roleMenuManager.deleteByPermission(id);
+        permissionMenuManager.deleteById(id);
     }
 }

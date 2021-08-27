@@ -1,9 +1,6 @@
 package cn.bootx.iam.core.upms.entity;
 
-import cn.bootx.common.core.function.EntityBaseFunction;
 import cn.bootx.common.mybatisplus.base.MpIdEntity;
-import cn.bootx.iam.dto.permission.RolePathDto;
-import cn.hutool.core.bean.BeanUtil;
 import com.baomidou.mybatisplus.annotation.TableName;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
@@ -20,7 +17,7 @@ import lombok.experimental.Accessors;
 @Accessors(chain = true)
 @TableName("iam_role_path")
 @NoArgsConstructor
-public class RolePath extends MpIdEntity implements EntityBaseFunction<RolePathDto> {
+public class RolePath extends MpIdEntity {
 
     /**
      * 角色id
@@ -30,17 +27,10 @@ public class RolePath extends MpIdEntity implements EntityBaseFunction<RolePathD
     /**
      * 权限id
      */
-    private Long pathId;
+    private Long permissionId;
 
-   	public RolePath(Long roleId, Long pathId) {
-   		this.roleId = roleId;
-   		this.pathId = pathId;
-   	}
-
-    @Override
-    public RolePathDto toDto() {
-        RolePathDto rolePermissionDto = new RolePathDto();
-        BeanUtil.copyProperties(this,rolePermissionDto);
-        return rolePermissionDto;
+    public RolePath(Long roleId, Long permissionId) {
+        this.roleId = roleId;
+        this.permissionId = permissionId;
     }
 }

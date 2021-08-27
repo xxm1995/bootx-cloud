@@ -97,7 +97,7 @@ public class RolePathService {
     public List<Long> findPathIdsByRole(Long roleId){
         List<RolePath> rolePermissions = rolePathManager.findByRole(roleId);
         return rolePermissions.stream()
-                .map(RolePath::getPathId)
+                .map(RolePath::getPermissionId)
                 .collect(Collectors.toList());
     }
 
@@ -107,7 +107,7 @@ public class RolePathService {
     public List<Long> findPathIdsByRoles(List<Long> roleIds){
         List<RolePath> rolePermissions = rolePathManager.findByRoles(roleIds);
         return rolePermissions.stream()
-                .map(RolePath::getPathId)
+                .map(RolePath::getPermissionId)
                 .collect(Collectors.toList());
     }
 
@@ -135,7 +135,7 @@ public class RolePathService {
         }
         List<RolePath> rolePaths = rolePathManager.findByRoles(roleIds);
         List<Long> pathIds = rolePaths.stream()
-                .map(RolePath::getPathId)
+                .map(RolePath::getPermissionId)
                 .distinct()
                 .collect(Collectors.toList());
         if (CollUtil.isNotEmpty(pathIds)){

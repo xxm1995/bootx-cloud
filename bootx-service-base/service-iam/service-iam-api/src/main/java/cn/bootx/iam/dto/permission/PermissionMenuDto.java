@@ -1,11 +1,11 @@
 package cn.bootx.iam.dto.permission;
 
-import cn.bootx.iam.code.permission.PermissionCode;
 import io.swagger.annotations.ApiModel;
 import lombok.Data;
 import lombok.experimental.Accessors;
 
 import java.io.Serializable;
+import java.util.List;
 
 /**
 * @author xxm
@@ -23,26 +23,32 @@ public class PermissionMenuDto implements Serializable {
     /** 父id */
     private Long parentId;
 
-    /** 菜单名称 */
+    /** 菜单标题 */
+    private String title;
+
+    /** 路由名称，建议唯一 */
     private String name;
 
     /** 菜单权限编码 */
     private String perms;
 
-    /** 菜单图标 */
+    /** 图标 */
     private String icon;
+
+    /** 是否隐藏 */
+    private boolean hidden;
+
+    /** 是否隐藏子菜单 */
+    private boolean hideChildrenInMenu;
 
     /** 组件 */
     private String component;
 
-    /** 组件名字 */
-    private String componentName;
-
     /** 路径 */
-    private String url;
+    private String path;
 
     /**
-     * 一级菜单跳转地址
+     * 菜单跳转地址(重定向)
      */
     private String redirect;
 
@@ -53,7 +59,6 @@ public class PermissionMenuDto implements Serializable {
 
     /**
      * 类型（0：一级菜单；1：子菜单 ；2：按钮权限）
-     * @see PermissionCode
      */
     private Integer menuType;
 
@@ -62,16 +67,28 @@ public class PermissionMenuDto implements Serializable {
      */
     private boolean leaf;
 
+    /* meta */
     /**
-     * 是否缓存页面: 0:不是  1:是（默认值1）
+     * 是否缓存页面
      */
     private boolean keepAlive;
 
-    /** 外链菜单打开方式 0/内部打开 1/外部打开 */
-    private boolean internalOrExternal;
+    /** 打开方式是否为外部打开 */
+    private boolean targetOutside;
+
+    /** 隐藏的标题内容 */
+    private boolean hiddenHeaderContent;
 
     /**
      * 描述
      */
     private String description;
+
+    /** 系统菜单 */
+    private boolean admin;
+
+    /**
+     * 子节点
+     */
+    private List<PermissionMenuDto> children;
 }

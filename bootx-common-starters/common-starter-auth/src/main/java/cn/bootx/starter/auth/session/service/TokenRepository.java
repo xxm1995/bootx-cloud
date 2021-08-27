@@ -58,6 +58,9 @@ public class TokenRepository {
                     .setUserDetail(userDetail);
         }
 
+        // 超时时间
+        long timeout = loginModel.getTimeout();
+
         String token;
         // 并发登录
         if (authProperties.isConcurrent()){
@@ -72,17 +75,17 @@ public class TokenRepository {
                 token = RandomUtil.randomString(32);
                 loginSession.getTokenSignList().add(new TokenSign(token,loginModel.getDevice()));
                 String tokenKey = KEY_PREFIX_TOKEN + token;
-                redisClient.setWithTimeout(tokenKey, String.valueOf(userDetail.getId()),authProperties.getTimeout());
+                redisClient.setWithTimeout(tokenKey, String.valueOf(userDetail.getId()),timeout);
             }
         } else {
             token = RandomUtil.randomString(32);
             // 将token写入session中
             loginSession.getTokenSignList().add(new TokenSign(token,loginModel.getDevice()));
             String tokenKey = KEY_PREFIX_TOKEN + token;
-            redisClient.setWithTimeout(tokenKey, String.valueOf(userDetail.getId()),authProperties.getTimeout());
+            redisClient.setWithTimeout(tokenKey, String.valueOf(userDetail.getId()),timeout);
         }
         // 会话保存或更新
-        redisClient.setWithTimeout(sessionKey,TokenJacksonUtils.toJson(loginSession),authProperties.getTimeout());
+        redisClient.setWithTimeout(sessionKey,TokenJacksonUtils.toJson(loginSession),timeout);
         return token;
     }
 

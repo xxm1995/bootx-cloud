@@ -1,4 +1,4 @@
-package cn.bootx.iam.core.auth.service;
+package cn.bootx.iam.core.auth.login;
 
 import cn.bootx.baseapi.client.CaptchaClient;
 import cn.bootx.common.core.entity.UserDetail;

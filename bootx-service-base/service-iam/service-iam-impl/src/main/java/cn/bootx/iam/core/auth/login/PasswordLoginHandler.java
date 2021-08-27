@@ -1,4 +1,4 @@
-package cn.bootx.iam.core.auth.service;
+package cn.bootx.iam.core.auth.login;
 
 import cn.bootx.baseapi.client.CaptchaClient;
 import cn.bootx.common.core.entity.UserDetail;
@@ -23,17 +23,18 @@ import javax.validation.constraints.NotNull;
 import java.util.Objects;
 
 /**
-* 账号密码登陆方式实现
-* @author xxm
-* @date 2021/8/2
-*/
+ * 账号密码登陆方式实现
+ * @author xxm
+ * @date 2021/8/2
+ */
 @Slf4j
 @Component
 @RequiredArgsConstructor
 public class PasswordLoginHandler implements UsernamePasswordAuthentication {
 
-    private String usernameParameter = "username";
+    private String usernameParameter = "account";
     private String passwordParameter = "password";
+    private String clientParameter = "client";
     // 前端传入的验证码
     private String captchaParameter = "captcha";
     // 前端传入的验证码的key
@@ -68,6 +69,7 @@ public class PasswordLoginHandler implements UsernamePasswordAuthentication {
         String username = this.obtainUsername(request);
         String password = this.obtainPassword(request);
         UserDetail userDetail = this.loadUserByUsername(username);
+        String client = this.obtainClient(request);
         // 比对密码未通过
         if (!passwordEncoder.matches(password,userDetail.getPassword())){
             throw new LoginFailureException(username,"密码不正确");
@@ -76,7 +78,8 @@ public class PasswordLoginHandler implements UsernamePasswordAuthentication {
         validationUserDetails(userDetail,request,response);
         return new AuthInfoResult()
                 .setId(userDetail.getId())
-                .setUserDetail(userDetail);
+                .setUserDetail(userDetail)
+                .setClient(client);
     }
 
     /**
@@ -135,7 +138,10 @@ public class PasswordLoginHandler implements UsernamePasswordAuthentication {
     protected String obtainCaptchaKey(HttpServletRequest request) {
         return request.getParameter(this.captchaKeyParameter);
     }
-
+    @Nullable
+    protected String obtainClient(HttpServletRequest request) {
+        return request.getParameter(this.clientParameter);
+    }
 
     public void setUsernameParameter(String usernameParameter) {
         Assert.hasText(usernameParameter, "用户名参数不能为空或为空");
@@ -155,5 +161,11 @@ public class PasswordLoginHandler implements UsernamePasswordAuthentication {
         Assert.hasText(captchaKeyParameter, "验证码key参数不能为空或为空");
         this.captchaKeyParameter = captchaKeyParameter;
     }
+
+    public void setClientKeyParameter(String clientParameter) {
+        Assert.hasText(clientParameter, "终端类型参数不能为空或为空");
+        this.clientParameter = clientParameter;
+    }
+
 
 }

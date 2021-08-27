@@ -20,9 +20,6 @@ public class AuthProperties {
     /** 是否允许同一账号并发登录 (为true时允许一起登录, 为false时新登录挤掉旧登录) */
     private boolean concurrent = true;
 
-    /** token的长久有效期(单位:毫秒) 默认30天, */
-    private long timeout = 60 * 60 * 24 * 30 * 1000L;
-
     /** 每次清理过期数据间隔的时间 (单位: 秒) ，默认值30秒，设置为-1代表不启动定时清理 */
     private int dataRefreshPeriod = 30;
 

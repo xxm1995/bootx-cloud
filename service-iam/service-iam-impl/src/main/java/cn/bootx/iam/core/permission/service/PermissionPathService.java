@@ -3,6 +3,8 @@ package cn.bootx.iam.core.permission.service;
 import cn.afterturn.easypoi.excel.ExcelImportUtil;
 import cn.afterturn.easypoi.excel.entity.ImportParams;
 import cn.bootx.common.web.exception.BizException;
+import cn.bootx.common.web.rest.PageResult;
+import cn.bootx.common.web.rest.param.PageParam;
 import cn.bootx.common.web.util.ResultConvertUtils;
 import cn.bootx.iam.core.permission.dao.PermissionPathManager;
 import cn.bootx.iam.core.permission.dao.PermissionPathRepository;
@@ -10,10 +12,13 @@ import cn.bootx.iam.core.permission.dto.PermissionPathImport;
 import cn.bootx.iam.core.permission.entity.PermissionPath;
 import cn.bootx.iam.dto.permission.PermissionPathDto;
 import cn.bootx.iam.param.permission.PermissionPathParam;
+import cn.bootx.starter.jpa.utils.JpaUtils;
 import cn.hutool.core.bean.BeanUtil;
+import cn.hutool.core.bean.copier.CopyOptions;
 import lombok.AllArgsConstructor;
 import org.springframework.cache.annotation.CacheEvict;
 import org.springframework.cache.annotation.Cacheable;
+import org.springframework.data.domain.Page;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
@@ -56,8 +61,11 @@ public class PermissionPathService {
      * 更新权限信息
      */
     @CacheEvict(value = PERMISSION_PATH,allEntries = true)
-    public void update(){
-
+    public PermissionPathDto update(PermissionPathParam param){
+        PermissionPath permissionPath = permissionPathManager.findById(param.getId())
+                .orElseThrow(() -> new BizException("信息不存在"));
+        BeanUtil.copyProperties(param,permissionPath,CopyOptions.create().ignoreNullValue());
+        return permissionPathRepository.save(permissionPath).toDto();
     }
 
     /**
@@ -65,6 +73,15 @@ public class PermissionPathService {
      */
     @CacheEvict(value = PERMISSION_PATH,allEntries = true)
     public void delete(Long id){
+        permissionPathManager.deleteById(id);
+    }
+
+    /**
+     * 获取单条
+     */
+    public PermissionPathDto findById(Long id){
+        return permissionPathManager.findById(id).map(PermissionPath::toDto)
+                .orElse(null);
     }
 
     /**
@@ -79,6 +96,14 @@ public class PermissionPathService {
      */
     public List<PermissionPathDto> list() {
         return ResultConvertUtils.dtoListConvert(permissionPathManager.findAll());
+    }
+
+    /**
+     * 权限分页
+     */
+    public PageResult<PermissionPathDto> page(PageParam pageParam,PermissionPathParam param){
+        Page<PermissionPath> page = permissionPathManager.page(pageParam,param);
+        return JpaUtils.convert2PageResult(page);
     }
 
     /**

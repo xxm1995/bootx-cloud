@@ -73,8 +73,8 @@ public class OrderPlaceService {
      */
     public OrderDto buyNow(NowPlaceOrderParam param){
 
-        GoodsSkuDto s1 = goodsSkuClient.getById(param.getSkuId());
-        GoodsSkuDto s2 = goodsSkuClient.getById(2L);
+        GoodsSkuDto s1 = goodsSkuClient.findById(param.getSkuId());
+        GoodsSkuDto s2 = goodsSkuClient.findById(2L);
         OrderDetailParam od1 = new OrderDetailParam();
         OrderDetailParam od2 = new OrderDetailParam();
         BeanUtil.copyProperties(s1,od1);
@@ -104,7 +104,7 @@ public class OrderPlaceService {
         // 构建下单参数
         OrderParam orderParam = this.buildOrderParam(param, orderDetailParams);
 
-        // 校验库存和锁定库存
+        // 校验库存和锁checkInventory定库存
         this.checkInventory(orderDetailParams);
         Map<Long, LockInventoryDto> inventoryMap = this.lockInventory(orderDetailParams);
         OrderWholeParam orderWholeParam = new OrderWholeParam()

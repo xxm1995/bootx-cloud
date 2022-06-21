@@ -52,7 +52,7 @@ public class RoleMenuService {
     /**
      * 根据角色查询对应的权限
      */
-    public List<Long> findIdsByRole(Long roleId){
+    public List<Long> findMenuIdsByRole(Long roleId){
         List<RoleMenu> rolePermissions = roleMenuManager.findAllByRole(roleId);
         return rolePermissions.stream()
                 .map(RoleMenu::getMenuId)
@@ -62,7 +62,7 @@ public class RoleMenuService {
     /**
      * 根据角色查询对应的权限
      */
-    public List<Long> findIdsByRoles(List<Long> roleIds){
+    public List<Long> findMenuIdsByRoles(List<Long> roleIds){
         List<RoleMenu> rolePermissions = roleMenuManager.findAllByRoles(roleIds);
         return rolePermissions.stream()
                 .map(RoleMenu::getMenuId)
@@ -73,16 +73,16 @@ public class RoleMenuService {
      * 根据用户查询拥有的权限id
      */
     @Cacheable(value = USER_MENU_ID,key = "#userId")
-    public List<Long> findPermissionIdsByUser(Long userId){
+    public List<Long> findMenuIdsByUser(Long userId){
         List<Long> roleIds = userRoleService.findRoleIdsByUser(userId);
-        return this.findIdsByRoles(roleIds);
+        return this.findMenuIdsByRoles(roleIds);
     }
 
     /**
      * 查询用户查询拥有的权限信息
      */
     @Cacheable(value = USER_MENU,key = "#userId")
-    public List<PermissionMenuDto> findPermissionsByUser(Long userId){
+    public List<PermissionMenuDto> findMenusByUser(Long userId){
         List<PermissionMenuDto> menus = new ArrayList<>(0);
 
         List<Long> roleIds = userRoleService.findRoleIdsByUser(userId);

@@ -7,6 +7,7 @@ import cn.bootx.gateway.helper.context.ResponseContext;
 import cn.bootx.gateway.helper.domain.CheckRequest;
 import cn.bootx.gateway.helper.domain.CheckResponse;
 import cn.bootx.gateway.helper.util.ServerRequestUtils;
+import cn.bootx.starter.headerholder.local.HolderContextHolder;
 import cn.hutool.core.util.StrUtil;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -47,10 +48,12 @@ public class ReactiveAuthenticationHelper {
      * 解析
      */
     private String getAccessToken(final ServerHttpRequest req) {
-        String accessToken = ServerRequestUtils.resolveHeader(req, WebHeaderConst.AUTH);
+        String accessToken = ServerRequestUtils.resolveHeader(req, WebHeaderConst.ACCESS_TOKEN);
         if(StrUtil.isBlank(accessToken)){
             accessToken = ServerRequestUtils.resolveParam(req, WebHeaderConst.ACCESS_TOKEN);
         }
+        // 添加access token请求
+        HolderContextHolder.put(WebHeaderConst.ACCESS_TOKEN,accessToken);
         return accessToken;
     }
 }

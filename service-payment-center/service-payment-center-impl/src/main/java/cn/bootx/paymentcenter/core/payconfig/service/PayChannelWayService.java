@@ -1,6 +1,8 @@
 package cn.bootx.paymentcenter.core.payconfig.service;
 
 import cn.bootx.common.web.exception.BizException;
+import cn.bootx.common.web.rest.PageResult;
+import cn.bootx.common.web.rest.param.PageParam;
 import cn.bootx.common.web.util.ResultConvertUtils;
 import cn.bootx.paymentcenter.core.payconfig.dao.PayChannelManager;
 import cn.bootx.paymentcenter.core.payconfig.dao.PayChannelWayManager;
@@ -9,6 +11,7 @@ import cn.bootx.paymentcenter.core.payconfig.entity.PayChannel;
 import cn.bootx.paymentcenter.core.payconfig.entity.PayChannelWay;
 import cn.bootx.paymentcenter.dto.payconfig.PayChannelWayDto;
 import cn.bootx.paymentcenter.param.payconfig.PayChannelWayParam;
+import cn.bootx.starter.jpa.utils.JpaUtils;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
@@ -25,7 +28,7 @@ import java.util.List;
 @RequiredArgsConstructor
 public class PayChannelWayService {
     private final PayChannelManager payChannelManager;
-    private final PayChannelWayManager payChannelWayManager;
+    private final PayChannelWayManager channelWayManager;
     private final PayChannelWayRepository payChannelRepository;
 
     /**
@@ -44,23 +47,38 @@ public class PayChannelWayService {
     }
 
     /**
+     * 获取详情
+     */
+    public PayChannelWayDto findById(Long id){
+        return channelWayManager.findById(id).map(PayChannelWay::toDto)
+                .orElse(null);
+    }
+
+    /**
      * 删除
      */
     public void delete(Long id){
-        payChannelWayManager.deleteById(id);
+        channelWayManager.deleteById(id);
     }
 
     /**
      * 查询支付通道下的支付方式
      */
     public List<PayChannelWayDto> findByChannel(Long channelId){
-        return ResultConvertUtils.dtoListConvert(payChannelWayManager.findByChannel(channelId));
+        return ResultConvertUtils.dtoListConvert(channelWayManager.findByChannel(channelId));
+    }
+
+    /**
+     * 分页
+     */
+    public PageResult<PayChannelWayDto> page(PageParam pageParam, PayChannelWayParam param){
+        return JpaUtils.convert2PageResult(channelWayManager.page(pageParam,param));
     }
 
     /**
      * 支付通道是否存在指定支付方式
      */
     public boolean existsByChannelAndCode(Long channelId, String code){
-        return payChannelWayManager.existsByChannelAndCode(channelId,code);
+        return channelWayManager.existsByChannelAndCode(channelId,code);
     }
 }

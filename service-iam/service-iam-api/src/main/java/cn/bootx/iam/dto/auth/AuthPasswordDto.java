@@ -29,9 +29,6 @@ public class AuthPasswordDto extends BaseDto implements Serializable {
     @ApiModelProperty(value = "用户主键", required = true)
     private Long uid;
 
-    @ApiModelProperty(value = "用户登录账号", required = true)
-    private String account;
-
     @ApiModelProperty(value = "用户密码", required = true)
     private String password;
 

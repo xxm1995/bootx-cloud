@@ -3,6 +3,7 @@ package cn.bootx.iam.core.role.entity;
 import cn.bootx.common.function.EntityBaseFunction;
 import cn.bootx.iam.core.role.convert.RoleConvert;
 import cn.bootx.iam.dto.role.RoleDto;
+import cn.bootx.iam.param.role.RoleParam;
 import cn.bootx.starter.jpa.base.JpaBaseEntity;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
@@ -34,6 +35,9 @@ public class Role extends JpaBaseEntity implements EntityBaseFunction<RoleDto> {
 
     public static Role init(RoleDto roleDto){
         return RoleConvert.CONVERT.convert(roleDto);
+    }
+    public static Role init(RoleParam in){
+        return RoleConvert.CONVERT.convert(in);
     }
 
     @Override

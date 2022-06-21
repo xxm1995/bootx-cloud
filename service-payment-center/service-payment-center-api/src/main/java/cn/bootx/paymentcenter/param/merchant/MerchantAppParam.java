@@ -18,10 +18,14 @@ public class MerchantAppParam implements Serializable {
     private static final long serialVersionUID = -853129554340871717L;
 
     private Long id;
-    /** 应用名称 */
-    private String appName;
     /** 商户id */
     private Long merchantId;
+    /** 商户号 */
+    private String merchantNo;
+    /** 应用名称 */
+    private String appName;
+    /** 应用AppId */
+    private String appId;
     /** 应用状态 */
     private Integer state;
     /** 备注 */

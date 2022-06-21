@@ -14,6 +14,7 @@ import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
+import java.util.Objects;
 import java.util.Optional;
 
 /**
@@ -32,23 +33,23 @@ public class LoginPasswordService {
      * 密码登陆
      */
     public UserInfoDto loginPassword(LoginPasswordParam loginParam){
-        AuthPassword authPassword;
         UserInfoDto userInfoDto;
         // 1. 获取账号密码
         if (RegexUtil.isEmailPattern(loginParam.getAccount())) {
             // 根据 Email 获取用户信息
             userInfoDto = userInfoService.findByEmail(loginParam.getAccount());
-            authPassword = userAuthManager.findByUid(userInfoDto.getId()).orElseThrow(UserInfoNotExistsException::new);
         } else if (RegexUtil.isPhonePattern(loginParam.getAccount())) {
             // 根据 手机号 获取用户信息
             userInfoDto = userInfoService.findByPhone(loginParam.getAccount());
-            authPassword = userAuthManager.findByUid(userInfoDto.getId()).orElseThrow(UserInfoNotExistsException::new);
         } else {
             // 根据 账号 获取账户信息
-            authPassword = userAuthManager.findByAccount(loginParam.getAccount()).orElseThrow(() -> new BizException("账号或密码错误"));
-            userInfoDto = Optional.ofNullable(userInfoService.findById(authPassword.getUid()))
-                    .orElseThrow(UserInfoNotExistsException::new);
+            userInfoDto = userInfoService.findByAccount(loginParam.getAccount());
         }
+        if (Objects.isNull(userInfoDto)){
+            throw new UserInfoNotExistsException();
+        }
+        AuthPassword authPassword = userAuthManager.findByUid(userInfoDto.getId()).orElseThrow(UserInfoNotExistsException::new);
+
         // 3. 对比密码认证信息
         String password =  PasswordUtil.md5(loginParam.getPassword());
         String passwordMd5 = PasswordUtil.md5(password, loginParam.getAccount());

@@ -1,8 +1,14 @@
 package cn.bootx.iam.core.user.dao;
 
+import cn.bootx.common.web.rest.param.PageParam;
+import cn.bootx.iam.core.user.entity.QUserInfo;
 import cn.bootx.iam.core.user.entity.UserInfo;
 import cn.bootx.starter.headerholder.HeaderHolder;
+import cn.bootx.starter.jpa.utils.JpaUtils;
+import com.querydsl.jpa.impl.JPAQuery;
+import com.querydsl.jpa.impl.JPAQueryFactory;
 import lombok.RequiredArgsConstructor;
+import org.springframework.data.domain.Page;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
@@ -18,18 +24,27 @@ import java.util.Optional;
 public class UserInfoManager {
 
     private final UserInfoRepository userInfoRepository;
+    private final JPAQueryFactory jpaQueryFactory;
     private final HeaderHolder headerHolder;
 
     public Optional<UserInfo> findById(Long id) {
         return userInfoRepository.findByIdAndTid(id,headerHolder.findTid());
     }
 
-    public boolean existsEmail(String email) {
+    public boolean existsByAccount(String account) {
+        return userInfoRepository.existsByAccountAndTid(account,headerHolder.findTid());
+    }
+
+    public boolean existsByEmail(String email) {
         return userInfoRepository.existsByEmailAndTid(email,headerHolder.findTid());
     }
 
-    public boolean existsPhone(String phone) {
-        return userInfoRepository.existsByEmailAndTid(phone,headerHolder.findTid());
+    public boolean existsByPhone(String phone) {
+        return userInfoRepository.existsByPhoneAndTid(phone,headerHolder.findTid());
+    }
+
+    public Optional<UserInfo> findByAccount(String account) {
+        return userInfoRepository.findByAccountAndTid(account,headerHolder.findTid());
     }
 
     public Optional<UserInfo> findByEmail(String email) {
@@ -46,5 +61,11 @@ public class UserInfoManager {
 
     public List<UserInfo> findAllByIds(List<Long> ids) {
         return userInfoRepository.findByIdInAndTid(ids,headerHolder.findTid());
+    }
+
+    public Page<UserInfo> page(PageParam pageParam) {
+        QUserInfo q = QUserInfo.userInfo;
+        JPAQuery<UserInfo> userInfoJPAQuery = jpaQueryFactory.selectFrom(q);
+        return JpaUtils.queryPage(userInfoJPAQuery,pageParam);
     }
 }

@@ -13,7 +13,7 @@ import java.time.LocalDateTime;
 import java.util.List;
 
 /**   
-* 支付交易单
+* 支付记录
 * @author xxm  
 * @date 2021/3/8 
 */

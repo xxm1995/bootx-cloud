@@ -29,12 +29,6 @@ public class LoginController {
         return Res.ok(loginService.loginPassword(loginParam));
     }
 
-    @ApiOperation("获取登录信息")
-    @GetMapping("/getUserInfo")
-    public ResResult<AuthInfoResult> getUserInfo(){
-        return Res.ok(loginService.getUserInfo());
-    }
-    
     @ApiOperation("退出")
     @PostMapping("/logout")
     public ResResult<Void> logout(){

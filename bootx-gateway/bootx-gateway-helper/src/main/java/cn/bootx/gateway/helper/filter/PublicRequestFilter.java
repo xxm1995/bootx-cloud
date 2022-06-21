@@ -35,8 +35,8 @@ public class PublicRequestFilter implements HelperFilter {
 
     @Override
     public boolean run(RequestContext context) {
+        // 可以访问这个“publicAccess”接口
         context.response.setStatus(CheckState.SUCCESS_PUBLIC_ACCESS);
-        context.response.setMessage("Have access to this 'publicAccess' interface, permission: " + context.getPermission());
         return false;
     }
 

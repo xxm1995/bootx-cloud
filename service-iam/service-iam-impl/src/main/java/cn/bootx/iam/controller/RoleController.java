@@ -5,13 +5,11 @@ import cn.bootx.common.web.rest.Res;
 import cn.bootx.common.web.rest.ResResult;
 import cn.bootx.common.web.rest.param.PageParam;
 import cn.bootx.common.web.util.ValidationUtil;
-import cn.bootx.iam.code.UcErrorCodes;
 import cn.bootx.iam.core.role.service.RoleService;
 import cn.bootx.iam.dto.role.RoleDto;
+import cn.bootx.iam.param.role.RoleParam;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
-import io.swagger.annotations.ApiResponse;
-import io.swagger.annotations.ApiResponses;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
@@ -29,20 +27,14 @@ public class RoleController {
     private final RoleService roleService;
 
     @ApiOperation(value = "添加角色（返回角色对象）")
-    @ApiResponses(value = {
-            @ApiResponse(code = UcErrorCodes.ROLE_ALREADY_EXISTED, message = "角色已存在"),
-    })
     @PostMapping(value = "/add")
-    public ResResult<RoleDto> add(RoleDto roleDto){
-        ValidationUtil.validateParam(roleDto);
-        RoleDto result = roleService.add(roleDto);
+    public ResResult<RoleDto> add(@RequestBody RoleParam roleParam){
+        ValidationUtil.validateParam(roleParam);
+        RoleDto result = roleService.add(roleParam);
         return Res.ok(result);
     }
 
     @ApiOperation(value = "删除角色")
-    @ApiResponses(value = {
-            @ApiResponse(code = UcErrorCodes.ROLE_NOT_EXISTED, message = "角色不存在"),
-    })
     @DeleteMapping(value = "/delete")
     public ResResult<Void> delete(Long id){
         roleService.delete(id);
@@ -50,14 +42,10 @@ public class RoleController {
     }
 
     @ApiOperation(value = "修改角色（返回角色对象）")
-    @ApiResponses(value = {
-            @ApiResponse(code = UcErrorCodes.ROLE_NOT_EXISTED, message = "角色不存在"),
-            @ApiResponse(code = UcErrorCodes.ROLE_ALREADY_EXISTED, message = "角色名称已存在")
-    })
     @PostMapping(value = "/update")
-    public ResResult<RoleDto> update(@RequestBody RoleDto roleDto){
-        ValidationUtil.validateParam(roleDto);
-        RoleDto result = roleService.update(roleDto);
+    public ResResult<RoleDto> update(@RequestBody RoleParam roleParam){
+        ValidationUtil.validateParam(roleParam);
+        RoleDto result = roleService.update(roleParam);
         return Res.ok(result);
     }
 
@@ -75,8 +63,8 @@ public class RoleController {
 
     @ApiOperation(value = "分页查询角色")
     @GetMapping(value = "/page")
-    public ResResult<PageResult<RoleDto>> page(PageParam pageParam){
-        return Res.ok(roleService.page(pageParam));
+    public ResResult<PageResult<RoleDto>> page(PageParam pageParam, RoleParam roleParam){
+        return Res.ok(roleService.page(pageParam,roleParam));
     }
 
 }

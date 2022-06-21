@@ -36,7 +36,7 @@ public class PayCancelService {
     private final PaymentRepository paymentRepository;
 
     /**
-     * 根据业务id取消支付交易单
+     * 根据业务id取消支付记录
      */
     @Transactional(rollbackFor = Exception.class)
     public void cancelByBusinessId(String businessId) {
@@ -46,7 +46,7 @@ public class PayCancelService {
 
 
     /**
-     * 根据paymentId取消支付交易单
+     * 根据paymentId取消支付记录
      */
     @Transactional(rollbackFor = Exception.class)
     public void cancelByPaymentId(Long paymentId){
@@ -57,7 +57,7 @@ public class PayCancelService {
     }
 
     /**
-     * 取消支付交易单
+     * 取消支付记录
      */
     private void cancelPayment(Payment payment){
 

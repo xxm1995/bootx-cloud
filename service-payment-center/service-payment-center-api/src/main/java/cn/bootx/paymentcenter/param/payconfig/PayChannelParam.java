@@ -30,6 +30,9 @@ public class PayChannelParam {
 
     /** 页面展示：卡片-背景色 */
     private String bgColor;
+    
+    /** 状态 */
+    private Integer state;
 
     /** 备注 */
     private String remark;

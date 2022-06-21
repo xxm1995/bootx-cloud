@@ -11,7 +11,7 @@ import cn.bootx.paymentcenter.core.merchant.dao.MerchantInfoManager;
 import cn.bootx.paymentcenter.core.merchant.entity.AppChannel;
 import cn.bootx.paymentcenter.core.merchant.entity.MerchantApp;
 import cn.bootx.paymentcenter.core.merchant.entity.MerchantInfo;
-import cn.bootx.paymentcenter.exception.payment.PayAmountAbnormalException;
+import cn.bootx.paymentcenter.exception.payment.PaymentAmountAbnormalException;
 import cn.bootx.paymentcenter.param.pay.PayModeParam;
 import cn.bootx.paymentcenter.param.pay.PayParam;
 import lombok.RequiredArgsConstructor;
@@ -44,7 +44,7 @@ public class PayValidationService {
             // 同时满足支付金额小于等于零和使用数量小于等于零
             if (BigDecimalUtil.compareTo(payModeParam.getAmount(), BigDecimal.ZERO) < 1
                     && payModeParam.getCount() <= 0){
-                throw new PayAmountAbnormalException();
+                throw new PaymentAmountAbnormalException();
             }
         }
     }

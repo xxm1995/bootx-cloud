@@ -1,7 +1,7 @@
 package cn.bootx.gateway.helper.service;
 
 import cn.bootx.gateway.helper.domain.Permission;
-import cn.bootx.usercenter.client.RolePermissionClient;
+import cn.bootx.iam.client.RolePathClient;
 import cn.hutool.core.collection.CollUtil;
 import cn.hutool.extra.spring.SpringUtil;
 import lombok.RequiredArgsConstructor;
@@ -23,12 +23,12 @@ import java.util.concurrent.ExecutorService;
 @Service
 @RequiredArgsConstructor
 public class PermissionCheckService {
-    private RolePermissionClient rolePermissionClient;
+    private RolePathClient rolePathClient;
     private final ExecutorService asyncExecutorService;
 
     private void init(){
-        if (Objects.isNull(rolePermissionClient)){
-            rolePermissionClient = SpringUtil.getBean(RolePermissionClient.class);
+        if (Objects.isNull(rolePathClient)){
+            rolePathClient = SpringUtil.getBean(RolePathClient.class);
         }
     }
 
@@ -40,7 +40,7 @@ public class PermissionCheckService {
         this.init();
         // 异步转同步(filter中无法使用同步阻塞方法)
         try {
-            permissionIds = asyncExecutorService.submit(() -> rolePermissionClient.findPermissionIdsByUser(userId)).get();
+            permissionIds = asyncExecutorService.submit(() -> rolePathClient.findPathIdsByUser(userId)).get();
         } catch (InterruptedException | ExecutionException e) {
             log.warn("获取权限信息失败",e);
             return "获取权限信息失败，请稍后重试";

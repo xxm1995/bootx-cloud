@@ -97,7 +97,7 @@ public class OrderPayService {
         // 扣库存
         skuGroupOrderDetailMap.forEach((skuId, detailDtoList) -> {
             //所有支付，订单有效的情况下都可以扣库存
-            GoodsSkuDto sku = goodsSkuClient.getById(skuId);
+            GoodsSkuDto sku = goodsSkuClient.findById(skuId);
             int num = detailDtoList.stream()
                     .mapToInt(OrderDetailDto::getNum)
                     .sum();

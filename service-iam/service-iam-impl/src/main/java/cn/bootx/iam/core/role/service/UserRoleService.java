@@ -8,12 +8,14 @@ import cn.bootx.iam.core.user.dao.UserInfoManager;
 import cn.bootx.iam.core.user.entity.UserInfo;
 import cn.bootx.iam.dto.role.RoleDto;
 import cn.bootx.iam.dto.user.UserInfoDto;
+import cn.hutool.core.collection.CollUtil;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.cache.annotation.CacheEvict;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -82,10 +84,13 @@ public class UserRoleService {
     public List<RoleDto> findRolesByUser(Long userId) {
         // id集合
         List<UserRole> userRoles = userRoleManager.findAllByUser(userId);
+        if (CollUtil.isEmpty(userRoles)){
+            return new ArrayList<>(1);
+        }
         List<Long> ids = userRoles.stream()
                 .map(UserRole::getRoleId)
                 .collect(Collectors.toList());
-        return roleManager.findAllByIds(ids).stream()
+        return roleManager.findByIds(ids).stream()
                 .map(Role::toDto)
                 .collect(Collectors.toList());
     }

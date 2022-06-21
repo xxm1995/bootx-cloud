@@ -1,7 +1,9 @@
 package cn.bootx.iam.controller;
 
+import cn.bootx.common.web.rest.PageResult;
 import cn.bootx.common.web.rest.Res;
 import cn.bootx.common.web.rest.ResResult;
+import cn.bootx.common.web.rest.param.PageParam;
 import cn.bootx.iam.core.permission.service.PermissionPathService;
 import cn.bootx.iam.dto.permission.PermissionPathDto;
 import cn.bootx.iam.param.permission.PermissionPathParam;
@@ -34,6 +36,31 @@ public class PermissionPathController {
     @PostMapping("/add")
     public ResResult<PermissionPathDto> add(@RequestBody PermissionPathParam param){
         return Res.ok(pathService.add(param));
+    }
+
+    @ApiOperation("更新权限")
+    @PostMapping("/update")
+    public ResResult<PermissionPathDto> update(@RequestBody PermissionPathParam param){
+        return Res.ok(pathService.update(param));
+    }
+
+    @ApiOperation("删除权限")
+    @PostMapping("/delete")
+    public ResResult<Void> delete(Long id){
+        pathService.delete(id);
+        return Res.ok();
+    }
+
+    @ApiOperation("获取详情")
+    @GetMapping("/findById")
+    public ResResult<PermissionPathDto> findById(Long id){
+        return Res.ok(pathService.findById(id));
+    }
+
+    @ApiOperation("权限分页")
+    @GetMapping("/page")
+    public ResResult<PageResult<PermissionPathDto>> page(PageParam pageParam,PermissionPathParam param){
+        return Res.ok(pathService.page(pageParam,param));
     }
 
     @ApiOperation("权限列表")

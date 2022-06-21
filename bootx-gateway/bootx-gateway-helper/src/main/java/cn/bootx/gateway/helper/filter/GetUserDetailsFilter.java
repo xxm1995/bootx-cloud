@@ -32,7 +32,7 @@ public class GetUserDetailsFilter implements HelperFilter {
         // token是否存在
         if (StrUtil.isBlank(accessToken)) {
             context.response.setStatus(CheckState.PERMISSION_ACCESS_TOKEN_NULL);
-            context.response.setMessage("Access_token 为空，请登录并通过 HTTP header 'Authorization' 设置 access_token");
+            context.response.setMessage("AccessToken 为空");
             return false;
         }
 
@@ -42,8 +42,7 @@ public class GetUserDetailsFilter implements HelperFilter {
             context.response.setMessage(result.getMessage());
             return false;
         }
-        context.setCustomUserDetails(result.getCustomUserDetails())
-                .setRoleIds(result.getRoleIds());
+        context.setCustomUserDetails(result.getCustomUserDetails());
         return true;
     }
 }

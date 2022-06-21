@@ -114,7 +114,7 @@ public class PaySyncService {
      * payment 变更为取消支付
      */
     private void paymentCancel(Payment payment, List<AbsPayStrategy> absPayStrategies) {
-        // 关闭本地交易单
+        // 关闭本地支付记录
         this.doHandler(payment,absPayStrategies,(strategyList, paymentObj) -> {
             strategyList.forEach(AbsPayStrategy::doCloseHandler);
             // 修改payment支付状态为取消

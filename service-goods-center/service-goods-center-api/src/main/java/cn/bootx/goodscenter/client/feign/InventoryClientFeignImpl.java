@@ -2,12 +2,14 @@ package cn.bootx.goodscenter.client.feign;
 
 import cn.bootx.goodscenter.client.InventoryClient;
 import cn.bootx.goodscenter.dto.inventory.LockInventoryDto;
+import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean;
 import org.springframework.stereotype.Component;
 
 @Component
 @ConditionalOnMissingBean(InventoryClient.class)
+@RequiredArgsConstructor
 public class InventoryClientFeignImpl implements InventoryClient {
     @Autowired(required = false)
     private InventoryFeign inventoryFeign;

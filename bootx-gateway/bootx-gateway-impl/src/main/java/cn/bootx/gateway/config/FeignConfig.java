@@ -1,10 +1,9 @@
 package cn.bootx.gateway.config;
 
-import cn.bootx.authcenter.client.feign.AuthCenterFeign;
 import cn.bootx.bsp.client.feign.BspFeign;
 import cn.bootx.common.web.code.WebHeaderConst;
+import cn.bootx.iam.client.feign.IamFeign;
 import cn.bootx.starter.headerholder.local.HolderContextHolder;
-import cn.bootx.usercenter.client.feign.UserCenterFeign;
 import feign.RequestInterceptor;
 import org.springframework.cloud.openfeign.EnableFeignClients;
 import org.springframework.context.annotation.Bean;
@@ -18,7 +17,7 @@ import java.util.Objects;
 * @date 2021/6/2 
 */
 @Configuration
-@EnableFeignClients(basePackageClasses = {AuthCenterFeign.class, UserCenterFeign.class, BspFeign.class})
+@EnableFeignClients(basePackageClasses = {IamFeign.class, BspFeign.class})
 public class FeignConfig {
 
     /**
@@ -30,6 +29,10 @@ public class FeignConfig {
             String tid = HolderContextHolder.get(WebHeaderConst.TID);
             if (Objects.nonNull(tid)) {
                 requestTemplate.header(WebHeaderConst.TID, tid);
+            }
+            String ACCESS_TOKEN = HolderContextHolder.get(WebHeaderConst.ACCESS_TOKEN);
+            if (Objects.nonNull(ACCESS_TOKEN)) {
+                requestTemplate.header(WebHeaderConst.ACCESS_TOKEN, ACCESS_TOKEN);
             }
         };
     }

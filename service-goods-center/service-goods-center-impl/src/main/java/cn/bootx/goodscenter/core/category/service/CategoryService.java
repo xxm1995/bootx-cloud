@@ -31,8 +31,6 @@ public class CategoryService {
     private final CategoryRepository categoryRepository;
     private final CategoryManager categoryManager;
 
-    private final CategoryConvert categoryConvert;
-
     /**
      * 添加新类目
      */
@@ -41,7 +39,7 @@ public class CategoryService {
         if (categoryManager.existsName(categoryDto.getName())) {
             throw new CategoryAlreadyExistedException();
         }
-        Category convert = categoryConvert.convert(categoryDto);
+        Category convert = CategoryConvert.CONVERT.convert(categoryDto);
         Category category = categoryRepository.save(convert);
         return category.toDto();
     }

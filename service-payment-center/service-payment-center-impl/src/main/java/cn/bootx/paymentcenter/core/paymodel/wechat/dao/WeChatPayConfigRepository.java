@@ -21,5 +21,7 @@ public interface WeChatPayConfigRepository extends JpaRepository<WeChatPayConfig
 
     Optional<WeChatPayConfig> findByAppIdAndTid(String appId, Long tid);
 
+    Optional<WeChatPayConfig> findByWxAppIdAndTid(String wxAppId, Long tid);
+
     void deleteByAppIdAndTid(String appId, Long tid);
 }

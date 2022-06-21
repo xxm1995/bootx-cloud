@@ -37,6 +37,12 @@ public class UserInfoService {
     }
 
     /**
+     * 根据账号查询用户
+     */
+    public UserInfoDto findByAccount(String account) {
+        return userInfoManager.findByAccount(account).map(UserInfo::toDto).orElse(null);
+    }
+    /**
      * 根据邮箱查询用户
      */
     public UserInfoDto findByEmail(String email) {
@@ -64,7 +70,10 @@ public class UserInfoService {
 
         // 用户已存在则直接返回
         UserInfo userInfoNew;
-        if (this.existsEmail(userInfoParam.getEmail())) {
+        if (this.existsAccount(userInfoParam.getAccount())){
+            //noinspection OptionalGetWithoutIsPresent
+            userInfoNew = userInfoManager.findByAccount(userInfoParam.getEmail()).get();
+        } else if (this.existsEmail(userInfoParam.getEmail())) {
             //noinspection OptionalGetWithoutIsPresent
             userInfoNew = userInfoManager.findByEmail(userInfoParam.getEmail()).get();
         } else if (existsPhone(userInfoParam.getPhone())) {
@@ -82,10 +91,20 @@ public class UserInfoService {
     /**
      * 编辑用户信息
      */
-    public UserInfoDto editUserInfo(UserInfoDto userInfoDto){
+    public UserInfoDto update(UserInfoDto userInfoDto){
         UserInfo userInfo = userInfoManager.findById(userInfoDto.getId()).orElseThrow(UserInfoNotExistsException::new);
         BeanUtil.copyProperties(userInfoDto,userInfo, CopyOptions.create().ignoreNullValue());
         return userInfoRepository.save(userInfo).toDto();
+    }
+
+    /**
+     * 账号是否存在
+     */
+    public boolean existsAccount(String account) {
+        if (StrUtil.isBlank(account)) {
+            return false;
+        }
+        return userInfoManager.existsByAccount(account.trim());
     }
 
     /**
@@ -95,7 +114,7 @@ public class UserInfoService {
         if (StrUtil.isBlank(email)) {
             return false;
         }
-        return userInfoManager.existsEmail(email.trim());
+        return userInfoManager.existsByEmail(email.trim());
     }
 
     /**
@@ -105,7 +124,7 @@ public class UserInfoService {
         if (StrUtil.isBlank(phone)) {
             return false;
         }
-        return userInfoManager.existsPhone(phone);
+        return userInfoManager.existsByPhone(phone);
     }
 
 

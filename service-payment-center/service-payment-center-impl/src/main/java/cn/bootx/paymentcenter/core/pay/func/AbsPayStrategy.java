@@ -97,20 +97,20 @@ public abstract class AbsPayStrategy {
 
     /**
      * 撤销支付操作，支付交易返回失败或支付系统超时，调用该接口撤销交易
-     * 默认为关闭本地交易单
+     * 默认为关闭本地支付记录
      */
     public void doCancelHandler() {
         this.doCloseHandler();
     }
 
     /**
-     * 关闭本地交易单
+     * 关闭本地支付记录
      */
     public abstract void doCloseHandler();
 
     /**
-     * 关闭本地以及支付网关的交易单 用户在一定时间内未进行支付，可调用该接口直接将支付王冠中的未付款交易进行关闭
-     * 默认为关闭本地交易单
+     * 关闭本地以及支付网关的支付记录 用户在一定时间内未进行支付，可调用该接口直接将支付王冠中的未付款交易进行关闭
+     * 默认为关闭本地支付记录
      */
     public void doCloseRemoteHandler(){
         this.doCloseHandler();

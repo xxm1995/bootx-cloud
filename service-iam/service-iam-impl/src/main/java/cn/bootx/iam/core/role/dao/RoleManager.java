@@ -2,8 +2,10 @@ package cn.bootx.iam.core.role.dao;
 
 import cn.bootx.common.web.rest.param.PageParam;
 import cn.bootx.iam.core.role.entity.Role;
+import cn.bootx.iam.param.role.RoleParam;
 import cn.bootx.starter.headerholder.HeaderHolder;
 import cn.bootx.starter.jpa.utils.JpaUtils;
+import cn.hutool.core.util.StrUtil;
 import com.querydsl.jpa.impl.JPAQuery;
 import cn.bootx.iam.core.role.entity.QRole;
 import com.querydsl.jpa.impl.JPAQueryFactory;
@@ -26,17 +28,27 @@ public class RoleManager {
 
     private final HeaderHolder headerHolder;
 
-    public boolean existsByNameAndCode(String name, String code) {
-        return roleRepository.existsByNameAndCodeAndTid(name,code,headerHolder.findTid());
+    public boolean existsByCode(String code) {
+        return roleRepository.existsByCodeAndTid(code,headerHolder.findTid());
+    }
+
+
+    public boolean existsByName(String name) {
+        return roleRepository.existsByNameAndTid(name,headerHolder.findTid());
+    }
+
+    public boolean existsByCode(String code, Long id) {
+        return roleRepository.existsByCodeAndIdNotAndTid(code,id,headerHolder.findTid());
+    }
+
+    public boolean existsByName(String name, Long id) {
+        return roleRepository.existsByNameAndIdNotAndTid(name,id,headerHolder.findTid());
     }
 
     public boolean existsById(Long id) {
         return roleRepository.existsByIdAndTid(id,headerHolder.findTid());
     }
 
-    public boolean existsByNameAndCode(String name, String code, Long id) {
-        return roleRepository.existsByNameAndCodeAndIdNotAndTid(name,code,id,headerHolder.findTid());
-    }
 
     public Optional<Role> findById(Long id) {
         return roleRepository.findByIdAndTid(id,headerHolder.findTid());
@@ -46,13 +58,19 @@ public class RoleManager {
         return roleRepository.findAllByTid(headerHolder.findTid());
     }
 
-    public Page<Role> page(PageParam pageParam) {
+    public Page<Role> page(PageParam pageParam, RoleParam param) {
         QRole q = QRole.role;
         JPAQuery<Role> query = jpaQueryFactory.selectFrom(q);
+        if (StrUtil.isNotBlank(param.getCode())){
+            query.where(q.code.like("%"+param.getCode()+"%"));
+        }
+        if (StrUtil.isNotBlank(param.getName())){
+            query.where(q.name.like("%"+param.getName()+"%"));
+        }
         return JpaUtils.queryPage(query,pageParam);
     }
 
-    public List<Role> findAllByIds(List<Long> ids) {
+    public List<Role> findByIds(List<Long> ids) {
         return roleRepository.findAllByIdInAndTid(ids,headerHolder.findTid());
     }
 }

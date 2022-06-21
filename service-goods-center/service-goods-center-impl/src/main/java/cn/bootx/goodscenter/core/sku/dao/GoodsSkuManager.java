@@ -6,7 +6,6 @@ import com.querydsl.jpa.impl.JPAQueryFactory;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Repository;
 
-import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Optional;
 
@@ -31,29 +30,9 @@ public class GoodsSkuManager {
         return goodsSkuRepository.findAllByGoodsIdAndTid(goodsId,headerHolder.findTid());
     }
 
-    /**
-     * 按商品编号和属性值查找
-     */
-    public List<GoodsSku> findByGoodsIdAndAttrValuesIn(Long goodsId, List<String> attrValues) {
-        return goodsSkuRepository.findByGoodsIdAndAttrValuesInAndTid(goodsId,attrValues,headerHolder.findTid());
-    }
-
     public List<GoodsSku> findByIds(List<Long> skuIds) {
         return goodsSkuRepository.findByIdInAndTid(skuIds,headerHolder.findTid());
     }
 
 
-    /**
-     * 上架
-     */
-    public void saleOnByGoods(Long goodsId) {
-        goodsSkuRepository.saleOnByGoodsAndTid(goodsId, LocalDateTime.now(),headerHolder.findTid());
-    }
-
-    /**
-     * 下架
-     */
-    public void saleOffByGoods(Long goodsId) {
-        goodsSkuRepository.saleOffByGoodsAndTid(goodsId, LocalDateTime.now(),headerHolder.findTid());
-    }
 }

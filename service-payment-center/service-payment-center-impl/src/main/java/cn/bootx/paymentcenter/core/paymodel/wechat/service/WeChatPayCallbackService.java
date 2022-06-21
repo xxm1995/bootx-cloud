@@ -6,13 +6,13 @@ import cn.bootx.paymentcenter.code.paymodel.WeChatPayCode;
 import cn.bootx.paymentcenter.core.pay.func.AbsPayCallbackStrategy;
 import cn.bootx.paymentcenter.core.pay.service.PayCallbackService;
 import cn.bootx.paymentcenter.core.paymodel.base.service.PayNotifyRecordService;
+import cn.bootx.paymentcenter.core.paymodel.wechat.dao.WeChatPayConfigManager;
+import cn.bootx.paymentcenter.core.paymodel.wechat.entity.WeChatPayConfig;
 import cn.bootx.starter.redis.RedisClient;
 import cn.hutool.core.util.StrUtil;
 import cn.hutool.json.JSONUtil;
 import com.ijpay.core.enums.SignType;
 import com.ijpay.core.kit.WxPayKit;
-import com.ijpay.wxpay.WxPayApiConfig;
-import com.ijpay.wxpay.WxPayApiConfigKit;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
@@ -27,9 +27,10 @@ import java.util.Map;
 @Slf4j
 @Service
 public class WeChatPayCallbackService extends AbsPayCallbackStrategy {
-
-    public WeChatPayCallbackService(RedisClient redisClient, PayNotifyRecordService payNotifyRecordService, PayCallbackService payCallbackService) {
+    private final WeChatPayConfigManager weChatPayConfigManager;
+    public WeChatPayCallbackService(RedisClient redisClient, PayNotifyRecordService payNotifyRecordService, PayCallbackService payCallbackService, WeChatPayConfigManager weChatPayConfigManager) {
         super(redisClient, payNotifyRecordService, payCallbackService);
+        this.weChatPayConfigManager = weChatPayConfigManager;
     }
 
     @Override
@@ -84,13 +85,13 @@ public class WeChatPayCallbackService extends AbsPayCallbackStrategy {
             return false;
         }
 
-        WxPayApiConfig apiConfig = WxPayApiConfigKit.getApiConfig(appId);
-        if (apiConfig == null) {
+        WeChatPayConfig weChatPayConfig = weChatPayConfigManager.findByWxAppId(appId).orElse(null);
+        if (weChatPayConfig == null) {
             log.warn("微信回调报文 appId 不合法 {}", callReq);
             return false;
         }
 
-        return WxPayKit.verifyNotify(params, WxPayApiConfigKit.getWxPayApiConfig().getApiKey(), SignType.HMACSHA256);
+        return WxPayKit.verifyNotify(params, weChatPayConfig.getApiKey(), SignType.HMACSHA256);
     }
 
 

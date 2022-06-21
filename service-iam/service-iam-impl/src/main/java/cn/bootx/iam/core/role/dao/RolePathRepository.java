@@ -18,5 +18,9 @@ public interface RolePathRepository extends JpaRepository<RolePath,Long> {
 
     void deleteByRoleIdAndPathIdInAndTid(Long roleId, List<Long> pathIds, Long tid);
 
-    void deleteByRoleId(Long roleId);
+    void deleteByRoleIdAndTid(Long roleId, Long tid);
+
+    void deleteByPathIdAndTid(Long pathId, Long tid);
+
+    List<RolePath> findByPathIdAndTid(Long pathId, Long tid);
 }

@@ -1,9 +1,11 @@
 package cn.bootx.iam.core.permission.dao;
 
 import cn.bootx.iam.core.permission.entity.PermissionPath;
+import cn.bootx.iam.dto.permission.PermissionPathDto;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.List;
+import java.util.Optional;
 
 /**
  * 权限
@@ -17,4 +19,8 @@ public interface PermissionPathRepository extends JpaRepository<PermissionPath,L
     List<PermissionPath> findByIdInAndTid(List<Long> ids, Long tid);
 
     List<PermissionPath> findAllByTid(Long tid);
+
+    Optional<PermissionPath> findByIdAndTid(Long id,Long tid);
+
+    void deleteByIdAndTid(Long id, Long tid);
 }

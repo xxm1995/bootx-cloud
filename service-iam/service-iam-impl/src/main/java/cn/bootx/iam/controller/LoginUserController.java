@@ -3,6 +3,7 @@ package cn.bootx.iam.controller;
 import cn.bootx.common.web.rest.Res;
 import cn.bootx.common.web.rest.ResResult;
 import cn.bootx.iam.core.login.service.LoginUserService;
+import cn.bootx.iam.dto.auth.AuthInfoResult;
 import cn.bootx.iam.dto.login.MenuAndPermissionDto;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
@@ -18,7 +19,7 @@ import org.springframework.web.bind.annotation.RestController;
 */
 @Api(tags = "登录用户接口")
 @RestController
-@RequestMapping("/login/user/")
+@RequestMapping("/login/user")
 @RequiredArgsConstructor
 public class LoginUserController {
     private final LoginUserService loginUserService;
@@ -27,5 +28,11 @@ public class LoginUserController {
     @GetMapping("/getUserPermission")
     public ResResult<MenuAndPermissionDto> getUserPermission(){
         return Res.ok(loginUserService.getUserPermission());
+    }
+
+    @ApiOperation("获取登录信息")
+    @GetMapping("/getUserInfo")
+    public ResResult<AuthInfoResult> getUserInfo(){
+        return Res.ok(loginUserService.getUserInfo());
     }
 }

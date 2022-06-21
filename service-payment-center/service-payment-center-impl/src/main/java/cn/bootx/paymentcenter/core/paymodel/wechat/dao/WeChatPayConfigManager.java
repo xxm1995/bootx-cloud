@@ -32,9 +32,13 @@ public class WeChatPayConfigManager {
         return repository.findByIdAndTid(id,headerHolder.findTid());
     }
 
-    @Cacheable(value = "pc:wx:config",key = "#appId")
+    @Cacheable(value = "pc:wx:config:appid",key = "#appId")
     public Optional<WeChatPayConfig> findByAppId(String appId) {
         return repository.findByAppIdAndTid(appId,headerHolder.findTid());
+    }
+    @Cacheable(value = "pc:wx:config:wx",key = "#wxAppId")
+    public Optional<WeChatPayConfig> findByWxAppId(String wxAppId) {
+        return repository.findByWxAppIdAndTid(wxAppId,headerHolder.findTid());
     }
 
     public boolean existsByAppId(String appId) {

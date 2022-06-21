@@ -1,6 +1,8 @@
 package cn.bootx.paymentcenter.dto.payment;
 
 import cn.bootx.common.web.rest.dto.BaseDto;
+import cn.bootx.paymentcenter.code.pay.PayTransactionPurposeCode;
+import cn.bootx.paymentcenter.code.pay.PayTransactionTypeCode;
 import cn.bootx.paymentcenter.dto.pay.PayTypeInfo;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
@@ -19,7 +21,7 @@ import java.time.LocalDateTime;
 @EqualsAndHashCode(callSuper = true)
 @Data
 @Accessors(chain = true)
-@ApiModel("支付交易单")
+@ApiModel("支付记录")
 public class PaymentDto extends BaseDto implements Serializable {
 
     private static final long serialVersionUID = 3269223993950227228L;

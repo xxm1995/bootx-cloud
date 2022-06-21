@@ -1,6 +1,8 @@
 package cn.bootx.paymentcenter.core.payconfig.service;
 
 import cn.bootx.common.web.exception.BizException;
+import cn.bootx.common.web.rest.PageResult;
+import cn.bootx.common.web.rest.param.PageParam;
 import cn.bootx.common.web.util.ResultConvertUtils;
 import cn.bootx.paymentcenter.code.pay.PayTypeEnum;
 import cn.bootx.paymentcenter.core.payconfig.dao.PayChannelManager;
@@ -8,6 +10,7 @@ import cn.bootx.paymentcenter.core.payconfig.dao.PayChannelRepository;
 import cn.bootx.paymentcenter.core.payconfig.entity.PayChannel;
 import cn.bootx.paymentcenter.dto.payconfig.PayChannelDto;
 import cn.bootx.paymentcenter.param.payconfig.PayChannelParam;
+import cn.bootx.starter.jpa.utils.JpaUtils;
 import cn.hutool.core.bean.BeanUtil;
 import cn.hutool.core.bean.copier.CopyOptions;
 import lombok.RequiredArgsConstructor;
@@ -87,6 +90,13 @@ public class PayChannelService {
      */
     public List<PayChannelDto> findAll(){
         return ResultConvertUtils.dtoListConvert(payChannelManager.findAll());
+    }
+
+    /**
+     * 查询全部
+     */
+    public PageResult<PayChannelDto> page(PageParam pageParam,PayChannelParam param){
+        return JpaUtils.convert2PageResult(payChannelManager.page(pageParam,param));
     }
 
     /**

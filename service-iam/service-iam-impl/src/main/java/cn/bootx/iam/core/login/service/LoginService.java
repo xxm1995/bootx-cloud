@@ -14,7 +14,6 @@ import org.springframework.stereotype.Service;
 
 import javax.servlet.http.HttpServletRequest;
 import java.time.LocalDateTime;
-import java.util.List;
 import java.util.Objects;
 
 /**   
@@ -68,15 +67,6 @@ public class LoginService {
         return null;
     }
 
-    public AuthInfoResult getUserInfo(){
-        String accessToken = headerHolder.findAccessToken();
-        LoginInfoBo loginInfo = userAuthTokenService.getLoginInfo(accessToken);
-        if (Objects.isNull(loginInfo)){
-            return null;
-        }
-        return loginInfo.toResult().setToken(accessToken);
-    }
-
     /**
      * 退出
      */
@@ -96,17 +86,15 @@ public class LoginService {
      * 构造登录信息
      */
     private LoginInfoBo buildLoginInfo(UserInfoDto userinfo, String client){
-        // 获取角色信息
-        List<Long> roleIds = userRoleService.findRoleIdsByUser(userinfo.getId());
         return new LoginInfoBo()
                 .setClient(client)
+                .setAccount(userinfo.getAccount())
                 .setUid(userinfo.getId())
                 .setName(userinfo.getName())
                 .setPhone(userinfo.getPhone())
                 .setEmail(userinfo.getEmail())
                 .setAdmin(userinfo.isAdmin())
                 .setTid(headerHolder.findTid())
-                .setRoleIds(roleIds)
                 .setLoginTime(LocalDateTime.now());
     }
 

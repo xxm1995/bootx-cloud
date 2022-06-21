@@ -30,6 +30,9 @@ public class UserInfo extends JpaBaseEntity implements EntityBaseFunction<UserIn
     /** 名称 */
     private String name;
 
+    /** 账号 */
+    private String account;
+
     /** 手机号 */
     private String phone;
 
